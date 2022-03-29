@@ -1,11 +1,7 @@
 ---
 title: Github Submodule
-author: Wang Yong
-date: 2022-03-29 11:33:00 +0800
-categories: [Linux]
+date: 2022-02-23 22:29:36 +0800
 tags: [Git]
-math: true
-mermaid: true
 ---
 
 最近学习使用 [Hugo](https://gohugo.io/) 构建静态网站。安装主题时，接触到`git submodule`这个命令，踩了些坑，总结一下。
