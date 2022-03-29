@@ -1,7 +1,7 @@
 ---
 title: Github Submodule
 date: 2022-02-23 22:29:36 +0800
-tags: [Git]
+tags: [git]
 ---
 
 最近学习使用 [Hugo](https://gohugo.io/) 构建静态网站。安装主题时，接触到`git submodule`这个命令，踩了些坑，总结一下。

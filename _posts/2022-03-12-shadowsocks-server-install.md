@@ -1,7 +1,7 @@
 ---
 title: "shadowsocks服务端安装指南"
 date: 2022-03-12
-tags: [shadowsocks, VPN]
+tags: [shadowsocks, vpn]
 ---
 
 > 官方地址：
