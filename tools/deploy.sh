@@ -141,7 +141,7 @@ deploy() {
 
 submit_sitemap() {
   echo "------ >>> submit_sitemap ---------"
-  grep "https://" sitemap.xml.1 | grep -v 'html' | awk -F '[< >]' '{print $3}' > sitemap.txt
+  grep "https://" sitemap.xml | grep -v 'html' | awk -F '[< >]' '{print $3}' > sitemap.txt
   echo "cat sitemap.txt:"
   cat sitemap.txt
   curl -H 'Content-Type:text/plain' --data-binary @sitemap.txt "http://data.zz.baidu.com/urls?site=https://whuwangyong.github.io&token=5os4wCK5ct7kBZRN"
