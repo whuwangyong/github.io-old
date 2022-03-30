@@ -27,6 +27,3 @@ jobs:
 
       - name: Deploy
         run: bash tools/deploy.sh
-      
-      # - name: Submit the sitemap to baidu
-      #   run: bash tools/submit-sitemap.sh
