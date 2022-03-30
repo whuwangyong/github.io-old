@@ -116,6 +116,11 @@ deploy() {
   fi
 }
 
+submit() {
+  curl -H 'Content-Type:text/plain' --data-binary "$SITE_DIR"/sitemap.xml "http://data.zz.baidu.com/urls?site=https://whuwangyong.github.io&token=5os4wCK5ct7kBZRN"
+  curl -H 'Content-Type:text/plain' --data-binary "$SITE_DIR"/sitemap.xml "http://data.zz.baidu.com/urls?site=https://whuwangyong.vercel.app&token=5os4wCK5ct7kBZRN"
+}
+
 main() {
   init
   build
@@ -130,6 +135,8 @@ main() {
   backup
   flush
   deploy
+  
+  submit
 }
 
 while (($#)); do
