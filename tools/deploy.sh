@@ -141,10 +141,12 @@ deploy() {
 
 submit_sitemap() {
   echo "------ >>> submit_sitemap ---------"
-  ls -l
-  cat sitemap.xml
-  curl -H 'Content-Type:text/plain' --data-binary @sitemap.xml "http://data.zz.baidu.com/urls?site=https://whuwangyong.github.io&token=5os4wCK5ct7kBZRN"
-  curl -H 'Content-Type:text/plain' --data-binary @sitemap.xml "http://data.zz.baidu.com/urls?site=https://whuwangyong.vercel.app&token=5os4wCK5ct7kBZRN"
+  grep "https://" sitemap.xml.1 | grep -v 'html' | awk -F '[< >]' '{print $3}' > sitemap.txt
+  echo "cat sitemap.txt:"
+  cat sitemap.txt
+  curl -H 'Content-Type:text/plain' --data-binary @sitemap.txt "http://data.zz.baidu.com/urls?site=https://whuwangyong.github.io&token=5os4wCK5ct7kBZRN"
+  curl -H 'Content-Type:text/plain' --data-binary @sitemap.txt "http://data.zz.baidu.com/urls?site=https://whuwangyong.vercel.app&token=5os4wCK5ct7kBZRN"
+  rm -f sitemap.txt
   echo "------ submit_sitemap <<< ---------"
 }
 
