@@ -36,6 +36,7 @@ help() {
 }
 
 init() {
+  echo "------ >>> init ---------"
   if [[ -z ${GITHUB_ACTION+x} && $_opt_dry_run == 'false' ]]; then
     echo "ERROR: It is not allowed to deploy outside of the GitHub Action envrionment."
     echo "Type option '-h' to see the help information."
@@ -43,9 +44,12 @@ init() {
   fi
 
   _baseurl="$(grep '^baseurl:' _config.yml | sed "s/.*: *//;s/['\"]//g;s/#.*//")"
+  echo "------ init <<< ---------"
 }
 
 build() {
+  echo "------ >>> build ---------"
+  ls
   # clean up
   if [[ -d $SITE_DIR ]]; then
     rm -rf "$SITE_DIR"
@@ -53,35 +57,47 @@ build() {
 
   # build
   JEKYLL_ENV=production bundle exec jekyll b -d "$SITE_DIR$_baseurl" --config "$_config"
+  echo "------ build <<< ---------"
 }
 
 test() {
+  echo "------ >>> test ---------"
+  ls
   bundle exec htmlproofer \
     --disable-external \
     --check-html \
     --allow_hash_href \
     "$SITE_DIR"
+  echo "------ test <<< ---------"
 }
 
 resume_site_dir() {
+  echo "------ >>> resume_site_dir ---------"
+  ls
   if [[ -n $_baseurl ]]; then
     # Move the site file to the regular directory '_site'
     mv "$SITE_DIR$_baseurl" "${SITE_DIR}-rename"
     rm -rf "$SITE_DIR"
     mv "${SITE_DIR}-rename" "$SITE_DIR"
   fi
+  echo "------ resume_site_dir <<< ---------"
 }
 
 setup_gh() {
+  echo "------ >>> setup_gh ---------"
+  ls
   if [[ -z $(git branch -av | grep "$PAGES_BRANCH") ]]; then
     _no_pages_branch=true
     git checkout -b "$PAGES_BRANCH"
   else
     git checkout "$PAGES_BRANCH"
   fi
+  echo "------ setup_gh <<< ---------"
 }
 
 backup() {
+  echo "------ >>> backup ---------"
+  ls
   mv "$SITE_DIR"/* "$_backup_dir"
   mv .git "$_backup_dir"
 
@@ -90,18 +106,24 @@ backup() {
   if [[ -f CNAME ]]; then
     mv CNAME "$_backup_dir"
   fi
+  echo "------ backup <<< ---------"
 }
 
 flush() {
+  echo "------ >>> flush ---------"
+  ls
   rm -rf ./*
   rm -rf .[^.] .??*
 
   shopt -s dotglob nullglob
   mv "$_backup_dir"/* .
   [[ -f ".nojekyll" ]] || echo "" >".nojekyll"
+  echo "------ flush <<< ---------"
 }
 
 deploy() {
+  echo "------ >>> deploy ---------"
+  ls
   git config --global user.name "GitHub Actions"
   git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
@@ -114,21 +136,21 @@ deploy() {
   else
     git push -f
   fi
+  echo "------ deploy <<< ---------"
 }
 
-submit() {
-  echo "submit sitemap.xml"
+submit_sitemap() {
+  echo "------ >>> submit_sitemap ---------"
+  ls
   curl -H 'Content-Type:text/plain' --data-binary @"$SITE_DIR"/sitemap.xml "http://data.zz.baidu.com/urls?site=https://whuwangyong.github.io&token=5os4wCK5ct7kBZRN"
   curl -H 'Content-Type:text/plain' --data-binary @"$SITE_DIR"/sitemap.xml "http://data.zz.baidu.com/urls?site=https://whuwangyong.vercel.app&token=5os4wCK5ct7kBZRN"
+  echo "------ submit_sitemap <<< ---------"
 }
 
 main() {
   init
   build
   test
-
-  submit
-
   resume_site_dir
 
   if $_opt_dry_run; then
@@ -139,6 +161,7 @@ main() {
   backup
   flush
   deploy
+  submit_sitemap
 }
 
 while (($#)); do
