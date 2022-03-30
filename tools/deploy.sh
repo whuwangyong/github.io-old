@@ -126,6 +126,9 @@ main() {
   init
   build
   test
+
+  submit
+
   resume_site_dir
 
   if $_opt_dry_run; then
@@ -136,8 +139,6 @@ main() {
   backup
   flush
   deploy
-
-  submit
 }
 
 while (($#)); do
