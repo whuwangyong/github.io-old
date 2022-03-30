@@ -49,7 +49,7 @@ init() {
 
 build() {
   echo "------ >>> build ---------"
-  ls
+  ls -l
   # clean up
   if [[ -d $SITE_DIR ]]; then
     rm -rf "$SITE_DIR"
@@ -62,7 +62,7 @@ build() {
 
 test() {
   echo "------ >>> test ---------"
-  ls
+  ls -l
   bundle exec htmlproofer \
     --disable-external \
     --check-html \
@@ -73,7 +73,7 @@ test() {
 
 resume_site_dir() {
   echo "------ >>> resume_site_dir ---------"
-  ls
+  ls -l
   if [[ -n $_baseurl ]]; then
     # Move the site file to the regular directory '_site'
     mv "$SITE_DIR$_baseurl" "${SITE_DIR}-rename"
@@ -85,7 +85,7 @@ resume_site_dir() {
 
 setup_gh() {
   echo "------ >>> setup_gh ---------"
-  ls
+  ls -l
   if [[ -z $(git branch -av | grep "$PAGES_BRANCH") ]]; then
     _no_pages_branch=true
     git checkout -b "$PAGES_BRANCH"
@@ -97,7 +97,7 @@ setup_gh() {
 
 backup() {
   echo "------ >>> backup ---------"
-  ls
+  ls -l
   mv "$SITE_DIR"/* "$_backup_dir"
   mv .git "$_backup_dir"
 
@@ -111,7 +111,7 @@ backup() {
 
 flush() {
   echo "------ >>> flush ---------"
-  ls
+  ls -l
   rm -rf ./*
   rm -rf .[^.] .??*
 
@@ -123,7 +123,7 @@ flush() {
 
 deploy() {
   echo "------ >>> deploy ---------"
-  ls
+  ls -l
   git config --global user.name "GitHub Actions"
   git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
@@ -141,9 +141,7 @@ deploy() {
 
 submit_sitemap() {
   echo "------ >>> submit_sitemap ---------"
-  grep "https://" sitemap.xml | grep -v 'html' | awk -F '[< >]' '{print $3}' > sitemap.txt
-  echo "cat sitemap.txt:"
-  cat sitemap.txt
+  grep "<loc>" sitemap.xml | grep -v 'html' | awk -F '[< >]' '{print $3}' > sitemap.txt
   curl -H 'Content-Type:text/plain' --data-binary @sitemap.txt "http://data.zz.baidu.com/urls?site=https://whuwangyong.github.io&token=5os4wCK5ct7kBZRN"
   curl -H 'Content-Type:text/plain' --data-binary @sitemap.txt "http://data.zz.baidu.com/urls?site=https://whuwangyong.vercel.app&token=5os4wCK5ct7kBZRN"
   rm -f sitemap.txt
