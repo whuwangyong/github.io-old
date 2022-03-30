@@ -141,7 +141,8 @@ deploy() {
 
 submit_sitemap() {
   echo "------ >>> submit_sitemap ---------"
-  ls
+  ls -l
+  cat sitemap.xml
   curl -H 'Content-Type:text/plain' --data-binary @sitemap.xml "http://data.zz.baidu.com/urls?site=https://whuwangyong.github.io&token=5os4wCK5ct7kBZRN"
   curl -H 'Content-Type:text/plain' --data-binary @sitemap.xml "http://data.zz.baidu.com/urls?site=https://whuwangyong.vercel.app&token=5os4wCK5ct7kBZRN"
   echo "------ submit_sitemap <<< ---------"
