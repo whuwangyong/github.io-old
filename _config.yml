@@ -117,6 +117,7 @@ assets:
 
 paginate: 20
 
+markdown: GFM # kramdown or GFM
 # ------------ The following options are not recommended to be modified ------------------
 
 kramdown:
