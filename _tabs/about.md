@@ -1,5 +1,5 @@
 ---
-title: 关于本站和我
+title: Hi，欢迎登船
 icon: fas fa-info-circle
 order: 4
 ---
