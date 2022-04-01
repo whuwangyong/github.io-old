@@ -117,6 +117,13 @@ assets:
 
 paginate: 20
 
+# >>> by wangyong
+# specify markdown processor to CommonMarkGhPages
+markdown: CommonMarkGhPages
+commonmark:
+  options: ["UNSAFE", "SMART", "FOOTNOTES"]
+  extensions: ["strikethrough", "autolink", "table", "tagfilter"]
+# <<<
 
 # ------------ The following options are not recommended to be modified ------------------
 
