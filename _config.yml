@@ -118,17 +118,18 @@ assets:
 paginate: 20
 
 # >>> by wangyong
-# specify markdown processor to CommonMarkGhPages
-markdown: CommonMarkGhPages
-commonmark:
-  options: ["UNSAFE", "SMART", "FOOTNOTES"]
-  extensions: ["strikethrough", "autolink", "table", "tagfilter"]
+# change markdown processor to CommonMark
+# markdown: CommonMark
+# commonmark:
+#   options: ["UNSAFE", "SMART", "FOOTNOTES", "GITHUB_PRE_LANG"]
+#   extensions: ["strikethrough", "autolink", "table", "tasklist", "tagfilter"]
+# highlighter: rouge
+# syntax_highlighter: rouge
 # <<<
 
 # ------------ The following options are not recommended to be modified ------------------
 
 kramdown:
-  input: GFM
   syntax_highlighter: rouge
   syntax_highlighter_opts:   # Rouge Options › https://github.com/jneen/rouge#full-options
     css_class: highlight
