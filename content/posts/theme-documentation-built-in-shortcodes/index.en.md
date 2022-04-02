@@ -147,7 +147,7 @@ Example `tweet` input:
 
 The rendered output looks like this:
 
-{{< tweet 917359331535966209 >}}
+
 
 ## 8 vimeo
 
@@ -175,4 +175,4 @@ Example `youtube` input:
 
 The rendered output looks like this:
 
-{{< youtube w7Ft2ymGmfc >}}
+

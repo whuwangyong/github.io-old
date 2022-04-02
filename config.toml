@@ -1,17 +1,17 @@
-baseURL = "https://example.com"
+baseURL = "https://whuwangyong.github.io/"
 # [en, zh-cn, fr, pl, ...] determines default content language
 # [en, zh-cn, fr, pl, ...] 设置默认的语言
-defaultContentLanguage = "en"
+defaultContentLanguage = "zh-cn"
 # theme
 # 主题
 theme = "LoveIt"
 # themes directory
 # 主题目录
-themesDir = "../.."
+themesDir = "themes"
 
 # website title
 # 网站标题
-title = "LoveIt"
+title = "武大路飞"
 
 # whether to use robots.txt
 # 是否使用 robots.txt
@@ -24,210 +24,8 @@ enableGitInfo = true
 enableEmoji = true
 
 [languages]
-  [languages.en]
-    weight = 1
-    # language code
-    languageCode = "en"
-    # language name
-    languageName = "English"
-    # whether to include Chinese/Japanese/Korean
-    hasCJKLanguage = false
-    # default amount of posts in each pages
-    paginate = 12
-    # [UA-XXXXXXXX-X] google analytics code
-    googleAnalytics = ""
-    # copyright description used only for seo schema
-    copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
-    # Menu config
-    [languages.en.menu]
-      [[languages.en.menu.main]]
-        identifier = "posts"
-        # you can add extra information before the name (HTML format is supported), such as icons
-        pre = ""
-        # you can add extra information after the name (HTML format is supported), such as icons
-        post = ""
-        name = "Posts"
-        url = "/posts/"
-        # title will be shown when you hover on this menu link.
-        title = ""
-        weight = 1
-      [[languages.en.menu.main]]
-        identifier = "tags"
-        pre = ""
-        post = ""
-        name = "Tags"
-        url = "/tags/"
-        title = ""
-        weight = 2
-      [[languages.en.menu.main]]
-        identifier = "categories"
-        pre = ""
-        post = ""
-        name = "Categories"
-        url = "/categories/"
-        title = ""
-        weight = 3
-      [[languages.en.menu.main]]
-        identifier = "documentation"
-        pre = ""
-        post = ""
-        name = "Docs"
-        url = "/categories/documentation/"
-        title = ""
-        weight = 4
-      [[languages.en.menu.main]]
-        identifier = "about"
-        pre = ""
-        post = ""
-        name = "About"
-        url = "/about/"
-        title = ""
-        weight = 5
-      [[languages.en.menu.main]]
-        identifier = "github"
-        pre = "<i class='fab fa-github fa-fw'></i>"
-        post = ""
-        name = ""
-        url = "https://github.com/dillonzq/LoveIt"
-        title = "GitHub"
-        weight = 6
-    [languages.en.params]
-      # site description
-      description = "About LoveIt Theme"
-      # site keywords
-      keywords = ["Theme", "Hugo"]
-      # App icon config
-      [languages.en.params.app]
-        # optional site title override for the app when added to an iOS home screen or Android launcher
-        title = "LoveIt"
-        # whether to omit favicon resource links
-        noFavicon = false
-        # modern SVG favicon to use in place of older style .png and .ico files
-        svgFavicon = ""
-        # Android browser theme color
-        themeColor = "#ffffff"
-        # Safari mask icon color
-        iconColor = "#5bbad5"
-        # Windows v8-10 tile color
-        tileColor = "#da532c"
-      # Search config
-      [languages.en.params.search]
-        enable = true
-        # type of search engine ("lunr", "algolia")
-        type = "algolia"
-        # max index length of the chunked content
-        contentLength = 4000
-        # placeholder of the search bar
-        placeholder = ""
-        # max number of results length
-        maxResultLength = 10
-        # snippet length of the result
-        snippetLength = 30
-        # HTML tag name of the highlight part in results
-        highlightTag = "em"
-        # whether to use the absolute URL based on the baseURL in search index
-        absoluteURL = false
-        [languages.en.params.search.algolia]
-          index = "index.en"
-          appID = "PASDMWALPK"
-          searchKey = "b42948e51daaa93df92381c8e2ac0f93"
-      # Home page config
-      [languages.en.params.home]
-        # amount of RSS pages
-        rss = 10
-        # Home page profile
-        [languages.en.params.home.profile]
-          enable = true
-          # Gravatar Email for preferred avatar in home page
-          gravatarEmail = ""
-          # URL of avatar shown in home page
-          avatarURL = "/images/avatar.png"
-          # title shown in home page (HTML format is supported)
-          title = ""
-          # subtitle shown in home page
-          subtitle = "A Clean, Elegant but Advanced Hugo Theme"
-          # whether to use typeit animation for subtitle
-          typeit = true
-          # whether to show social links
-          social = true
-          # disclaimer (HTML format is supported)
-          disclaimer = ""
-        # Home page posts
-        [languages.en.params.home.posts]
-          enable = true
-          # special amount of posts in each home posts page
-          paginate = 6
-      # Social config in home page
-      [languages.en.params.social]
-        GitHub = "xxxx"
-        Linkedin = ""
-        Twitter = "xxxx"
-        Instagram = "xxxx"
-        Facebook = "xxxx"
-        Telegram = "xxxx"
-        Medium = ""
-        Gitlab = ""
-        Youtubelegacy = "xxxx"
-        Youtubecustom = ""
-        Youtubechannel = ""
-        Tumblr = ""
-        Quora = ""
-        Keybase = ""
-        Pinterest = ""
-        Reddit = ""
-        Codepen = ""
-        FreeCodeCamp = ""
-        Bitbucket = ""
-        Stackoverflow = ""
-        Weibo = ""
-        Odnoklassniki = ""
-        VK = ""
-        Flickr = ""
-        Xing = ""
-        Snapchat = ""
-        Soundcloud = ""
-        Spotify = ""
-        Bandcamp = ""
-        Paypal = ""
-        Fivehundredpx = ""
-        Mix = ""
-        Goodreads = ""
-        Lastfm = ""
-        Foursquare = ""
-        Hackernews = ""
-        Kickstarter = ""
-        Patreon = ""
-        Steam = ""
-        Twitch = ""
-        Strava = ""
-        Skype = ""
-        Whatsapp = ""
-        Zhihu = ""
-        Douban = ""
-        Angellist = ""
-        Slidershare = ""
-        Jsfiddle = ""
-        Deviantart = ""
-        Behance = ""
-        Dribbble = ""
-        Wordpress = ""
-        Vine = ""
-        Googlescholar = ""
-        Researchgate = ""
-        Thingiverse = ""
-        Devto = ""
-        Gitea = ""
-        XMPP = ""
-        Matrix = ""
-        Bilibili = ""
-        Email = "xxxx@xxxx.com"
-        RSS = true
-        [languages.en.params.social.Mastodon]
-          id = "@xxxx"
-          prefix = "https://mastodon.technology/"
-
   [languages.zh-cn]
-    weight = 2
+    weight = 1
     # 网站语言, 仅在这里 CN 大写
     languageCode = "zh-CN"
     # 语言名称
@@ -235,7 +33,7 @@ enableEmoji = true
     # 是否包括中日韩文字
     hasCJKLanguage = true
     # 默认每页列表显示的文章数目
-    paginate = 12
+    paginate = 20
     # [UA-XXXXXXXX-X] 谷歌分析代号
     googleAnalytics = ""
     # 版权描述，仅仅用于 SEO
@@ -288,18 +86,18 @@ enableEmoji = true
         pre = "<i class='fab fa-github fa-fw'></i>"
         post = ""
         name = ""
-        url = "https://github.com/dillonzq/LoveIt"
+        url = "https://github.com/whuwangyong"
         title = "GitHub"
         weight = 6
     [languages.zh-cn.params]
       # 网站描述
-      description = "关于 LoveIt 主题"
+      description = "武大路飞的博客"
       # 网站关键词
-      keywords = ["Theme", "Hugo"]
+      keywords = ["武大路飞", "Java"]
       # 应用图标配置
       [languages.zh-cn.params.app]
         # 当添加到 iOS 主屏幕或者 Android 启动器时的标题, 覆盖默认标题
-        title = "LoveIt"
+        title = "武大路飞"
         # 是否隐藏网站图标资源链接
         noFavicon = false
         # 更现代的 SVG 网站图标, 可替代旧的 .png 和 .ico 文件
@@ -314,7 +112,7 @@ enableEmoji = true
       [languages.zh-cn.params.search]
         enable = true
         # 搜索引擎的类型 ("lunr", "algolia")
-        type = "algolia"
+        type = "lunr"
         # 文章内容最长索引长度
         contentLength = 4000
         # 搜索框的占位提示语
@@ -329,8 +127,8 @@ enableEmoji = true
         absoluteURL = false
         [languages.zh-cn.params.search.algolia]
           index = "index.zh-cn"
-          appID = "PASDMWALPK"
-          searchKey = "b42948e51daaa93df92381c8e2ac0f93"
+          appID = "YMLBEBNFHL"
+          searchKey = "9028b251fe4eecb5ad4d47af0715a4f0"
       # 主页信息设置
       [languages.zh-cn.params.home]
         # RSS 文章数目
@@ -345,7 +143,7 @@ enableEmoji = true
           # 主页显示的网站标题 (支持 HTML 格式)
           title = ""
           # 主页显示的网站副标题
-          subtitle = "一个简洁、优雅且高效的 Hugo 主题"
+          subtitle = "郭沫郭沫若~"
           # 是否为副标题显示打字机动画
           typeit = true
           # 是否显示社交账号
@@ -356,208 +154,12 @@ enableEmoji = true
         [languages.zh-cn.params.home.posts]
           enable = true
           # 主页每页显示文章数量
-          paginate = 6
+          paginate = 20
       # 主页的社交信息设置
       [languages.zh-cn.params.social]
-        GitHub = "xxxx"
+        GitHub = "whuwangyong"
         Linkedin = ""
         Twitter = ""
-        Instagram = ""
-        Facebook = ""
-        Telegram = ""
-        Medium = ""
-        Gitlab = ""
-        Youtubelegacy = ""
-        Youtubecustom = ""
-        Youtubechannel = ""
-        Tumblr = ""
-        Quora = ""
-        Keybase = ""
-        Pinterest = ""
-        Reddit = ""
-        Codepen = ""
-        FreeCodeCamp = ""
-        Bitbucket = ""
-        Stackoverflow = ""
-        Weibo = "xxxx"
-        Odnoklassniki = ""
-        VK = ""
-        Flickr = ""
-        Xing = ""
-        Snapchat = ""
-        Soundcloud = ""
-        Spotify = ""
-        Bandcamp = ""
-        Paypal = ""
-        Fivehundredpx = ""
-        Mix = ""
-        Goodreads = ""
-        Lastfm = ""
-        Foursquare = ""
-        Hackernews = ""
-        Kickstarter = ""
-        Patreon = ""
-        Steam = "xxxx"
-        Twitch = ""
-        Strava = ""
-        Skype = ""
-        Whatsapp = ""
-        Zhihu = "xxxx"
-        Douban = "xxxx"
-        Angellist = ""
-        Slidershare = ""
-        Jsfiddle = ""
-        Deviantart = ""
-        Behance = ""
-        Dribbble = ""
-        Wordpress = ""
-        Vine = ""
-        Googlescholar = ""
-        Researchgate = ""
-        Mastodon = ""
-        Thingiverse = ""
-        Devto = "xxxx"
-        Gitea = ""
-        XMPP = ""
-        Matrix = ""
-        Bilibili = "xxxx"
-        Email = "xxxx@xxxx.com"
-        RSS = true
-
-  [languages.fr]
-    weight = 3
-    # language code
-    languageCode = "fr"
-    # language name
-    languageName = "Français"
-    # whether to include Chinese/Japanese/Korean
-    hasCJKLanguage = false
-    # default amount of posts in each pages
-    paginate = 12
-    # [UA-XXXXXXXX-X] google analytics code
-    googleAnalytics = ""
-    # copyright description used only for seo schema
-    copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
-    # Menu config
-    [languages.fr.menu]
-      [[languages.fr.menu.main]]
-        identifier = "posts"
-        pre = ""
-        post = ""
-        name = "Postes"
-        url = "/posts/"
-        title = ""
-        weight = 1
-      [[languages.fr.menu.main]]
-        identifier = "tags"
-        pre = ""
-        post = ""
-        name = "Balises"
-        url = "/tags/"
-        title = ""
-        weight = 2
-      [[languages.fr.menu.main]]
-        identifier = "categories"
-        pre = ""
-        post = ""
-        name = "Catégories"
-        url = "/categories/"
-        title = ""
-        weight = 3
-      [[languages.fr.menu.main]]
-        identifier = "documentation"
-        pre = ""
-        post = ""
-        name = "Docs"
-        url = "/categories/documentation/"
-        title = ""
-        weight = 4
-      [[languages.fr.menu.main]]
-        identifier = "about"
-        pre = ""
-        name = "À propos"
-        url = "/about/"
-        title = ""
-        weight = 5
-      [[languages.fr.menu.main]]
-        identifier = "github"
-        pre = "<i class='fab fa-github fa-fw'></i>"
-        post = ""
-        name = ""
-        url = "https://github.com/dillonzq/LoveIt"
-        title = "GitHub"
-        weight = 6
-    [languages.fr.params]
-      # site description
-      description = "À propos du thème LoveIt"
-      # site keywords
-      keywords = ["Thème", "Hugo"]
-      # App icon config
-      [languages.fr.params.app]
-        # optional site title override for the app when added to an iOS home screen or Android launcher
-        title = "LoveIt"
-        # whether to omit favicon resource links
-        noFavicon = false
-        # modern SVG favicon to use in place of older style .png and .ico files
-        svgFavicon = ""
-        # Android browser theme color
-        themeColor = "#ffffff"
-        # Safari mask icon color
-        iconColor = "#5bbad5"
-        # Windows v8-10 tile color
-        tileColor = "#da532c"
-      # Search config
-      [languages.fr.params.search]
-        enable = true
-        # type of search engine ("lunr", "algolia")
-        type = "algolia"
-        # max index length of the chunked content
-        contentLength = 4000
-        # placeholder of the search bar
-        placeholder = ""
-        # max number of results length
-        maxResultLength = 10
-        # snippet length of the result
-        snippetLength = 30
-        # HTML tag name of the highlight part in results
-        highlightTag = "em"
-        # whether to use the absolute URL based on the baseURL in search index
-        absoluteURL = false
-        [languages.fr.params.search.algolia]
-          index = "index.fr"
-          appID = "PASDMWALPK"
-          searchKey = "b42948e51daaa93df92381c8e2ac0f93"
-      # Home page config
-      [languages.fr.params.home]
-        # amount of RSS pages
-        rss = 10
-        # Home page profile
-        [languages.fr.params.home.profile]
-          enable = true
-          # Gravatar Email for preferred avatar in home page
-          gravatarEmail = ""
-          # URL of avatar shown in home page
-          avatarURL = "/images/avatar.png"
-          # title shown in home page (HTML format is supported)
-          title = ""
-          # subtitle shown in home page
-          subtitle = "Un thème Hugo simple, élégant et efficace"
-          # whether to use typeit animation for subtitle
-          typeit = true
-          # whether to show social links
-          social = true
-          # disclaimer (HTML format is supported)
-          disclaimer = ""
-        # Home page posts
-        [languages.fr.params.home.posts]
-          enable = true
-          # special amount of posts in each home posts page
-          paginate = 6
-      # Social config in home page
-      [languages.fr.params.social]
-        GitHub = "xxxx"
-        Linkedin = "xxxx"
-        Twitter = "xxxx"
         Instagram = ""
         Facebook = ""
         Telegram = ""
@@ -580,7 +182,7 @@ enableEmoji = true
         VK = ""
         Flickr = ""
         Xing = ""
-        Snapchat = "xxxx"
+        Snapchat = ""
         Soundcloud = ""
         Spotify = ""
         Bandcamp = ""
@@ -590,7 +192,7 @@ enableEmoji = true
         Goodreads = ""
         Lastfm = ""
         Foursquare = ""
-        Hackernews = "xxxx"
+        Hackernews = ""
         Kickstarter = ""
         Patreon = ""
         Steam = ""
@@ -605,7 +207,7 @@ enableEmoji = true
         Jsfiddle = ""
         Deviantart = ""
         Behance = ""
-        Dribbble = "xxxx"
+        Dribbble = ""
         Wordpress = ""
         Vine = ""
         Googlescholar = ""
@@ -617,8 +219,10 @@ enableEmoji = true
         XMPP = ""
         Matrix = ""
         Bilibili = ""
-        Email = "xxxx@xxxx.com"
+        Email = "whuwangyong@gmail.com"
         RSS = true
+
+    
 
 [params]
   # LoveIt theme version
@@ -657,10 +261,11 @@ enableEmoji = true
       logo = ""
       # title name
       # 标题名称
-      name = "LoveIt"
+      name = "武大路飞的博客"
       # you can add extra information before the name (HTML format is supported), such as icons
       # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
-      pre = "<i class='far fa-kiss-wink-heart fa-fw'></i>"
+      pre = "<i class='fa fa-home'></i>"
+      # pre = "<i class='far fa-kiss-wink-heart fa-fw'></i>"
       # you can add extra information after the name (HTML format is supported), such as icons
       # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
       post = ""
@@ -686,7 +291,7 @@ enableEmoji = true
     author = true
     # site creation time
     # 网站创立年份
-    since = 2019
+    since = 2022
     # ICP info only in China (HTML format is supported)
     # ICP 备案信息，仅在中国使用 (支持 HTML 格式)
     icp = ""
@@ -770,7 +375,7 @@ enableEmoji = true
       copy = true
       # the maximum number of lines of displayed code by default
       # 默认展开显示的代码行数
-      maxShownLines = 10
+      maxShownLines = 20
     # KaTeX mathematical formulas config (KaTeX https://katex.org/)
     # KaTeX 数学公式配置 (KaTeX https://katex.org/)
     [params.page.math]
@@ -816,7 +421,7 @@ enableEmoji = true
     # Social share links in post page
     # 文章页面的分享信息设置
     [params.page.share]
-      enable = true
+      enable = false
       Twitter = true
       Facebook = true
       Linkedin = false
@@ -866,7 +471,7 @@ enableEmoji = true
       # Valine comment config (https://github.com/xCss/Valine)
       # Valine 评论系统设置 (https://github.com/xCss/Valine)
       [params.page.comment.valine]
-        enable = true
+        enable = false
         appId = "QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI"
         appKey = "WBmoGyJtbqUswvfLh6L8iEBr"
         placeholder = ""
@@ -916,11 +521,11 @@ enableEmoji = true
       # Utterances comment config (https://utteranc.es/)
       # Utterances comment 评论系统设置 (https://utteranc.es/)
       [params.page.comment.utterances]
-        enable = false
+        enable = true
         # owner/repo
-        repo = ""
-        issueTerm = "pathname"
-        label = ""
+        repo = "whuwangyong/whuwangyong.github.io"
+        issueTerm = "title"
+        label = "comments"
         lightTheme = "github-light"
         darkTheme = "github-dark"
     # Third-party library config
@@ -945,7 +550,7 @@ enableEmoji = true
       # Publisher info
       # 出版者信息
       [params.page.seo.publisher]
-        name = "xxxx"
+        name = "Wang Yong"
         logoUrl = "/images/avatar.png"
 
   # TypeIt config
@@ -1073,9 +678,9 @@ enableEmoji = true
 # Author config
 # 作者配置
 [author]
-  name = "xxxx"
+  name = "Wang Yong"
   email = ""
-  link = ""
+  link = "https://github.com/whuwangyong"
 
 # Sitemap config
 # 网站地图配置
