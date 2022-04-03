@@ -1,0 +1,19 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>git submodule - 标签 - 武大路飞</title>
+        <link>https://whuwangyong.github.io/tags/git-submodule/</link>
+        <description>git submodule - 标签 - 武大路飞</description>
+        <generator>Hugo -- gohugo.io</generator><managingEditor>whuwangyong@gmail.com (Wang Yong)</managingEditor>
+            <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Tue, 29 Mar 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://whuwangyong.github.io/tags/git-submodule/" rel="self" type="application/rss+xml" /><item>
+    <title>Github SubModule 指南</title>
+    <link>https://whuwangyong.github.io/2022-03-29-github-submodule/</link>
+    <pubDate>Tue, 29 Mar 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://whuwangyong.github.io/2022-03-29-github-submodule/</guid>
+    <description><![CDATA[最近学习使用 Hugo 构建静态网站。安装主题时，接触到git submodule这个命令，踩了些坑，总结一下。
+子模块与父模块如何同步更新 子模块是一个单独的项目，commit push等操作需要在子模块自己的repo目录下操作。父项目的操作与子模块无关。父项目git add无法添加子模块的changes，当然也就无法commit push。
+子模块版本升级后，父项目不会自动升级，仍然停留在对之前版本的引用。以下命令可以查看父模块当前使用子模块的哪个版本：
+1 2  &gt; git submodule status f0dc1cf84d7c47dc1625e956f07b37b6c238a3dc themes/hugo-theme-stack (v3.8.0-4-gf0dc1cf)   子模块修改后，父模块虽然无法git add/commit/push，但是git status却可以显示：
+1 2 3 4 5 6 7 8  &gt; git status On branch master Your branch is up to date with &#39;origin/master&#39;. Changes not staged for commit: (use &#34;git add ...&#34; to update what will be committed) (use &#34;git restore ...&#34; to discard changes in working directory) modified: themes/hugo-theme-stack (new commits)   这里会让人疑惑，有changes，但是无法add进来。]]></description>
+</item></channel>
+</rss>
