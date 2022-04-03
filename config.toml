@@ -2,6 +2,12 @@ baseURL = "https://whuwangyong.github.io/"
 # [en, zh-cn, fr, pl, ...] determines default content language
 # [en, zh-cn, fr, pl, ...] 设置默认的语言
 defaultContentLanguage = "zh-cn"
+# 默认情况下, Hugo 自动将内容的前 70 个单词作为摘要.
+# 你可以通过在 网站配置 中设置 summaryLength 来自定义摘要长度.
+# 如果您要使用 CJK中文/日语/韩语 语言创建内容, 并且想使用 Hugo 的自动摘要拆分功能，请在 网站配置 中将 hasCJKLanguage 设置为 true.
+# hasCJKLanguage = true
+# summaryLength = 120
+
 # theme
 # 主题
 theme = "LoveIt"
@@ -17,7 +23,7 @@ title = "武大路飞"
 # 是否使用 robots.txt
 enableRobotsTXT = true
 # whether to use git commit log
-# 是否使用 git 信息
+# 是否使用 git 信息 https://gohugo.io/variables/git/
 enableGitInfo = true
 # whether to use emoji code
 # 是否使用 emoji 代码
@@ -84,6 +90,7 @@ googleAnalytics = ""
 # 版权描述，仅仅用于 SEO
 copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
 
+# 网站配置，全局
 [params]
   # LoveIt theme version
   # LoveIt 主题版本
@@ -93,16 +100,16 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
   defaultTheme = "auto"
   # public git repo url only then enableGitInfo is true
   # 公共 git 仓库路径，仅在 enableGitInfo 设为 true 时有效
-  gitRepo = "https://github.com/dillonzq/LoveIt"
+  gitRepo = "https://github.com/whuwangyong/whuwangyong.github.io.git"
   # which hash function used for SRI, when empty, no SRI is used ("sha256", "sha384", "sha512", "md5")
   # 哪种哈希函数用来 SRI, 为空时表示不使用 SRI ("sha256", "sha384", "sha512", "md5")
-  fingerprint = ""
+  fingerprint = "sha256"
   # date format
   # 日期格式
   dateFormat = "2006-01-02"
   # website images for Open Graph and Twitter Cards
   # 网站图片, 用于 Open Graph 和 Twitter Cards
-  images = ["/logo.png"]
+  images = ["/avatar339x335.jpg"]
 
 
 
@@ -110,6 +117,7 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
   description = "武大路飞的博客"
   # 网站关键词
   keywords = ["武大路飞", "Java"]
+
   # 应用图标配置
   [params.app]
     # 当添加到 iOS 主屏幕或者 Android 启动器时的标题, 覆盖默认标题
@@ -321,22 +329,20 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
     rss = 10
 
   # Page config
-  # 文章页面配置
+  # 文章页面配置。这些是全局参数，对所有文章生效
   [params.page]
     # whether to hide a page from home page
-    # 是否在主页隐藏一篇文章
-    # ？？主页不显示文章
+    # 如果设为 true, 这篇文章将不会显示在主页上.
     hiddenFromHomePage = false
     # whether to hide a page from search results
-    # 是否在搜索结果中隐藏一篇文章
-    # ？？置为true后无法搜索
+    # 如果设为 true, 这篇文章将不会显示在搜索结果中.
     hiddenFromSearch = false
     # whether to enable twemoji
     # 是否使用 twemoji
     twemoji = false
     # whether to enable lightgallery
-    # 是否使用 lightgallery
-    lightgallery = false
+    # 如果设为 true, 文章中的图片将可以按照画廊形式呈现.
+    lightgallery = true
     # whether to enable the ruby extended syntax
     # 是否使用 ruby 扩展语法
     ruby = true
@@ -676,7 +682,7 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
 # 作者配置
 [author]
   name = "Wang Yong"
-  email = ""
+  email = "whuwangyong@gmail.com"
   link = "https://github.com/whuwangyong"
 
 # Sitemap config
