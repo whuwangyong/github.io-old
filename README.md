@@ -16,4 +16,4 @@
 2. git commit && push 到 `hugo-loveit` 分支。此时 netlify、vercel 已经触发 build 和 deploy 了，不用操心
 3. 执行 hugo，编译的结果在 public/ 目录下
 4. 切换到 gh-pages 分支，删除除 public/ 目录外的所有文件，然后将 public/ 的全部内容剪切到 gh-pages 根目录下，最后删除空的 public/ 目录
-5. commit && push，将内容发布大 gh-pages 分支。
+5. commit && push，将内容发布到 gh-pages 分支。
