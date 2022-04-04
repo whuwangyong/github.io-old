@@ -1,6 +1,6 @@
 该项目用于构建个人博客。
 
-## 分支
+## 分支说明
 - main 分支不存放具体内容
 - hugo-xx、jekyll-xx 等分支分别是采用不同建站框架及主题的源文件（含框架配置、主题配置、自己写的文章）
 - gh-pages 分支用于发布静态网站。不管哪个框架/主题，编译后的静态文件放在这里
@@ -17,3 +17,12 @@
 3. 执行 hugo，编译的结果在 public/ 目录下
 4. 切换到 gh-pages 分支，删除除 public/ 目录外的所有文件，然后将 public/ 的全部内容剪切到 gh-pages 根目录下，最后删除空的 public/ 目录
 5. commit && push，将内容发布到 gh-pages 分支。
+
+## 博客地址
+同一份代码，发布在三个地方：
+- [whuwangyong.github.io](https://whuwangyong.github.io)
+- [whuwangyong.netlify.app](https://whuwangyong.netlify.app)
+- [whuwangyong.vercel.app](https://whuwangyong.vercel.app)
+
+另外，`jekyll-chirpy` 分支发布在 [wwy-jekyll-chirpy.netlify.app](https://wwy-jekyll-chirpy.netlify.app)。该分支使用
+ Jekyll 搭配很赞的 Chirpy 主题。但由于 Kramdown 的问题，不得不放弃。此分支不再更新。
