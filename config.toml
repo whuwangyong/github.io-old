@@ -109,7 +109,7 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
   dateFormat = "2006-01-02"
   # website images for Open Graph and Twitter Cards
   # 网站图片, 用于 Open Graph 和 Twitter Cards
-  images = ["/avatar339x335.jpg"]
+  images = ["/avatar150x150.jpg"]
 
 
 
@@ -136,7 +136,7 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
   [params.search]
     enable = true
     # 搜索引擎的类型 ("lunr", "algolia")
-    type = "lunr"
+    type = "algolia"
     # 文章内容最长索引长度
     contentLength = 4000
     # 搜索框的占位提示语
@@ -150,7 +150,8 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
     # 是否在搜索索引中使用基于 baseURL 的绝对路径
     absoluteURL = false
     [params.search.algolia]
-      index = "index"
+      # 这里填写你在algolia上面创建的索引名
+      index = "new-index-1649076215"
       appID = "YMLBEBNFHL"
       searchKey = "9028b251fe4eecb5ad4d47af0715a4f0"
   # 主页信息设置
@@ -163,7 +164,7 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
       # Gravatar 邮箱，用于优先在主页显示的头像
       gravatarEmail = ""
       # 主页显示头像的 URL
-      avatarURL = "/images/avatar339x335.jpg"
+      avatarURL = "/images/avatar150x150.jpg"
       # 主页显示的网站标题 (支持 HTML 格式)
       title = ""
       # 主页显示的网站副标题
@@ -554,7 +555,7 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
       # 出版者信息
       [params.page.seo.publisher]
         name = "Wang Yong"
-        logoUrl = "/images/avatar339x335.jpg"
+        logoUrl = "/images/avatar150x150.jpg"
 
   # TypeIt config
   # TypeIt 配置
