@@ -1,0 +1,25 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>有道云笔记 - 标签 - 武大路飞</title>
+        <link>https://whuwangyong.github.io/tags/%E6%9C%89%E9%81%93%E4%BA%91%E7%AC%94%E8%AE%B0/</link>
+        <description>有道云笔记 - 标签 - 武大路飞</description>
+        <generator>Hugo -- gohugo.io</generator><managingEditor>whuwangyong@gmail.com (Wang Yong)</managingEditor>
+            <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Tue, 29 Mar 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://whuwangyong.github.io/tags/%E6%9C%89%E9%81%93%E4%BA%91%E7%AC%94%E8%AE%B0/" rel="self" type="application/rss+xml" /><item>
+    <title>云笔记软件简评</title>
+    <link>https://whuwangyong.github.io/2022-03-08-notesapp_benchmark/</link>
+    <pubDate>Tue, 29 Mar 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://whuwangyong.github.io/2022-03-08-notesapp_benchmark/</guid>
+    <description><![CDATA[本文首发V2EX。
+这段时间试用了好多笔记软件，我本来就是个选择困难症，一个个试下来，愁死我了。
+分享一下我的一些阶段性结论。
+有道 缺点：
+ 编辑器有问题，Ctrl+Home/End无法跳转、table键无法切换单元格、光标移动慢等问题 富文本不能导出md（这是我想放弃它的唯一原因） 新旧版本笔记不兼容，所以里面有两个编辑器 加密文件夹里面的笔记居然可以通过搜索直接显示！ 有些bug简直是feature了，5年不修：关机时提示“内存无法read”的错误，导致PC关机失败。（最新重构后的7.x版本才解决这个问题） 修bug很慢。反馈了之后很久没变化  优点：
+ 免费（我用的早，有25G空间了） 微信收藏 支持plantuml！ 稳定，没丢过数据  有道是我的主力笔记软件，2000多篇，800MB左右（所以3G空间其实也够用）
+为知 缺点
+ 表格插入列的时候，鼠标上的提示有一定几率显示为“插入行” WizNote X 现在 md 笔记不需要添加.md 后缀了，但是在 app 上，md 格式的笔记如果没有 md 后缀，会直接以 md 语法的文本显示，不会渲染。手动添加.md 后缀正常渲染，但是手动添加的这个后缀在 PC 上是看不到的 笔记的格式不统一。单独的WizLite写的 md 虽然可以同步到一个账号，但是跟直接在WizNote X里面的笔记不同。网页剪藏的md笔记，会提示升级为md，但它本来就是md啊。反正为知笔记的格式我一直没太搞清楚。 app无法点开图片（即无法放大看） 反馈不通畅。邮件、官网的兔小巢、贴吧都反馈了bug，没有回复 产品很好，但是让我觉得要被放弃了  优点：
+ 60/年不贵 网页剪藏最厉害 微信收藏最厉害（有道需在app打开一下那个笔记才能收藏，否则内容就是个url。为知不用，微信发给公众号就行） 完美导入/导出md。完美指的是导入md时，能把图片上传到wiz服务器；导出时能把图片导出且和md文件同一文件夹 支持私有部署（私有部署不能使用网页收藏、微信收藏）  Joplin 缺点
+ 编辑器不行；虽然可以调用外部 Typora 打开，但是插入的图片不在 Joplin 的数据库里面 有个大纲插件，但是简陋：每次打开都占1/2宽的屏幕，即使调整了也记不住位置 没有微信收藏（现在公众号还是很多优质内容的）  优点：
+ 开源，稳定 可以导出md（但是其图片不是放在md文件同一目录，而是上级目录。所有md使用的图片混在一个目录） 支持私有部署（具备网页剪藏）  思源 缺点：]]></description>
+</item></channel>
+</rss>

@@ -1,0 +1,23 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>kramdown - 标签 - 武大路飞</title>
+        <link>https://whuwangyong.github.io/tags/kramdown/</link>
+        <description>kramdown - 标签 - 武大路飞</description>
+        <generator>Hugo -- gohugo.io</generator><managingEditor>whuwangyong@gmail.com (Wang Yong)</managingEditor>
+            <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Tue, 29 Mar 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://whuwangyong.github.io/tags/kramdown/" rel="self" type="application/rss+xml" /><item>
+    <title>使用Jekyll &#43; Github Pages搭建静态网站</title>
+    <link>https://whuwangyong.github.io/2022-03-29-jekyll/</link>
+    <pubDate>Tue, 29 Mar 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://whuwangyong.github.io/2022-03-29-jekyll/</guid>
+    <description><![CDATA[今天折腾 hugo + stack 主题翻车了，然后就想着试试用Jekyll来搭建个人博客。
+Jekyll 是 Github Pages 官方支持的静态网站生成工具，优点是在可以直接github上编辑md，提交后，github会承担生成html的工作。而使用hugo等工具，需要先在本地将md文件渲染成html，然后上传。
+ hugo的优点是快！
+ 看了几个jekyll主题，发现 chirpy 最得我心。cotes2020/jekyll-theme-chirpy: A minimal, responsive, and powerful Jekyll theme for presenting professional writing (github.com)
+本文记录Jekyll和chirpy的搭配使用。
+安装Ruby和Jekyll jekyll也很麻烦，要安装的东西一大堆：
+ Follow the instructions in the Jekyll Docs to complete the installation of Ruby, RubyGems, Jekyll, and Bundler.
+   Download and install a Ruby+Devkit version from RubyInstaller Downloads. Use default options for installation.
+  Run the ridk install step on the last stage of the installation wizard.]]></description>
+</item></channel>
+</rss>
