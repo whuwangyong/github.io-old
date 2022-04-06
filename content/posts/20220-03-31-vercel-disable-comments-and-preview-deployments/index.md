@@ -72,9 +72,19 @@ Project Settings -> Git -> Ignored Build Step，在 COMMAND 填入 `[ "$VERCEL_E
 
 - https://whuwangyong.vercel.app/20220-03-31-vercel-disable-comments-and-preview-deployments/
 
+
+
+---
+
+本文同步发布于：
+
+- https://whuwangyong.github.io/20220-03-31-vercel-disable-comments-and-preview-deployments/
+
+- https://whuwangyong.netlify.app/20220-03-31-vercel-disable-comments-and-preview-deployments/
+
+- https://whuwangyong.vercel.app/20220-03-31-vercel-disable-comments-and-preview-deployments/
+
 
 ---
 本文同步发布于：
-- https://whuwangyong.github.io/20220-03-31-vercel-disable-comments-and-preview-deployments/
-- https://whuwangyong.netlify.app/20220-03-31-vercel-disable-comments-and-preview-deployments/
-- https://whuwangyong.vercel.app/20220-03-31-vercel-disable-comments-and-preview-deployments/
+- https://whuwangyong.github.io/20220-03-31-vercel-disable-comments-and-preview-deployments/- https://whuwangyong.netlify.app/20220-03-31-vercel-disable-comments-and-preview-deployments/- https://whuwangyong.vercel.app/20220-03-31-vercel-disable-comments-and-preview-deployments/
