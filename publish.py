@@ -113,7 +113,7 @@ def add_links():
                         md.write("本文同步发布于：\n")
                         md.write("- https://whuwangyong.github.io/" + mdf_name + "/\n")
                         md.write("- https://whuwangyong.netlify.app/" + mdf_name + "/\n")
-                        md.write("- https://whuwangyong.vercel.app/" + mdf_name + "/\n")
+                        md.write("- https://whuwangyong.vercel.app/" + mdf_name + "/")
 
 
 # 提交 md 等源文件
