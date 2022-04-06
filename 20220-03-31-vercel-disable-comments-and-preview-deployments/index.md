@@ -46,10 +46,17 @@ Project Settings -> Git -> Ignored Build Step，在 COMMAND 填入 `[ "$VERCEL_E
 1. [How do I prevent the Vercel for GitHub integration comments? – Vercel Docs](https://vercel.com/support/articles/how-to-prevent-vercel-github-comments)
 2. [Using Vercel without preview deployments (codejam.info)](https://www.codejam.info/2021/09/vercel-without-preview-deployments.html#turning-off-preview-deployments-kinda)
 
+
+
+---
+
+本文同步发布于：
+- https://whuwangyong.github.io/20220-03-31-vercel-disable-comments-and-preview-deployments/
+- https://whuwangyong.netlify.app/20220-03-31-vercel-disable-comments-and-preview-deployments/
+- https://whuwangyong.vercel.app/20220-03-31-vercel-disable-comments-and-preview-deployments/
 
 ---
 本文同步发布于：
 - https://whuwangyong.github.io/20220-03-31-vercel-disable-comments-and-preview-deployments/
 - https://whuwangyong.netlify.app/20220-03-31-vercel-disable-comments-and-preview-deployments/
 - https://whuwangyong.vercel.app/20220-03-31-vercel-disable-comments-and-preview-deployments/
-
