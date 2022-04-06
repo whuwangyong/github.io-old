@@ -10,14 +10,6 @@
     <pubDate>Tue, 08 Mar 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>https://whuwangyong.github.io/2022-03-08-v2ray/</guid>
-    <description><![CDATA[所有的教程都不如官网。
- 官网 官网：V2Fly.org
-github：v2fly/v2ray-core: A platform for building proxies to bypass network restrictions. (github.com)
- 以下是旧的官网和github：
- 官网：Project V · Project V 官方网站 (v2ray.com) github：v2ray/v2ray-core: A platform for building proxies to bypass network restrictions. (github.com)  注意，旧版本的安装脚本已废弃。
- 安装 使用Linux安装脚本：
-v2fly/fhs-install-v2ray: Bash script for installing V2Ray in Linux that support systemd (github.com)
- 该脚本在运行时会提供 info 和 error 等信息，请仔细阅读。
-安装和更新 V2Ray 1 2  // 安装可执行文件和 .dat 数据文件 # bash &lt;(curl -L https://raw.]]></description>
+    <description><![CDATA[所有的教程都不如官网。 官网 官网：V2Fly.org github：v2fly/v2ray-core: A platform for building proxies to bypass network restrictions. (github.com) 以下是旧的官网和github： 官网：Project V · Project V 官方网站 (v2ray.com) github：v2ray/v2ray-core: A platform for]]></description>
 </item></channel>
 </rss>

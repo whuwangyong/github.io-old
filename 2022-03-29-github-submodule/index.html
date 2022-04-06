@@ -6,25 +6,17 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Github SubModule 指南 - 武大路飞</title><meta name="Description" content="武大路飞的博客"><meta property="og:title" content="Github SubModule 指南" />
-<meta property="og:description" content="最近学习使用 Hugo 构建静态网站。安装主题时，接触到git submodule这个命令，踩了些坑，总结一下。
-子模块与父模块如何同步更新 子模块是一个单独的项目，commit push等操作需要在子模块自己的repo目录下操作。父项目的操作与子模块无关。父项目git add无法添加子模块的changes，当然也就无法commit push。
-子模块版本升级后，父项目不会自动升级，仍然停留在对之前版本的引用。以下命令可以查看父模块当前使用子模块的哪个版本：
-1 2  &gt; git submodule status f0dc1cf84d7c47dc1625e956f07b37b6c238a3dc themes/hugo-theme-stack (v3.8.0-4-gf0dc1cf)   子模块修改后，父模块虽然无法git add/commit/push，但是git status却可以显示：
-1 2 3 4 5 6 7 8  &gt; git status On branch master Your branch is up to date with &#39;origin/master&#39;. Changes not staged for commit: (use &#34;git add ...&#34; to update what will be committed) (use &#34;git restore ...&#34; to discard changes in working directory) modified: themes/hugo-theme-stack (new commits)   这里会让人疑惑，有changes，但是无法add进来。" />
+<meta property="og:description" content="最近学习使用 Hugo 构建静态网站。安装主题时，接触到git submodule这个命令，踩了些坑，总结一下。 子模块与父模块如何同步更新 子模块是一个单独的项目，commit push等操作需要在子模块自己的repo目录下操作。父项目的操作与子模块无关。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://whuwangyong.github.io/2022-03-29-github-submodule/" /><meta property="og:image" content="https://whuwangyong.github.io/avatar339x335.jpg"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://whuwangyong.github.io/2022-03-29-github-submodule/" /><meta property="og:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-03-29T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-04-03T23:37:26+08:00" />
+<meta property="article:modified_time" content="2022-04-07T02:01:44+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://whuwangyong.github.io/avatar339x335.jpg"/>
+<meta name="twitter:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
 
 <meta name="twitter:title" content="Github SubModule 指南"/>
-<meta name="twitter:description" content="最近学习使用 Hugo 构建静态网站。安装主题时，接触到git submodule这个命令，踩了些坑，总结一下。
-子模块与父模块如何同步更新 子模块是一个单独的项目，commit push等操作需要在子模块自己的repo目录下操作。父项目的操作与子模块无关。父项目git add无法添加子模块的changes，当然也就无法commit push。
-子模块版本升级后，父项目不会自动升级，仍然停留在对之前版本的引用。以下命令可以查看父模块当前使用子模块的哪个版本：
-1 2  &gt; git submodule status f0dc1cf84d7c47dc1625e956f07b37b6c238a3dc themes/hugo-theme-stack (v3.8.0-4-gf0dc1cf)   子模块修改后，父模块虽然无法git add/commit/push，但是git status却可以显示：
-1 2 3 4 5 6 7 8  &gt; git status On branch master Your branch is up to date with &#39;origin/master&#39;. Changes not staged for commit: (use &#34;git add ...&#34; to update what will be committed) (use &#34;git restore ...&#34; to discard changes in working directory) modified: themes/hugo-theme-stack (new commits)   这里会让人疑惑，有changes，但是无法add进来。"/>
+<meta name="twitter:description" content="最近学习使用 Hugo 构建静态网站。安装主题时，接触到git submodule这个命令，踩了些坑，总结一下。 子模块与父模块如何同步更新 子模块是一个单独的项目，commit push等操作需要在子模块自己的repo目录下操作。父项目的操作与子模块无关。"/>
 <meta name="application-name" content="武大路飞">
 <meta name="apple-mobile-web-app-title" content="武大路飞"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -37,14 +29,14 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/whuwangyong.github.io\/2022-03-29-github-submodule\/"
-        },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "git submodule","wordcount":  240 ,
-        "url": "https:\/\/whuwangyong.github.io\/2022-03-29-github-submodule\/","datePublished": "2022-03-29T00:00:00+00:00","dateModified": "2022-04-03T23:37:26+08:00","publisher": {
+        },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "git submodule","wordcount":  1338 ,
+        "url": "https:\/\/whuwangyong.github.io\/2022-03-29-github-submodule\/","datePublished": "2022-03-29T00:00:00+00:00","dateModified": "2022-04-07T02:01:44+08:00","publisher": {
             "@type": "Organization",
             "name": "Wang Yong","logo": {
                     "@type": "ImageObject",
-                    "url": "https:\/\/whuwangyong.github.io\/images\/avatar339x335.jpg",
-                    "width":  339 ,
-                    "height":  335 
+                    "url": "https:\/\/whuwangyong.github.io\/images\/avatar150x150.jpg",
+                    "width":  150 ,
+                    "height":  151 
                 }},"author": {
                 "@type": "Person",
                 "name": "Wang Yong"
@@ -119,8 +111,8 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Github SubModule 指南</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/whuwangyong" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Wang Yong</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-29">2022-03-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 240 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-29">2022-03-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1338 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -246,12 +238,56 @@ git submodule status
 <li><a href="https://blog.csdn.net/dongguanghuiyin/article/details/78792992" target="_blank" rel="noopener noreffer">git submodule删除后重新添加问题_Week Mao的专栏-CSDN博客</a></li>
 <li><a href="https://juejin.cn/post/6844903920645455879" target="_blank" rel="noopener noreffer">来说说坑爹的 git submodule - 掘金 (juejin.cn)</a></li>
 </ol>
+<hr>
+<p>本文同步发布于：</p>
+<ul>
+<li>
+<p><a href="https://whuwangyong.github.io/2022-03-29-github-submodule/" target="_blank" rel="noopener noreffer">https://whuwangyong.github.io/2022-03-29-github-submodule/</a></p>
+</li>
+<li>
+<p><a href="https://whuwangyong.netlify.app/2022-03-29-github-submodule/" target="_blank" rel="noopener noreffer">https://whuwangyong.netlify.app/2022-03-29-github-submodule/</a></p>
+</li>
+<li>
+<p><a href="https://whuwangyong.vercel.app/2022-03-29-github-submodule/" target="_blank" rel="noopener noreffer">https://whuwangyong.vercel.app/2022-03-29-github-submodule/</a></p>
+</li>
+</ul>
+<hr>
+<p>本文同步发布于：</p>
+<ul>
+<li>
+<p><a href="https://whuwangyong.github.io/2022-03-29-github-submodule/" target="_blank" rel="noopener noreffer">https://whuwangyong.github.io/2022-03-29-github-submodule/</a></p>
+</li>
+<li>
+<p><a href="https://whuwangyong.netlify.app/2022-03-29-github-submodule/" target="_blank" rel="noopener noreffer">https://whuwangyong.netlify.app/2022-03-29-github-submodule/</a></p>
+</li>
+<li>
+<p><a href="https://whuwangyong.vercel.app/2022-03-29-github-submodule/" target="_blank" rel="noopener noreffer">https://whuwangyong.vercel.app/2022-03-29-github-submodule/</a></p>
+</li>
+</ul>
+<hr>
+<p>本文同步发布于：</p>
+<ul>
+<li>
+<p><a href="https://whuwangyong.github.io/2022-03-29-github-submodule/" target="_blank" rel="noopener noreffer">https://whuwangyong.github.io/2022-03-29-github-submodule/</a></p>
+</li>
+<li>
+<p><a href="https://whuwangyong.netlify.app/2022-03-29-github-submodule/" target="_blank" rel="noopener noreffer">https://whuwangyong.netlify.app/2022-03-29-github-submodule/</a></p>
+</li>
+<li>
+<p><a href="https://whuwangyong.vercel.app/2022-03-29-github-submodule/" target="_blank" rel="noopener noreffer">https://whuwangyong.vercel.app/2022-03-29-github-submodule/</a></p>
+</li>
+</ul>
+<hr>
+<p>本文同步发布于：</p>
+<ul>
+<li><a href="https://whuwangyong.github.io/2022-03-29-github-submodule/-" target="_blank" rel="noopener noreffer">https://whuwangyong.github.io/2022-03-29-github-submodule/-</a> <a href="https://whuwangyong.netlify.app/2022-03-29-github-submodule/-" target="_blank" rel="noopener noreffer">https://whuwangyong.netlify.app/2022-03-29-github-submodule/-</a> <a href="https://whuwangyong.vercel.app/2022-03-29-github-submodule/" target="_blank" rel="noopener noreffer">https://whuwangyong.vercel.app/2022-03-29-github-submodule/</a></li>
+</ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2022-04-03&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/d149997fc1759f8c2078e955919f37980313a762" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) d149997fc1759f8c2078e955919f37980313a762: new posts">
-                                    <i class="fas fa-hashtag fa-fw"></i>d149997</a></span>
+                <span>更新于 2022-04-07&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/1ae5d233e699208820eb1e5219e0d57432d4dbc0" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) 1ae5d233e699208820eb1e5219e0d57432d4dbc0: 新增自动发布脚本。">
+                                    <i class="fas fa-hashtag fa-fw"></i>1ae5d23</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>
@@ -289,5 +325,5 @@ git submodule status
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":30},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"comments","lightTheme":"github-light","repo":"whuwangyong/whuwangyong.github.io"}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":30},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"comments","lightTheme":"github-light","repo":"whuwangyong/whuwangyong.github.io"}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"YMLBEBNFHL","algoliaIndex":"new-index-1649076215","algoliaSearchKey":"9028b251fe4eecb5ad4d47af0715a4f0","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

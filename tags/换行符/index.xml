@@ -10,16 +10,6 @@
     <pubDate>Sun, 13 Mar 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>https://whuwangyong.github.io/2022-03-13-linebreak-in-windows-and-linux/</guid>
-    <description><![CDATA[问题描述 有一个配置文件 config：
-1 2  KAFKA_HOME=/home/wy/dev/kafka_2.13-2.6.0 BOOTSTRAP_SERVER=127.0.0.1:9092   另有一个使用该配置文件的脚本 list-topics.sh：
-1 2 3 4  #!/bin/bash . config &#34;$KAFKA_HOME&#34;/bin/kafka-topics.sh --bootstrap-server &#34;$BOOTSTRAP_SERVER&#34; --list   我使用虚拟机Ubuntu挂载Windows分区，执行在Windows环境下编写的脚本，提示：
-1 2  wy@ship:/mnt/hgfs/D/projects/kafka-mate/scripts$ ./list-topics.sh /bin/kafka-topics.sh: No such file or directory13-2.6.0   解决 找了好久的原因，最终注意到config文件的换行符编码为CRLF。
- 三种换行符（line separator）：
- Windows：CRLF(\r\n) Unix and macOSLinux：LF(\n) CLassic Mac OS：CR(\r)，少见   改为LF后，脚本运行正常。我用的IDEA，在右下角更改：
-vim状态栏的[noeol] [dos]是什么意思？ 当config的line separator问CRLF时，vim打开Windows分区上的文件时，状态栏显示[noeol][dos]：
-当config的line separator问LF时，vim打开Windows分区上的文件时，状态栏显示[noeol]：
-noeol：no end of line。
-如果是Linux分区上的文件，且line separator为LF时，状态栏不会额外显示。
-以下内容来自：Vim 编辑器底端 [noeol], [dos] 的含义 - Trekshot - 博客园 (cnblogs.]]></description>
+    <description><![CDATA[问题描述 有一个配置文件 config： 1 2 KAFKA_HOME=/home/wy/dev/kafka_2.13-2.6.0 BOOTSTRAP_SERVER=127.0.0.1:9092 另有一个使用该配置文件的脚本 list-topics.sh： 1 2 3 4 #!/bin/bash . config &#34;$KAFKA_HOME&#34;/bin/kafka-topics.sh --bootstrap-server &#34;$BOOTSTRAP_SERVER&#34; --list 我使用虚拟机Ubuntu挂载Windows分区，执行在Windows环境下编写的脚本，提示： 1 2 wy@ship:/mnt/hgfs/D/projects/kafka-mate/scripts$ ./list-topics.sh /bin/kafka-topics.sh: No such file or directory13-2.6.0 解决]]></description>
 </item></channel>
 </rss>
