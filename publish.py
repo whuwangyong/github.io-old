@@ -112,7 +112,9 @@ def add_links():
                         md.write(os.linesep + "---" + os.linesep)
                         md.write("本文同步发布于：\n")
                         md.write("- https://whuwangyong.github.io/" + mdf_name + "/\n")
-                        md.write("- https://whuwangyong.netlify.app/" + mdf_name + "/\n")
+                        md.write(
+                            "- https://whuwangyong.netlify.app/" + mdf_name + "/\n"
+                        )
                         md.write("- https://whuwangyong.vercel.app/" + mdf_name + "/")
 
 
@@ -137,9 +139,9 @@ def commit_html():
     os.system("git checkout gh-pages")
 
     # 删除旧文件，保留 .git/ 和 public/
-    print("删除全部旧的静态文件，保留 .git/，themes 和 public/")
+    print("删除全部旧的静态文件，保留 .git/，commit-message 和 public/")
     for f in os.listdir():
-        if os.path.isfile(f):
+        if os.path.isfile(f) and f != "commit-message":
             os.remove(f)
         else:
             if f in [".git", "public"]:
