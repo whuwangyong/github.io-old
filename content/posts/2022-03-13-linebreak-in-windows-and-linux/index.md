@@ -132,13 +132,6 @@ ts@TS:~/www/document$
 [Vim 编辑器底端 [noeol], [dos] 的含义 - Trekshot - 博客园 (cnblogs.com)](https://www.cnblogs.com/Trekshot/archive/2012/11/26/the-meaning-of-noeol-and-dos-flag-in-vim.html)
 
 
-
----
-
-本文同步发布于：
-- https://whuwangyong.github.io/2022-03-13-linebreak-in-windows-and-linux/
-- https://whuwangyong.netlify.app/2022-03-13-linebreak-in-windows-and-linux/
-- https://whuwangyong.vercel.app/2022-03-13-linebreak-in-windows-and-linux/
 
 ---
 本文同步发布于：
