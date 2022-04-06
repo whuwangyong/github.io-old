@@ -140,12 +140,6 @@ shadowsocks的服务器在v2rayNG app上无法使用，需使用Shadowsocks app�
 
 
 
----
-
-本文同步发布于：
-- https://whuwangyong.github.io/2022-03-09-shadowsocks/
-- https://whuwangyong.netlify.app/2022-03-09-shadowsocks/
-- https://whuwangyong.vercel.app/2022-03-09-shadowsocks/
 
 ---
 本文同步发布于：
