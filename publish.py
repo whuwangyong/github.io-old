@@ -142,7 +142,7 @@ def commit_html():
         if os.path.isfile(f):
             os.remove(f)
         else:
-            if f in [".git", "themes", "public"]:
+            if f in [".git", "public"]:
                 continue
             else:
                 shutil.rmtree(f)
