@@ -294,48 +294,10 @@ Chirpy主题的作者在[这里](https://github.com/cotes2020/jekyll-theme-chirp
 1. [Getting Started | Chirpy (cotes.page)](https://chirpy.cotes.page/posts/getting-started/)
 2. https://blog.csdn.net/qq_38534524/article/details/108462825
 
-
----
-
-本文同步发布于：
-
-- https://whuwangyong.github.io/2022-03-29-jekyll/
-
-- https://whuwangyong.netlify.app/2022-03-29-jekyll/
-
-- https://whuwangyong.vercel.app/2022-03-29-jekyll/
-
-
-
----
-
-本文同步发布于：
-
-- https://whuwangyong.github.io/2022-03-29-jekyll/
-
-- https://whuwangyong.netlify.app/2022-03-29-jekyll/
-
-- https://whuwangyong.vercel.app/2022-03-29-jekyll/
-
-
-
----
-
-本文同步发布于：
-
-- https://whuwangyong.github.io/2022-03-29-jekyll/
-
-- https://whuwangyong.netlify.app/2022-03-29-jekyll/
-
-- https://whuwangyong.vercel.app/2022-03-29-jekyll/
-
-
-
----
-
-本文同步发布于：
-
-- https://whuwangyong.github.io/2022-03-29-jekyll/- https://whuwangyong.netlify.app/2022-03-29-jekyll/- https://whuwangyong.vercel.app/2022-03-29-jekyll/
+
 ---
-本文同步发布于：
-- https://whuwangyong.github.io/2022-03-29-jekyll/- https://whuwangyong.netlify.app/2022-03-29-jekyll/- https://whuwangyong.vercel.app/2022-03-29-jekyll/
+本文同步发布于：
+- https://whuwangyong.github.io/2022-03-29-jekyll/
+- https://whuwangyong.netlify.app/2022-03-29-jekyll/
+- https://whuwangyong.vercel.app/2022-03-29-jekyll/
+
