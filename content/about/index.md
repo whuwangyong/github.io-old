@@ -1,5 +1,6 @@
 ---
 title: Hi，欢迎登船
+comment: false
 ---
 ## 关于本站
 ### 缘起

@@ -1,5 +1,6 @@
 ---
 title: "暂未启用"
+comment: false
 ---
 
 {{< admonition info >}}

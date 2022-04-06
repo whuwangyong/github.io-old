@@ -18,7 +18,7 @@ tags: ["vercel"]
 
 每次提交后，vercel bot会在该commit下评论：
 
-![image.png](assets/image-20220331105648-d4pir0q.png "s")
+![image.png](assets/image-20220331105648-d4pir0q.png)
 
 这造成了大量的github通知和邮件通知：
 
