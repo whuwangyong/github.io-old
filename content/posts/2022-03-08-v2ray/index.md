@@ -226,7 +226,7 @@ Linux 命令生成：`cat /proc/sys/kernel/random/uuid`
 
 官方的这个图真的太皮了，特意拿过来：
 
-![image.png](assets/image-20220308230038-enct8t4.png)
+![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-08-v2ray/assets/image-20220308230038-enct8t4.png)
 
 
 ## 运行
@@ -241,3 +241,33 @@ sudo systemctl start v2ray
 sudo systemctl enable v2ray.service
 Created symlink /etc/systemd/system/multi-user.target.wants/v2ray.service → /etc/systemd/system/v2ray.service.
 ```
+
+
+---
+
+本文同步发布于：
+
+- https://whuwangyong.github.io/2022-03-08-v2ray/
+
+- https://whuwangyong.netlify.app/2022-03-08-v2ray/
+
+- https://whuwangyong.vercel.app/2022-03-08-v2ray/
+
+
+
+---
+
+本文同步发布于：
+
+- https://whuwangyong.github.io/2022-03-08-v2ray/
+
+- https://whuwangyong.netlify.app/2022-03-08-v2ray/
+
+- https://whuwangyong.vercel.app/2022-03-08-v2ray/
+
+
+---
+本文同步发布于：
+- https://whuwangyong.github.io/2022-03-08-v2ray/
+- https://whuwangyong.netlify.app/2022-03-08-v2ray/
+- https://whuwangyong.vercel.app/2022-03-08-v2ray/

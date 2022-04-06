@@ -126,3 +126,33 @@ logseq那种日记方式，尝试之后我不习惯。写日记确实很快，�
 为了选择一个顺手的工具，搭进去了好多的时间。看评测，做测试，还顺带着反馈bug。唉……没有完美的产品，只能找个勉强合适的。
 
 有人说“笔记软件换了一个又一个，笔记却没写几篇”，但愿不要如此，共勉共勉。
+
+
+---
+
+本文同步发布于：
+
+- https://whuwangyong.github.io/2022-03-08-notesapp_benchmark/
+
+- https://whuwangyong.netlify.app/2022-03-08-notesapp_benchmark/
+
+- https://whuwangyong.vercel.app/2022-03-08-notesapp_benchmark/
+
+
+
+---
+
+本文同步发布于：
+
+- https://whuwangyong.github.io/2022-03-08-notesapp_benchmark/
+
+- https://whuwangyong.netlify.app/2022-03-08-notesapp_benchmark/
+
+- https://whuwangyong.vercel.app/2022-03-08-notesapp_benchmark/
+
+
+---
+本文同步发布于：
+- https://whuwangyong.github.io/2022-03-08-notesapp_benchmark/
+- https://whuwangyong.netlify.app/2022-03-08-notesapp_benchmark/
+- https://whuwangyong.vercel.app/2022-03-08-notesapp_benchmark/

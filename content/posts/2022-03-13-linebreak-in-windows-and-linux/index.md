@@ -41,17 +41,17 @@ wy@ship:/mnt/hgfs/D/projects/kafka-mate/scripts$ ./list-topics.sh
 
 改为`LF`后，脚本运行正常。我用的IDEA，在右下角更改：
 
-![image.png](assets/image-20220313173320-m3he0qa.png)
+![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313173320-m3he0qa.png)
 
 ## vim状态栏的[noeol] [dos]是什么意思？
 
 当config的line separator问`CRLF`时，vim打开Windows分区上的文件时，状态栏显示`[noeol][dos]`：
 
-![image.png](assets/image-20220313172145-gr1vmgk.png)
+![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313172145-gr1vmgk.png)
 
 当config的line separator问`LF`时，vim打开Windows分区上的文件时，状态栏显示`[noeol]`：
 
-![image.png](assets/image-20220313172052-wah96f1.png)
+![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313172052-wah96f1.png)
 
 noeol：no end of line。
 
@@ -130,3 +130,33 @@ ts@TS:~/www/document$
 ## Reference
 
 [Vim 编辑器底端 [noeol], [dos] 的含义 - Trekshot - 博客园 (cnblogs.com)](https://www.cnblogs.com/Trekshot/archive/2012/11/26/the-meaning-of-noeol-and-dos-flag-in-vim.html)
+
+
+---
+
+本文同步发布于：
+
+- https://whuwangyong.github.io/2022-03-13-linebreak-in-windows-and-linux/
+
+- https://whuwangyong.netlify.app/2022-03-13-linebreak-in-windows-and-linux/
+
+- https://whuwangyong.vercel.app/2022-03-13-linebreak-in-windows-and-linux/
+
+
+
+---
+
+本文同步发布于：
+
+- https://whuwangyong.github.io/2022-03-13-linebreak-in-windows-and-linux/
+
+- https://whuwangyong.netlify.app/2022-03-13-linebreak-in-windows-and-linux/
+
+- https://whuwangyong.vercel.app/2022-03-13-linebreak-in-windows-and-linux/
+
+
+---
+本文同步发布于：
+- https://whuwangyong.github.io/2022-03-13-linebreak-in-windows-and-linux/
+- https://whuwangyong.netlify.app/2022-03-13-linebreak-in-windows-and-linux/
+- https://whuwangyong.vercel.app/2022-03-13-linebreak-in-windows-and-linux/
