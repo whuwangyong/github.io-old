@@ -18,10 +18,12 @@ from numpy import add
 # 因为commit-message文件在hugo-loveit分支，切换到gh-pages分支后读不到了
 global COMMIT_MSG
 
+BLOG_BR = "hugo-loveit"
+
 
 def init():
     print("初始化")
-    os.system("git checkout hugo-loveit")
+    os.system("git checkout " + BLOG_BR)
     os.system("git submodule update")
 
 
@@ -176,6 +178,7 @@ def get_commit_msg():
 # 清除日志信息
 def clear_commit_msg():
     print("清除日志信息")
+    os.system("git checkout " + BLOG_BR)
     with open("commit-message", "r+", encoding="utf-8") as f:
         f.truncate(0)
 
