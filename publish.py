@@ -110,10 +110,10 @@ def add_links():
                             mdf_name = str(f)[:-3]  # 切掉 .md后缀
                         md.seek(2, 0)  # 定位到末尾
                         md.write(os.linesep + "---" + os.linesep)
-                        md.write("本文同步发布于：" + os.linesep)
-                        md.write("- https://whuwangyong.github.io/" + mdf_name + "/")
-                        md.write("- https://whuwangyong.netlify.app/" + mdf_name + "/")
-                        md.write("- https://whuwangyong.vercel.app/" + mdf_name + "/")
+                        md.write("本文同步发布于：\n")
+                        md.write("- https://whuwangyong.github.io/" + mdf_name + "/\n")
+                        md.write("- https://whuwangyong.netlify.app/" + mdf_name + "/\n")
+                        md.write("- https://whuwangyong.vercel.app/" + mdf_name + "/\n")
 
 
 # 提交 md 等源文件
