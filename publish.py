@@ -98,9 +98,9 @@ def add_links():
                     lines = md.readlines()
                     if (
                         len(lines) > 3
-                        and lines[-1].startswith("https://whuwangyong.vercel.app/")
-                        and lines[-2].startswith("https://whuwangyong.netlify.app/")
-                        and lines[-3].startswith("https://whuwangyong.github.io/")
+                        and lines[-1].startswith("- https://whuwangyong.vercel.app/")
+                        and lines[-2].startswith("- https://whuwangyong.netlify.app/")
+                        and lines[-3].startswith("- https://whuwangyong.github.io/")
                     ):
                         continue
                     else:
