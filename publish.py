@@ -24,7 +24,7 @@ BLOG_BR = "hugo-loveit"
 def init():
     print("初始化")
     os.system("git checkout " + BLOG_BR)
-    os.system("git submodule update")
+    os.system("git submodule update --init")
 
 
 # 将上次编译出来的静态文件删除
@@ -135,20 +135,18 @@ def start_hugo():
 
 # 切换到gh-pages分支，删除旧文件，提交新文件
 def commit_html():
-    print("切换到gh-pages分支")
+    print("切换到 gh-pages 分支")
     os.system("git checkout gh-pages")
 
     # 删除旧文件，保留 .git/ 和 public/
-    print("删除全部旧的静态文件，保留 .git/，commit-message 和 public/")
+    print("删除全部旧的静态文件，保留 commit-message，.gitignore，.git/，public/ 和子模块 themes/")
     for f in os.listdir():
-        if os.path.isfile(f) and f != "commit-message":
+        if os.path.isfile(f) and f not in ["commit-message", ".gitignore"]:
             os.remove(f)
-        else:
-            if f in [".git", "public"]:
-                continue
-            else:
-                shutil.rmtree(f)
-                print("++ remove dir:", f)
+            print("remove:", f)
+        if os.path.isdir(f) and f not in [".git", "public", "themes"]:
+            shutil.rmtree(f)
+            print("remove:", f)
 
     # 将 public/ 下面的文件移出来，然后删除空的public/文件夹
     print("将 public/ 下面的文件移出来，然后删除空的public/文件夹")
