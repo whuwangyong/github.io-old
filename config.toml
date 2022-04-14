@@ -362,6 +362,9 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
     # whether to show the full text content in RSS
     # 是否在 RSS 中显示全文内容
     rssFullText = false
+    # Page style ("narrow", "normal", "wide", ...) since v0.2.13
+    # 页面样式 ("narrow", "normal", "wide", ...) since v0.2.13
+    pageStyle = "custom"
     # Table of the contents config
     # 目录配置
     [params.page.toc]
