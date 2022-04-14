@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>vercel - 标签 - 武大路飞</title>
-        <link>https://whuwangyong.github.io/tags/vercel/</link>
-        <description>vercel - 标签 - 武大路飞</description>
-        <generator>Hugo -- gohugo.io</generator><managingEditor>whuwangyong@gmail.com (Wang Yong)</managingEditor>
-            <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Thu, 31 Mar 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://whuwangyong.github.io/tags/vercel/" rel="self" type="application/rss+xml" /><item>
-    <title>Vercel关闭评论 禁止Preview Deployments</title>
-    <link>https://whuwangyong.github.io/20220-03-31-vercel-disable-comments-and-preview-deployments/</link>
-    <pubDate>Thu, 31 Mar 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://whuwangyong.github.io/20220-03-31-vercel-disable-comments-and-preview-deployments/</guid>
-    <description><![CDATA[关键字：disable Vercel bot; disable Preview Deployments Vercel是一个支持部署前端框架和静态网站的平台。你可以方便的把 Github Pages 上面的站点导入Vercel，这样做有两个好处： 有些地区有些时候，Vercel上面的站点比Github Pages上的访问速度快； Github Pages 屏蔽了百]]></description>
+  <channel>
+    <title>vercel - 标签 - 武大路飞</title>
+    <link>https://whuwangyong.github.io/tags/vercel/</link>
+    <description>vercel - 标签 - 武大路飞</description>
+    <generator>Hugo -- gohugo.io</generator><managingEditor>whuwangyong@gmail.com (Wang Yong)</managingEditor>
+      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Thu, 31 Mar 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://whuwangyong.github.io/tags/vercel/" rel="self" type="application/rss+xml" /><item>
+  <title>Vercel关闭评论 禁止Preview Deployments</title>
+  <link>https://whuwangyong.github.io/20220-03-31-vercel-disable-comments-and-preview-deployments/</link>
+  <pubDate>Thu, 31 Mar 2022 00:00:00 &#43;0000</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/20220-03-31-vercel-disable-comments-and-preview-deployments/</guid>
+  <description><![CDATA[关键字：disable Vercel bot; disable Preview Deployments Vercel是一个支持部署前端框架和静态网站的平台。你可以方便的把 Github Pages 上面的站点导入Vercel，这样做有两个好处： 有些地区有些时候，Vercel上面的站点比Github Pages上的访问速度快； Github Pages 屏蔽了百]]></description>
 </item></channel>
 </rss>

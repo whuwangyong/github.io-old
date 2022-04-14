@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="robots" content="noodp" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>shadowsocks 服务端安装指南 - 武大路飞</title><meta name="Description" content="武大路飞的博客"><meta property="og:title" content="shadowsocks 服务端安装指南" />
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <title>shadowsocks 服务端安装指南 - 武大路飞</title><meta name="author" content="Wang Yong: https://github.com/whuwangyong">
+<meta name="description" content="官方地址： shadowsocks/shadowsocks-libev: Bug-fix-only libev port of shadowsocks. Future development moved to shadowsocks-rust (github.com) 旧地址，不再更新： shadowsocks/shadowsocks at master (github.com) clowwindy/shadowsocks-libev at master (github.com) 本文基于Ubuntu。 install 1 2 3 $ sudo apt install shadowsocks-libev ... Created symlink /etc/systemd/system/multi-user.target.wants/shadowsocks-libev.service → /lib/systemd/system/shadowsocks-libev.service. Configuration 官方文档说配置文件在这里： Edit your config.json file. By default, it&rsquo;s located in /usr/local/etc/shadowsocks-libev. 但我的不是。 编辑/etc/shadowsocks-libev/confi" />
+<meta name="keywords" content="shadowsocks,vpn" /><meta itemprop="name" content="shadowsocks 服务端安装指南">
+<meta itemprop="description" content="官方地址： shadowsocks/shadowsocks-libev: Bug-fix-only libev port of shadowsocks. Future development moved to shadowsocks-rust (github.com) 旧地址，不再更新： shadowsocks/shadowsocks at master (github.com) clowwindy/shadowsocks-libev at master (github.com) 本文基于Ubuntu。 install 1 2 3 $ sudo apt install shadowsocks-libev ... Created symlink /etc/systemd/system/multi-user.target.wants/shadowsocks-libev.service → /lib/systemd/system/shadowsocks-libev.service. Configuration 官方文档说配置文件在这里： Edit your config.json file. By default, it&rsquo;s located in /usr/local/etc/shadowsocks-libev. 但我的不是。 编辑/etc/shadowsocks-libev/confi"><meta itemprop="datePublished" content="2022-03-09T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-04-07T02:38:18+08:00" />
+<meta itemprop="wordCount" content="649"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
+<meta itemprop="keywords" content="shadowsocks,vpn," /><meta property="og:title" content="shadowsocks 服务端安装指南" />
 <meta property="og:description" content="官方地址： shadowsocks/shadowsocks-libev: Bug-fix-only libev port of shadowsocks. Future development moved to shadowsocks-rust (github.com) 旧地址，不再更新： shadowsocks/shadowsocks at master (github.com) clowwindy/shadowsocks-libev at master (github.com) 本文基于Ubuntu。 install 1 2 3 $ sudo apt install shadowsocks-libev ... Created symlink /etc/systemd/system/multi-user.target.wants/shadowsocks-libev.service → /lib/systemd/system/shadowsocks-libev.service. Configuration 官方文档说配置文件在这里： Edit your config.json file. By default, it&rsquo;s located in /usr/local/etc/shadowsocks-libev. 但我的不是。 编辑/etc/shadowsocks-libev/confi" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://whuwangyong.github.io/2022-03-09-shadowsocks/" /><meta property="og:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/><meta property="article:section" content="posts" />
@@ -18,107 +24,226 @@
 <meta name="twitter:title" content="shadowsocks 服务端安装指南"/>
 <meta name="twitter:description" content="官方地址： shadowsocks/shadowsocks-libev: Bug-fix-only libev port of shadowsocks. Future development moved to shadowsocks-rust (github.com) 旧地址，不再更新： shadowsocks/shadowsocks at master (github.com) clowwindy/shadowsocks-libev at master (github.com) 本文基于Ubuntu。 install 1 2 3 $ sudo apt install shadowsocks-libev ... Created symlink /etc/systemd/system/multi-user.target.wants/shadowsocks-libev.service → /lib/systemd/system/shadowsocks-libev.service. Configuration 官方文档说配置文件在这里： Edit your config.json file. By default, it&rsquo;s located in /usr/local/etc/shadowsocks-libev. 但我的不是。 编辑/etc/shadowsocks-libev/confi"/>
 <meta name="application-name" content="武大路飞">
-<meta name="apple-mobile-web-app-title" content="武大路飞"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://whuwangyong.github.io/2022-03-09-shadowsocks/" /><link rel="prev" href="https://whuwangyong.github.io/2022-03-08-v2ray/" /><link rel="next" href="https://whuwangyong.github.io/2022-03-13-linebreak-in-windows-and-linux/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "BlogPosting",
-        "headline": "shadowsocks 服务端安装指南",
-        "inLanguage": "",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https:\/\/whuwangyong.github.io\/2022-03-09-shadowsocks\/"
-        },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "shadowsocks, vpn","wordcount":  649 ,
-        "url": "https:\/\/whuwangyong.github.io\/2022-03-09-shadowsocks\/","datePublished": "2022-03-09T00:00:00+00:00","dateModified": "2022-04-07T02:38:18+08:00","publisher": {
-            "@type": "Organization",
-            "name": "Wang Yong","logo": {
-                    "@type": "ImageObject",
-                    "url": "https:\/\/whuwangyong.github.io\/images\/avatar150x150.jpg",
-                    "width":  150 ,
-                    "height":  151 
-                }},"author": {
-                "@type": "Person",
-                "name": "Wang Yong"
-            },"description": ""
-    }
-    </script></head>
-    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+<meta name="apple-mobile-web-app-title" content="武大路飞"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://whuwangyong.github.io/2022-03-09-shadowsocks/" /><link rel="prev" href="https://whuwangyong.github.io/2022-03-08-v2ray/" /><link rel="next" href="https://whuwangyong.github.io/2022-03-13-linebreak-in-windows-and-linux/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "shadowsocks 服务端安装指南",
+    "inLanguage": "",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/whuwangyong.github.io\/2022-03-09-shadowsocks\/"
+    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "shadowsocks, vpn","wordcount":  649 ,
+    "url": "https:\/\/whuwangyong.github.io\/2022-03-09-shadowsocks\/","datePublished": "2022-03-09T00:00:00+00:00","dateModified": "2022-04-07T02:38:18+08:00","publisher": {
+      "@type": "Organization",
+      "name": "Wang Yong","logo": {
+          "@type": "ImageObject",
+          "url": "https:\/\/whuwangyong.github.io\/images\/avatar150x150.jpg",
+          "width":  150 ,
+          "height":  151 
+        }},"author": {
+        "@type": "Person",
+        "name": "Wang Yong"
+      },"description": ""
+  }
+  </script></head>
+  <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
-        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
-    <div class="header-wrapper">
-        <div class="header-title">
-            <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span>武大路飞的博客</a>
-        </div>
-        <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 归档 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/links/" title="友情链接"> 友链 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/whuwangyong" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i> GitHub </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
-                            <i class="fas fa-times-circle fa-fw"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-desktop">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
-                        </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
-                    <i class="fas fa-adjust fa-fw"></i>
-                </a>
-            </div>
-        </div>
-    </div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a></div>
+    <nav>
+      <ul class="menu"><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              >归档</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              >标签</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              >分类</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/links/"
+                title="友情链接"
+                
+              >友链</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              >关于</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="https://github.com/whuwangyong"
+                title="GitHub"
+                rel="noopener noreffer" target="_blank"
+              ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fas fa-search fa-fw"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fas fa-times-circle fa-fw"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fas fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fas fa-adjust fa-fw"></i>
+        </li>
+      </ul>
+   </nav>
+  </div>
 </header><header class="mobile" id="header-mobile">
-    <div class="header-container">
-        <div class="header-wrapper">
-            <div class="header-title">
-                <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span>武大路飞的博客</a>
-            </div>
-            <div class="menu-toggle" id="menu-toggle-mobile">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-        <div class="menu" id="menu-mobile"><div class="search-wrapper">
-                    <div class="search mobile" id="search-mobile">
-                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
-                            <i class="fas fa-times-circle fa-fw"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-mobile">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
-                        </span>
-                    </div>
-                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-                        取消
-                    </a>
-                </div><a class="menu-item" href="/posts/" title="">归档</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/links/" title="友情链接">友链</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/whuwangyong" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>GitHub</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
-                <i class="fas fa-adjust fa-fw"></i>
-            </a></div>
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
     </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fas fa-search fa-fw"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fas fa-times-circle fa-fw"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fas fa-spinner fa-fw fa-spin"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              >归档</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              >标签</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              >分类</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/links/"
+                title="友情链接"
+                
+              >友链</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/about/"
+                
+                
+              >关于</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="https://github.com/whuwangyong"
+                title="GitHub"
+                rel="noopener noreffer" target="_blank"
+              ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fas fa-adjust fa-fw"></i>
+        </li></ul>
+    </nav>
+  </div>
 </header>
 <div class="search-dropdown desktop">
-    <div id="search-dropdown-desktop"></div>
+  <div id="search-dropdown-desktop"></div>
 </div>
 <div class="search-dropdown mobile">
-    <div id="search-dropdown-mobile"></div>
+  <div id="search-dropdown-mobile"></div>
 </div>
-<main class="main">
-                <div class="container"><div class="toc" id="toc-auto">
-            <h2 class="toc-title">目录</h2>
-            <div class="toc-content always-active" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">shadowsocks 服务端安装指南</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/whuwangyong" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Wang Yong</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-09">2022-03-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 649 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
-        </div><div class="details toc" id="toc-static"  kept="">
-                <div class="details-summary toc-title">
-                    <span>目录</span>
-                    <span><i class="details-icon fas fa-angle-right"></i></span>
-                </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+<main class="container" page-style="custom"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录</h2>
+      <div class="toc-content always-active" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    
+  </aside>
+
+  <article class="page single"><h1 class="single-title animate__animated animate__flipInX">shadowsocks 服务端安装指南</h1><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a
+  href="https://github.com/whuwangyong"
+  
+    title="Author"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer author"
+  
+  
+  
+    class="author"
+  
+  
+><i class="fas fa-user-circle fa-fw"></i>Wang Yong</a></span></div>
+      <div class="post-meta-line"><span title=2022-03-09&#32;00:00:00>
+            <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-09" >2022-03-09</time>
+          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 649 字&nbsp;
+        <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+    </div><div class="details toc" id="toc-static" kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fas fa-angle-right"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
     <li><a href="#install">install</a></li>
     <li><a href="#configuration">Configuration</a></li>
@@ -132,12 +257,54 @@
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><blockquote>
+      </div><div class="content" id="content"><blockquote>
 <p>官方地址：</p>
-<p><a href="https://github.com/shadowsocks/shadowsocks-libev" target="_blank" rel="noopener noreffer">shadowsocks/shadowsocks-libev: Bug-fix-only libev port of shadowsocks. Future development moved to shadowsocks-rust (github.com)</a></p>
+<p><a
+  href="https://github.com/shadowsocks/shadowsocks-libev"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>shadowsocks/shadowsocks-libev: Bug-fix-only libev port of shadowsocks. Future development moved to shadowsocks-rust (github.com)</a></p>
 <p>旧地址，不再更新：</p>
-<p><a href="https://github.com/shadowsocks/shadowsocks/tree/master" target="_blank" rel="noopener noreffer">shadowsocks/shadowsocks at master (github.com)</a></p>
-<p><a href="https://github.com/clowwindy/shadowsocks-libev/tree/master" target="_blank" rel="noopener noreffer">clowwindy/shadowsocks-libev at master (github.com)</a></p>
+<p><a
+  href="https://github.com/shadowsocks/shadowsocks/tree/master"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>shadowsocks/shadowsocks at master (github.com)</a></p>
+<p><a
+  href="https://github.com/clowwindy/shadowsocks-libev/tree/master"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>clowwindy/shadowsocks-libev at master (github.com)</a></p>
 </blockquote>
 <p>本文基于Ubuntu。</p>
 <h2 id="install">install</h2>
@@ -155,7 +322,21 @@ Created symlink /etc/systemd/system/multi-user.target.wants/shadowsocks-libev.se
 </div>
 </div><h2 id="configuration">Configuration</h2>
 <blockquote>
-<p><a href="https://github.com/shadowsocks/shadowsocks-libev#configure-and-start-the-service" target="_blank" rel="noopener noreffer">官方文档</a>说配置文件在这里：</p>
+<p><a
+  href="https://github.com/shadowsocks/shadowsocks-libev#configure-and-start-the-service"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>官方文档</a>说配置文件在这里：</p>
 <p>Edit your config.json file. By default, it&rsquo;s located in /usr/local/etc/shadowsocks-libev.</p>
 <p>但我的不是。</p>
 </blockquote>
@@ -254,9 +435,51 @@ service shadowsocks-libev start
 <hr>
 <p>本文同步发布于：</p>
 <ul>
-<li><a href="https://whuwangyong.github.io/2022-03-09-shadowsocks/" target="_blank" rel="noopener noreffer">https://whuwangyong.github.io/2022-03-09-shadowsocks/</a></li>
-<li><a href="https://whuwangyong.netlify.app/2022-03-09-shadowsocks/" target="_blank" rel="noopener noreffer">https://whuwangyong.netlify.app/2022-03-09-shadowsocks/</a></li>
-<li><a href="https://whuwangyong.vercel.app/2022-03-09-shadowsocks/" target="_blank" rel="noopener noreffer">https://whuwangyong.vercel.app/2022-03-09-shadowsocks/</a></li>
+<li><a
+  href="https://whuwangyong.github.io/2022-03-09-shadowsocks/"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>https://whuwangyong.github.io/2022-03-09-shadowsocks/</a></li>
+<li><a
+  href="https://whuwangyong.netlify.app/2022-03-09-shadowsocks/"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>https://whuwangyong.netlify.app/2022-03-09-shadowsocks/</a></li>
+<li><a
+  href="https://whuwangyong.vercel.app/2022-03-09-shadowsocks/"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>https://whuwangyong.vercel.app/2022-03-09-shadowsocks/</a></li>
 </ul>
 <section class="footnotes" role="doc-endnotes">
 <hr>
@@ -314,47 +537,60 @@ net.ipv4.tcp_congestion_control=bbr
 </ol>
 </section>
 </div><div class="post-footer" id="post-footer">
-    <div class="post-info">
-        <div class="post-info-line">
-            <div class="post-info-mod">
-                <span>更新于 2022-04-07&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/893f9c44025b02e9536bfec272c32a57febdb9b0" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) 893f9c44025b02e9536bfec272c32a57febdb9b0: 修复add_links的换行问题">
-                                    <i class="fas fa-hashtag fa-fw"></i>893f9c4</a></span>
-            </div>
-            <div class="post-info-license"></div>
-        </div>
-        <div class="post-info-line">
-            <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/2022-03-09-shadowsocks/index.md" target="_blank">阅读原始文档</a>
-                        </span></div>
-            <div class="post-info-share">
-                <span></span>
-            </div>
-        </div>
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title=2022-04-07&#32;02:38:18>更新于 2022-04-07&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/893f9c44025b02e9536bfec272c32a57febdb9b0" rel="external nofollow noopener noreffer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) 893f9c44025b02e9536bfec272c32a57febdb9b0: 修复add_links的换行问题">
+                  <i class="fas fa-hashtag fa-fw"></i>893f9c4</a></span>
+      </div>
+      <div class="post-info-license"></div>
     </div>
-
-    <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/shadowsocks/">shadowsocks</a>,&nbsp;<a href="/tags/vpn/">vpn</a></section>
-        <section>
-            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
-        </section>
+    <div class="post-info-line">
+      <div class="post-info-md"><span>
+              <a class="link-to-markdown" href="/2022-03-09-shadowsocks/index.md" target="_blank">阅读原始文档</a>
+            </span></div>
+      <div class="post-info-share">
+        <span></span>
+      </div>
     </div>
+  </div>
 
-    <div class="post-nav"><a href="/2022-03-08-v2ray/" class="prev" rel="prev" title="V2Ray 搭建指南"><i class="fas fa-angle-left fa-fw"></i>V2Ray 搭建指南</a>
-            <a href="/2022-03-13-linebreak-in-windows-and-linux/" class="next" rel="next" title="Windows和Linux的不同换行符导致脚本执行异常">Windows和Linux的不同换行符导致脚本执行异常<i class="fas fa-angle-right fa-fw"></i></a></div>
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/shadowsocks/">shadowsocks</a>,&nbsp;<a href="/tags/vpn/">vpn</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/2022-03-08-v2ray/" class="prev" rel="prev" title="V2Ray 搭建指南"><i class="fas fa-angle-left fa-fw"></i>V2Ray 搭建指南</a>
+      <a href="/2022-03-13-linebreak-in-windows-and-linux/" class="next" rel="next" title="Windows和Linux的不同换行符导致脚本执行异常">Windows和Linux的不同换行符导致脚本执行异常<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="utterances"></div><noscript>
-                Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
-            </noscript></div></article></div>
-            </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/whuwangyong" target="_blank">Wang Yong</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
-        </div>
-    </footer></div>
+        Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/" rel="external nofollow noopener noreffer">Utterances</a>.
+      </noscript></div></article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt 0.2.14"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">
+              <a
+  href="https://github.com/whuwangyong"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Wang Yong</a></span><span class="footer-divider"></span><span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div></div>
+  </footer></div>
 
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
-                <i class="fas fa-arrow-up fa-fw"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
-                <i class="fas fa-comment fa-fw"></i>
-            </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":30},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"comments","lightTheme":"github-light","repo":"whuwangyong/whuwangyong.github.io"}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"YMLBEBNFHL","algoliaIndex":"new-index-1649076215","algoliaSearchKey":"9028b251fe4eecb5ad4d47af0715a4f0","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+    <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+        <i class="fas fa-arrow-up fa-fw"></i>
+      </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+        <i class="fas fa-comment fa-fw"></i>
+      </a>
+    </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.11.0/dist/algoliasearch-lite.umd.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js" async defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/dist/js/lightgallery.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.3.0/dist/lg-zoom.min.js" defer></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":30},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"comments","lightTheme":"github-light","repo":"whuwangyong/whuwangyong.github.io"}},"enablePWA":null,"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"YMLBEBNFHL","algoliaIndex":"new-index-1649076215","algoliaSearchKey":"9028b251fe4eecb5ad4d47af0715a4f0","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js" defer></script></body>
 </html>

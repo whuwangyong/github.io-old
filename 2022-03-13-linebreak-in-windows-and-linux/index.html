@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="robots" content="noodp" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>Windows和Linux的不同换行符导致脚本执行异常 - 武大路飞</title><meta name="Description" content="武大路飞的博客"><meta property="og:title" content="Windows和Linux的不同换行符导致脚本执行异常" />
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <title>Windows和Linux的不同换行符导致脚本执行异常 - 武大路飞</title><meta name="author" content="Wang Yong: https://github.com/whuwangyong">
+<meta name="description" content="问题描述 有一个配置文件 config： 1 2 KAFKA_HOME=/home/wy/dev/kafka_2.13-2.6.0 BOOTSTRAP_SERVER=127.0.0.1:9092 另有一个使用该配置文件的脚本 list-topics.sh： 1 2 3 4 #!/bin/bash . config &#34;$KAFKA_HOME&#34;/bin/kafka-topics.sh --bootstrap-server &#34;$BOOTSTRAP_SERVER&#34; --list 我使用虚拟机Ubuntu挂载Windows分区，执行在Windows环境下编写的脚本，提示： 1 2 wy@ship:/mnt/hgfs/D/projects/kafka-mate/scripts$ ./list-topics.sh /bin/kafka-topics.sh: No such file or directory13-2.6.0 解决" />
+<meta name="keywords" content="换行符" /><meta itemprop="name" content="Windows和Linux的不同换行符导致脚本执行异常">
+<meta itemprop="description" content="问题描述 有一个配置文件 config： 1 2 KAFKA_HOME=/home/wy/dev/kafka_2.13-2.6.0 BOOTSTRAP_SERVER=127.0.0.1:9092 另有一个使用该配置文件的脚本 list-topics.sh： 1 2 3 4 #!/bin/bash . config &#34;$KAFKA_HOME&#34;/bin/kafka-topics.sh --bootstrap-server &#34;$BOOTSTRAP_SERVER&#34; --list 我使用虚拟机Ubuntu挂载Windows分区，执行在Windows环境下编写的脚本，提示： 1 2 wy@ship:/mnt/hgfs/D/projects/kafka-mate/scripts$ ./list-topics.sh /bin/kafka-topics.sh: No such file or directory13-2.6.0 解决"><meta itemprop="datePublished" content="2022-03-13T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-04-07T02:38:18+08:00" />
+<meta itemprop="wordCount" content="1279"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
+<meta itemprop="keywords" content="换行符," /><meta property="og:title" content="Windows和Linux的不同换行符导致脚本执行异常" />
 <meta property="og:description" content="问题描述 有一个配置文件 config： 1 2 KAFKA_HOME=/home/wy/dev/kafka_2.13-2.6.0 BOOTSTRAP_SERVER=127.0.0.1:9092 另有一个使用该配置文件的脚本 list-topics.sh： 1 2 3 4 #!/bin/bash . config &#34;$KAFKA_HOME&#34;/bin/kafka-topics.sh --bootstrap-server &#34;$BOOTSTRAP_SERVER&#34; --list 我使用虚拟机Ubuntu挂载Windows分区，执行在Windows环境下编写的脚本，提示： 1 2 wy@ship:/mnt/hgfs/D/projects/kafka-mate/scripts$ ./list-topics.sh /bin/kafka-topics.sh: No such file or directory13-2.6.0 解决" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://whuwangyong.github.io/2022-03-13-linebreak-in-windows-and-linux/" /><meta property="og:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/><meta property="article:section" content="posts" />
@@ -18,107 +24,226 @@
 <meta name="twitter:title" content="Windows和Linux的不同换行符导致脚本执行异常"/>
 <meta name="twitter:description" content="问题描述 有一个配置文件 config： 1 2 KAFKA_HOME=/home/wy/dev/kafka_2.13-2.6.0 BOOTSTRAP_SERVER=127.0.0.1:9092 另有一个使用该配置文件的脚本 list-topics.sh： 1 2 3 4 #!/bin/bash . config &#34;$KAFKA_HOME&#34;/bin/kafka-topics.sh --bootstrap-server &#34;$BOOTSTRAP_SERVER&#34; --list 我使用虚拟机Ubuntu挂载Windows分区，执行在Windows环境下编写的脚本，提示： 1 2 wy@ship:/mnt/hgfs/D/projects/kafka-mate/scripts$ ./list-topics.sh /bin/kafka-topics.sh: No such file or directory13-2.6.0 解决"/>
 <meta name="application-name" content="武大路飞">
-<meta name="apple-mobile-web-app-title" content="武大路飞"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://whuwangyong.github.io/2022-03-13-linebreak-in-windows-and-linux/" /><link rel="prev" href="https://whuwangyong.github.io/2022-03-09-shadowsocks/" /><link rel="next" href="https://whuwangyong.github.io/2022-03-29-jekyll/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "BlogPosting",
-        "headline": "Windows和Linux的不同换行符导致脚本执行异常",
-        "inLanguage": "",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https:\/\/whuwangyong.github.io\/2022-03-13-linebreak-in-windows-and-linux\/"
-        },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "换行符","wordcount":  1279 ,
-        "url": "https:\/\/whuwangyong.github.io\/2022-03-13-linebreak-in-windows-and-linux\/","datePublished": "2022-03-13T00:00:00+00:00","dateModified": "2022-04-07T02:38:18+08:00","publisher": {
-            "@type": "Organization",
-            "name": "Wang Yong","logo": {
-                    "@type": "ImageObject",
-                    "url": "https:\/\/whuwangyong.github.io\/images\/avatar150x150.jpg",
-                    "width":  150 ,
-                    "height":  151 
-                }},"author": {
-                "@type": "Person",
-                "name": "Wang Yong"
-            },"description": ""
-    }
-    </script></head>
-    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+<meta name="apple-mobile-web-app-title" content="武大路飞"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://whuwangyong.github.io/2022-03-13-linebreak-in-windows-and-linux/" /><link rel="prev" href="https://whuwangyong.github.io/2022-03-09-shadowsocks/" /><link rel="next" href="https://whuwangyong.github.io/2022-03-29-jekyll/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Windows和Linux的不同换行符导致脚本执行异常",
+    "inLanguage": "",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/whuwangyong.github.io\/2022-03-13-linebreak-in-windows-and-linux\/"
+    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "换行符","wordcount":  1279 ,
+    "url": "https:\/\/whuwangyong.github.io\/2022-03-13-linebreak-in-windows-and-linux\/","datePublished": "2022-03-13T00:00:00+00:00","dateModified": "2022-04-07T02:38:18+08:00","publisher": {
+      "@type": "Organization",
+      "name": "Wang Yong","logo": {
+          "@type": "ImageObject",
+          "url": "https:\/\/whuwangyong.github.io\/images\/avatar150x150.jpg",
+          "width":  150 ,
+          "height":  151 
+        }},"author": {
+        "@type": "Person",
+        "name": "Wang Yong"
+      },"description": ""
+  }
+  </script></head>
+  <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
-        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
-    <div class="header-wrapper">
-        <div class="header-title">
-            <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span>武大路飞的博客</a>
-        </div>
-        <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 归档 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/links/" title="友情链接"> 友链 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/whuwangyong" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i> GitHub </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
-                            <i class="fas fa-times-circle fa-fw"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-desktop">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
-                        </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
-                    <i class="fas fa-adjust fa-fw"></i>
-                </a>
-            </div>
-        </div>
-    </div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a></div>
+    <nav>
+      <ul class="menu"><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              >归档</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              >标签</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              >分类</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/links/"
+                title="友情链接"
+                
+              >友链</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              >关于</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="https://github.com/whuwangyong"
+                title="GitHub"
+                rel="noopener noreffer" target="_blank"
+              ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fas fa-search fa-fw"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fas fa-times-circle fa-fw"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fas fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fas fa-adjust fa-fw"></i>
+        </li>
+      </ul>
+   </nav>
+  </div>
 </header><header class="mobile" id="header-mobile">
-    <div class="header-container">
-        <div class="header-wrapper">
-            <div class="header-title">
-                <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span>武大路飞的博客</a>
-            </div>
-            <div class="menu-toggle" id="menu-toggle-mobile">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-        <div class="menu" id="menu-mobile"><div class="search-wrapper">
-                    <div class="search mobile" id="search-mobile">
-                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
-                            <i class="fas fa-times-circle fa-fw"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-mobile">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
-                        </span>
-                    </div>
-                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-                        取消
-                    </a>
-                </div><a class="menu-item" href="/posts/" title="">归档</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/links/" title="友情链接">友链</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/whuwangyong" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>GitHub</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
-                <i class="fas fa-adjust fa-fw"></i>
-            </a></div>
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
     </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fas fa-search fa-fw"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fas fa-times-circle fa-fw"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fas fa-spinner fa-fw fa-spin"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              >归档</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              >标签</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              >分类</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/links/"
+                title="友情链接"
+                
+              >友链</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/about/"
+                
+                
+              >关于</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="https://github.com/whuwangyong"
+                title="GitHub"
+                rel="noopener noreffer" target="_blank"
+              ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fas fa-adjust fa-fw"></i>
+        </li></ul>
+    </nav>
+  </div>
 </header>
 <div class="search-dropdown desktop">
-    <div id="search-dropdown-desktop"></div>
+  <div id="search-dropdown-desktop"></div>
 </div>
 <div class="search-dropdown mobile">
-    <div id="search-dropdown-mobile"></div>
+  <div id="search-dropdown-mobile"></div>
 </div>
-<main class="main">
-                <div class="container"><div class="toc" id="toc-auto">
-            <h2 class="toc-title">目录</h2>
-            <div class="toc-content always-active" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">Windows和Linux的不同换行符导致脚本执行异常</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/whuwangyong" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Wang Yong</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-13">2022-03-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1279 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
-        </div><div class="details toc" id="toc-static"  kept="">
-                <div class="details-summary toc-title">
-                    <span>目录</span>
-                    <span><i class="details-icon fas fa-angle-right"></i></span>
-                </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+<main class="container" page-style="custom"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录</h2>
+      <div class="toc-content always-active" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    
+  </aside>
+
+  <article class="page single"><h1 class="single-title animate__animated animate__flipInX">Windows和Linux的不同换行符导致脚本执行异常</h1><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a
+  href="https://github.com/whuwangyong"
+  
+    title="Author"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer author"
+  
+  
+  
+    class="author"
+  
+  
+><i class="fas fa-user-circle fa-fw"></i>Wang Yong</a></span></div>
+      <div class="post-meta-line"><span title=2022-03-13&#32;00:00:00>
+            <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-13" >2022-03-13</time>
+          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1279 字&nbsp;
+        <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+    </div><div class="details toc" id="toc-static" kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fas fa-angle-right"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
     <li><a href="#问题描述">问题描述</a></li>
     <li><a href="#解决">解决</a></li>
@@ -131,7 +256,7 @@
     <li><a href="#reference">Reference</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="问题描述">问题描述</h2>
+      </div><div class="content" id="content"><h2 id="问题描述">问题描述</h2>
 <p>有一个配置文件 config：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -181,35 +306,49 @@
 </blockquote>
 <p>改为<code>LF</code>后，脚本运行正常。我用的IDEA，在右下角更改：</p>
 <p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313173320-m3he0qa.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313173320-m3he0qa.png, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313173320-m3he0qa.png 1.5x, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313173320-m3he0qa.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313173320-m3he0qa.png"
-        title="image.png" /></p>
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313173320-m3he0qa.png"
+    data-srcset="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313173320-m3he0qa.png, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313173320-m3he0qa.png 1.5x, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313173320-m3he0qa.png 2x"
+    data-sizes="auto"
+    alt="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313173320-m3he0qa.png"
+    title="image.png" /></p>
 <h2 id="vim状态栏的noeol-dos是什么意思">vim状态栏的[noeol] [dos]是什么意思？</h2>
 <p>当config的line separator问<code>CRLF</code>时，vim打开Windows分区上的文件时，状态栏显示<code>[noeol][dos]</code>：</p>
 <p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313172145-gr1vmgk.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313172145-gr1vmgk.png, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313172145-gr1vmgk.png 1.5x, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313172145-gr1vmgk.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313172145-gr1vmgk.png"
-        title="image.png" /></p>
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313172145-gr1vmgk.png"
+    data-srcset="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313172145-gr1vmgk.png, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313172145-gr1vmgk.png 1.5x, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313172145-gr1vmgk.png 2x"
+    data-sizes="auto"
+    alt="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313172145-gr1vmgk.png"
+    title="image.png" /></p>
 <p>当config的line separator问<code>LF</code>时，vim打开Windows分区上的文件时，状态栏显示<code>[noeol]</code>：</p>
 <p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313172052-wah96f1.png"
-        data-srcset="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313172052-wah96f1.png, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313172052-wah96f1.png 1.5x, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313172052-wah96f1.png 2x"
-        data-sizes="auto"
-        alt="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313172052-wah96f1.png"
-        title="image.png" /></p>
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313172052-wah96f1.png"
+    data-srcset="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313172052-wah96f1.png, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313172052-wah96f1.png 1.5x, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313172052-wah96f1.png 2x"
+    data-sizes="auto"
+    alt="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313172052-wah96f1.png"
+    title="image.png" /></p>
 <p>noeol：no end of line。</p>
 <p>如果是Linux分区上的文件，且line separator为<code>LF</code>时，状态栏不会额外显示。</p>
-<p>以下内容来自：<a href="https://www.cnblogs.com/Trekshot/archive/2012/11/26/the-meaning-of-noeol-and-dos-flag-in-vim.html" target="_blank" rel="noopener noreffer">Vim 编辑器底端 [noeol], [dos] 的含义 - Trekshot - 博客园 (cnblogs.com)</a></p>
+<p>以下内容来自：<a
+  href="https://www.cnblogs.com/Trekshot/archive/2012/11/26/the-meaning-of-noeol-and-dos-flag-in-vim.html"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Vim 编辑器底端 [noeol], [dos] 的含义 - Trekshot - 博客园 (cnblogs.com)</a></p>
 <p>有时使用 Vim 打开一个文件会在窗口底部发现 [noeol], [dos] 提示信息：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -301,56 +440,125 @@ ts@TS:~/www/document$
 <li>在 Debian 下使用 touch template.txt 创建一个模板，在 Windows 下创建的任 何文本文件都以此模板为基础；</li>
 </ol>
 <h2 id="reference">Reference</h2>
-<p><a href="https://www.cnblogs.com/Trekshot/archive/2012/11/26/the-meaning-of-noeol-and-dos-flag-in-vim.html" target="_blank" rel="noopener noreffer">Vim 编辑器底端 [noeol], [dos] 的含义 - Trekshot - 博客园 (cnblogs.com)</a></p>
+<p><a
+  href="https://www.cnblogs.com/Trekshot/archive/2012/11/26/the-meaning-of-noeol-and-dos-flag-in-vim.html"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Vim 编辑器底端 [noeol], [dos] 的含义 - Trekshot - 博客园 (cnblogs.com)</a></p>
 <hr>
 <p>本文同步发布于：</p>
 <ul>
-<li><a href="https://whuwangyong.github.io/2022-03-13-linebreak-in-windows-and-linux/" target="_blank" rel="noopener noreffer">https://whuwangyong.github.io/2022-03-13-linebreak-in-windows-and-linux/</a></li>
-<li><a href="https://whuwangyong.netlify.app/2022-03-13-linebreak-in-windows-and-linux/" target="_blank" rel="noopener noreffer">https://whuwangyong.netlify.app/2022-03-13-linebreak-in-windows-and-linux/</a></li>
-<li><a href="https://whuwangyong.vercel.app/2022-03-13-linebreak-in-windows-and-linux/" target="_blank" rel="noopener noreffer">https://whuwangyong.vercel.app/2022-03-13-linebreak-in-windows-and-linux/</a></li>
+<li><a
+  href="https://whuwangyong.github.io/2022-03-13-linebreak-in-windows-and-linux/"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>https://whuwangyong.github.io/2022-03-13-linebreak-in-windows-and-linux/</a></li>
+<li><a
+  href="https://whuwangyong.netlify.app/2022-03-13-linebreak-in-windows-and-linux/"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>https://whuwangyong.netlify.app/2022-03-13-linebreak-in-windows-and-linux/</a></li>
+<li><a
+  href="https://whuwangyong.vercel.app/2022-03-13-linebreak-in-windows-and-linux/"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>https://whuwangyong.vercel.app/2022-03-13-linebreak-in-windows-and-linux/</a></li>
 </ul>
 </div><div class="post-footer" id="post-footer">
-    <div class="post-info">
-        <div class="post-info-line">
-            <div class="post-info-mod">
-                <span>更新于 2022-04-07&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/893f9c44025b02e9536bfec272c32a57febdb9b0" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) 893f9c44025b02e9536bfec272c32a57febdb9b0: 修复add_links的换行问题">
-                                    <i class="fas fa-hashtag fa-fw"></i>893f9c4</a></span>
-            </div>
-            <div class="post-info-license"></div>
-        </div>
-        <div class="post-info-line">
-            <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/2022-03-13-linebreak-in-windows-and-linux/index.md" target="_blank">阅读原始文档</a>
-                        </span></div>
-            <div class="post-info-share">
-                <span></span>
-            </div>
-        </div>
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title=2022-04-07&#32;02:38:18>更新于 2022-04-07&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/893f9c44025b02e9536bfec272c32a57febdb9b0" rel="external nofollow noopener noreffer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) 893f9c44025b02e9536bfec272c32a57febdb9b0: 修复add_links的换行问题">
+                  <i class="fas fa-hashtag fa-fw"></i>893f9c4</a></span>
+      </div>
+      <div class="post-info-license"></div>
     </div>
-
-    <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E6%8D%A2%E8%A1%8C%E7%AC%A6/">换行符</a></section>
-        <section>
-            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
-        </section>
+    <div class="post-info-line">
+      <div class="post-info-md"><span>
+              <a class="link-to-markdown" href="/2022-03-13-linebreak-in-windows-and-linux/index.md" target="_blank">阅读原始文档</a>
+            </span></div>
+      <div class="post-info-share">
+        <span></span>
+      </div>
     </div>
+  </div>
 
-    <div class="post-nav"><a href="/2022-03-09-shadowsocks/" class="prev" rel="prev" title="shadowsocks 服务端安装指南"><i class="fas fa-angle-left fa-fw"></i>shadowsocks 服务端安装指南</a>
-            <a href="/2022-03-29-jekyll/" class="next" rel="next" title="使用Jekyll &#43; Github Pages搭建静态网站">使用Jekyll &#43; Github Pages搭建静态网站<i class="fas fa-angle-right fa-fw"></i></a></div>
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E6%8D%A2%E8%A1%8C%E7%AC%A6/">换行符</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/2022-03-09-shadowsocks/" class="prev" rel="prev" title="shadowsocks 服务端安装指南"><i class="fas fa-angle-left fa-fw"></i>shadowsocks 服务端安装指南</a>
+      <a href="/2022-03-29-jekyll/" class="next" rel="next" title="使用Jekyll &#43; Github Pages搭建静态网站">使用Jekyll &#43; Github Pages搭建静态网站<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="utterances"></div><noscript>
-                Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
-            </noscript></div></article></div>
-            </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/whuwangyong" target="_blank">Wang Yong</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
-        </div>
-    </footer></div>
+        Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/" rel="external nofollow noopener noreffer">Utterances</a>.
+      </noscript></div></article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt 0.2.14"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">
+              <a
+  href="https://github.com/whuwangyong"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Wang Yong</a></span><span class="footer-divider"></span><span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div></div>
+  </footer></div>
 
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
-                <i class="fas fa-arrow-up fa-fw"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
-                <i class="fas fa-comment fa-fw"></i>
-            </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":30},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"comments","lightTheme":"github-light","repo":"whuwangyong/whuwangyong.github.io"}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"YMLBEBNFHL","algoliaIndex":"new-index-1649076215","algoliaSearchKey":"9028b251fe4eecb5ad4d47af0715a4f0","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+    <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+        <i class="fas fa-arrow-up fa-fw"></i>
+      </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+        <i class="fas fa-comment fa-fw"></i>
+      </a>
+    </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.11.0/dist/algoliasearch-lite.umd.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js" async defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/dist/js/lightgallery.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.3.0/dist/lg-zoom.min.js" defer></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":30},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"comments","lightTheme":"github-light","repo":"whuwangyong/whuwangyong.github.io"}},"enablePWA":null,"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"YMLBEBNFHL","algoliaIndex":"new-index-1649076215","algoliaSearchKey":"9028b251fe4eecb5ad4d47af0715a4f0","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js" defer></script></body>
 </html>
