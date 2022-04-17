@@ -2,6 +2,7 @@
 title: "使用Jekyll + Github Pages搭建静态网站"
 date: 2022-03-29
 tags: ["jekyll", "kramdown", "github pages"]
+categories: ["静态网站博客"]
 ---
 今天折腾 hugo + stack 主题翻车了，然后就想着试试用Jekyll来搭建个人博客。
 

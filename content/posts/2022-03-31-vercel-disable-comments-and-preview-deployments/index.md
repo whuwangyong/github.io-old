@@ -2,6 +2,7 @@
 title: "Vercel关闭评论 禁止Preview Deployments"
 date: 2022-03-31
 tags: ["vercel"]
+categories: ["静态网站博客"]
 ---
 
 关键字：disable Vercel bot; disable Preview Deployments
