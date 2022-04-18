@@ -4,10 +4,10 @@
     <link>https://whuwangyong.github.io/tags/v2ray/</link>
     <description>v2ray - 标签 - 武大路飞</description>
     <generator>Hugo -- gohugo.io</generator><managingEditor>whuwangyong@gmail.com (Wang Yong)</managingEditor>
-      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Tue, 08 Mar 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://whuwangyong.github.io/tags/v2ray/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Tue, 08 Mar 2022 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://whuwangyong.github.io/tags/v2ray/" rel="self" type="application/rss+xml" /><item>
   <title>V2Ray 搭建指南</title>
   <link>https://whuwangyong.github.io/2022-03-08-v2ray/</link>
-  <pubDate>Tue, 08 Mar 2022 00:00:00 &#43;0000</pubDate>
+  <pubDate>Tue, 08 Mar 2022 00:00:00 &#43;0800</pubDate>
   <author>Wang Yong</author>
   <guid>https://whuwangyong.github.io/2022-03-08-v2ray/</guid>
   <description><![CDATA[所有的教程都不如官网。 官网 官网：V2Fly.org github：v2fly/v2ray-core: A platform for building proxies to bypass network restrictions. (github.com) 以下是旧的官网和github： 官网：Project V · Project V 官方网站 (v2ray.com) github：v2ray/v2ray-core: A platform for]]></description>

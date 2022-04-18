@@ -4,12 +4,19 @@
     <link>https://whuwangyong.github.io/tags/github-pages/</link>
     <description>github pages - 标签 - 武大路飞</description>
     <generator>Hugo -- gohugo.io</generator><managingEditor>whuwangyong@gmail.com (Wang Yong)</managingEditor>
-      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Tue, 29 Mar 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://whuwangyong.github.io/tags/github-pages/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Tue, 19 Apr 2022 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://whuwangyong.github.io/tags/github-pages/" rel="self" type="application/rss+xml" /><item>
+  <title>使用 Hugo &#43; Github Pages 创建静态网站博客</title>
+  <link>https://whuwangyong.github.io/2022-04-19-hugo/</link>
+  <pubDate>Tue, 19 Apr 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-04-19-hugo/</guid>
+  <description><![CDATA[最好的参考资料仍然是官方。本文仅作一个基本描述 安装Hugo 在此处下载安装包。有两个版本：（1）hugo；（2）hugo_extended。怎么选？很多功能，包括一些主题，都需要hugo_extended的支持，因此，建议安装hugo_ext]]></description>
+</item><item>
   <title>使用Jekyll &#43; Github Pages搭建静态网站</title>
   <link>https://whuwangyong.github.io/2022-03-29-jekyll/</link>
-  <pubDate>Tue, 29 Mar 2022 00:00:00 &#43;0000</pubDate>
+  <pubDate>Tue, 29 Mar 2022 00:00:00 &#43;0800</pubDate>
   <author>Wang Yong</author>
   <guid>https://whuwangyong.github.io/2022-03-29-jekyll/</guid>
-  <description><![CDATA[今天折腾 hugo + stack 主题翻车了，然后就想着试试用Jekyll来搭建个人博客。 Jekyll 是 Github Pages 官方支持的静态网站生成工具，优点是在可以直接github上编辑md，提交后，github会承担生成html的工作。而使用hugo等工具，需要先在本地将md文件渲染]]></description>
+  <description><![CDATA[Jekyll 是 Github Pages 官方支持的静态网站生成工具，优点是在可以直接github上使用vscode online编辑md，提交后，github会承担生成html的工作。而使用hugo等工具，需要先在本地将md文件渲染成html，然后上传。 提示 hugo的优点是]]></description>
 </item></channel>
 </rss>

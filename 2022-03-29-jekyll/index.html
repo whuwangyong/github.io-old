@@ -6,23 +6,23 @@
     <meta name="robots" content="noodp" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <title>使用Jekyll &#43; Github Pages搭建静态网站 - 武大路飞</title><meta name="author" content="Wang Yong: https://github.com/whuwangyong">
-<meta name="description" content="今天折腾 hugo &#43; stack 主题翻车了，然后就想着试试用Jekyll来搭建个人博客。 Jekyll 是 Github Pages 官方支持的静态网站生成工具，优点是在可以直接github上编辑md，提交后，github会承担生成html的工作。而使用hugo等工具，需要先在本地将md文件渲染" />
-<meta name="keywords" content="jekyll,kramdown,github pages" /><meta itemprop="name" content="使用Jekyll &#43; Github Pages搭建静态网站">
-<meta itemprop="description" content="今天折腾 hugo &#43; stack 主题翻车了，然后就想着试试用Jekyll来搭建个人博客。 Jekyll 是 Github Pages 官方支持的静态网站生成工具，优点是在可以直接github上编辑md，提交后，github会承担生成html的工作。而使用hugo等工具，需要先在本地将md文件渲染"><meta itemprop="datePublished" content="2022-03-29T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-04-07T02:38:18+08:00" />
-<meta itemprop="wordCount" content="4541"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
-<meta itemprop="keywords" content="jekyll,kramdown,github pages," /><meta property="og:title" content="使用Jekyll &#43; Github Pages搭建静态网站" />
-<meta property="og:description" content="今天折腾 hugo &#43; stack 主题翻车了，然后就想着试试用Jekyll来搭建个人博客。 Jekyll 是 Github Pages 官方支持的静态网站生成工具，优点是在可以直接github上编辑md，提交后，github会承担生成html的工作。而使用hugo等工具，需要先在本地将md文件渲染" />
+<meta name="description" content="Jekyll 是 Github Pages 官方支持的静态网站生成工具，优点是在可以直接github上使用vscode online编辑md，提交后，github会承担生成html的工作。而使用hugo等工具，需要先在本地将md文件渲染成html，然后上传。 提示 hugo的优点是" />
+<meta name="keywords" content="jekyll,kramdown,github pages,vercel,netlify" /><meta itemprop="name" content="使用Jekyll &#43; Github Pages搭建静态网站">
+<meta itemprop="description" content="Jekyll 是 Github Pages 官方支持的静态网站生成工具，优点是在可以直接github上使用vscode online编辑md，提交后，github会承担生成html的工作。而使用hugo等工具，需要先在本地将md文件渲染成html，然后上传。 提示 hugo的优点是"><meta itemprop="datePublished" content="2022-03-29T00:00:00+08:00" />
+<meta itemprop="dateModified" content="2022-04-19T01:29:45+08:00" />
+<meta itemprop="wordCount" content="5246"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
+<meta itemprop="keywords" content="jekyll,kramdown,github pages,vercel,netlify," /><meta property="og:title" content="使用Jekyll &#43; Github Pages搭建静态网站" />
+<meta property="og:description" content="Jekyll 是 Github Pages 官方支持的静态网站生成工具，优点是在可以直接github上使用vscode online编辑md，提交后，github会承担生成html的工作。而使用hugo等工具，需要先在本地将md文件渲染成html，然后上传。 提示 hugo的优点是" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://whuwangyong.github.io/2022-03-29-jekyll/" /><meta property="og:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-03-29T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-04-07T02:38:18+08:00" />
+<meta property="article:published_time" content="2022-03-29T00:00:00+08:00" />
+<meta property="article:modified_time" content="2022-04-19T01:29:45+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
 
 <meta name="twitter:title" content="使用Jekyll &#43; Github Pages搭建静态网站"/>
-<meta name="twitter:description" content="今天折腾 hugo &#43; stack 主题翻车了，然后就想着试试用Jekyll来搭建个人博客。 Jekyll 是 Github Pages 官方支持的静态网站生成工具，优点是在可以直接github上编辑md，提交后，github会承担生成html的工作。而使用hugo等工具，需要先在本地将md文件渲染"/>
+<meta name="twitter:description" content="Jekyll 是 Github Pages 官方支持的静态网站生成工具，优点是在可以直接github上使用vscode online编辑md，提交后，github会承担生成html的工作。而使用hugo等工具，需要先在本地将md文件渲染成html，然后上传。 提示 hugo的优点是"/>
 <meta name="application-name" content="武大路飞">
 <meta name="apple-mobile-web-app-title" content="武大路飞"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -35,8 +35,8 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/whuwangyong.github.io\/2022-03-29-jekyll\/"
-    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "jekyll, kramdown, github pages","wordcount":  4541 ,
-    "url": "https:\/\/whuwangyong.github.io\/2022-03-29-jekyll\/","datePublished": "2022-03-29T00:00:00+00:00","dateModified": "2022-04-07T02:38:18+08:00","publisher": {
+    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "jekyll, kramdown, github pages, vercel, netlify","wordcount":  5246 ,
+    "url": "https:\/\/whuwangyong.github.io\/2022-03-29-jekyll\/","datePublished": "2022-03-29T00:00:00+08:00","dateModified": "2022-04-19T01:29:45+08:00","publisher": {
       "@type": "Organization",
       "name": "Wang Yong","logo": {
           "@type": "ImageObject",
@@ -233,11 +233,11 @@
     class="author"
   
   
-><i class="fas fa-user-circle fa-fw"></i>Wang Yong</a></span></div>
+><i class="fas fa-user-circle fa-fw"></i>Wang Yong</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E5%8D%9A%E5%AE%A2/"><i class="far fa-folder fa-fw"></i>静态网站博客</a></span></div>
       <div class="post-meta-line"><span title=2022-03-29&#32;00:00:00>
             <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-29" >2022-03-29</time>
-          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4541 字&nbsp;
-        <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 10 分钟&nbsp;</div>
+          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5246 字&nbsp;
+        <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 11 分钟&nbsp;</div>
     </div><div class="details toc" id="toc-static" kept="false">
         <div class="details-summary toc-title">
           <span>目录</span>
@@ -245,6 +245,7 @@
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
+    <li><a href="#主题选择">主题选择</a></li>
     <li><a href="#安装ruby和jekyll">安装Ruby和Jekyll</a></li>
     <li><a href="#chirpy主题的使用">Chirpy主题的使用</a>
       <ul>
@@ -282,23 +283,27 @@
       <ul>
         <li><a href="#为什么使用jekyll可以直接提交md">为什么使用Jekyll可以直接提交md</a></li>
         <li><a href="#自定义workflow">自定义workflow</a></li>
+        <li><a href="#提交到谷歌百度等搜索引擎">提交到谷歌/百度等搜索引擎</a></li>
         <li><a href="#netlifyvercel是什么">netlify、vercel是什么</a></li>
         <li><a href="#jekyll的markdown处理器">Jekyll的Markdown处理器</a></li>
         <li><a href="#更改jekyll的markdown处理器">更改Jekyll的markdown处理器</a></li>
         <li><a href="#搜索功能">搜索功能</a></li>
-        <li><a href="#提交到谷歌百度等搜索引擎">提交到谷歌/百度等搜索引擎</a></li>
         <li><a href="#显示阅读量">显示阅读量</a></li>
       </ul>
     </li>
     <li><a href="#reference">Reference</a></li>
   </ul>
 </nav></div>
-      </div><div class="content" id="content"><p>今天折腾 hugo + stack 主题翻车了，然后就想着试试用Jekyll来搭建个人博客。</p>
-<p>Jekyll 是 Github Pages 官方支持的静态网站生成工具，优点是在可以直接github上编辑md，提交后，github会承担生成html的工作。而使用hugo等工具，需要先在本地将md文件渲染成html，然后上传。</p>
+      </div><div class="content" id="content"><p>Jekyll 是 Github Pages 官方支持的静态网站生成工具，优点是在可以直接github上使用vscode online编辑md，提交后，github会承担生成html的工作。而使用hugo等工具，需要先在本地将md文件渲染成html，然后上传。</p>
 <blockquote>
-<p>hugo的优点是快！</p>
+<p><strong>提示</strong></p>
+<ol>
+<li>hugo的优点是快！</li>
+<li>虽然github pages只支持渲染Jekyll，但是netlify、vercel等平台支持渲染hugo、jekyll等更多框架。</li>
+</ol>
 </blockquote>
-<p>看了几个jekyll主题，发现 chirpy 最得我心。<a
+<h2 id="主题选择">主题选择</h2>
+<p>看了几个jekyll主题，发现 <a
   href="https://github.com/cotes2020/jekyll-theme-chirpy"
   
   
@@ -312,10 +317,25 @@
   
   
   
->cotes2020/jekyll-theme-chirpy: A minimal, responsive, and powerful Jekyll theme for presenting professional writing (github.com)</a></p>
+>Chirpy</a> 最得我心。在<a
+  href="https://github.com/topics/jekyll-template"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>jekyll-template · GitHub Topics</a>下，Chirpy主题排名第二。</p>
 <p>本文记录Jekyll和chirpy的搭配使用。</p>
 <h2 id="安装ruby和jekyll">安装Ruby和Jekyll</h2>
-<p>jekyll也很麻烦，要安装的东西一大堆：</p>
+<p>前面说了github可以编译Jekyll，为什么还要在本地装一套环境呢。主要是为了方便调试，尤其是刚开始配置主题的时候。</p>
+<p>比起Hugo来说，jekyll的安装要麻烦一些，需要安装的东西一大堆：</p>
 <blockquote>
 <p>Follow the instructions in the <a
   href="https://jekyllrb.com/docs/installation/"
@@ -587,9 +607,15 @@ bundle
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext">bundle exec jekyll s
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">bundle <span class="nb">exec</span> jekyll s <span class="c1"># serve, server, s      Serve your site locally</span>
+
+<span class="c1"># 编译命令是</span>
+bundle <span class="nb">exec</span> jekyll b <span class="c1"># build, b              Build your site</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>After a while, the local service will be published at  <em><a
@@ -801,12 +827,100 @@ order: 5
 </blockquote>
 <h3 id="自定义workflow">自定义workflow</h3>
 <ul>
-<li><i class="far fa-check-square fa-fw"></i> 以修改<code>tools/deploy.sh</code>，在里面加入自己的操作。如：将sitemap提交到百度资源平台。</li>
+<li><i class="far fa-check-square fa-fw"></i> 修改<code>tools/deploy.sh</code>，在里面加入自己的操作。如：将sitemap提交到百度资源平台。</li>
 <li><i class="far fa-square fa-fw"></i> 在tools目录下新建脚本，然后在.github/workflows/pages-deploy.yml里面调用</li>
 <li><i class="far fa-square fa-fw"></i> 在.github/workflows/下创建新的workflow</li>
 </ul>
 <p>第一个亲测可行，后两个还没研究。</p>
-<h3 id="netlifyvercel是什么">netlify、vercel是什么</h3>
+<h3 id="提交到谷歌百度等搜索引擎">提交到谷歌/百度等搜索引擎</h3>
+<p>修改<code>tools/deploy.sh</code>，在里面新增一个函数：在deploy之后，根据生成的 sitemap.xml 创建一个包含所有url的sitemap.txt文件。将该文件提交到<a
+  href="https://ziyuan.baidu.com/site/index"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>百度资源平台</a>。但是GitHub封了百度的爬虫，可以考虑在vercel上也部署一份，让百度去爬vercel。另一种方法是使用反向代理，让百度爬自己的主机，自己的主机去连接github。<br>
+至于google和bing，访问 <a
+  href="https://search.google.com/search-console/about"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Google Search Console</a> 和 <a
+  href="https://www.bing.com/webmasters/home"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Bing Webmaster Tools</a> 进行设置，添加博客地址之后就等着爬虫光临。<br>
+搜狗也可以试一试，GitHub没封搜狗。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># file_name: tools/deploy.sh</span>
+<span class="c1"># 新增 submit_sitemap 函数，在 deploy 之后调用</span>
+submit_sitemap<span class="o">()</span> <span class="o">{</span>
+  <span class="nb">echo</span> <span class="s2">&#34;------ &gt;&gt;&gt; submit_sitemap ---------&#34;</span>
+  grep <span class="s2">&#34;&lt;loc&gt;&#34;</span> sitemap.xml <span class="p">|</span> grep -v <span class="s1">&#39;html&#39;</span> <span class="p">|</span> awk -F <span class="s1">&#39;[&lt; &gt;]&#39;</span> <span class="s1">&#39;{print $3}&#39;</span> &gt; sitemap.txt
+  curl -H <span class="s1">&#39;Content-Type:text/plain&#39;</span> --data-binary @sitemap.txt <span class="s2">&#34;http://data.zz.baidu.com/urls?site=https://whuwangyong.github.io&amp;token=5os4wCK5ct7kBZRN&#34;</span>
+  curl -H <span class="s1">&#39;Content-Type:text/plain&#39;</span> --data-binary @sitemap.txt <span class="s2">&#34;http://data.zz.baidu.com/urls?site=https://whuwangyong.vercel.app&amp;token=5os4wCK5ct7kBZRN&#34;</span>
+  rm -f sitemap.txt
+  <span class="nb">echo</span> <span class="s2">&#34;------ submit_sitemap &lt;&lt;&lt; ---------&#34;</span>
+<span class="o">}</span>
+
+main<span class="o">()</span> <span class="o">{</span>
+  init
+  build
+  <span class="c1"># ...</span>
+  deploy
+  submit_sitemap
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="netlifyvercel是什么">netlify、vercel是什么</h3>
 <p>除了github pages，还有<a
   href="https://www.netlify.com/"
   
@@ -1001,6 +1115,48 @@ order: 5
 >kramdown - syntax</a>页面，搜索“Automatic and Manual Escaping”可以查看kramdown所有（可能）需要转义的字符。</li>
 </ol>
 <p>所以，如果要继续用kramdown，要么禁用table语法，要么把所有用到<code>|</code>的地方全部转义。这两个我都不会选：不用table不可能；为了适应kramdown修改标准的md语法更不可能。</p>
+<p>除了<code>|</code>字符，<code>&lt;&gt;</code>、liquid cldoe语法（<code>{{}}</code>）等也需要转义：</p>
+<p><figure><a class="lightgallery" href="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402175945-5ebn1ji.png" title="image.png" data-thumbnail="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402175945-5ebn1ji.png" data-sub-html="<h2>jekyll kramdown渲染的html</h2><p>image.png</p>">
+    <img
+      class="lazyload"
+      src="/svg/loading.min.svg"
+      data-src="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402175945-5ebn1ji.png"
+      data-srcset="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402175945-5ebn1ji.png, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402175945-5ebn1ji.png 1.5x, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402175945-5ebn1ji.png 2x"
+      data-sizes="auto"
+      alt="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402175945-5ebn1ji.png" />
+  </a><figcaption class="image-caption">jekyll kramdown渲染的html</figcaption>
+  </figure></p>
+<p><figure><a class="lightgallery" href="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402180034-2o61ioe.png" title="image.png" data-thumbnail="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402180034-2o61ioe.png" data-sub-html="<h2>hugo渲染的html</h2><p>image.png</p>">
+    <img
+      class="lazyload"
+      src="/svg/loading.min.svg"
+      data-src="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402180034-2o61ioe.png"
+      data-srcset="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402180034-2o61ioe.png, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402180034-2o61ioe.png 1.5x, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402180034-2o61ioe.png 2x"
+      data-sizes="auto"
+      alt="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402180034-2o61ioe.png" />
+  </a><figcaption class="image-caption">hugo渲染的html</figcaption>
+  </figure></p>
+<p><figure><a class="lightgallery" href="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402180527-dq2mt3w.png" title="image.png" data-thumbnail="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402180527-dq2mt3w.png" data-sub-html="<h2>jekyll kramdown渲染的html</h2><p>image.png</p>">
+    <img
+      class="lazyload"
+      src="/svg/loading.min.svg"
+      data-src="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402180527-dq2mt3w.png"
+      data-srcset="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402180527-dq2mt3w.png, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402180527-dq2mt3w.png 1.5x, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402180527-dq2mt3w.png 2x"
+      data-sizes="auto"
+      alt="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402180527-dq2mt3w.png" />
+  </a><figcaption class="image-caption">jekyll kramdown渲染的html</figcaption>
+  </figure></p>
+<p><figure><a class="lightgallery" href="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402180508-hdniva3.png" title="image.png" data-thumbnail="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402180508-hdniva3.png" data-sub-html="<h2>hugo渲染的html</h2><p>image.png</p>">
+    <img
+      class="lazyload"
+      src="/svg/loading.min.svg"
+      data-src="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402180508-hdniva3.png"
+      data-srcset="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402180508-hdniva3.png, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402180508-hdniva3.png 1.5x, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402180508-hdniva3.png 2x"
+      data-sizes="auto"
+      alt="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402180508-hdniva3.png" />
+  </a><figcaption class="image-caption">hugo渲染的html</figcaption>
+  </figure></p>
+<p>总之要注意的地方挺多，不能毫无顾忌地写markdown。</p>
 <h3 id="更改jekyll的markdown处理器">更改Jekyll的markdown处理器</h3>
 <p>鉴于kramdown的上述问题，我尝试给Jekyll换一个Markdown处理器。根据文档<a
   href="https://jekyllrb.com/docs/configuration/markdown/#commonmark"
@@ -1104,8 +1260,22 @@ order: 5
   
   
 >Simple-Jekyll-Search</a>实现的搜索功能。效果不错，速度飞快。</p>
-<h3 id="提交到谷歌百度等搜索引擎">提交到谷歌/百度等搜索引擎</h3>
 <h3 id="显示阅读量">显示阅读量</h3>
+<p>使用Google Page Views： <a
+  href="https://chirpy.cotes.page/posts/enable-google-pv/"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Enable Google Page Views | Chirpy (cotes.page)</a></p>
 <h2 id="reference">Reference</h2>
 <ol>
 <li><a
@@ -1192,8 +1362,8 @@ order: 5
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title=2022-04-07&#32;02:38:18>更新于 2022-04-07&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/893f9c44025b02e9536bfec272c32a57febdb9b0" rel="external nofollow noopener noreffer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) 893f9c44025b02e9536bfec272c32a57febdb9b0: 修复add_links的换行问题">
-                  <i class="fas fa-hashtag fa-fw"></i>893f9c4</a></span>
+        <span title=2022-04-19&#32;01:29:45>更新于 2022-04-19&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/56e521b1118549a9519936764ad88484dab5e4f4" rel="external nofollow noopener noreffer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) 56e521b1118549a9519936764ad88484dab5e4f4: 发布：指定时区；更新jekyll；新建hugo">
+                  <i class="fas fa-hashtag fa-fw"></i>56e521b</a></span>
       </div>
       <div class="post-info-license"></div>
     </div>
@@ -1208,7 +1378,7 @@ order: 5
   </div>
 
   <div class="post-info-more">
-    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/jekyll/">jekyll</a>,&nbsp;<a href="/tags/kramdown/">kramdown</a>,&nbsp;<a href="/tags/github-pages/">github pages</a></section>
+    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/jekyll/">jekyll</a>,&nbsp;<a href="/tags/kramdown/">kramdown</a>,&nbsp;<a href="/tags/github-pages/">github pages</a>,&nbsp;<a href="/tags/vercel/">vercel</a>,&nbsp;<a href="/tags/netlify/">netlify</a></section>
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
     </section>

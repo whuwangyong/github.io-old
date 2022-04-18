@@ -8,14 +8,14 @@
     <title>Github SubModule 指南 - 武大路飞</title><meta name="author" content="Wang Yong: https://github.com/whuwangyong">
 <meta name="description" content="最近学习使用 Hugo 构建静态网站。安装主题时，接触到git submodule这个命令，踩了些坑，总结一下。 子模块与父模块如何同步更新 子模块是一个单独的项目，commit push等操作需要在子模块自己的repo目录下操作。父项目的操作与子模块无关。" />
 <meta name="keywords" content="git submodule" /><meta itemprop="name" content="Github SubModule 指南">
-<meta itemprop="description" content="最近学习使用 Hugo 构建静态网站。安装主题时，接触到git submodule这个命令，踩了些坑，总结一下。 子模块与父模块如何同步更新 子模块是一个单独的项目，commit push等操作需要在子模块自己的repo目录下操作。父项目的操作与子模块无关。"><meta itemprop="datePublished" content="2022-03-29T00:00:00+00:00" />
+<meta itemprop="description" content="最近学习使用 Hugo 构建静态网站。安装主题时，接触到git submodule这个命令，踩了些坑，总结一下。 子模块与父模块如何同步更新 子模块是一个单独的项目，commit push等操作需要在子模块自己的repo目录下操作。父项目的操作与子模块无关。"><meta itemprop="datePublished" content="2022-03-29T00:00:00+08:00" />
 <meta itemprop="dateModified" content="2022-04-07T02:38:18+08:00" />
 <meta itemprop="wordCount" content="1305"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
 <meta itemprop="keywords" content="git submodule," /><meta property="og:title" content="Github SubModule 指南" />
 <meta property="og:description" content="最近学习使用 Hugo 构建静态网站。安装主题时，接触到git submodule这个命令，踩了些坑，总结一下。 子模块与父模块如何同步更新 子模块是一个单独的项目，commit push等操作需要在子模块自己的repo目录下操作。父项目的操作与子模块无关。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://whuwangyong.github.io/2022-03-29-github-submodule/" /><meta property="og:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-03-29T00:00:00+00:00" />
+<meta property="article:published_time" content="2022-03-29T00:00:00+08:00" />
 <meta property="article:modified_time" content="2022-04-07T02:38:18+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -26,7 +26,7 @@
 <meta name="application-name" content="武大路飞">
 <meta name="apple-mobile-web-app-title" content="武大路飞"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://whuwangyong.github.io/2022-03-29-github-submodule/" /><link rel="prev" href="https://whuwangyong.github.io/2022-03-08-notesapp_benchmark/" /><link rel="next" href="https://whuwangyong.github.io/20220-03-31-vercel-disable-comments-and-preview-deployments/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://whuwangyong.github.io/2022-03-29-github-submodule/" /><link rel="prev" href="https://whuwangyong.github.io/2022-03-08-notesapp_benchmark/" /><link rel="next" href="https://whuwangyong.github.io/2022-03-31-vercel-disable-comments-and-preview-deployments/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
@@ -36,7 +36,7 @@
       "@type": "WebPage",
       "@id": "https:\/\/whuwangyong.github.io\/2022-03-29-github-submodule\/"
     },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "git submodule","wordcount":  1305 ,
-    "url": "https:\/\/whuwangyong.github.io\/2022-03-29-github-submodule\/","datePublished": "2022-03-29T00:00:00+00:00","dateModified": "2022-04-07T02:38:18+08:00","publisher": {
+    "url": "https:\/\/whuwangyong.github.io\/2022-03-29-github-submodule\/","datePublished": "2022-03-29T00:00:00+08:00","dateModified": "2022-04-07T02:38:18+08:00","publisher": {
       "@type": "Organization",
       "name": "Wang Yong","logo": {
           "@type": "ImageObject",
@@ -523,7 +523,7 @@ git submodule status
   </div>
 
   <div class="post-nav"><a href="/2022-03-08-notesapp_benchmark/" class="prev" rel="prev" title="云笔记软件简评"><i class="fas fa-angle-left fa-fw"></i>云笔记软件简评</a>
-      <a href="/20220-03-31-vercel-disable-comments-and-preview-deployments/" class="next" rel="next" title="Vercel关闭评论 禁止Preview Deployments">Vercel关闭评论 禁止Preview Deployments<i class="fas fa-angle-right fa-fw"></i></a></div>
+      <a href="/2022-03-31-vercel-disable-comments-and-preview-deployments/" class="next" rel="next" title="Vercel关闭评论 禁止Preview Deployments">Vercel关闭评论 禁止Preview Deployments<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="utterances"></div><noscript>
         Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/" rel="external nofollow noopener noreffer">Utterances</a>.
