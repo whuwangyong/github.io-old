@@ -8,6 +8,12 @@ defaultContentLanguage = "zh-cn"
 hasCJKLanguage = true
 summaryLength = 120
 
+# buildfuture = true
+
+# 指定时区，解决慢8小时导致文章不显示的问题
+timezone = "Asia/Shanghai"
+
+
 # theme
 # 主题
 theme = "FixIt"
