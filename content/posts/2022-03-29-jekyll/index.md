@@ -1,23 +1,28 @@
 ---
 title: "使用Jekyll + Github Pages搭建静态网站"
 date: 2022-03-29
-tags: ["jekyll", "kramdown", "github pages"]
+tags: ["jekyll", "kramdown", "github pages", "vercel", "netlify"]
 categories: ["静态网站博客"]
 ---
-今天折腾 hugo + stack 主题翻车了，然后就想着试试用Jekyll来搭建个人博客。
+Jekyll 是 Github Pages 官方支持的静态网站生成工具，优点是在可以直接github上使用vscode online编辑md，提交后，github会承担生成html的工作。而使用hugo等工具，需要先在本地将md文件渲染成html，然后上传。
 
-Jekyll 是 Github Pages 官方支持的静态网站生成工具，优点是在可以直接github上编辑md，提交后，github会承担生成html的工作。而使用hugo等工具，需要先在本地将md文件渲染成html，然后上传。
-
-> hugo的优点是快！
+> **提示**
+>
+> 1. hugo的优点是快！
+> 2. 虽然github pages只支持渲染Jekyll，但是netlify、vercel等平台支持渲染hugo、jekyll等更多框架。
 >
 
-看了几个jekyll主题，发现 chirpy 最得我心。[cotes2020/jekyll-theme-chirpy: A minimal, responsive, and powerful Jekyll theme for presenting professional writing (github.com)](https://github.com/cotes2020/jekyll-theme-chirpy)
+## 主题选择
+
+看了几个jekyll主题，发现 [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) 最得我心。在[jekyll-template · GitHub Topics](https://github.com/topics/jekyll-template)下，Chirpy主题排名第二。
 
 本文记录Jekyll和chirpy的搭配使用。
 
 ## 安装Ruby和Jekyll
 
-jekyll也很麻烦，要安装的东西一大堆：
+前面说了github可以编译Jekyll，为什么还要在本地装一套环境呢。主要是为了方便调试，尤其是刚开始配置主题的时候。
+
+比起Hugo来说，jekyll的安装要麻烦一些，需要安装的东西一大堆：
 
 > Follow the instructions in the [Jekyll Docs](https://jekyllrb.com/docs/installation/) to complete the installation of `Ruby`, `RubyGems`, `Jekyll`, and `Bundler`.
 >
@@ -27,7 +32,7 @@ jekyll也很麻烦，要安装的东西一大堆：
 
     > 第一次接触ruby，完全懵逼，不知道装了些啥，接近1个GB。打印的日志是清新脱俗。
     >
-    > ![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220329160821-l8rh3to.png)
+    > ![image.png](assets/image-20220329160821-l8rh3to.png)
     >
 3. Open a new command prompt window from the start menu, so that changes to the `PATH` environment variable becomes effective. Install Jekyll and Bundler using `gem install jekyll bundler`
 4. Check if Jekyll has been installed properly: `jekyll -v`
@@ -148,8 +153,11 @@ pin: true
 
 You may want to preview the site contents before publishing, so just run it by:
 
-```plaintext
-bundle exec jekyll s
+```bash
+bundle exec jekyll s # serve, server, s      Serve your site locally
+
+# 编译命令是
+bundle exec jekyll b # build, b              Build your site
 ```
 
 After a while, the local service will be published at  *[http://127.0.0.1:4000](http://127.0.0.1:4000/)* .
@@ -178,7 +186,7 @@ As the version upgrades, the critical files (for details, see the [Startup Templ
 ### 发布时间与更新时间
 
 chirpy主题还有个优点：自带文章的更新时间。  
-​![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220331014721-gqhljgu.png)  
+​![image.png](assets/image-20220331014721-gqhljgu.png)  
 这就不需要倒腾额外的jekyll插件去实现这个功能了。如[gjtorikian/jekyll-last-modified-at: A Jekyll plugin to show the last_modified_at time of a post. (github.com)](https://github.com/gjtorikian/jekyll-last-modified-at)
 
 ### 添加tab到左侧栏
@@ -238,7 +246,7 @@ jobs:
 该文件定义了一个workflow：当push代码到main分支时，执行jobs里面定义的动作。最关键的是`Deploy`这一步，它执行了一个脚本：`tools/deploy.sh`。这个脚本做的事情，就是执行`bundle exec jekyll build -d _site`将md文件编译为html，生成静态网站，然后将`_site`下的内容push到`gh-pages`分支。到这里就很清楚了，是github帮助我们执行了build操作，将md转换成了html。
 
 在github上查看你的github.io项目，在Actions下面可以看到每次提交新文章时触发的workflows：  
-​![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220331004320-pqmd5w3.png)  
+​![image.png](assets/image-20220331004320-pqmd5w3.png)  
 第一个workflow就是上面提到的`.github/workflows/pages-deploy.yml`，第二个是github pages创建的，可以看到`bot`标志。点进workflow runs，可以看到执行的日志，根据日志能更加清楚的知道背后的流程。
 
 > 如果使用hugo建站，github后台并没有hugo的环境，所以不能帮助我们编译md。这就需要我们自己编译好html，然后push到github.io项目。push之后的流程是一样的：由github pages的bot将编译好的静态网站发布到`https://<username>.github.io`。
@@ -246,11 +254,38 @@ jobs:
 
 ### 自定义workflow
 
-* [X] 以修改`tools/deploy.sh`，在里面加入自己的操作。如：将sitemap提交到百度资源平台。
+* [X] 修改`tools/deploy.sh`，在里面加入自己的操作。如：将sitemap提交到百度资源平台。
 * [ ] 在tools目录下新建脚本，然后在.github/workflows/pages-deploy.yml里面调用
 * [ ] 在.github/workflows/下创建新的workflow
 
 第一个亲测可行，后两个还没研究。
+
+### 提交到谷歌/百度等搜索引擎
+
+修改`tools/deploy.sh`，在里面新增一个函数：在deploy之后，根据生成的 sitemap.xml 创建一个包含所有url的sitemap.txt文件。将该文件提交到[百度资源平台](https://ziyuan.baidu.com/site/index)。但是GitHub封了百度的爬虫，可以考虑在vercel上也部署一份，让百度去爬vercel。另一种方法是使用反向代理，让百度爬自己的主机，自己的主机去连接github。  
+至于google和bing，访问 [Google Search Console](https://search.google.com/search-console/about) 和 [Bing Webmaster Tools](https://www.bing.com/webmasters/home) 进行设置，添加博客地址之后就等着爬虫光临。  
+搜狗也可以试一试，GitHub没封搜狗。
+
+```bash
+# file_name: tools/deploy.sh
+# 新增 submit_sitemap 函数，在 deploy 之后调用
+submit_sitemap() {
+  echo "------ >>> submit_sitemap ---------"
+  grep "<loc>" sitemap.xml | grep -v 'html' | awk -F '[< >]' '{print $3}' > sitemap.txt
+  curl -H 'Content-Type:text/plain' --data-binary @sitemap.txt "http://data.zz.baidu.com/urls?site=https://whuwangyong.github.io&token=5os4wCK5ct7kBZRN"
+  curl -H 'Content-Type:text/plain' --data-binary @sitemap.txt "http://data.zz.baidu.com/urls?site=https://whuwangyong.vercel.app&token=5os4wCK5ct7kBZRN"
+  rm -f sitemap.txt
+  echo "------ submit_sitemap <<< ---------"
+}
+
+main() {
+  init
+  build
+  # ...
+  deploy
+  submit_sitemap
+}
+```
 
 ### netlify、vercel是什么
 
@@ -279,6 +314,18 @@ Jekyll默认的Markdown Processor是[kramdown](https://kramdown.gettalong.org/)�
 
 所以，如果要继续用kramdown，要么禁用table语法，要么把所有用到`|`的地方全部转义。这两个我都不会选：不用table不可能；为了适应kramdown修改标准的md语法更不可能。
 
+除了`|`字符，`<>`、liquid cldoe语法（`{{}}`）等也需要转义：
+
+![image.png](assets/image-20220402175945-5ebn1ji.png "jekyll kramdown渲染的html")
+
+![image.png](assets/image-20220402180034-2o61ioe.png "hugo渲染的html")
+
+![image.png](assets/image-20220402180527-dq2mt3w.png "jekyll kramdown渲染的html")
+
+![image.png](assets/image-20220402180508-hdniva3.png "hugo渲染的html")
+
+总之要注意的地方挺多，不能毫无顾忌地写markdown。
+
 ### 更改Jekyll的markdown处理器
 
 鉴于kramdown的上述问题，我尝试给Jekyll换一个Markdown处理器。根据文档[Markdown Options - Jekyll](https://jekyllrb.com/docs/configuration/markdown/#commonmark)，除了kramdown，Jekyll还支持[jekyll-commonmark](https://github.com/jekyll/jekyll-commonmark)和[jekyll-commonmark-ghpages](https://github.com/github/jekyll-commonmark-ghpages)。我分别试用了这两个处理器，问题更多。尤其是[jekyll-commonmark-ghpages](https://rubygems.org/gems/jekyll-commonmark-ghpages)，其兼容的jekyll版本是3.9.x，与我使用的Chirpy主题（需要jekyll 4.x）不兼容。jekyll-commonmark倒是解决了`|`的问题，但是代码高亮有问题，有些代码始终无法渲染，花了整整一天翻遍了github也没找到jekyll-commonmark到底应该怎么配置。不负责任的说一句，这就是个坑。
@@ -289,9 +336,9 @@ Jekyll也支持自定义处理器，我没尝试。另一个优质主题[jekyll-
 
 Chirpy主题的作者在[这里](https://github.com/cotes2020/jekyll-theme-chirpy/issues/458#issuecomment-986226611)提到，他使用的是[Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search)实现的搜索功能。效果不错，速度飞快。
 
-### 提交到谷歌/百度等搜索引擎
-
 ### 显示阅读量
+
+使用Google Page Views： [Enable Google Page Views | Chirpy (cotes.page)](https://chirpy.cotes.page/posts/enable-google-pv/)
 
 ## Reference
 
