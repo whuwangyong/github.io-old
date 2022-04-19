@@ -10,6 +10,6 @@
   <pubDate>Tue, 19 Apr 2022 00:00:00 &#43;0800</pubDate>
   <author>Wang Yong</author>
   <guid>https://whuwangyong.github.io/2022-04-19-hugo/</guid>
-  <description><![CDATA[最好的参考资料仍然是官方。本文仅作一个基本描述 安装Hugo 在此处下载安装包。有两个版本：（1）hugo；（2）hugo_extended。怎么选？很多功能，包括一些主题，都需要hugo_extended的支持，因此，建议安装hugo_ext]]></description>
+  <description><![CDATA[最好的参考资料仍然是官方。本文仅作一个基本描述 安装 Hugo 在此处下载安装包。有两个版本：（1）hugo；（2）hugo_extended。怎么选？很多功能，包括一些主题，都需要 hugo_extended 的支持，因此，建议安装 hugo_extended。下载之后，解压，将]]></description>
 </item></channel>
 </rss>
