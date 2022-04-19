@@ -372,8 +372,10 @@ date 字段我一般只写日期，不写时间。好，现在问题来了，hug
 4. 修改 `config.toml`，添加一行配置，指定时区：`timezone = "Asia/Shanghai"`
 
 推荐采用方法（4）。
-
----
+
+
+---
+
 本文同步发布于：
 - https://whuwangyong.github.io/2022-04-19-hugo/
 - https://whuwangyong.netlify.app/2022-04-19-hugo/
