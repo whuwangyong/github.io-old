@@ -11,11 +11,7 @@ import shutil
 import sys
 import time
 
-
-# 该全局变量用于保存从commit-message文件读取的提交信息。
-# 因为commit-message文件在hugo-loveit分支，切换到gh-pages分支后读不到了
-global COMMIT_MSG
-
+COMMIT_MSG_FILE="commit-message"
 BLOG_BR = "hugo-loveit"
 
 
@@ -120,7 +116,7 @@ def add_links():
 def commit_md():
     print("提交md等源文件")
     os.system("git add .")
-    os.system("git commit -m " + get_commit_msg())
+    os.system("git commit -F " + COMMIT_MSG_FILE)
     os.system("git push")
 
 
@@ -154,23 +150,8 @@ def commit_html():
     os.rmdir("public")
 
     os.system("git add .")
-    os.system("git commit -m " + "'" + COMMIT_MSG + "'")
+    os.system("git commit -F " + COMMIT_MSG_FILE)
     os.system("git push")
-
-
-# 从 commit-message 文件读取提交信息
-# （执行脚本前，需手动将commit信息写入commit-message文件）
-def get_commit_msg():
-    print("从 commit-message 文件读取提交信息")
-    with open("commit-message", "r+", encoding="utf-8") as f:
-        commit_msg = f.read()
-        if len(commit_msg) == 0:
-            raise Exception("commit message is empty")
-        else:
-            print("commit message: ", commit_msg)
-            global COMMIT_MSG
-            COMMIT_MSG = commit_msg
-            return commit_msg
 
 
 # 清除日志信息
