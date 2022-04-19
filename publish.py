@@ -11,8 +11,6 @@ import shutil
 import sys
 import time
 
-from numpy import add
-
 
 # 该全局变量用于保存从commit-message文件读取的提交信息。
 # 因为commit-message文件在hugo-loveit分支，切换到gh-pages分支后读不到了
@@ -156,7 +154,7 @@ def commit_html():
     os.rmdir("public")
 
     os.system("git add .")
-    os.system("git commit -m " + COMMIT_MSG)
+    os.system("git commit -m " + "'" + COMMIT_MSG + "'")
     os.system("git push")
 
 
