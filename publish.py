@@ -116,7 +116,7 @@ def add_links():
 def commit_md():
     print("提交md等源文件")
     os.system("git add .")
-    os.system("git commit -F " + COMMIT_MSG_FILE)
+    os.system("git commit -F commit-message")
     os.system("git push")
 
 
