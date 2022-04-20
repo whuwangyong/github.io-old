@@ -9,14 +9,14 @@
 <meta name="description" content="最近学习使用 Hugo 构建静态网站。安装主题时，接触到git submodule这个命令，踩了些坑，总结一下。 子模块与父模块如何同步更新 子模块是一个单独的项目，commit push等操作需要在子模块自己的repo目录下操作。父项目的操作与子模块无关。" />
 <meta name="keywords" content="git submodule" /><meta itemprop="name" content="Github SubModule 指南">
 <meta itemprop="description" content="最近学习使用 Hugo 构建静态网站。安装主题时，接触到git submodule这个命令，踩了些坑，总结一下。 子模块与父模块如何同步更新 子模块是一个单独的项目，commit push等操作需要在子模块自己的repo目录下操作。父项目的操作与子模块无关。"><meta itemprop="datePublished" content="2022-03-29T00:00:00+08:00" />
-<meta itemprop="dateModified" content="2022-04-07T02:38:18+08:00" />
-<meta itemprop="wordCount" content="1305"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
+<meta itemprop="dateModified" content="2022-03-29T00:00:00+08:00" />
+<meta itemprop="wordCount" content="1506"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
 <meta itemprop="keywords" content="git submodule," /><meta property="og:title" content="Github SubModule 指南" />
 <meta property="og:description" content="最近学习使用 Hugo 构建静态网站。安装主题时，接触到git submodule这个命令，踩了些坑，总结一下。 子模块与父模块如何同步更新 子模块是一个单独的项目，commit push等操作需要在子模块自己的repo目录下操作。父项目的操作与子模块无关。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://whuwangyong.github.io/2022-03-29-github-submodule/" /><meta property="og:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-03-29T00:00:00+08:00" />
-<meta property="article:modified_time" content="2022-04-07T02:38:18+08:00" />
+<meta property="article:modified_time" content="2022-03-29T00:00:00+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
@@ -35,8 +35,8 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/whuwangyong.github.io\/2022-03-29-github-submodule\/"
-    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "git submodule","wordcount":  1305 ,
-    "url": "https:\/\/whuwangyong.github.io\/2022-03-29-github-submodule\/","datePublished": "2022-03-29T00:00:00+08:00","dateModified": "2022-04-07T02:38:18+08:00","publisher": {
+    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "git submodule","wordcount":  1506 ,
+    "url": "https:\/\/whuwangyong.github.io\/2022-03-29-github-submodule\/","datePublished": "2022-03-29T00:00:00+08:00","dateModified": "2022-03-29T00:00:00+08:00","publisher": {
       "@type": "Organization",
       "name": "Wang Yong","logo": {
           "@type": "ImageObject",
@@ -235,8 +235,8 @@
 ><i class="fas fa-user-circle fa-fw"></i>Wang Yong</a></span></div>
       <div class="post-meta-line"><span title=2022-03-29&#32;00:00:00>
             <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-29" >2022-03-29</time>
-          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1305 字&nbsp;
-        <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1506 字&nbsp;
+        <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
     </div><div class="details toc" id="toc-static" kept="false">
         <div class="details-summary toc-title">
           <span>目录</span>
@@ -245,6 +245,8 @@
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
     <li><a href="#子模块与父模块如何同步更新">子模块与父模块如何同步更新</a></li>
+    <li><a href="#无法拉取submodule代码到本地">无法拉取submodule代码到本地</a></li>
+    <li><a href="#fatal-could-not-get-a-repository-handle-for-submodule-xxx">fatal: could not get a repository handle for submodule xxx</a></li>
     <li><a href="#如何修改子模块的-remote-url">如何修改子模块的 remote url</a>
       <ul>
         <li><a href="#先删除">先删除</a></li>
@@ -311,7 +313,17 @@ modified:   themes/hugo-theme-stack <span class="o">(</span>new commits<span cla
 <p>如果父模块在尚未<code>add &amp; commit &amp; push</code>子模块更新的情况下，执行了<code>git submoule update</code>，此时子模块会回滚到上一版本（父模块引用的那个版本）。然后去子模块<code>git status</code>，会提示 <code>HEAD detached at xxxxxx</code>。</p>
 <p>如果发生了上述情况，可以在子模块<code>git branch -a</code>查看分支，<code>git checkout</code>到上次提交修改的分支。然后子模块就恢复到<code>working tree clean</code>了。</p>
 <p>再去父模块，<code>git add submoduleDir &amp;&amp; commit &amp;&amp; push</code>。</p>
-<p>其他命令：</p>
+<h2 id="无法拉取submodule代码到本地">无法拉取submodule代码到本地</h2>
+<p>git clone 了一个包含submodule的仓库，打开submodule目录，发现里面是空的：</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-github-submodule/assets/image-20220404003800-3hsabzt.png"
+    data-srcset="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-github-submodule/assets/image-20220404003800-3hsabzt.png, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-github-submodule/assets/image-20220404003800-3hsabzt.png 1.5x, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-github-submodule/assets/image-20220404003800-3hsabzt.png 2x"
+    data-sizes="auto"
+    alt="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-github-submodule/assets/image-20220404003800-3hsabzt.png"
+    title="image.png" /></p>
+<p>可尝试以下命令：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -319,12 +331,35 @@ modified:   themes/hugo-theme-stack <span class="o">(</span>new commits<span cla
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git submodule init
-git submodule update
-git submodule status
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git submodule update
+git submodule update --recursive --remote
+git submodule update --init
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="如何修改子模块的-remote-url">如何修改子模块的 remote url</h2>
+</div><h2 id="fatal-could-not-get-a-repository-handle-for-submodule-xxx">fatal: could not get a repository handle for submodule xxx</h2>
+<p>这是很常见的错误。当上次 clone into 未完成就直接关闭，下次 git submodule update 就会报这个错。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ git submodule update --init
+Cloning into <span class="s1">&#39;D:/blog/whuwangyong.github.io/themes/FixIt&#39;</span>...
+^C
+
+$ git submodule update
+BUG: submodule considered <span class="k">for</span> cloning, doesn<span class="s1">&#39;t need cloning any more?
+</span><span class="s1">fatal: could not get a repository handle for submodule &#39;</span>themes/FixIt<span class="err">&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>解决办法：将 submodule 路径下的<code>.git</code>文件删掉即可。</p>
+<h2 id="如何修改子模块的-remote-url">如何修改子模块的 remote url</h2>
 <p>需求：使用的别人的主题repo作为子模块。然后改了些地方，发现无法提交到父项目，更不能提交到别人的repo。</p>
 <p>解决：fork别人的repo，然后使用自己fork的repo作为子模块。后面原作者的repo更新了，再单独升级fork后的repo。升级时注意别覆盖了自己的修改。如果使用良好，不升级也可。</p>
 <p>那么，如何将submodule，从引用别人的repo，改为引用自己的。</p>
@@ -445,6 +480,21 @@ git submodule status
   
   
 >来说说坑爹的 git submodule - 掘金 (juejin.cn)</a></li>
+<li><a
+  href="https://blog.csdn.net/alexhu2010q/article/details/109239897"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Git Submodule_弹吉他的小刘鸭的博客-CSDN博客</a></li>
 </ol>
 <hr>
 <p>本文同步发布于：</p>
@@ -499,8 +549,7 @@ git submodule status
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title=2022-04-07&#32;02:38:18>更新于 2022-04-07&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/893f9c44025b02e9536bfec272c32a57febdb9b0" rel="external nofollow noopener noreffer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) 893f9c44025b02e9536bfec272c32a57febdb9b0: 修复add_links的换行问题">
-                  <i class="fas fa-hashtag fa-fw"></i>893f9c4</a></span>
+        <span title=2022-03-29&#32;00:00:00>更新于 2022-03-29</span>
       </div>
       <div class="post-info-license"></div>
     </div>
