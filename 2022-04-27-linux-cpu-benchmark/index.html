@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <title>Linux CPU 性能测试 - 武大路飞</title><meta name="author" content="Wang Yong: https://github.com/whuwangyong">
+<meta name="description" content="sysbench Sysbench is mainly intended for doing database benchmarking. However it includes options to test CPU, memory and file throughput as well. 安装 1 sudo apt install sysbench 使用 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 ubuntu@instance:~$ sysbench cpu --threads=3 run sysbench 1.0.18 (using system LuaJIT 2.1.0-beta3) Running the test with following options: Number of threads: 3 Initializing random number generator from current time Prime numbers limit: 10000 Initializing worker threads... Threads started! CPU speed: events per second: 10519.03 General statistics: total time: 10.0003s total number of events: 105208 Latency (ms): min: 0.28 avg:" />
+<meta name="keywords" content="sysbench,7z" /><meta itemprop="name" content="Linux CPU 性能测试">
+<meta itemprop="description" content="sysbench Sysbench is mainly intended for doing database benchmarking. However it includes options to test CPU, memory and file throughput as well. 安装 1 sudo apt install sysbench 使用 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 ubuntu@instance:~$ sysbench cpu --threads=3 run sysbench 1.0.18 (using system LuaJIT 2.1.0-beta3) Running the test with following options: Number of threads: 3 Initializing random number generator from current time Prime numbers limit: 10000 Initializing worker threads... Threads started! CPU speed: events per second: 10519.03 General statistics: total time: 10.0003s total number of events: 105208 Latency (ms): min: 0.28 avg:"><meta itemprop="datePublished" content="2022-04-27T00:00:00+08:00" />
+<meta itemprop="dateModified" content="2022-04-27T22:57:18+08:00" />
+<meta itemprop="wordCount" content="943"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
+<meta itemprop="keywords" content="sysbench,7z," /><meta property="og:title" content="Linux CPU 性能测试" />
+<meta property="og:description" content="sysbench Sysbench is mainly intended for doing database benchmarking. However it includes options to test CPU, memory and file throughput as well. 安装 1 sudo apt install sysbench 使用 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 ubuntu@instance:~$ sysbench cpu --threads=3 run sysbench 1.0.18 (using system LuaJIT 2.1.0-beta3) Running the test with following options: Number of threads: 3 Initializing random number generator from current time Prime numbers limit: 10000 Initializing worker threads... Threads started! CPU speed: events per second: 10519.03 General statistics: total time: 10.0003s total number of events: 105208 Latency (ms): min: 0.28 avg:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://whuwangyong.github.io/2022-04-27-linux-cpu-benchmark/" /><meta property="og:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-04-27T00:00:00+08:00" />
+<meta property="article:modified_time" content="2022-04-27T22:57:18+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
+
+<meta name="twitter:title" content="Linux CPU 性能测试"/>
+<meta name="twitter:description" content="sysbench Sysbench is mainly intended for doing database benchmarking. However it includes options to test CPU, memory and file throughput as well. 安装 1 sudo apt install sysbench 使用 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 ubuntu@instance:~$ sysbench cpu --threads=3 run sysbench 1.0.18 (using system LuaJIT 2.1.0-beta3) Running the test with following options: Number of threads: 3 Initializing random number generator from current time Prime numbers limit: 10000 Initializing worker threads... Threads started! CPU speed: events per second: 10519.03 General statistics: total time: 10.0003s total number of events: 105208 Latency (ms): min: 0.28 avg:"/>
+<meta name="application-name" content="武大路飞">
+<meta name="apple-mobile-web-app-title" content="武大路飞"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://whuwangyong.github.io/2022-04-27-linux-cpu-benchmark/" /><link rel="prev" href="https://whuwangyong.github.io/2022-04-19-hugo/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Linux CPU 性能测试",
+    "inLanguage": "",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/whuwangyong.github.io\/2022-04-27-linux-cpu-benchmark\/"
+    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "sysbench, 7z","wordcount":  943 ,
+    "url": "https:\/\/whuwangyong.github.io\/2022-04-27-linux-cpu-benchmark\/","datePublished": "2022-04-27T00:00:00+08:00","dateModified": "2022-04-27T22:57:18+08:00","publisher": {
+      "@type": "Organization",
+      "name": "Wang Yong","logo": {
+          "@type": "ImageObject",
+          "url": "https:\/\/whuwangyong.github.io\/images\/avatar150x150.jpg",
+          "width":  150 ,
+          "height":  151 
+        }},"author": {
+        "@type": "Person",
+        "name": "Wang Yong"
+      },"description": ""
+  }
+  </script></head>
+  <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a></div>
+    <nav>
+      <ul class="menu"><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              >归档</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              >标签</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              >分类</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/links/"
+                title="友情链接"
+                
+              >友链</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              >关于</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="https://github.com/whuwangyong"
+                title="GitHub"
+                rel="noopener noreffer" target="_blank"
+              ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fas fa-search fa-fw"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fas fa-times-circle fa-fw"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fas fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fas fa-adjust fa-fw"></i>
+        </li>
+      </ul>
+    </nav></div>
+</header><header class="mobile" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fas fa-search fa-fw"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fas fa-times-circle fa-fw"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fas fa-spinner fa-fw fa-spin"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              >归档</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              >标签</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              >分类</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/links/"
+                title="友情链接"
+                
+              >友链</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/about/"
+                
+                
+              >关于</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="https://github.com/whuwangyong"
+                title="GitHub"
+                rel="noopener noreffer" target="_blank"
+              ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fas fa-adjust fa-fw"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header>
+<div class="search-dropdown desktop">
+  <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+  <div id="search-dropdown-mobile"></div>
+</div>
+<main class="container" page-style="custom"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录</h2>
+      <div class="toc-content always-active" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    
+  </aside>
+
+  <article class="page single"><h1 class="single-title animate__animated animate__flipInX">Linux CPU 性能测试</h1><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a
+  href="https://github.com/whuwangyong"
+  
+    title="Author"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer author"
+  
+  
+  
+    class="author"
+  
+  
+><i class="fas fa-user-circle fa-fw"></i>Wang Yong</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a>&nbsp;<a href="/categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"><i class="far fa-folder fa-fw"></i>性能测试</a></span></div>
+      <div class="post-meta-line"><span title=2022-04-27&#32;00:00:00>
+            <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-04-27" >2022-04-27</time>
+          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 943 字&nbsp;
+        <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+    </div><div class="details toc" id="toc-static" kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fas fa-angle-right"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#sysbench">sysbench</a>
+      <ul>
+        <li><a href="#安装">安装</a></li>
+        <li><a href="#使用">使用</a></li>
+      </ul>
+    </li>
+    <li><a href="#7z">7z</a>
+      <ul>
+        <li><a href="#安装-1">安装</a></li>
+        <li><a href="#使用-1">使用</a></li>
+      </ul>
+    </li>
+    <li><a href="#数值运算">数值运算</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h2 id="sysbench">sysbench</h2>
+<p>Sysbench is mainly intended for doing database benchmarking. However it includes options to test CPU, memory and file throughput as well.</p>
+<h3 id="安装">安装</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt install sysbench
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="使用">使用</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ubuntu@instance:~$ sysbench cpu --threads<span class="o">=</span><span class="m">3</span> run
+sysbench 1.0.18 <span class="o">(</span>using system LuaJIT 2.1.0-beta3<span class="o">)</span>
+
+Running the <span class="nb">test</span> with following options:
+Number of threads: <span class="m">3</span>
+Initializing random number generator from current <span class="nb">time</span>
+
+
+Prime numbers limit: <span class="m">10000</span>
+
+Initializing worker threads...
+
+Threads started!
+
+CPU speed:
+    events per second: 10519.03
+
+General statistics:
+    total time:                          10.0003s
+    total number of events:              <span class="m">105208</span>
+
+Latency <span class="o">(</span>ms<span class="o">)</span>:
+         min:                                    0.28
+         avg:                                    0.28
+         max:                                    5.22
+         95th percentile:                        0.29
+         sum:                                29976.02
+
+Threads fairness:
+    events <span class="o">(</span>avg/stddev<span class="o">)</span>:           35069.3333/81.99
+    execution <span class="nb">time</span> <span class="o">(</span>avg/stddev<span class="o">)</span>:   9.9920/0.00
+</code></pre></td></tr></table>
+</div>
+</div><p>events per second，值越大，性能越强。</p>
+<p>上面是一个Oracle主机的测试结果，3个OCPU，每秒事件10519。单个OCPU每秒事件数为3484。i7-7700 CPU，单核每秒事件数1438，8核每秒事件数8469。可见Oracle主机的OCPU性能很强，单核性能是 i7-7700 的2.4倍。</p>
+<h2 id="7z">7z</h2>
+<p>7z是个压缩/解压工具，压缩/解压天然吃CPU，用来测试性能顺理成章。而且官方还给出了一些CPU型号的测试结果排名：<a
+  href="https://www.7-cpu.com/"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>7-Zip LZMA Benchmark (7-cpu.com)</a></p>
+<h3 id="安装-1">安装</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt install p7zip-full
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="使用-1">使用</h3>
+<p>语法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext">7z b [number_of_iterations] [-mmt{N}] [-md{N}] [-mm={Method}]
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>number_of_iterations 迭代次数，测试多少轮，可用于检查内存错误</li>
+<li>mmt 线程数</li>
+</ul>
+<p>举例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 单线程</span>
+$ 7z b -mmt1
+<span class="c1"># 多线程</span>
+$ 7z b
+</code></pre></td></tr></table>
+</div>
+</div><p>结果说明：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext">ubuntu@instance:~$ 7z b
+
+7-Zip [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21
+p7zip Version 16.02 (locale=C.UTF-8,Utf16=on,HugeFiles=on,64 bits,3 CPUs LE)
+
+LE
+CPU Freq: - - - - - - 512000000 - -
+
+RAM size:   17954 MB,  # CPU hardware threads:   3
+RAM usage:    441 MB,  # Benchmark threads:      3
+
+                       Compressing  |                  Decompressing
+Dict     Speed Usage    R/U Rating  |      Speed Usage    R/U Rating
+         KiB/s     %   MIPS   MIPS  |      KiB/s     %   MIPS   MIPS
+
+22:       8642   175   4813   8407  |      98748   199   4227   8431
+23:       8612   187   4695   8775  |      97477   200   4228   8438
+24:       8438   196   4622   9073  |      95682   200   4201   8400
+25:       8151   198   4694   9307  |      93742   200   4176   8344
+----------------------------------  | ------------------------------
+Avr:             189   4706   8891  |              200   4208   8403
+Tot:             194   4457   8647
+</code></pre></td></tr></table>
+</div>
+</div><p>上面是Orace OCPU的测试结果，单核4706。i7-7700单核3768。</p>
+<ul>
+<li><strong>Dict</strong>：字典大小，22表示2^21=4MB</li>
+<li><strong>Usage</strong>：cpu总利用率。我有3个核，这里最多只用到200%，这是因为7z似乎只能使用<code>2N</code>个核（来源“When you specify (N*2) threads for test, the program creates N copies of LZMA encoder, and each LZMA encoder instance compresses separated block of test data.”——<a
+  href="https://www.7-cpu.com/"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>7-Zip LZMA Benchmark (7-cpu.com)</a>）</li>
+<li>**MIPS：**million instructions per second</li>
+<li><strong>R/U MIPS</strong>：单核性能。</li>
+<li><strong>Rating MIPS</strong>：约等于<code>Usage * (R/U MIPS)</code></li>
+</ul>
+<p>更多介绍，查看帮助文档。<code>man 7z</code>，在最下面会看到：</p>
+<blockquote>
+<p>HTML Documentation<br>
+/usr/share/doc/p7zip-full/DOC/MANUAL/start.htm</p>
+</blockquote>
+<p>用vim或者浏览器打开此页面进入帮助文档主页。或直接打开以下页面查看benchmark相关内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">chrome /usr/share/doc/p7zip/DOC/MANUAL/cmdline/commands/bench.htm
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="数值运算">数值运算</h2>
+<p>比如写个python脚本：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10000000</span><span class="p">):</span>
+    <span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">47</span><span class="p">,</span><span class="mi">39</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>将该脚本在不同的CPU上执行，通过对比运行时间，估计待测CPU的性能。</p>
+<hr>
+<p>本文同步发布于：</p>
+<ul>
+<li><a
+  href="https://whuwangyong.github.io/2022-04-27-linux-cpu-benchmark/"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>https://whuwangyong.github.io/2022-04-27-linux-cpu-benchmark/</a></li>
+<li><a
+  href="https://whuwangyong.netlify.app/2022-04-27-linux-cpu-benchmark/"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>https://whuwangyong.netlify.app/2022-04-27-linux-cpu-benchmark/</a></li>
+<li><a
+  href="https://whuwangyong.vercel.app/2022-04-27-linux-cpu-benchmark/"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>https://whuwangyong.vercel.app/2022-04-27-linux-cpu-benchmark/</a></li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title=2022-04-27&#32;22:57:18>更新于 2022-04-27&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/653ad90acbc751410b9c13d528360cc05caf2f36" rel="external nofollow noopener noreffer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) 653ad90acbc751410b9c13d528360cc05caf2f36: new: linux cpu 性能测试">
+                  <i class="fas fa-hashtag fa-fw"></i>653ad90</a></span>
+      </div>
+      <div class="post-info-license"></div>
+    </div>
+    <div class="post-info-line">
+      <div class="post-info-md"><span>
+              <a class="link-to-markdown" href="/2022-04-27-linux-cpu-benchmark/index.md" target="_blank">阅读原始文档</a>
+            </span></div>
+      <div class="post-info-share">
+        <span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/sysbench/">sysbench</a>,&nbsp;<a href="/tags/7z/">7z</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/2022-04-19-hugo/" class="prev" rel="prev" title="使用 Hugo &#43; Github Pages 创建静态网站博客"><i class="fas fa-angle-left fa-fw"></i>使用 Hugo &#43; Github Pages 创建静态网站博客</a></div>
+</div>
+<div id="comments"><div id="utterances"></div><noscript>
+        Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/" rel="external nofollow noopener noreffer">Utterances</a>.
+      </noscript></div></article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt 0.2.14"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">
+              <a
+  href="https://github.com/whuwangyong"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Wang Yong</a></span><span class="footer-divider"></span><span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div></div>
+  </footer></div>
+
+    <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+        <i class="fas fa-arrow-up fa-fw"></i>
+      </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+        <i class="fas fa-comment fa-fw"></i>
+      </a>
+    </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.11.0/dist/algoliasearch-lite.umd.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js" async defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/dist/js/lightgallery.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.3.0/dist/lg-zoom.min.js" defer></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":30},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"comments","lightTheme":"github-light","repo":"whuwangyong/whuwangyong.github.io"}},"enablePWA":null,"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"YMLBEBNFHL","algoliaIndex":"new-index-1649076215","algoliaSearchKey":"9028b251fe4eecb5ad4d47af0715a4f0","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js" defer></script></body>
+</html>
