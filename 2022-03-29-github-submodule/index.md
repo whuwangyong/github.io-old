@@ -38,13 +38,35 @@ modified:   themes/hugo-theme-stack (new commits)
 
 再去父模块，`git add submoduleDir && commit && push`。
 
-其他命令：
+## 无法拉取submodule代码到本地
+
+git clone 了一个包含submodule的仓库，打开submodule目录，发现里面是空的：
+
+![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-github-submodule/assets/image-20220404003800-3hsabzt.png)
+
+可尝试以下命令：
 
 ```bash
-git submodule init
 git submodule update
-git submodule status
+git submodule update --recursive --remote
+git submodule update --init
 ```
+
+## fatal: could not get a repository handle for submodule xxx
+
+这是很常见的错误。当上次 clone into 未完成就直接关闭，下次 git submodule update 就会报这个错。
+
+```bash
+$ git submodule update --init
+Cloning into 'D:/blog/whuwangyong.github.io/themes/FixIt'...
+^C
+
+$ git submodule update
+BUG: submodule considered for cloning, doesn't need cloning any more?
+fatal: could not get a repository handle for submodule 'themes/FixIt'
+```
+
+解决办法：将 submodule 路径下的`.git`文件删掉即可。
 
 ## 如何修改子模块的 remote url
 
@@ -95,11 +117,9 @@ rm -rf .git/module/hugo-theme-stack
 1. [GIT 的 SUBMODULE - 阅微堂 (zhiqiang.org)](https://zhiqiang.org/it/git-submodule.html)
 2. [git submodule删除后重新添加问题_Week Mao的专栏-CSDN博客](https://blog.csdn.net/dongguanghuiyin/article/details/78792992)
 3. [来说说坑爹的 git submodule - 掘金 (juejin.cn)](https://juejin.cn/post/6844903920645455879)
-
-
-
----
-
+4. [Git Submodule_弹吉他的小刘鸭的博客-CSDN博客](https://blog.csdn.net/alexhu2010q/article/details/109239897)
+
+---
 本文同步发布于：
 - https://whuwangyong.github.io/2022-03-29-github-submodule/
 - https://whuwangyong.netlify.app/2022-03-29-github-submodule/
