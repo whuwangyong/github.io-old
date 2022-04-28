@@ -2,15 +2,20 @@
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml"
   ><url>
-      <loc>https://whuwangyong.github.io/categories/</loc><lastmod>2022-04-28T21:15:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>https://whuwangyong.github.io/tags/github-pages/</loc><lastmod>2022-04-28T21:15:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>https://whuwangyong.github.io/posts/</loc><lastmod>2022-04-28T21:15:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>https://whuwangyong.github.io/tags/sitemap#/</loc><lastmod>2022-04-28T21:15:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>https://whuwangyong.github.io/tags/</loc><lastmod>2022-04-28T21:15:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>https://whuwangyong.github.io/tags/webmaster/</loc><lastmod>2022-04-28T21:15:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>https://whuwangyong.github.io/2022-04-28-submit-urls-to-baidu-and-bing-with-api/</loc><lastmod>2022-04-28T21:15:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>https://whuwangyong.github.io/</loc><lastmod>2022-04-28T21:15:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>https://whuwangyong.github.io/categories/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E5%8D%9A%E5%AE%A2/</loc><lastmod>2022-04-28T21:15:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://whuwangyong.github.io/categories/</loc><lastmod>2022-04-28T22:01:09&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://whuwangyong.github.io/tags/github-pages/</loc><lastmod>2022-04-28T22:01:09&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://whuwangyong.github.io/tags/maven/</loc><lastmod>2022-04-28T22:01:09&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://whuwangyong.github.io/tags/package/</loc><lastmod>2022-04-28T22:01:09&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://whuwangyong.github.io/posts/</loc><lastmod>2022-04-28T22:01:09&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://whuwangyong.github.io/tags/python/</loc><lastmod>2022-04-28T22:01:09&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://whuwangyong.github.io/tags/sitemap/</loc><lastmod>2022-04-28T22:01:09&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://whuwangyong.github.io/tags/</loc><lastmod>2022-04-28T22:01:09&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://whuwangyong.github.io/tags/webmaster/</loc><lastmod>2022-04-28T22:01:09&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://whuwangyong.github.io/2022-04-28-submit-urls-to-baidu-and-bing-with-api/</loc><lastmod>2022-04-28T22:01:09&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://whuwangyong.github.io/2022-04-28-crawl-latest-version-for-jar-npm-go-pkg/</loc><lastmod>2022-04-28T22:01:09&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://whuwangyong.github.io/categories/%E5%B0%8F%E5%B7%A5%E5%85%B7/</loc><lastmod>2022-04-28T22:01:09&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://whuwangyong.github.io/</loc><lastmod>2022-04-28T22:01:09&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://whuwangyong.github.io/categories/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E5%8D%9A%E5%AE%A2/</loc><lastmod>2022-04-28T22:01:09&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://whuwangyong.github.io/tags/7z/</loc><lastmod>2022-04-27T23:14:33&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://whuwangyong.github.io/categories/linux/</loc><lastmod>2022-04-27T23:14:33&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://whuwangyong.github.io/2022-04-27-linux-cpu-benchmark/</loc><lastmod>2022-04-27T23:14:33&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>

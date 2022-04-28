@@ -233,8 +233,10 @@ Your branch is up to date with 'origin/gh-pages'.
 bing的响应:  b'{"d":null}'
 百度的响应:  b'{"remain":2998,"success":2}'
 ```
-
----
+
+
+---
+
 本文同步发布于：
 - https://whuwangyong.github.io/2022-04-28-submit-urls-to-baidu-and-bing-with-api/
 - https://whuwangyong.netlify.app/2022-04-28-submit-urls-to-baidu-and-bing-with-api/

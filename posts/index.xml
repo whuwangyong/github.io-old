@@ -12,6 +12,13 @@
   <guid>https://whuwangyong.github.io/2022-04-28-submit-urls-to-baidu-and-bing-with-api/</guid>
   <description><![CDATA[建站之后，为了文章能够被搜索引擎收录，我们需要将站点提交到Google、百度、Bing等搜索网站，通过验证之后，搜索引擎才会去我们的网站爬数据。 为了方便爬虫爬取我们站点里的文章，我们可以将站点地图（sitemap.xml）提交到搜索网站。提]]></description>
 </item><item>
+  <title>使用python爬取jar包、npm包、go包的最新版本</title>
+  <link>https://whuwangyong.github.io/2022-04-28-crawl-latest-version-for-jar-npm-go-pkg/</link>
+  <pubDate>Thu, 28 Apr 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-04-28-crawl-latest-version-for-jar-npm-go-pkg/</guid>
+  <description><![CDATA[场景：公司内网有maven仓库，扫描之后发现很多组件有漏洞，主要是因为版本太老。因此需要将这些漏洞组件的最新版导入内部的maven私服。 问题：这么多漏洞组件，一个个去中央仓库找最新版，显然不科学。因此要整个脚本来做这件事情。 Tips： 众所周]]></description>
+</item><item>
   <title>Linux CPU 性能测试</title>
   <link>https://whuwangyong.github.io/2022-04-27-linux-cpu-benchmark/</link>
   <pubDate>Wed, 27 Apr 2022 00:00:00 &#43;0800</pubDate>
@@ -67,12 +74,5 @@
   <author>Wang Yong</author>
   <guid>https://whuwangyong.github.io/2022-03-09-shadowsocks/</guid>
   <description><![CDATA[官方地址： shadowsocks/shadowsocks-libev: Bug-fix-only libev port of shadowsocks. Future development moved to shadowsocks-rust (github.com) 旧地址，不再更新： shadowsocks/shadowsocks at master (github.com) clowwindy/shadowsocks-libev at master (github.com) 本文基于Ubuntu。 install 1 2 3 $ sudo apt install shadowsocks-libev ... Created symlink /etc/systemd/system/multi-user.target.wants/shadowsocks-libev.service → /lib/systemd/system/shadowsocks-libev.service. Configuration 官方文档说配置文件在这里： Edit your config.json file. By default, it&rsquo;s located in /usr/local/etc/shadowsocks-libev. 但我的不是。 编辑/etc/shadowsocks-libev/confi]]></description>
-</item><item>
-  <title>V2Ray 搭建指南</title>
-  <link>https://whuwangyong.github.io/2022-03-08-v2ray/</link>
-  <pubDate>Tue, 08 Mar 2022 00:00:00 &#43;0800</pubDate>
-  <author>Wang Yong</author>
-  <guid>https://whuwangyong.github.io/2022-03-08-v2ray/</guid>
-  <description><![CDATA[所有的教程都不如官网。 官网 官网：V2Fly.org github：v2fly/v2ray-core: A platform for building proxies to bypass network restrictions. (github.com) 以下是旧的官网和github： 官网：Project V · Project V 官方网站 (v2ray.com) github：v2ray/v2ray-core: A platform for]]></description>
 </item></channel>
 </rss>
