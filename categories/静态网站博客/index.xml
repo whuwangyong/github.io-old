@@ -4,7 +4,14 @@
     <link>https://whuwangyong.github.io/categories/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E5%8D%9A%E5%AE%A2/</link>
     <description>静态网站博客 - 分类 - 武大路飞</description>
     <generator>Hugo -- gohugo.io</generator><managingEditor>whuwangyong@gmail.com (Wang Yong)</managingEditor>
-      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Tue, 19 Apr 2022 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://whuwangyong.github.io/categories/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E5%8D%9A%E5%AE%A2/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Thu, 28 Apr 2022 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://whuwangyong.github.io/categories/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E5%8D%9A%E5%AE%A2/" rel="self" type="application/rss+xml" /><item>
+  <title>使用API提交URL到百度和Bing</title>
+  <link>https://whuwangyong.github.io/2022-04-28-submit-urls-to-baidu-and-bing-with-api/</link>
+  <pubDate>Thu, 28 Apr 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-04-28-submit-urls-to-baidu-and-bing-with-api/</guid>
+  <description><![CDATA[建站之后，为了文章能够被搜索引擎收录，我们需要将站点提交到Google、百度、Bing等搜索网站，通过验证之后，搜索引擎才会去我们的网站爬数据。 为了方便爬虫爬取我们站点里的文章，我们可以将站点地图（sitemap.xml）提交到搜索网站。提]]></description>
+</item><item>
   <title>使用 Hugo &#43; Github Pages 创建静态网站博客</title>
   <link>https://whuwangyong.github.io/2022-04-19-hugo/</link>
   <pubDate>Tue, 19 Apr 2022 00:00:00 &#43;0800</pubDate>

@@ -118,8 +118,10 @@ rm -rf .git/module/hugo-theme-stack
 2. [git submodule删除后重新添加问题_Week Mao的专栏-CSDN博客](https://blog.csdn.net/dongguanghuiyin/article/details/78792992)
 3. [来说说坑爹的 git submodule - 掘金 (juejin.cn)](https://juejin.cn/post/6844903920645455879)
 4. [Git Submodule_弹吉他的小刘鸭的博客-CSDN博客](https://blog.csdn.net/alexhu2010q/article/details/109239897)
-
----
+
+
+---
+
 本文同步发布于：
 - https://whuwangyong.github.io/2022-03-29-github-submodule/
 - https://whuwangyong.netlify.app/2022-03-29-github-submodule/

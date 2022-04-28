@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <title>使用API提交URL到百度和Bing - 武大路飞</title><meta name="author" content="Wang Yong: https://github.com/whuwangyong">
+<meta name="description" content="建站之后，为了文章能够被搜索引擎收录，我们需要将站点提交到Google、百度、Bing等搜索网站，通过验证之后，搜索引擎才会去我们的网站爬数据。 为了方便爬虫爬取我们站点里的文章，我们可以将站点地图（sitemap.xml）提交到搜索网站。提" />
+<meta name="keywords" content="github pages,sitemap#,webmaster" /><meta itemprop="name" content="使用API提交URL到百度和Bing">
+<meta itemprop="description" content="建站之后，为了文章能够被搜索引擎收录，我们需要将站点提交到Google、百度、Bing等搜索网站，通过验证之后，搜索引擎才会去我们的网站爬数据。 为了方便爬虫爬取我们站点里的文章，我们可以将站点地图（sitemap.xml）提交到搜索网站。提"><meta itemprop="datePublished" content="2022-04-28T00:00:00+08:00" />
+<meta itemprop="dateModified" content="2022-04-28T21:15:41+08:00" />
+<meta itemprop="wordCount" content="1534"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
+<meta itemprop="keywords" content="github pages,sitemap#,webmaster," /><meta property="og:title" content="使用API提交URL到百度和Bing" />
+<meta property="og:description" content="建站之后，为了文章能够被搜索引擎收录，我们需要将站点提交到Google、百度、Bing等搜索网站，通过验证之后，搜索引擎才会去我们的网站爬数据。 为了方便爬虫爬取我们站点里的文章，我们可以将站点地图（sitemap.xml）提交到搜索网站。提" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://whuwangyong.github.io/2022-04-28-submit-urls-to-baidu-and-bing-with-api/" /><meta property="og:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-04-28T00:00:00+08:00" />
+<meta property="article:modified_time" content="2022-04-28T21:15:41+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
+
+<meta name="twitter:title" content="使用API提交URL到百度和Bing"/>
+<meta name="twitter:description" content="建站之后，为了文章能够被搜索引擎收录，我们需要将站点提交到Google、百度、Bing等搜索网站，通过验证之后，搜索引擎才会去我们的网站爬数据。 为了方便爬虫爬取我们站点里的文章，我们可以将站点地图（sitemap.xml）提交到搜索网站。提"/>
+<meta name="application-name" content="武大路飞">
+<meta name="apple-mobile-web-app-title" content="武大路飞"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://whuwangyong.github.io/2022-04-28-submit-urls-to-baidu-and-bing-with-api/" /><link rel="prev" href="https://whuwangyong.github.io/2022-04-27-linux-cpu-benchmark/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "使用API提交URL到百度和Bing",
+    "inLanguage": "",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/whuwangyong.github.io\/2022-04-28-submit-urls-to-baidu-and-bing-with-api\/"
+    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "github pages, sitemap#, webmaster","wordcount":  1534 ,
+    "url": "https:\/\/whuwangyong.github.io\/2022-04-28-submit-urls-to-baidu-and-bing-with-api\/","datePublished": "2022-04-28T00:00:00+08:00","dateModified": "2022-04-28T21:15:41+08:00","publisher": {
+      "@type": "Organization",
+      "name": "Wang Yong","logo": {
+          "@type": "ImageObject",
+          "url": "https:\/\/whuwangyong.github.io\/images\/avatar150x150.jpg",
+          "width":  150 ,
+          "height":  151 
+        }},"author": {
+        "@type": "Person",
+        "name": "Wang Yong"
+      },"description": ""
+  }
+  </script></head>
+  <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a></div>
+    <nav>
+      <ul class="menu"><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              >归档</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              >标签</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              >分类</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/links/"
+                title="友情链接"
+                
+              >友链</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              >关于</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="https://github.com/whuwangyong"
+                title="GitHub"
+                rel="noopener noreffer" target="_blank"
+              ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fas fa-search fa-fw"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fas fa-times-circle fa-fw"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fas fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fas fa-adjust fa-fw"></i>
+        </li>
+      </ul>
+    </nav></div>
+</header><header class="mobile" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fas fa-search fa-fw"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fas fa-times-circle fa-fw"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fas fa-spinner fa-fw fa-spin"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              >归档</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              >标签</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              >分类</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/links/"
+                title="友情链接"
+                
+              >友链</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/about/"
+                
+                
+              >关于</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="https://github.com/whuwangyong"
+                title="GitHub"
+                rel="noopener noreffer" target="_blank"
+              ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fas fa-adjust fa-fw"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header>
+<div class="search-dropdown desktop">
+  <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+  <div id="search-dropdown-mobile"></div>
+</div>
+<main class="container" page-style="custom"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录</h2>
+      <div class="toc-content always-active" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    
+  </aside>
+
+  <article class="page single"><h1 class="single-title animate__animated animate__flipInX">使用API提交URL到百度和Bing</h1><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a
+  href="https://github.com/whuwangyong"
+  
+    title="Author"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer author"
+  
+  
+  
+    class="author"
+  
+  
+><i class="fas fa-user-circle fa-fw"></i>Wang Yong</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E5%8D%9A%E5%AE%A2/"><i class="far fa-folder fa-fw"></i>静态网站博客</a></span></div>
+      <div class="post-meta-line"><span title=2022-04-28&#32;00:00:00>
+            <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-04-28" >2022-04-28</time>
+          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1534 字&nbsp;
+        <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
+    </div><div class="details toc" id="toc-static" kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fas fa-angle-right"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#生成url列表">生成url列表</a>
+      <ul>
+        <li><a href="#从sitemapxml获取">从sitemap.xml获取</a></li>
+        <li><a href="#从git-log获取">从git log获取</a></li>
+      </ul>
+    </li>
+    <li><a href="#百度收录api提交">百度收录API提交</a>
+      <ul>
+        <li><a href="#curl推送">curl推送</a></li>
+        <li><a href="#post推送">post推送</a></li>
+        <li><a href="#php推送ruby推送">php推送、ruby推送</a></li>
+      </ul>
+    </li>
+    <li><a href="#bing-webmaster-api-提交">Bing Webmaster API 提交</a></li>
+    <li><a href="#代码">代码</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><p>建站之后，为了文章能够被搜索引擎收录，我们需要将站点提交到Google、百度、Bing等搜索网站，通过验证之后，搜索引擎才会去我们的网站爬数据。</p>
+<p>为了方便爬虫爬取我们站点里的文章，我们可以将站点地图（sitemap.xml）提交到搜索网站。提交之后，爬虫在光临我们的网站时，会根据sitemap.xml的指引，抓取所有的URL。</p>
+<p>但是，爬虫光临我们站点的周期太长（至少要几天吧），如果想发布文章之后尽快被搜索引擎收录，我们可以主动提交URL到搜索网站。Google只能在网页上操作，百度和Bing都提供了API。下面介绍如何使用API提交URL。</p>
+<h2 id="生成url列表">生成url列表</h2>
+<p>在提交url之前，需先准备好url列表，形如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext">http://www.your-site.com/1.html
+http://www.your-site.com/2.html
+</code></pre></td></tr></table>
+</div>
+</div><p>有两种方式生成url列表。</p>
+<h3 id="从sitemapxml获取">从sitemap.xml获取</h3>
+<p>多数静态网站构建工具（Hugo、Jekyll）都会生成sitemap.xml，形如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;urlset</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.sitemaps.org/schemas/sitemap/0.9&#34;</span> <span class="na">xmlns:xhtml=</span><span class="s">&#34;http://www.w3.org/1999/xhtml&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;url&gt;</span>
+        <span class="nt">&lt;loc&gt;</span>https://whuwangyong.github.io/2022-03-29-github-submodule/<span class="nt">&lt;/loc&gt;</span>
+        <span class="nt">&lt;lastmod&gt;</span>2022-04-27T23:14:33+08:00<span class="nt">&lt;/lastmod&gt;</span>
+        <span class="nt">&lt;changefreq&gt;</span>weekly<span class="nt">&lt;/changefreq&gt;</span>
+        <span class="nt">&lt;priority&gt;</span>1<span class="nt">&lt;/priority&gt;</span>
+    <span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;url&gt;</span>
+        <span class="nt">&lt;loc&gt;</span>https://whuwangyong.github.io/2022-04-27-linux-cpu-benchmark/<span class="nt">&lt;/loc&gt;</span>
+        <span class="nt">&lt;lastmod&gt;</span>2022-04-27T23:14:33+08:00<span class="nt">&lt;/lastmod&gt;</span>
+        <span class="nt">&lt;changefreq&gt;</span>weekly<span class="nt">&lt;/changefreq&gt;</span>
+        <span class="nt">&lt;priority&gt;</span>1<span class="nt">&lt;/priority&gt;</span>
+    <span class="nt">&lt;/url&gt;</span>
+<span class="nt">&lt;/urlset&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>用以下Linux命令可以将sitemap.xml中的url提取出来：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">grep <span class="s2">&#34;&lt;loc&gt;&#34;</span> sitemap.xml <span class="p">|</span> grep -v <span class="s1">&#39;html&#39;</span> <span class="p">|</span> awk -F <span class="s1">&#39;[&lt; &gt;]&#39;</span> <span class="s1">&#39;{print $3}&#39;</span> &gt; urls.txt
+</code></pre></td></tr></table>
+</div>
+</div><p>这样做的弊端是每次提交的url列表是全量的。而百度和Bing都限制了每天提交的数量，百度 3000条/天，Bing 100条/天。随着文章增多，可能会超限。因此，更好的做法是，每次只提交本次更新的文章的url，通过<code>git log</code>可以实现。</p>
+<h3 id="从git-log获取">从git log获取</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 获取最近一次的commit_id</span>
+&gt; git rev-parse --short HEAD
+2bfe64f
+
+<span class="c1"># 显示本次提交修改的文件</span>
+&gt; git diff-tree --no-commit-id --name-only -r 2bfe64f
+2022-03-29-github-submodule/assets/image-20220404003800-3hsabzt.png
+2022-03-29-github-submodule/index.html
+2022-03-29-github-submodule/index.md
+2022-04-27-linux-cpu-benchmark/index.html
+2022-04-27-linux-cpu-benchmark/index.md
+index.json
+sitemap.xml
+
+<span class="c1"># 显示本次提交修改的文件 （另一种方法）</span>
+&gt; git show --pretty<span class="o">=</span><span class="s2">&#34;&#34;</span> --name-only 2bfe64f
+2022-03-29-github-submodule/assets/image-20220404003800-3hsabzt.png
+2022-03-29-github-submodule/index.html
+2022-03-29-github-submodule/index.md
+2022-04-27-linux-cpu-benchmark/index.html
+2022-04-27-linux-cpu-benchmark/index.md
+index.json
+sitemap.xml
+</code></pre></td></tr></table>
+</div>
+</div><p>然后从修改文件列表中，删选出<code>.html</code>结尾的路径，与站点根目录拼起来，得到完整url。后文有提供python代码来生成url列表。</p>
+<p>准备好了url列表，下面开始使用API提交。</p>
+<h2 id="百度收录api提交">百度收录API提交</h2>
+<p>登陆<a
+  href="https://ziyuan.baidu.com/site/index"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>百度搜索资源平台-站点管理</a>，选择资源提交-普通收录-API提交：</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-04-28-submit-urls-to-baidu-and-bing-with-api/assets/image-20220428182028-0cy1nla.png"
+    data-srcset="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-04-28-submit-urls-to-baidu-and-bing-with-api/assets/image-20220428182028-0cy1nla.png, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-04-28-submit-urls-to-baidu-and-bing-with-api/assets/image-20220428182028-0cy1nla.png 1.5x, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-04-28-submit-urls-to-baidu-and-bing-with-api/assets/image-20220428182028-0cy1nla.png 2x"
+    data-sizes="auto"
+    alt="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-04-28-submit-urls-to-baidu-and-bing-with-api/assets/image-20220428182028-0cy1nla.png"
+    title="image.png" /></p>
+<blockquote>
+<p>旁边的sitemap用于提交sitemap.xml文件，这个很简单，不多说：</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-04-28-submit-urls-to-baidu-and-bing-with-api/assets/image-20220428182218-15pvyh6.png"
+    data-srcset="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-04-28-submit-urls-to-baidu-and-bing-with-api/assets/image-20220428182218-15pvyh6.png, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-04-28-submit-urls-to-baidu-and-bing-with-api/assets/image-20220428182218-15pvyh6.png 1.5x, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-04-28-submit-urls-to-baidu-and-bing-with-api/assets/image-20220428182218-15pvyh6.png 2x"
+    data-sizes="auto"
+    alt="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-04-28-submit-urls-to-baidu-and-bing-with-api/assets/image-20220428182218-15pvyh6.png"
+    title="image.png" /></p>
+</blockquote>
+<p>百度给出了4种API提交的方法：</p>
+<h3 id="curl推送">curl推送</h3>
+<p>将要提交的链接按照每行一条的格式写入一个文本文件中，命名此文件为urls.txt，然后执行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">curl -H <span class="s1">&#39;Content-Type:text/plain&#39;</span> --data-binary @urls.txt <span class="s2">&#34;http://data.zz.baidu.com/urls?site=https://whuwangyong.github.io&amp;token=xxxxx&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="post推送">post推送</h3>
+<p>也很简单，具体可以参考文末代码。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext">POST /urls?site=https://whuwangyong.github.io&amp;token=your-token HTTP/1.1
+
+User-Agent: curl/7.12.1
+Host: data.zz.baidu.com
+Content-Type: text/plain
+
+data = [
+    &#34;http://www.example.com/1.html&#34;,
+    &#34;http://www.example.com/2.html&#34;
+]
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="php推送ruby推送">php推送、ruby推送</h3>
+<p>未尝试。</p>
+<h2 id="bing-webmaster-api-提交">Bing Webmaster API 提交</h2>
+<p>登录<a
+  href="https://www.bing.com/webmasters/about"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Bing Webmaster Tools</a>，点击右上角设置-API访问，获取api key。</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-04-28-submit-urls-to-baidu-and-bing-with-api/assets/image-20220428205759-g3qhenc.png"
+    data-srcset="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-04-28-submit-urls-to-baidu-and-bing-with-api/assets/image-20220428205759-g3qhenc.png, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-04-28-submit-urls-to-baidu-and-bing-with-api/assets/image-20220428205759-g3qhenc.png 1.5x, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-04-28-submit-urls-to-baidu-and-bing-with-api/assets/image-20220428205759-g3qhenc.png 2x"
+    data-sizes="auto"
+    alt="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-04-28-submit-urls-to-baidu-and-bing-with-api/assets/image-20220428205759-g3qhenc.png"
+    title="image.png" /></p>
+<p>然后通过URL提交进入<a
+  href="https://www.bing.com/webmasters/url-submission-api#APIs"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>提交API</a>页面：</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-04-28-submit-urls-to-baidu-and-bing-with-api/assets/image-20220428210228-w7eap0g.png"
+    data-srcset="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-04-28-submit-urls-to-baidu-and-bing-with-api/assets/image-20220428210228-w7eap0g.png, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-04-28-submit-urls-to-baidu-and-bing-with-api/assets/image-20220428210228-w7eap0g.png 1.5x, https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-04-28-submit-urls-to-baidu-and-bing-with-api/assets/image-20220428210228-w7eap0g.png 2x"
+    data-sizes="auto"
+    alt="https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-04-28-submit-urls-to-baidu-and-bing-with-api/assets/image-20220428210228-w7eap0g.png"
+    title="image.png" /></p>
+<p>Bing提供了两种提交格式，json和xml。我使用的是json。接口约定如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext">JSON request sample: 
+
+POST /webmaster/api.svc/json/SubmitUrlbatch?apikey=sampleapikeyEDECC1EA4AE341CC8B6 HTTP/1.1
+Content-Type: application/json; charset=utf-8
+Host: ssl.bing.com
+
+{
+    &#34;siteUrl&#34;:&#34;http://yoursite.com&#34;,
+    &#34;urlList&#34;:[
+        &#34;http://yoursite.com/url1&#34;,
+        &#34;http://yoursite.com/url2&#34;,
+        &#34;http://yoursite.com/url3&#34;
+    ]
+}
+
+
+JSON response sample:
+
+HTTP/1.1 200 OK
+Content-Length: 10
+Content-Type: application/json; charset=utf-8
+
+{
+    &#34;d&#34;:null
+}
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="代码">代码</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">commit_urls</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;将最新的url提交到百度和bing&#34;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&#34;git checkout gh-pages&#34;</span><span class="p">)</span>
+    <span class="n">urls</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># 生成url列表</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+        <span class="s2">&#34;git rev-parse --short HEAD&#34;</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">ret</span><span class="o">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">commit_id</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="s2">&#34;utf_8&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+            <span class="s2">&#34;git show --pretty=&#34;</span> <span class="s2">&#34; --name-only &#34;</span> <span class="o">+</span> <span class="n">commit_id</span><span class="p">,</span>
+            <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+            <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">ret</span><span class="o">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">changes</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="s2">&#34;utf-8&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">change</span> <span class="ow">in</span> <span class="n">changes</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">change</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&#34;.html&#34;</span><span class="p">):</span>
+                    <span class="c1"># change[:-10] 是为了去掉末尾的index.html</span>
+                    <span class="n">urls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&#34;https://whuwangyong.github.io/</span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">change</span><span class="p">[:</span><span class="o">-</span><span class="mi">10</span><span class="p">]))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;subprocess run error:</span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">stderr</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;subprocess run error:</span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">stderr</span><span class="p">))</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;本次提交的urls:&#34;</span><span class="p">,</span> <span class="n">urls</span><span class="p">)</span>
+
+    <span class="c1"># 提交到bing</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&#34;Content-Type&#34;</span><span class="p">:</span> <span class="s2">&#34;application/json; charset=utf-8&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;Host&#34;</span><span class="p">:</span> <span class="s2">&#34;ssl.bing.com&#34;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;siteUrl&#34;</span><span class="p">:</span> <span class="s2">&#34;your-site.com&#34;</span><span class="p">,</span> <span class="s2">&#34;urlList&#34;</span><span class="p">:</span> <span class="n">urls</span><span class="p">}</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+        <span class="n">url</span><span class="o">=</span><span class="s2">&#34;https://www.bing.com/webmaster/api.svc/json/SubmitUrlbatch?apikey=your-key&#34;</span><span class="p">,</span>
+        <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;bing的响应: &#34;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+
+    <span class="c1"># 提交到百度</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&#34;User-Agent&#34;</span><span class="p">:</span> <span class="s2">&#34;curl/7.12.1&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;Host&#34;</span><span class="p">:</span> <span class="s2">&#34;data.zz.baidu.com&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;Content-Type&#34;</span><span class="p">:</span> <span class="s2">&#34;text/plain&#34;</span>
+    <span class="p">}</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+        <span class="n">url</span><span class="o">=</span><span class="s2">&#34;http://data.zz.baidu.com/urls?site=your-site.com&amp;token=your-token&#34;</span><span class="p">,</span>
+        <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+        <span class="n">data</span><span class="o">=</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">urls</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;百度的响应: &#34;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>运行结果：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext">&gt; python commit_urls.py
+
+将最新的url提交到百度和bing
+Switched to branch &#39;gh-pages&#39;
+Your branch is up to date with &#39;origin/gh-pages&#39;.
+本次提交的urls: [&#39;https://whuwangyong.github.io/2022-03-29-github-submodule/&#39;, &#39;https://whuwangyong.github.io/2022-04-27-linux-cpu-benchmark/&#39;]
+bing的响应:  b&#39;{&#34;d&#34;:null}&#39;
+百度的响应:  b&#39;{&#34;remain&#34;:2998,&#34;success&#34;:2}&#39;
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>本文同步发布于：</p>
+<ul>
+<li><a
+  href="https://whuwangyong.github.io/2022-04-28-submit-urls-to-baidu-and-bing-with-api/"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>https://whuwangyong.github.io/2022-04-28-submit-urls-to-baidu-and-bing-with-api/</a></li>
+<li><a
+  href="https://whuwangyong.netlify.app/2022-04-28-submit-urls-to-baidu-and-bing-with-api/"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>https://whuwangyong.netlify.app/2022-04-28-submit-urls-to-baidu-and-bing-with-api/</a></li>
+<li><a
+  href="https://whuwangyong.vercel.app/2022-04-28-submit-urls-to-baidu-and-bing-with-api/"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>https://whuwangyong.vercel.app/2022-04-28-submit-urls-to-baidu-and-bing-with-api/</a></li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title=2022-04-28&#32;21:15:41>更新于 2022-04-28&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/2d05b79e85e19d0a7d7598c05de0f905ca8c6578" rel="external nofollow noopener noreffer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) 2d05b79e85e19d0a7d7598c05de0f905ca8c6578: new: submit urls using api">
+                  <i class="fas fa-hashtag fa-fw"></i>2d05b79</a></span>
+      </div>
+      <div class="post-info-license"></div>
+    </div>
+    <div class="post-info-line">
+      <div class="post-info-md"><span>
+              <a class="link-to-markdown" href="/2022-04-28-submit-urls-to-baidu-and-bing-with-api/index.md" target="_blank">阅读原始文档</a>
+            </span></div>
+      <div class="post-info-share">
+        <span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/github-pages/">github pages</a>,&nbsp;<a href=""></a>,&nbsp;<a href="/tags/webmaster/">webmaster</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/2022-04-27-linux-cpu-benchmark/" class="prev" rel="prev" title="Linux CPU 性能测试"><i class="fas fa-angle-left fa-fw"></i>Linux CPU 性能测试</a></div>
+</div>
+<div id="comments"><div id="utterances"></div><noscript>
+        Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/" rel="external nofollow noopener noreffer">Utterances</a>.
+      </noscript></div></article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt 0.2.14"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">
+              <a
+  href="https://github.com/whuwangyong"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Wang Yong</a></span><span class="footer-divider"></span><span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div></div>
+  </footer></div>
+
+    <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+        <i class="fas fa-arrow-up fa-fw"></i>
+      </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+        <i class="fas fa-comment fa-fw"></i>
+      </a>
+    </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.11.0/dist/algoliasearch-lite.umd.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js" async defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/dist/js/lightgallery.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.3.0/dist/lg-zoom.min.js" defer></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":30},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"comments","lightTheme":"github-light","repo":"whuwangyong/whuwangyong.github.io"}},"enablePWA":null,"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"YMLBEBNFHL","algoliaIndex":"new-index-1649076215","algoliaSearchKey":"9028b251fe4eecb5ad4d47af0715a4f0","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js" defer></script></body>
+</html>
