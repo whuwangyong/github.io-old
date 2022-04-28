@@ -245,6 +245,8 @@ def main():
 
     commit_html()
 
+    commit_urls()
+
     clear_commit_msg()
 
     print("+++++++++++++++++++")
@@ -253,5 +255,4 @@ def main():
 
 
 if __name__ == "__main__":
-    # main()
-    commit_urls()
+    main()
