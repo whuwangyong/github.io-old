@@ -5,13 +5,17 @@
 自动发布脚本，请在whuwangyong.github.io目录下运行。
 """
 
+import json
 import os
 import re
 import shutil
+import subprocess
 import sys
 import time
 
-COMMIT_MSG_FILE="commit-message"
+import requests
+
+COMMIT_MSG_FILE = "commit-message"
 BLOG_BR = "hugo-loveit"
 
 
@@ -154,6 +158,64 @@ def commit_html():
     os.system("git push")
 
 
+# 将最新的url提交到百度和bing
+# 需在 gh-pages 上操作，因为涉及到检测html文件
+def commit_urls():
+    print("将最新的url提交到百度和bing")
+    os.system("git checkout gh-pages")
+    urls = []
+
+    ret = subprocess.run(
+        "git rev-parse --short HEAD", stdout=subprocess.PIPE, stderr=subprocess.PIPE
+    )
+    if ret.returncode == 0:
+        commit_id = str(ret.stdout, "utf_8").strip()
+        ret = subprocess.run(
+            "git show --pretty=" " --name-only " + commit_id,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
+        if ret.returncode == 0:
+            changes = str(ret.stdout, "utf-8").split("\n")
+            for change in changes:
+                if change.endswith(".html"):
+                    urls.append("https://whuwangyong.github.io/{}".format(change[:-10]))
+        else:
+            print("========================")
+            print("subprocess run error:{}".format(ret.stderr))
+    else:
+        print("========================")
+        print("subprocess run error:{}".format(ret.stderr))
+
+    print("本次提交的urls:", urls)
+
+    # 提交到bing
+    headers = {
+        "Content-Type": "application/json; charset=utf-8",
+        "Host": "ssl.bing.com",
+    }
+    data = {"siteUrl": "https://whuwangyong.github.io/", "urlList": urls}
+    response = requests.post(
+        url="https://www.bing.com/webmaster/api.svc/json/SubmitUrlbatch?apikey=c8e29ae3ee2c4465a596a0ac7973b8f3",
+        headers=headers,
+        data=json.dumps(data)
+    )
+    print("bing的响应: ", response.content)
+
+    # 提交到百度
+    headers = {
+        "User-Agent": "curl/7.12.1",
+        "Host": "data.zz.baidu.com",
+        "Content-Type": "text/plain"
+    }
+    response = requests.post(
+        url="http://data.zz.baidu.com/urls?site=https://whuwangyong.github.io&token=5os4wCK5ct7kBZRN",
+        headers=headers,
+        data="\n".join(urls)
+    )
+    print("百度的响应: ", response.content)
+
+
 # 清除日志信息
 def clear_commit_msg():
     print("清除日志信息")
@@ -191,4 +253,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    # main()
+    commit_urls()
