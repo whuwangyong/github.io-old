@@ -156,9 +156,9 @@ def commit_html():
     os.rmdir("public")
 
     os.system("git add . > git_add.log 2>&1")
+    os.system("git rm -f git_add.log")
     os.system("git commit -q -F " + COMMIT_MSG_FILE)
     os.system("git push -f")
-    os.remove("git_add.log")
     print("提交gh-pages完成>>>>>>>>>>>>>>>>>>")
 
 
@@ -193,31 +193,32 @@ def commit_urls():
 
     print("本次提交的urls:", urls)
 
-    # 提交到bing
-    headers = {
-        "Content-Type": "application/json; charset=utf-8",
-        "Host": "ssl.bing.com",
-    }
-    data = {"siteUrl": "https://whuwangyong.github.io/", "urlList": urls}
-    response = requests.post(
-        url="https://www.bing.com/webmaster/api.svc/json/SubmitUrlbatch?apikey=c8e29ae3ee2c4465a596a0ac7973b8f3",
-        headers=headers,
-        data=json.dumps(data),
-    )
-    print("bing的响应: ", response.content)
+    if len(urls) > 0:
+        # 提交到bing
+        headers = {
+            "Content-Type": "application/json; charset=utf-8",
+            "Host": "ssl.bing.com",
+        }
+        data = {"siteUrl": "https://whuwangyong.github.io/", "urlList": urls}
+        response = requests.post(
+            url="https://www.bing.com/webmaster/api.svc/json/SubmitUrlbatch?apikey=c8e29ae3ee2c4465a596a0ac7973b8f3",
+            headers=headers,
+            data=json.dumps(data),
+        )
+        print("bing的响应: ", response.content)
 
-    # 提交到百度
-    headers = {
-        "User-Agent": "curl/7.12.1",
-        "Host": "data.zz.baidu.com",
-        "Content-Type": "text/plain",
-    }
-    response = requests.post(
-        url="http://data.zz.baidu.com/urls?site=https://whuwangyong.github.io&token=5os4wCK5ct7kBZRN",
-        headers=headers,
-        data="\n".join(urls),
-    )
-    print("百度的响应: ", response.content)
+        # 提交到百度
+        headers = {
+            "User-Agent": "curl/7.12.1",
+            "Host": "data.zz.baidu.com",
+            "Content-Type": "text/plain",
+        }
+        response = requests.post(
+            url="http://data.zz.baidu.com/urls?site=https://whuwangyong.github.io&token=5os4wCK5ct7kBZRN",
+            headers=headers,
+            data="\n".join(urls),
+        )
+        print("百度的响应: ", response.content)
 
 
 # 清除日志信息
