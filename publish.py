@@ -118,12 +118,12 @@ def add_links():
 
 # 提交 md 等源文件
 def commit_md():
-    print("提交md等源文件>>>>>>>>>>")
+    print("提交md等源文件>>>>>>>>>>>>>>>>>>>>")
     os.system("git pull")
     os.system("git add .")
     os.system("git commit -F %s" % (COMMIT_MSG_FILE))
     os.system("git push")
-    print("提交md等源文件完成<<<<<<<<")
+    print("提交md等源文件完成<<<<<<<<<<<<<<<<")
 
 
 # 开始渲染md为html
@@ -135,7 +135,7 @@ def start_hugo():
 
 # 切换到gh-pages分支，删除旧文件，提交新文件
 def commit_html():
-    print("切换到 gh-pages 分支<<<<<<<<<")
+    print("切换到 gh-pages 分支<<<<<<<<<<<<<<<<<<")
     os.system("git checkout gh-pages")
 
     # 删除旧文件，保留 .git/ 和 public/
@@ -155,10 +155,11 @@ def commit_html():
         shutil.move(os.getcwd() + os.sep + "public" + os.sep + f, os.getcwd())
     os.rmdir("public")
 
-    os.system("git add .")
+    os.system("git add . > git_add.log 2>&1")
     os.system("git commit -q -F " + COMMIT_MSG_FILE)
     os.system("git push -f")
-    print("提交gh-pages完成>>>>>>>>>")
+    os.remove("git_add.log")
+    print("提交gh-pages完成>>>>>>>>>>>>>>>>>>")
 
 
 # 将最新的url提交到百度和bing
@@ -201,7 +202,7 @@ def commit_urls():
     response = requests.post(
         url="https://www.bing.com/webmaster/api.svc/json/SubmitUrlbatch?apikey=c8e29ae3ee2c4465a596a0ac7973b8f3",
         headers=headers,
-        data=json.dumps(data)
+        data=json.dumps(data),
     )
     print("bing的响应: ", response.content)
 
@@ -209,12 +210,12 @@ def commit_urls():
     headers = {
         "User-Agent": "curl/7.12.1",
         "Host": "data.zz.baidu.com",
-        "Content-Type": "text/plain"
+        "Content-Type": "text/plain",
     }
     response = requests.post(
         url="http://data.zz.baidu.com/urls?site=https://whuwangyong.github.io&token=5os4wCK5ct7kBZRN",
         headers=headers,
-        data="\n".join(urls)
+        data="\n".join(urls),
     )
     print("百度的响应: ", response.content)
 
