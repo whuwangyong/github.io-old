@@ -118,10 +118,12 @@ def add_links():
 
 # 提交 md 等源文件
 def commit_md():
-    print("提交md等源文件")
+    print("提交md等源文件>>>>>>>>>>")
+    os.system("git pull")
     os.system("git add .")
     os.system("git commit -F %s" % (COMMIT_MSG_FILE))
     os.system("git push")
+    print("提交md等源文件完成<<<<<<<<")
 
 
 # 开始渲染md为html
@@ -133,7 +135,7 @@ def start_hugo():
 
 # 切换到gh-pages分支，删除旧文件，提交新文件
 def commit_html():
-    print("切换到 gh-pages 分支")
+    print("切换到 gh-pages 分支<<<<<<<<<")
     os.system("git checkout gh-pages")
 
     # 删除旧文件，保留 .git/ 和 public/
@@ -141,21 +143,22 @@ def commit_html():
     for f in os.listdir():
         if os.path.isfile(f) and f not in ["commit-message", ".gitignore"]:
             os.remove(f)
-            print("remove:", f)
+            # print("remove:", f)
         if os.path.isdir(f) and f not in [".git", "public", "themes"]:
             shutil.rmtree(f)
-            print("remove:", f)
+            # print("remove:", f)
 
     # 将 public/ 下面的文件移出来，然后删除空的public/文件夹
     print("将 public/ 下面的文件移出来，然后删除空的public/文件夹")
     for f in os.listdir("public"):
-        print("++ move:", f)
+        # print("++ move:", f)
         shutil.move(os.getcwd() + os.sep + "public" + os.sep + f, os.getcwd())
     os.rmdir("public")
 
     os.system("git add .")
-    os.system("git commit -F " + COMMIT_MSG_FILE)
-    os.system("git push")
+    os.system("git commit -q -F " + COMMIT_MSG_FILE)
+    os.system("git push -f")
+    print("提交gh-pages完成>>>>>>>>>")
 
 
 # 将最新的url提交到百度和bing
