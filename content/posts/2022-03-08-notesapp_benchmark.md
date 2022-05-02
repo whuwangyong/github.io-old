@@ -129,9 +129,3 @@ logseq那种日记方式，尝试之后我不习惯。写日记确实很快，�
 
 
 
----
-
-本文同步发布于：
-- https://whuwangyong.github.io/2022-03-08-notesapp_benchmark/
-- https://whuwangyong.netlify.app/2022-03-08-notesapp_benchmark/
-- https://whuwangyong.vercel.app/2022-03-08-notesapp_benchmark/

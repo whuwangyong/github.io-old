@@ -116,6 +116,34 @@ def add_links():
                         md.write("- https://whuwangyong.vercel.app/" + mdf_name + "/")
 
 
+# 删除文末的“本文同步发布于xxx”
+def remove_links():
+    post_dir = os.getcwd() + os.sep + "content" + os.sep + "posts"
+    for root, dirs, files in os.walk(post_dir):
+        # root 表示当前正在访问的文件夹路径
+        # dirs 表示该文件夹下的子目录名list
+        # files 表示该文件夹下的文件list
+
+        # 遍历文件
+        for f in files:
+            if str(f).endswith(".md"):
+                mdf = os.path.join(root, f)
+                with open(mdf, "r+", encoding="utf-8") as md:
+                    lines = md.readlines()
+                    md.seek(0, os.SEEK_END)
+                    total = md.tell()
+                    if (
+                        len(lines) > 3
+                        and lines[-1].startswith("- https://whuwangyong.vercel.app/")
+                        and lines[-2].startswith("- https://whuwangyong.netlify.app/")
+                        and lines[-3].startswith("- https://whuwangyong.github.io/")
+                    ):
+                        # 205 + 21 = 226
+                        # md.seek(total - len("".join(lines[-6:]))) # 定位到倒数第6行的行首位置
+                        md.seek(total - len("".join(lines[-6:])) - 21)  # 定位到倒数第6行的行首位置
+                        md.truncate()  # 截断之后的数据
+
+
 # 提交 md 等源文件
 def commit_md():
     print("提交md等源文件>>>>>>>>>>>>>>>>>>>>")
@@ -242,7 +270,7 @@ def main():
 
     replace_img_url()
 
-    add_links()
+    # add_links()
 
     commit_md()
 

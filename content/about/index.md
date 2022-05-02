@@ -21,7 +21,7 @@ comment: true
 
 ## 关于我
 - 重庆18年 + 武汉7年 + 深圳5+年 = 30+岁
-- C + Cpp + C# + Java + Python + JavaScript + Linux + Nginx + MySQL + Kafka + Zookeeper + SpringBoot + ... = 啥也不会
+- Java + Python + JavaScript + Linux + MySQL + Kafka + Zookeeper + SpringBoot + ... = 啥也不会
 - Bilibili + 公众号 + 小视频 + 知乎 + 抖音 + 相机 = 想搞点内容创作
 - 基金 + 中概互联 + 2022 = 老乡别走 & 关灯吃面
 - 发福 + 弱鸡 = 早睡早起 & 少吃多动

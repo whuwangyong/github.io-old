@@ -121,9 +121,3 @@ def process_go(go_pkg):
 ```
 
 
----
-
-本文同步发布于：
-- https://whuwangyong.github.io/2022-04-28-crawl-latest-version-for-jar-npm-go-pkg/
-- https://whuwangyong.netlify.app/2022-04-28-crawl-latest-version-for-jar-npm-go-pkg/
-- https://whuwangyong.vercel.app/2022-04-28-crawl-latest-version-for-jar-npm-go-pkg/
