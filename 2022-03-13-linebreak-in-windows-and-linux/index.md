@@ -131,9 +131,4 @@ ts@TS:~/www/document$
 
 
 
----
 
-本文同步发布于：
-- https://whuwangyong.github.io/2022-03-13-linebreak-in-windows-and-linux/
-- https://whuwangyong.netlify.app/2022-03-13-linebreak-in-windows-and-linux/
-- https://whuwangyong.vercel.app/2022-03-13-linebreak-in-windows-and-linux/

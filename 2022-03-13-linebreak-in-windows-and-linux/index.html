@@ -9,14 +9,14 @@
 <meta name="description" content="问题描述 有一个配置文件 config： 1 2 KAFKA_HOME=/home/wy/dev/kafka_2.13-2.6.0 BOOTSTRAP_SERVER=127.0.0.1:9092 另有一个使用该配置文件的脚本 list-topics.sh： 1 2 3 4 #!/bin/bash . config &#34;$KAFKA_HOME&#34;/bin/kafka-topics.sh --bootstrap-server &#34;$BOOTSTRAP_SERVER&#34; --list 我使用虚拟机Ubuntu挂载Windows分区，执行在Windows环境下编写的脚本，提示： 1 2 wy@ship:/mnt/hgfs/D/projects/kafka-mate/scripts$ ./list-topics.sh /bin/kafka-topics.sh: No such file or directory13-2.6.0 解决" />
 <meta name="keywords" content="换行符" /><meta itemprop="name" content="Windows和Linux的不同换行符导致脚本执行异常">
 <meta itemprop="description" content="问题描述 有一个配置文件 config： 1 2 KAFKA_HOME=/home/wy/dev/kafka_2.13-2.6.0 BOOTSTRAP_SERVER=127.0.0.1:9092 另有一个使用该配置文件的脚本 list-topics.sh： 1 2 3 4 #!/bin/bash . config &#34;$KAFKA_HOME&#34;/bin/kafka-topics.sh --bootstrap-server &#34;$BOOTSTRAP_SERVER&#34; --list 我使用虚拟机Ubuntu挂载Windows分区，执行在Windows环境下编写的脚本，提示： 1 2 wy@ship:/mnt/hgfs/D/projects/kafka-mate/scripts$ ./list-topics.sh /bin/kafka-topics.sh: No such file or directory13-2.6.0 解决"><meta itemprop="datePublished" content="2022-03-13T00:00:00+08:00" />
-<meta itemprop="dateModified" content="2022-04-07T02:38:18+08:00" />
-<meta itemprop="wordCount" content="1279"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
+<meta itemprop="dateModified" content="2022-05-02T15:52:52+08:00" />
+<meta itemprop="wordCount" content="1268"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
 <meta itemprop="keywords" content="换行符," /><meta property="og:title" content="Windows和Linux的不同换行符导致脚本执行异常" />
 <meta property="og:description" content="问题描述 有一个配置文件 config： 1 2 KAFKA_HOME=/home/wy/dev/kafka_2.13-2.6.0 BOOTSTRAP_SERVER=127.0.0.1:9092 另有一个使用该配置文件的脚本 list-topics.sh： 1 2 3 4 #!/bin/bash . config &#34;$KAFKA_HOME&#34;/bin/kafka-topics.sh --bootstrap-server &#34;$BOOTSTRAP_SERVER&#34; --list 我使用虚拟机Ubuntu挂载Windows分区，执行在Windows环境下编写的脚本，提示： 1 2 wy@ship:/mnt/hgfs/D/projects/kafka-mate/scripts$ ./list-topics.sh /bin/kafka-topics.sh: No such file or directory13-2.6.0 解决" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://whuwangyong.github.io/2022-03-13-linebreak-in-windows-and-linux/" /><meta property="og:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-03-13T00:00:00+08:00" />
-<meta property="article:modified_time" content="2022-04-07T02:38:18+08:00" />
+<meta property="article:modified_time" content="2022-05-02T15:52:52+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
@@ -35,8 +35,8 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/whuwangyong.github.io\/2022-03-13-linebreak-in-windows-and-linux\/"
-    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "换行符","wordcount":  1279 ,
-    "url": "https:\/\/whuwangyong.github.io\/2022-03-13-linebreak-in-windows-and-linux\/","datePublished": "2022-03-13T00:00:00+08:00","dateModified": "2022-04-07T02:38:18+08:00","publisher": {
+    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "换行符","wordcount":  1268 ,
+    "url": "https:\/\/whuwangyong.github.io\/2022-03-13-linebreak-in-windows-and-linux\/","datePublished": "2022-03-13T00:00:00+08:00","dateModified": "2022-05-02T15:52:52+08:00","publisher": {
       "@type": "Organization",
       "name": "Wang Yong","logo": {
           "@type": "ImageObject",
@@ -235,7 +235,7 @@
 ><i class="fas fa-user-circle fa-fw"></i>Wang Yong</a></span></div>
       <div class="post-meta-line"><span title=2022-03-13&#32;00:00:00>
             <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-13" >2022-03-13</time>
-          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1279 字&nbsp;
+          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1268 字&nbsp;
         <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
     </div><div class="details toc" id="toc-static" kept="false">
         <div class="details-summary toc-title">
@@ -454,61 +454,12 @@ ts@TS:~/www/document$
   
   
 >Vim 编辑器底端 [noeol], [dos] 的含义 - Trekshot - 博客园 (cnblogs.com)</a></p>
-<hr>
-<p>本文同步发布于：</p>
-<ul>
-<li><a
-  href="https://whuwangyong.github.io/2022-03-13-linebreak-in-windows-and-linux/"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
-  
->https://whuwangyong.github.io/2022-03-13-linebreak-in-windows-and-linux/</a></li>
-<li><a
-  href="https://whuwangyong.netlify.app/2022-03-13-linebreak-in-windows-and-linux/"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
-  
->https://whuwangyong.netlify.app/2022-03-13-linebreak-in-windows-and-linux/</a></li>
-<li><a
-  href="https://whuwangyong.vercel.app/2022-03-13-linebreak-in-windows-and-linux/"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
-  
->https://whuwangyong.vercel.app/2022-03-13-linebreak-in-windows-and-linux/</a></li>
-</ul>
 </div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title=2022-04-07&#32;02:38:18>更新于 2022-04-07&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/893f9c44025b02e9536bfec272c32a57febdb9b0" rel="external nofollow noopener noreffer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) 893f9c44025b02e9536bfec272c32a57febdb9b0: 修复add_links的换行问题">
-                  <i class="fas fa-hashtag fa-fw"></i>893f9c4</a></span>
+        <span title=2022-05-02&#32;15:52:52>更新于 2022-05-02&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/716e6f285a47f42ea64ef64f860ca9b08a97da46" rel="external nofollow noopener noreffer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) 716e6f285a47f42ea64ef64f860ca9b08a97da46: 移除文末添加的同步发布链接">
+                  <i class="fas fa-hashtag fa-fw"></i>716e6f2</a></span>
       </div>
       <div class="post-info-license"></div>
     </div>

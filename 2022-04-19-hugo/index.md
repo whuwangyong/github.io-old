@@ -374,9 +374,4 @@ date 字段我一般只写日期，不写时间。好，现在问题来了，hug
 推荐采用方法（4）。
 
 
----
 
-本文同步发布于：
-- https://whuwangyong.github.io/2022-04-19-hugo/
-- https://whuwangyong.netlify.app/2022-04-19-hugo/
-- https://whuwangyong.vercel.app/2022-04-19-hugo/

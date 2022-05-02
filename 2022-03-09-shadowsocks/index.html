@@ -9,14 +9,14 @@
 <meta name="description" content="官方地址： shadowsocks/shadowsocks-libev: Bug-fix-only libev port of shadowsocks. Future development moved to shadowsocks-rust (github.com) 旧地址，不再更新： shadowsocks/shadowsocks at master (github.com) clowwindy/shadowsocks-libev at master (github.com) 本文基于Ubuntu。 install 1 2 3 $ sudo apt install shadowsocks-libev ... Created symlink /etc/systemd/system/multi-user.target.wants/shadowsocks-libev.service → /lib/systemd/system/shadowsocks-libev.service. Configuration 官方文档说配置文件在这里： Edit your config.json file. By default, it&rsquo;s located in /usr/local/etc/shadowsocks-libev. 但我的不是。 编辑/etc/shadowsocks-libev/confi" />
 <meta name="keywords" content="shadowsocks,vpn" /><meta itemprop="name" content="shadowsocks 服务端安装指南">
 <meta itemprop="description" content="官方地址： shadowsocks/shadowsocks-libev: Bug-fix-only libev port of shadowsocks. Future development moved to shadowsocks-rust (github.com) 旧地址，不再更新： shadowsocks/shadowsocks at master (github.com) clowwindy/shadowsocks-libev at master (github.com) 本文基于Ubuntu。 install 1 2 3 $ sudo apt install shadowsocks-libev ... Created symlink /etc/systemd/system/multi-user.target.wants/shadowsocks-libev.service → /lib/systemd/system/shadowsocks-libev.service. Configuration 官方文档说配置文件在这里： Edit your config.json file. By default, it&rsquo;s located in /usr/local/etc/shadowsocks-libev. 但我的不是。 编辑/etc/shadowsocks-libev/confi"><meta itemprop="datePublished" content="2022-03-09T00:00:00+08:00" />
-<meta itemprop="dateModified" content="2022-04-07T02:38:18+08:00" />
-<meta itemprop="wordCount" content="649"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
+<meta itemprop="dateModified" content="2022-05-02T15:52:52+08:00" />
+<meta itemprop="wordCount" content="638"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
 <meta itemprop="keywords" content="shadowsocks,vpn," /><meta property="og:title" content="shadowsocks 服务端安装指南" />
 <meta property="og:description" content="官方地址： shadowsocks/shadowsocks-libev: Bug-fix-only libev port of shadowsocks. Future development moved to shadowsocks-rust (github.com) 旧地址，不再更新： shadowsocks/shadowsocks at master (github.com) clowwindy/shadowsocks-libev at master (github.com) 本文基于Ubuntu。 install 1 2 3 $ sudo apt install shadowsocks-libev ... Created symlink /etc/systemd/system/multi-user.target.wants/shadowsocks-libev.service → /lib/systemd/system/shadowsocks-libev.service. Configuration 官方文档说配置文件在这里： Edit your config.json file. By default, it&rsquo;s located in /usr/local/etc/shadowsocks-libev. 但我的不是。 编辑/etc/shadowsocks-libev/confi" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://whuwangyong.github.io/2022-03-09-shadowsocks/" /><meta property="og:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-03-09T00:00:00+08:00" />
-<meta property="article:modified_time" content="2022-04-07T02:38:18+08:00" />
+<meta property="article:modified_time" content="2022-05-02T15:52:52+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
@@ -35,8 +35,8 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/whuwangyong.github.io\/2022-03-09-shadowsocks\/"
-    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "shadowsocks, vpn","wordcount":  649 ,
-    "url": "https:\/\/whuwangyong.github.io\/2022-03-09-shadowsocks\/","datePublished": "2022-03-09T00:00:00+08:00","dateModified": "2022-04-07T02:38:18+08:00","publisher": {
+    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "shadowsocks, vpn","wordcount":  638 ,
+    "url": "https:\/\/whuwangyong.github.io\/2022-03-09-shadowsocks\/","datePublished": "2022-03-09T00:00:00+08:00","dateModified": "2022-05-02T15:52:52+08:00","publisher": {
       "@type": "Organization",
       "name": "Wang Yong","logo": {
           "@type": "ImageObject",
@@ -235,7 +235,7 @@
 ><i class="fas fa-user-circle fa-fw"></i>Wang Yong</a></span></div>
       <div class="post-meta-line"><span title=2022-03-09&#32;00:00:00>
             <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-09" >2022-03-09</time>
-          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 649 字&nbsp;
+          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 638 字&nbsp;
         <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
     </div><div class="details toc" id="toc-static" kept="false">
         <div class="details-summary toc-title">
@@ -431,55 +431,6 @@ service shadowsocks-libev start
 </div>
 </div><h2 id="提示">提示</h2>
 <p>shadowsocks的服务器在v2rayNG app上无法使用，需使用Shadowsocks app。但是PC上的v2rayN可以使用ss服务器。</p>
-<hr>
-<p>本文同步发布于：</p>
-<ul>
-<li><a
-  href="https://whuwangyong.github.io/2022-03-09-shadowsocks/"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
-  
->https://whuwangyong.github.io/2022-03-09-shadowsocks/</a></li>
-<li><a
-  href="https://whuwangyong.netlify.app/2022-03-09-shadowsocks/"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
-  
->https://whuwangyong.netlify.app/2022-03-09-shadowsocks/</a></li>
-<li><a
-  href="https://whuwangyong.vercel.app/2022-03-09-shadowsocks/"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
-  
->https://whuwangyong.vercel.app/2022-03-09-shadowsocks/</a></li>
-</ul>
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -539,8 +490,8 @@ net.ipv4.tcp_congestion_control=bbr
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title=2022-04-07&#32;02:38:18>更新于 2022-04-07&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/893f9c44025b02e9536bfec272c32a57febdb9b0" rel="external nofollow noopener noreffer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) 893f9c44025b02e9536bfec272c32a57febdb9b0: 修复add_links的换行问题">
-                  <i class="fas fa-hashtag fa-fw"></i>893f9c4</a></span>
+        <span title=2022-05-02&#32;15:52:52>更新于 2022-05-02&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/716e6f285a47f42ea64ef64f860ca9b08a97da46" rel="external nofollow noopener noreffer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) 716e6f285a47f42ea64ef64f860ca9b08a97da46: 移除文末添加的同步发布链接">
+                  <i class="fas fa-hashtag fa-fw"></i>716e6f2</a></span>
       </div>
       <div class="post-info-license"></div>
     </div>

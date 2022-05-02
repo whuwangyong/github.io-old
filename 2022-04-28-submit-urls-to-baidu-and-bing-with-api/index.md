@@ -235,9 +235,4 @@ bing的响应:  b'{"d":null}'
 ```
 
 
----
 
-本文同步发布于：
-- https://whuwangyong.github.io/2022-04-28-submit-urls-to-baidu-and-bing-with-api/
-- https://whuwangyong.netlify.app/2022-04-28-submit-urls-to-baidu-and-bing-with-api/
-- https://whuwangyong.vercel.app/2022-04-28-submit-urls-to-baidu-and-bing-with-api/

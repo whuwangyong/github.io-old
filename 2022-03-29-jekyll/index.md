@@ -343,9 +343,4 @@ Chirpy主题的作者在[这里](https://github.com/cotes2020/jekyll-theme-chirp
 
 
 
----
 
-本文同步发布于：
-- https://whuwangyong.github.io/2022-03-29-jekyll/
-- https://whuwangyong.netlify.app/2022-03-29-jekyll/
-- https://whuwangyong.vercel.app/2022-03-29-jekyll/

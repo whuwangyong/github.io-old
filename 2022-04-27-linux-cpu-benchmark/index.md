@@ -145,9 +145,4 @@ print(time.time() - t0)
 将该脚本在不同的CPU上执行，通过对比运行时间，估计待测CPU的性能。
 
 
----
 
-本文同步发布于：
-- https://whuwangyong.github.io/2022-04-27-linux-cpu-benchmark/
-- https://whuwangyong.netlify.app/2022-04-27-linux-cpu-benchmark/
-- https://whuwangyong.vercel.app/2022-04-27-linux-cpu-benchmark/
