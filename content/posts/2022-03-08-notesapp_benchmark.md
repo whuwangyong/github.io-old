@@ -2,6 +2,7 @@
 title: "云笔记软件简评"
 date: 2022-03-29
 tags: ["为知笔记","有道云笔记","思源笔记","logseq","双链笔记","obsidian","joplin","语雀"]
+categories: ["笔记软件"]
 ---
 
 本文首发V2EX。
