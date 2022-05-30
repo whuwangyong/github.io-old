@@ -152,7 +152,7 @@ READ_COMMITTED，只能消费到已提交的事务消息，和非事务的消息
 
 结果2也写到kafka里面，这样写结果1+结果2+消费进度是一个kafka事务，可以做到精确一次消费。然后单独写一个持久化线程，将数据从kafka里面消费，写到db。**注意写db的时候，需要将消费进度一起写入db，利用数据库事务来确保精确一次持久化。**
 
-## Reference
+### Reference
 
 1. [Kafka: The Definitive Guide(2nd Edition)](https://resources.confluent.io/all-content/kafka-the-definitive-guide-v2)
 2. [Apache Kafka Documentation](https://kafka.apache.org/documentation/)

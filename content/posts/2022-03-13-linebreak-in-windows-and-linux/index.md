@@ -1,5 +1,5 @@
 ---
-title: "Windows和Linux的不同换行符导致脚本执行异常"
+title: "Windows和Linux的不同换行符导致shell脚本执行异常"
 date: 2022-03-13
 tags: ["换行符"]
 ---

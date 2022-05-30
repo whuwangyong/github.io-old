@@ -1,5 +1,5 @@
 ---
-title: "使用API提交URL到百度和Bing"
+title: "使用API提交博客文章的URL到百度和Bing"
 date: 2022-04-28
 tags: ["github pages", "sitemap", "webmaster"]
 categories: ["静态网站博客"]
