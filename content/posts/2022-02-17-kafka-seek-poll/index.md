@@ -141,7 +141,7 @@ boolean updateAssignmentMetadataIfNeeded(final Timer timer, final boolean waitFo
 
 ### 猜测2 timeout决定了一切
 
-在调式过程中，我发现不管用用新版的poll，还是老版本的poll，当timeout太小时，如**100ms**，第一次poll多半拉不到消息；timeout足够大时，比如**2000ms**，每次都拉到消息了。于是我得出结论：将timeout设置足够大即可。不足的是，如果传入的offset参数越界，该位置本来就没有消息，poll方法也会等待timeout才返回（**这里是不是kafka的一个待优化的点**），浪费时间，于是我决定加一个检查，当传入的offset超过partition的endOffset时，快速返回。代码如下：
+在调式过程中，我发现不管用用新版的poll，还是老版本的poll，当timeout太小时，如**10ms**，第一次poll多半拉不到消息；timeout足够大时，比如**2000ms**，每次都拉到消息了。于是我得出结论：将timeout设置足够大即可。不足的是，如果传入的offset参数越界，该位置本来就没有消息，poll方法也会等待timeout才返回（**这里或许是kafka的一个待优化的点？**），浪费时间，于是我决定加一个检查，当传入的offset超过partition的起始偏移量时，快速返回。代码如下：
 
 ```java
 public ConsumerRecord<String, String> seekAndPoll(String topic, int partition, long offset) {
@@ -152,12 +152,13 @@ public ConsumerRecord<String, String> seekAndPoll(String topic, int partition, l
     // endOffset: the offset of the last successfully replicated message plus one
     // if there has 5 messages, valid offsets are [0,1,2,3,4], endOffset is 4+1=5
     Long endOffset = consumer.endOffsets(Collections.singleton(tp)).get(tp); 
-    if (offset < 0 || offset >= endOffset) {
+    Long beginOffset = consumer.beginningOffsets(Collections.singleton(tp)).get(tp);
+    if (offset < beginOffset || offset >= endOffset) {
         System.out.println("offset is illegal");
         return null;
     } else {
         consumer.seek(tp, offset);
-        ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(100))
+        ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(2000))
         if(records.isEmpty()){
             return null;
         } else {
@@ -169,9 +170,10 @@ public ConsumerRecord<String, String> seekAndPoll(String topic, int partition, l
 
 ### 真相？ consumer.endOffsets()
 
-我做了一个测试，在2个topic的4个partition上反复执行猜测2的代码，循环10000次，并更改timeout的大小，期望得出timeout值的大小与seekAndPoll失败之间量化关系。结果发现，即使timeout只有10ms，poll也有非常高的成功率；timeout=50ms时，poll成功率**100%**。而之前要`timeout=1000ms ~ 2000ms`才能有这么高的成功率。我反复检查，最终发现是这一行代码造成的：
+我做了一个测试，在2个topic的4个partition上反复执行猜测2的代码，循环10000次，并更改timeout的大小，期望得出timeout值的大小与seekAndPoll失败之间量化关系。结果发现，即使timeout只有10ms，poll也有非常高的成功率；timeout=50ms时，poll成功率就能达到**100%**。而之前要`timeout=1000ms ~ 2000ms`才能有这么高的成功率。我反复检查，最终发现是这两行代码造成的：
 
 ```java
+Long beginOffset = consumer.beginningOffsets(Collections.singleton(tp)).get(tp);
 Long endOffset = consumer.endOffsets(Collections.singleton(tp)).get(tp); 
 ```
 
@@ -181,7 +183,11 @@ Long endOffset = consumer.endOffsets(Collections.singleton(tp)).get(tp);
 
 ## 结论
 
-就按照猜测2的代码写，timeout设置为1000ms。consumer.endOffsets()方法一方面起到了检查offset的作用，另一方面起到了降低timeout的作用。但是，如果offset上有消息，poll会立即返回。因此这个timeout即使设置很大，也无影响。
+就按照上述猜测2的代码写，timeout设置为2000ms或者更大。只要seek传入的offset通过了检查，那么该offset上一定有消息，poll时就会立即返回。因此这个timeout即使设置很大也无影响。
+
+`consumer.beginOffsets()`和`consumer.endOffsets()`一方面起到了检查offset的作用，另一方面起到了降低timeout的作用（虽然这并不是目的）。
+
+注意，在beginOffset和endOffset确定的情况下进行多次seek，不需要每次都调API去查询，而是应该缓存起来多次使用。在这种情况下，能一次poll到消息就靠timeout了，因此，不要把timeout设置得太小，至少100ms。
 
 ## 测试代码
 
