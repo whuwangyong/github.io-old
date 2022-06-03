@@ -268,7 +268,7 @@ def main():
 
     delete_last_hugo_files()
 
-    replace_img_url()
+    # replace_img_url()
 
     # add_links()
 
