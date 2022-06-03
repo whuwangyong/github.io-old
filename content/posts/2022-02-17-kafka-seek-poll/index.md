@@ -92,7 +92,7 @@ boolean updateAssignmentMetadataIfNeeded(final Timer timer, final boolean waitFo
 
 但调试发现，在使用assign手动指定消费分区时，coordinator 为 null。这很好理解，只有subscribe模式才存在重平衡等情况，需要coordinator进行协调。
 
-![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-02-17-kafka-seek-poll/assets/image-20220531165520-92q6hbk.png)
+![image.png](assets/image-20220531165520-92q6hbk.png)
 
 所以能否拉取到消息，与poll是新版还是旧版无关。
 
