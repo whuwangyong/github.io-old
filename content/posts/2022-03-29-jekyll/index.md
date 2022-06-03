@@ -32,7 +32,7 @@ Jekyll 是 Github Pages 官方支持的静态网站生成工具，优点是在�
 
     > 第一次接触ruby，完全懵逼，不知道装了些啥，接近1个GB。打印的日志是清新脱俗。
     >
-    > ![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220329160821-l8rh3to.png)
+    > ![image.png](assets/image-20220329160821-l8rh3to.png)
     >
 3. Open a new command prompt window from the start menu, so that changes to the `PATH` environment variable becomes effective. Install Jekyll and Bundler using `gem install jekyll bundler`
 4. Check if Jekyll has been installed properly: `jekyll -v`
@@ -186,7 +186,7 @@ As the version upgrades, the critical files (for details, see the [Startup Templ
 ### 发布时间与更新时间
 
 chirpy主题还有个优点：自带文章的更新时间。  
-​![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220331014721-gqhljgu.png)  
+​![image.png](assets/image-20220331014721-gqhljgu.png)  
 这就不需要倒腾额外的jekyll插件去实现这个功能了。如[gjtorikian/jekyll-last-modified-at: A Jekyll plugin to show the last_modified_at time of a post. (github.com)](https://github.com/gjtorikian/jekyll-last-modified-at)
 
 ### 添加tab到左侧栏
@@ -246,7 +246,7 @@ jobs:
 该文件定义了一个workflow：当push代码到main分支时，执行jobs里面定义的动作。最关键的是`Deploy`这一步，它执行了一个脚本：`tools/deploy.sh`。这个脚本做的事情，就是执行`bundle exec jekyll build -d _site`将md文件编译为html，生成静态网站，然后将`_site`下的内容push到`gh-pages`分支。到这里就很清楚了，是github帮助我们执行了build操作，将md转换成了html。
 
 在github上查看你的github.io项目，在Actions下面可以看到每次提交新文章时触发的workflows：  
-​![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220331004320-pqmd5w3.png)  
+​![image.png](assets/image-20220331004320-pqmd5w3.png)  
 第一个workflow就是上面提到的`.github/workflows/pages-deploy.yml`，第二个是github pages创建的，可以看到`bot`标志。点进workflow runs，可以看到执行的日志，根据日志能更加清楚的知道背后的流程。
 
 > 如果使用hugo建站，github后台并没有hugo的环境，所以不能帮助我们编译md。这就需要我们自己编译好html，然后push到github.io项目。push之后的流程是一样的：由github pages的bot将编译好的静态网站发布到`https://<username>.github.io`。
@@ -316,13 +316,13 @@ Jekyll默认的Markdown Processor是[kramdown](https://kramdown.gettalong.org/)�
 
 除了`|`字符，`<>`、liquid cldoe语法（`{{}}`）等也需要转义：
 
-![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402175945-5ebn1ji.png "jekyll kramdown渲染的html")
+![image.png](assets/image-20220402175945-5ebn1ji.png "jekyll kramdown渲染的html")
 
-![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402180034-2o61ioe.png "hugo渲染的html")
+![image.png](assets/image-20220402180034-2o61ioe.png "hugo渲染的html")
 
-![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402180527-dq2mt3w.png "jekyll kramdown渲染的html")
+![image.png](assets/image-20220402180527-dq2mt3w.png "jekyll kramdown渲染的html")
 
-![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-jekyll/assets/image-20220402180508-hdniva3.png "hugo渲染的html")
+![image.png](assets/image-20220402180508-hdniva3.png "hugo渲染的html")
 
 总之要注意的地方挺多，不能毫无顾忌地写markdown。
 

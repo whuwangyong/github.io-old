@@ -21,7 +21,7 @@ categories: ["kafka"]
 
 本应用从上游topic消费消息，处理后发到下游topic，同时将处理进度发送到`__consumer_offsets`topic里面进行保存，对这两个topic的写，是一个原子操作（atomic）。
 
-![image-20220530095714242](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-05-30-kafka-tx/assets/image-20220530095714242.png)
+![image-20220530095714242](assets/image-20220530095714242.png)
 
 
 如果没有事务，发生以下情况时，消息可能会重复或者丢失：
@@ -58,7 +58,7 @@ producer.endTransaction()
 
 ### How Transactions Work
 
-![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-05-30-kafka-tx/assets/image-20220528201239-6jlhsxf.jpg)
+![image.png](assets/image-20220528201239-6jlhsxf.jpg)
 
 ### The Transaction Coordinator and Transaction Log
 
@@ -131,7 +131,7 @@ READ_COMMITTED，只能消费到已提交的事务消息，和非事务的消息
 
 对于如下的一个逻辑：
 
-![image-20220530104540910](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-05-30-kafka-tx/assets/image-20220530104540910.png)
+![image-20220530104540910](assets/image-20220530104540910.png)
 
 本应用消费上游topic的消息，然后将结果1发送到下游topic，同时将结果2写入db，另外还要提交消费进度到`__consumer_offsets`topic。如何保证这3个写操作是一个事务？kafka的事务并不支持跨数据源。官方文档如下：
 
@@ -148,7 +148,7 @@ READ_COMMITTED，只能消费到已提交的事务消息，和非事务的消息
 
 根据这种思路，提供设计如下：
 
-![image-20220530104521400](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-05-30-kafka-tx/assets/image-20220530104521400.png)
+![image-20220530104521400](assets/image-20220530104521400.png)
 
 结果2也写到kafka里面，这样写结果1+结果2+消费进度是一个kafka事务，可以做到精确一次消费。然后单独写一个持久化线程，将数据从kafka里面消费，写到db。**注意写db的时候，需要将消费进度一起写入db，利用数据库事务来确保精确一次持久化。**
 

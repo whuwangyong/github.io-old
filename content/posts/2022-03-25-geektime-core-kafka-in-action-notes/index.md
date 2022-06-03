@@ -171,7 +171,7 @@ Java Consumer 是双线程的设计。一个线程是用户主线程，负责获
 |CompleingRebalance|消费者组下所有成员已经加入，各个成员正在等待分配方案。<br />该状态在老一点的版本中被称为AwaitingSync,它和CompletingRebalance是等价的。<br />|
 |Stable|消费者组的稳定状态。该状态表明重平衡已经完成，组内各成员能够正常消费数据了。|
 
-![image-20220407184925-y5yc3d1.jpg](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220407184925-y5yc3d1.jpg)
+![image-20220407184925-y5yc3d1.jpg](assets/image-20220407184925-y5yc3d1.jpg)
 
 一个消费者组最开始是 Empty 状态，当重平衡过程开启后，它会被置于 PreparingRebalance 状态等待成员加入，之后变更到 CompletingRebalance 状态等待分配方案，最后流转到 Stable 状态完成重平衡。  
 当有新成员加入或已有成员退出时，消费者组的状态从 Stable 直接跳到 PreparingRebalance 状态，此时，所有现存成员就必须重新申请加入组。当所有成员都退出组后，消费者组状态变更为 Empty。Kafka 定期自动删除过期位移的条件就是，组要处于 Empty 状态。因此，如果你的消费者组停掉了很长时间（超过 7 天），那么 Kafka 很可能就把该组的位移数据删除了。我相信，你在 Kafka 的日志中一定经常看到下面这个输出：  
@@ -207,7 +207,7 @@ Kafka 的水位不是时间戳，更与时间无关。它是和位置信息绑�
 * 定义消息可见性，即用来标识分区下的哪些消息是可以被消费者消费的。
 * 帮助 Kafka 完成副本同步。
 
-![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220407192639-bm2jo4l.jpg)
+![image.png](assets/image-20220407192639-bm2jo4l.jpg)
 
 在分区高水位以下的消息被认为是已提交消息，反之就是未提交消息。**消费者只能消费已提交消息，即图中位移小于 8 的所有消息。注意，这里我们不讨论 Kafka 事务，因为事务机制会影响消费者所能看到的消息的范围，它不只是简单依赖高水位来判断。它依靠一个名为 LSO（Log Stable Offset）的位移值来判断事务型消费者的可见性。**  
 另外，需要关注的是，位移值等于高水位的消息也属于未提交消息。也就是说，高水位上的消息是不能被消费者消费的。  
@@ -276,13 +276,13 @@ while (true) {
 
 Reactor 模式是事件驱动架构的一种实现方式，用于处理多个客户端并发向服务器端发送请求的场景。Reactor 有个请求分发线程 Dispatcher，也就是图中的 Acceptor。Kafka 提供了 Broker 端参数 num.network.threads，用于调整该网络线程池的线程数。其默认值是 3，表示每台 Broker 启动时会创建 3 个网络线程，专门处理客户端发送的请求。
 
-![image-20220407174001-v1ni35v.jpg](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220407174001-v1ni35v.jpg)
+![image-20220407174001-v1ni35v.jpg](assets/image-20220407174001-v1ni35v.jpg)
 
 客户端发来的请求会被 Broker 端的 Acceptor 线程分发到任意一个网络线程中，网络线程拿到请求后，它不是自己处理，而是将请求放入到一个共享请求队列中。Broker 端还有个 IO 线程池，负责从该队列中取出请求，执行真正的处理。Broker 端参数 num.io.threads 控制了这个线程池中的线程数。目前该参数默认值是 8，表示每台 Broker 启动后自动创建 8 个 IO 线程处理请求。
 
 图中有一个叫 Purgatory 的组件，这是 Kafka 中著名的“炼狱”组件。它是用来缓存延时请求（Delayed Request）的。所谓延时请求，就是那些一时未满足条件不能立刻处理的请求。比如设置了 acks=all 的 PRODUCE 请求，一旦设置了 acks=all，那么该请求就必须等待 ISR 中所有副本都接收了消息后才能返回，此时处理该请求的 IO 线程就必须等待其他 Broker 的写入结果。
 
-![image-20220407174228-4mcpfbo.jpg](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220407174228-4mcpfbo.jpg)
+![image-20220407174228-4mcpfbo.jpg](assets/image-20220407174228-4mcpfbo.jpg)
 
 ### 日志
 
@@ -455,7 +455,7 @@ MirrorMaker本质是从源集群消费数据，然后用生产者发送到目标
 
 优化漏斗：层级越靠上，其调优的效果越明显
 
-![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220412163025-1adojgc.png)
+![image.png](assets/image-20220412163025-1adojgc.png)
 
 ### 动态参数配置
 

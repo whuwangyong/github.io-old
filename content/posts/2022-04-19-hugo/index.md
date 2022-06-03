@@ -111,7 +111,7 @@ d-----         2022/4/16     16:32                themes
 2. 代码控件支持超长代码折叠
 3. Docs Layout 可以方便的将整个知识库放上去，这样本地的分类目录就能直接给博客使用，博客无需关心分类、标签的问题。
 
-   ![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-04-19-hugo/assets/image-20220310210552-mjpty29.png)
+   ![image.png](assets/image-20220310210552-mjpty29.png)
 
 ### ​LoveIt
 
@@ -122,7 +122,7 @@ d-----         2022/4/16     16:32                themes
 LoveIt 主题支持"lunr"和"algolia"两种搜索：
 
 **lunr**： 简单，配置 `type = "lunr"` 即可。运行 hugo 会将生成的 `index.json` 索引文件放在 `public/` 目录下，随网站一起发布。没有 `contentLength` 的限制，但占用带宽大且性能低 (特别是中文需要一个较大的分词依赖库)。客户端需将整个 `index.json` 从网站下载到本地，然后基于此文件进行搜索。下图是使用 lunr 搜索时，生成的静态文件，可见分词库有 3.6MB：
-​![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-04-19-hugo/assets/image-20220404235734-bs31fkv.png)
+​![image.png](assets/image-20220404235734-bs31fkv.png)
 
 **algolia**：高性能并且占用带宽低，但需要将 `index.json` 上传到 algolia 官网（手动或使用 [Algolia Atomic](https://github.com/chrisdmacrae/atomic-algolia) 脚本）；有 `contentLength` 的限制。对于免费用户：Your first 10,000 records are free, and every month you’ll receive 10,000 requests for our Search and Recommend products.
 
@@ -236,7 +236,7 @@ Failed to find a valid digest in the 'integrity' attribute for resource 'https:/
 3. 画廊。使用以下语法。不加“图片描述”不会激活。未使用画廊的图片，点击不会响应，只能右键新标签打开，放大查看。还有个小 bug，页面刷新后，图变小了。
 
    ```markdown
-   ![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-04-19-hugo/assets/image-20220329160821-l8rh3to.png "图片描述")
+   ![image.png](assets/image-20220329160821-l8rh3to.png "图片描述")
    ```
 4. 最重要的，两年没维护了。但这个主题确实不错，所有有不少人 fork 了一份继续维护。我选择的是 [Lruihao/FixIt](https://github.com/Lruihao/FixIt)。
 
@@ -341,7 +341,7 @@ netlify、vercel 支持编译 hugo 源文件。因此，你可以直接提交 my
 
 在写了一些文章后，自然诞生出分类的想法。比如建站相关的，放在“建站”文件夹下；kafka 相关的，放在“kafka”目录下。
 
-​![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-04-19-hugo/assets/image-20220418005352-crtqx19.png)
+​![image.png](assets/image-20220418005352-crtqx19.png)
 
 我的建议是不要这样做。因为分类是一个很难的事情，随着时间推移大概率会动态调整。调整之后意味着之前发布的博客的 url 失效。这对于 SEO 是很不利的，好不容易有个用户搜到了你的博客，一点进来却是 404。
 

@@ -88,11 +88,11 @@ sitemap.xml
 
 登陆[百度搜索资源平台-站点管理](https://ziyuan.baidu.com/site/index)，选择资源提交-普通收录-API提交：
 
-![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-04-28-submit-urls-to-baidu-and-bing-with-api/assets/image-20220428182028-0cy1nla.png)
+![image.png](assets/image-20220428182028-0cy1nla.png)
 
 > 旁边的sitemap用于提交sitemap.xml文件，这个很简单，不多说：
 >
-> ![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-04-28-submit-urls-to-baidu-and-bing-with-api/assets/image-20220428182218-15pvyh6.png)
+> ![image.png](assets/image-20220428182218-15pvyh6.png)
 >
 
 百度给出了4种API提交的方法：
@@ -130,11 +130,11 @@ data = [
 
 登录[Bing Webmaster Tools](https://www.bing.com/webmasters/about)，点击右上角设置-API访问，获取api key。
 
-![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-04-28-submit-urls-to-baidu-and-bing-with-api/assets/image-20220428205759-g3qhenc.png)
+![image.png](assets/image-20220428205759-g3qhenc.png)
 
 然后通过URL提交进入[提交API](https://www.bing.com/webmasters/url-submission-api#APIs)页面：
 
-![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-04-28-submit-urls-to-baidu-and-bing-with-api/assets/image-20220428210228-w7eap0g.png)
+![image.png](assets/image-20220428210228-w7eap0g.png)
 
 Bing提供了两种提交格式，json和xml。我使用的是json。接口约定如下：
 
