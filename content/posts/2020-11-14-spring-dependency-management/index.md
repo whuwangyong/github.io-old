@@ -49,6 +49,7 @@ tasks.named('test') {
 
 可见，SpringBoot 2.6.4预定义的Kafka版本为3.0。
 
+
 ## SpringBoot的依赖
 
 在[Spring Initializr](https://start.spring.io/)上创建一个简单的SpringBoot项目（web+jdbc），生成的依赖为：
@@ -153,8 +154,6 @@ dependencyManagement {
 }
 ```
 
-
-
 ## org.springframework.boot与io.spring.dependency-management的区别
 
 上面的几个示例都使用了两个插件：org.springframework.boot（以下简称springboot插件）和io.spring.dependency-management（以下简称dependency-management插件）。这俩有什么区别？
@@ -163,7 +162,7 @@ springboot插件表示这是一个SpringBoot项目，可以build为一个可执�
 
 ![image.png](assets/image-20220606192258-gnqfvpm.png)
 
-dependency-management插件，从名字就能看出来是管理依赖的。如下图，help下面的dependencyXXX等命令就是该插件提供的：
+dependency-management插件，从名字就能看出来是管理依赖的。如下图，`help`下面的`dependencyXXX`等命令就是该插件提供的：
 
 ![image.png](assets/image-20220606195159-iz53lfx.png)
 
@@ -173,9 +172,13 @@ dependency-management插件，从名字就能看出来是管理依赖的。如�
 
 这些配置就是你正在用的SpringBoot版本所管理的依赖，与docs.spring.io上提供的是一致的。比如我正在使用SpringBoot 2.6.4，dependencyManagement命令打印的内容与[https://docs.spring.io/spring-boot/docs/2.6.4/reference/html/dependency-versions.html](https://docs.spring.io/spring-boot/docs/2.6.4/reference/html/dependency-versions.html)相同。
 
+### 两个插件的联系
+
+> When you apply the [`io.spring.dependency-management`](https://github.com/spring-gradle-plugins/dependency-management-plugin) plugin, Spring Boot’s plugin will automatically [import the `spring-boot-dependencies` bom](https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/#reacting-to-other-plugins.dependency-management) from the version of Spring Boot that you are using.
+
 ## 非SpringBoot项目如何使用SpringBoot管理依赖
 
-Ref：[Spring Boot Gradle Plugin Reference Guide - managing-dependencies](https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/#managing-dependencies)
+Ref：[Using Spring Boot's Dependency Management in Isolation](https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/#managing-dependencies.dependency-management-plugin.using-in-isolation)
 
 有些项目并不是SpringBoot项目（不需要build为可执行的jar包），又想使用SpringBoot的依赖管理功能，该怎么做？
 
@@ -183,11 +186,12 @@ Ref：[Spring Boot Gradle Plugin Reference Guide - managing-dependencies](https:
 plugins {
     // configure the project to depend on the Spring Boot plugin but do not apply it:
     id 'org.springframework.boot' version '2.6.4' apply false // look here!
-
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
+
 // add this
+apply plugin: 'io.spring.dependency-management'
+
 dependencyManagement {
     imports {
         mavenBom(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)
@@ -197,7 +201,7 @@ dependencyManagement {
 
 ## gradle legacy plugin application（老式写法）
 
-如下，是一个具备依赖管理功能的可运行的SpringBoot项目：
+以下是一个具备依赖管理功能的**可运行**的SpringBoot项目：
 
 ```gradle
 buildscript {
@@ -210,8 +214,30 @@ buildscript {
   }
 }
 
-apply plugin: "org.springframework.boot" // 如果这行不写，表示这是一个不可运行的SpringBoot项目
+apply plugin: "org.springframework.boot" 
 apply plugin: "io.spring.dependency-management"
+
+// 下面的group、version、sourceCompatibility、repositories{}、dependencyManagement{}、dependencies{} 等是一样的，略
+```
+
+以下是一个具备依赖管理功能的**不可运行**的SpringBoot项目：
+
+```gradle
+buildscript {
+  repositories {
+    maven { url "https://plugins.gradle.org/m2/" }
+  }
+  dependencies {
+    classpath "org.springframework.boot:spring-boot-gradle-plugin:2.7.0"
+  }
+}
+
+apply plugin: "io.spring.dependency-management"
+dependencyManagement {
+    imports {
+        mavenBom(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)
+    }
+}
 
 // 下面的group、version、sourceCompatibility、repositories{}、dependencyManagement{}、dependencies{} 等是一样的，略
 ```
