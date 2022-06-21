@@ -154,8 +154,9 @@ READ_COMMITTED，只能消费到已提交的事务消息，和非事务的消息
 
 ### Reference
 
-1. [Kafka: The Definitive Guide(2nd Edition)](https://resources.confluent.io/all-content/kafka-the-definitive-guide-v2)
-2. [Apache Kafka Documentation](https://kafka.apache.org/documentation/)
-3. [Transactions in Apache Kafka | Confluent](https://www.confluent.io/blog/transactions-apache-kafka/)
-4. [Building Systems Using Transactions in Apache Kafka® (confluent.io)](https://developer.confluent.io/learn/kafka-transactions-and-guarantees/)
-5. [Exactly-once Semantics is Possible: Here's How Apache Kafka Does it (confluent.io)](https://www.confluent.io/blog/exactly-once-semantics-are-possible-heres-how-apache-kafka-does-it/)
+1. [Exactly Once Processing in Kafka with Java | Baeldung](https://www.baeldung.com/kafka-exactly-once)
+2. [Kafka: The Definitive Guide(2nd Edition)](https://resources.confluent.io/all-content/kafka-the-definitive-guide-v2)
+3. [Apache Kafka Documentation](https://kafka.apache.org/documentation/)
+4. [Transactions in Apache Kafka | Confluent](https://www.confluent.io/blog/transactions-apache-kafka/)
+5. [Building Systems Using Transactions in Apache Kafka® (confluent.io)](https://developer.confluent.io/learn/kafka-transactions-and-guarantees/)
+6. [Exactly-once Semantics is Possible: Here's How Apache Kafka Does it (confluent.io)](https://www.confluent.io/blog/exactly-once-semantics-are-possible-heres-how-apache-kafka-does-it/)
