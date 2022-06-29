@@ -67,6 +67,9 @@ d-----         2022/4/16     16:32                themes
 
 # 以后可以使用以下命令升级主题
 > git submodule update --remote --merge
+> git add .
+> git commit -m "upgrade theme"
+> git push
 ```
 
 ## 主题推荐
