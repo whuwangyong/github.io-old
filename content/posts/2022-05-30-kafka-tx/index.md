@@ -123,9 +123,14 @@ Transactions cause only moderate write amplification（有限的写放大）. Th
 
 ### 事务型消费者，可以消费未启用事务的普通消息吗
 
-READ_COMMITTED，只能消费到已提交的事务消息，和非事务的消息。
+可以。
 
-注意，上游不是事务producer，发的非事务消息，也是可以被READ_COMMITTED消费到的。
+> 官方文档对**isolation.level**的描述：
+>
+> If set to  `read_committed` , consumer.poll() will only return transactional messages which have been committed. If set to  `read_uncommitted`(the default), consumer.poll() will return all messages, even transactional messages which have been aborted. **Non-transactional messages will be returned unconditionally in either mode**.
+>
+> 最后一句：不管在哪种模式下，非事务的消息都是无条件返回。
+
 
 ### 如何实现跨数据源的事务：kafka+DB混合事务
 

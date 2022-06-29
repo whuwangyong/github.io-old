@@ -209,7 +209,12 @@ Kafka 的水位不是时间戳，更与时间无关。它是和位置信息绑�
 
 ![image.png](assets/image-20220407192639-bm2jo4l.jpg)
 
-在分区高水位以下的消息被认为是已提交消息，反之就是未提交消息。**消费者只能消费已提交消息，即图中位移小于 8 的所有消息。注意，这里我们不讨论 Kafka 事务，因为事务机制会影响消费者所能看到的消息的范围，它不只是简单依赖高水位来判断。它依靠一个名为 LSO（Log Stable Offset）的位移值来判断事务型消费者的可见性。**  
+> 这里的**提交**不是指事务的commit，已经复制到ISR的消息，称为已提交的消息。参考下图：
+>
+> ![image.png](assets/image-20220629091222-9vbhs9w.png "来源：《Kafka权威指南》")
+>
+
+在分区高水位以下的消息被认为是已提交消息，反之就是未提交消息。**消费者只能消费已提交消息，即图中位移小于 8 的所有消息。注意，这里我们不讨论 Kafka 事务，因为事务机制会影响消费者所能看到的消息的范围，它不只是简单依赖高水位来判断。它依靠一个名为 LSO（Last Stable Offset）的位移值来判断事务型消费者的可见性。**  
 另外，需要关注的是，位移值等于高水位的消息也属于未提交消息。也就是说，高水位上的消息是不能被消费者消费的。  
 图中还有一个日志末端位移的概念，即 Log End Offset，简写是 LEO。它表示副本写入下一条消息的位移值。注意，数字 15 所在的方框是虚线，这就说明，这个副本当前只有 15 条消息，位移值是从 0 到 14，下一条新消息的位移是 15。显然，介于高水位和 LEO 之间的消息就属于未提交消息。这也从侧面告诉了我们一个重要的事实，那就是：同一个副本对象，其高水位值不会大于 LEO 值。  
 Kafka 使用 Leader 副本的高水位来定义所在分区的高水位。
@@ -222,6 +227,24 @@ Leader Epoch 大致可以认为是 Leader 版本。它由两部分数据组成�
 
 * Epoch。一个单调增加的版本号。每当副本领导权发生变更时，都会增加该版本号。小版本号的 Leader 被认为是过期 Leader，不能再行使 Leader 权力。
 * 起始位移（Start Offset）。Leader 副本在该 Epoch 值上写入的首条消息的位移。
+
+#### 高水位与事务消息的关系
+
+> in `read_committed` mode, consumer.poll() will only return messages up to the **last stable offset (LSO), which is the  
+> one less than the offset of the first open transaction**. In particular any messages appearing after messages belonging to ongoing transactions will be withheld until the relevant transaction has been completed. As a result, `read_committed` consumers will not be able to read up to the high watermark when there are in  flight transactions.  
+> Further, when in  read_committed  the seekToEnd method will return the LSO。
+>
+
+引申：KafkaConsumer#endOffsets(Collection<TopicPartition> partitions)方法，注释如下：
+
+> Get the end offsets for the given partitions. 
+>
+> * In the default read_uncommitted isolation level, the end offset is the high watermark (that is, the offset of the last successfully replicated message plus one).
+> * For read_committed consumers, the end offset is the last stable offset (LSO), which is the minimum of the high watermark and the smallest offset of any open transaction.
+> * Finally, if the partition has never been written to, the end offset is 0.
+>
+> This method does not change the current consumer position of the partitions.
+>
 
 ### 副本机制
 
@@ -409,7 +432,7 @@ Kafka 还支持通过 SASL 做客户端认证。SASL 是提供认证和数据安
 
 在典型的互联网场景中，前两种模型应用得多，后面这两种则比较少用。ACL 模型很简单，它表征的是用户与权限的直接映射关系；而 RBAC 模型则加入了角色的概念，支持对用户进行分组。
 
-Kafka 用的是 ACL 模型。简单来说，这种模型就是规定了什么用户对什么资源有什么样的访问权限。我们可以借用官网的一句话来统一表示这种模型：“**Principal P is [Allowed/Denied] Operation O From Host H On Resource R**.” 这句话中出现了很多个主体：
+Kafka 用的是 ACL 模型。简单来说，这种模型就是规定了什么用户对什么资源有什么样的访问权限。我们可以借用官网的一句话来统一表示这种模型：“**Principal P is [Allowed/Denied] Operation O From Host H On Resource R.**” 这句话中出现了很多个主体：
 
 * Principal：表示访问 Kafka 集群的用户。
 * Operation：表示一个具体的访问类型，如读写消息或创建主题等。
@@ -521,3 +544,5 @@ Kafka Connect + Kafka Core + Kafka Streams
 ## Reference
 
 1. 极客时间 - Kafka 核心技术与实战
+2. 《Kafka权威指南》
+3. https://kafka.apache.org/documentation
