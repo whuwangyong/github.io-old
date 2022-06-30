@@ -118,7 +118,7 @@ Transactions cause only moderate write amplification（有限的写放大）. Th
 ### 幂等producer与事务producer
 
 * 幂等producer，其id是没持久化的。重启后会变。
-* 事务producer，其id是事务id。这个id在重启后也不会变。事务id的主要作用就是保证producer在重启后，pid不变。
+* 事务producer，其id是事务id。这个id在producer重启后也不会变。
 * 虽然producer重启后事务id不会变，但是，一个新的producer session创建时，会再次执行initTransactions()，epoch会增加。假设旧的producer并没彻底宕机，当它恢复过来时，尝试使用旧的epoch提交事务，就会报错。
 
 ### 事务型消费者，可以消费未启用事务的普通消息吗
