@@ -1,4 +1,4 @@
-# Windows和Linux的不同换行符导致脚本执行异常
+# Windows和Linux的不同换行符导致shell脚本执行异常
 
 ## 问题描述
 
@@ -38,17 +38,17 @@ wy@ship:/mnt/hgfs/D/projects/kafka-mate/scripts$ ./list-topics.sh
 
 改为`LF`后，脚本运行正常。我用的IDEA，在右下角更改：
 
-![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313173320-m3he0qa.png)
+![image.png](assets/image-20220313173320-m3he0qa.png)
 
 ## vim状态栏的[noeol] [dos]是什么意思？
 
 当config的line separator问`CRLF`时，vim打开Windows分区上的文件时，状态栏显示`[noeol][dos]`：
 
-![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313172145-gr1vmgk.png)
+![image.png](assets/image-20220313172145-gr1vmgk.png)
 
 当config的line separator问`LF`时，vim打开Windows分区上的文件时，状态栏显示`[noeol]`：
 
-![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-13-linebreak-in-windows-and-linux/assets/image-20220313172052-wah96f1.png)
+![image.png](assets/image-20220313172052-wah96f1.png)
 
 noeol：no end of line。
 
@@ -132,3 +132,8 @@ ts@TS:~/www/document$
 
 
 
+
+---
+
+> 作者: Wang Yong  
+> https://whuwangyong.github.io/2022-03-13-linebreak-in-windows-and-linux/

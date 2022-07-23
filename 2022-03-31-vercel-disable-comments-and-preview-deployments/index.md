@@ -15,11 +15,11 @@
 
 每次提交后，vercel bot会在该commit下评论：
 
-![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/20220-03-31-vercel-disable-comments-and-preview-deployments/assets/image-20220331105648-d4pir0q.png)
+![image.png](assets/image-20220331105648-d4pir0q.png)
 
 这造成了大量的github通知和邮件通知：
 
-![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/20220-03-31-vercel-disable-comments-and-preview-deployments/assets/image-20220331105635-8befsf2.png)
+![image.png](assets/image-20220331105635-8befsf2.png)
 
 如何关闭？在站点根目录新增`vercel.json`文件，内容如下：
 
@@ -35,11 +35,11 @@
 
 另一个需要关闭的就是Preview Deployments（与我而言）。我的站点没有预览的必要，都是直接build main分支然后上production。Preview Deployments 构建的是`gh-pages`分支，可能是我哪里没弄对，这个分支一直无法build成功。如下图，2小时过去了还没结束，然后我手动取消了。  
 
-![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/20220-03-31-vercel-disable-comments-and-preview-deployments/assets/image-20220331110211-1bm1n2c.png)
+![image.png](assets/image-20220331110211-1bm1n2c.png)
 
 因此，我禁止了Preview Deployments，直允许Production Deployments。操作如下：  
 Project Settings -> Git -> Ignored Build Step，在 COMMAND 填入 `[ "$VERCEL_ENV" != production ]`。  
-​![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/20220-03-31-vercel-disable-comments-and-preview-deployments/assets/image-20220331110821-o5ow7rk.png)
+​![image.png](assets/image-20220331110821-o5ow7rk.png)
 
 ## Reference
 
@@ -49,3 +49,8 @@ Project Settings -> Git -> Ignored Build Step，在 COMMAND 填入 `[ "$VERCEL_E
 
 
 
+
+---
+
+> 作者: Wang Yong  
+> https://whuwangyong.github.io/2022-03-31-vercel-disable-comments-and-preview-deployments/

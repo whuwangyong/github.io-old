@@ -1,0 +1,43 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>kafka - 分类 - 武大路飞</title>
+    <link>https://whuwangyong.github.io/categories/kafka/</link>
+    <description>kafka - 分类 - 武大路飞</description>
+    <generator>Hugo -- gohugo.io</generator><managingEditor>whuwangyong@gmail.com (Wang Yong)</managingEditor>
+      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Tue, 31 May 2022 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://whuwangyong.github.io/categories/kafka/" rel="self" type="application/rss+xml" /><item>
+  <title>kafka consumer seek之后立即poll可能拉不到消息</title>
+  <link>https://whuwangyong.github.io/2022-02-17-kafka-seek-poll/</link>
+  <pubDate>Tue, 31 May 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-02-17-kafka-seek-poll/</guid>
+  <description><![CDATA[问题 有个需求，需要频繁seek到指定partition的指定offset，然后poll，且只poll一次，目的是为了快速将指定offset的消息拉取出来。 通常的poll写法是，将poll逻辑放在死循环里，第一次拉不到，第二次继续。如果off]]></description>
+</item><item>
+  <title>Kafka事务不完全指南</title>
+  <link>https://whuwangyong.github.io/2022-05-30-kafka-tx/</link>
+  <pubDate>Mon, 30 May 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-05-30-kafka-tx/</guid>
+  <description><![CDATA[Kafka的事务是什么 生产者往多个topic里面写消息，要么同时成功，要么同时失败。 为什么需要事务 消息系统有3种语义： 最多一次 最少一次 精确一次。Exactly Only Once 为了实现精确一次的语义，Kafka必须引入事务。如下图： 本应用从上游topic]]></description>
+</item><item>
+  <title>kafka offset为什么不连续</title>
+  <link>https://whuwangyong.github.io/2022-05-20-why-kafka-offset-not-sequential/</link>
+  <pubDate>Fri, 20 May 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-05-20-why-kafka-offset-not-sequential/</guid>
+  <description><![CDATA[why kafka offset not sequential 未使用事务时，至少一次语义，消息重发时，会占用offset 使用事务时，每次事务的commit/abort，都会往topic（每个分区？）写一个标志，这个标志会占用offset 官方并未提及offset是连续的 Reference [Solved] Kafka Streams does not increment offset by 1 when producing]]></description>
+</item><item>
+  <title>《Kafka 核心技术与实战》学习笔记</title>
+  <link>https://whuwangyong.github.io/2022-03-25-geektime-core-kafka-in-action-notes/</link>
+  <pubDate>Fri, 25 Mar 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-03-25-geektime-core-kafka-in-action-notes/</guid>
+  <description><![CDATA[简介 Apach Kafka 是一款分布式流处理框架，用于实时构建流处理应用。它有一个核心的功能广为人知，即作为企业级的消息引擎被广泛使用。 很多主流消息引擎系统都支持 JMS（Java Message Service）规范，比如 ActiveMQ、RabbitMQ、IBM 的 WebSphere MQ 和 Apache]]></description>
+</item><item>
+  <title>kafka在Windows上无法动态删除topic</title>
+  <link>https://whuwangyong.github.io/2022-03-12-can-not-delete-topics-when-kafka-running-on-windows/</link>
+  <pubDate>Sat, 12 Mar 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-03-12-can-not-delete-topics-when-kafka-running-on-windows/</guid>
+  <description><![CDATA[问题描述 删除topic时导致集群崩溃，报错： ERROR Shutdown broker because all log dirs in D:\tmp\kafka-logs have failed. 测试了kafka_2.11-1.1.0、kafka_2.13-2.5.0、kafka_2.13-2.6.2、kafka_2.13-2.7.0四个版本，都有这个问题。 搜索了网络]]></description>
+</item></channel>
+</rss>

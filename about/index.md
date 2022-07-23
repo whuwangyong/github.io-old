@@ -25,6 +25,6 @@
 - 发福 + 弱鸡 = 早睡早起 & 少吃多动
 
 ---
-写于 深圳
 
-2022.3 
+> 作者: Wang Yong  
+> https://whuwangyong.github.io/about/

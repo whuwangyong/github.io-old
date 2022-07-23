@@ -4,10 +4,38 @@
     <link>https://whuwangyong.github.io/</link>
     <description>武大路飞的博客</description>
     <generator>Hugo -- gohugo.io</generator><managingEditor>whuwangyong@gmail.com (Wang Yong)</managingEditor>
-      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Thu, 28 Apr 2022 00:00:00 &#43;0800</lastBuildDate>
+      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Sat, 23 Jul 2022 00:00:00 &#43;0800</lastBuildDate>
       <atom:link href="https://whuwangyong.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-  <title>使用API提交URL到百度和Bing</title>
+  <title>Process Explorer检测弹窗广告的利器</title>
+  <link>https://whuwangyong.github.io/2022-07-23-use-process-explorer-to-detect-ad-process/</link>
+  <pubDate>Sat, 23 Jul 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-07-23-use-process-explorer-to-detect-ad-process/</guid>
+  <description><![CDATA[有时候电脑右下角、正中间弹出的广告，没有任何logo和落款，不知道是哪个软件搞的。这就好比挨了一拳，没看见出拳的人。 微软的一个大佬开发的 Process Explorer 功能强大，能解决这个问题。将工具栏上的瞄准镜拖动到广告弹窗上面即可。]]></description>
+</item><item>
+  <title>kafka consumer seek之后立即poll可能拉不到消息</title>
+  <link>https://whuwangyong.github.io/2022-02-17-kafka-seek-poll/</link>
+  <pubDate>Tue, 31 May 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-02-17-kafka-seek-poll/</guid>
+  <description><![CDATA[问题 有个需求，需要频繁seek到指定partition的指定offset，然后poll，且只poll一次，目的是为了快速将指定offset的消息拉取出来。 通常的poll写法是，将poll逻辑放在死循环里，第一次拉不到，第二次继续。如果off]]></description>
+</item><item>
+  <title>Kafka事务不完全指南</title>
+  <link>https://whuwangyong.github.io/2022-05-30-kafka-tx/</link>
+  <pubDate>Mon, 30 May 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-05-30-kafka-tx/</guid>
+  <description><![CDATA[Kafka的事务是什么 生产者往多个topic里面写消息，要么同时成功，要么同时失败。 为什么需要事务 消息系统有3种语义： 最多一次 最少一次 精确一次。Exactly Only Once 为了实现精确一次的语义，Kafka必须引入事务。如下图： 本应用从上游topic]]></description>
+</item><item>
+  <title>kafka offset为什么不连续</title>
+  <link>https://whuwangyong.github.io/2022-05-20-why-kafka-offset-not-sequential/</link>
+  <pubDate>Fri, 20 May 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-05-20-why-kafka-offset-not-sequential/</guid>
+  <description><![CDATA[why kafka offset not sequential 未使用事务时，至少一次语义，消息重发时，会占用offset 使用事务时，每次事务的commit/abort，都会往topic（每个分区？）写一个标志，这个标志会占用offset 官方并未提及offset是连续的 Reference [Solved] Kafka Streams does not increment offset by 1 when producing]]></description>
+</item><item>
+  <title>使用API提交博客文章的URL到百度和Bing</title>
   <link>https://whuwangyong.github.io/2022-04-28-submit-urls-to-baidu-and-bing-with-api/</link>
   <pubDate>Thu, 28 Apr 2022 00:00:00 &#43;0800</pubDate>
   <author>Wang Yong</author>
@@ -48,33 +76,5 @@
   <author>Wang Yong</author>
   <guid>https://whuwangyong.github.io/2022-03-29-github-submodule/</guid>
   <description><![CDATA[最近学习使用 Hugo 构建静态网站。安装主题时，接触到git submodule这个命令，踩了些坑，总结一下。 子模块与父模块如何同步更新 子模块是一个单独的项目，commit push等操作需要在子模块自己的repo目录下操作。父项目的操作与子模块无关。]]></description>
-</item><item>
-  <title>云笔记软件简评</title>
-  <link>https://whuwangyong.github.io/2022-03-08-notesapp_benchmark/</link>
-  <pubDate>Tue, 29 Mar 2022 00:00:00 &#43;0800</pubDate>
-  <author>Wang Yong</author>
-  <guid>https://whuwangyong.github.io/2022-03-08-notesapp_benchmark/</guid>
-  <description><![CDATA[本文首发V2EX。 这段时间试用了好多笔记软件，我本来就是个选择困难症，一个个试下来，愁死我了。 分享一下我的一些阶段性结论。 有道 缺点： 编辑器有问题，Ctrl+Home/End无法跳转、table键无法切换单元格、光标移动慢等问题 富文本不能导出]]></description>
-</item><item>
-  <title>使用Jekyll &#43; Github Pages搭建静态网站</title>
-  <link>https://whuwangyong.github.io/2022-03-29-jekyll/</link>
-  <pubDate>Tue, 29 Mar 2022 00:00:00 &#43;0800</pubDate>
-  <author>Wang Yong</author>
-  <guid>https://whuwangyong.github.io/2022-03-29-jekyll/</guid>
-  <description><![CDATA[Jekyll 是 Github Pages 官方支持的静态网站生成工具，优点是在可以直接github上使用vscode online编辑md，提交后，github会承担生成html的工作。而使用hugo等工具，需要先在本地将md文件渲染成html，然后上传。 提示 hugo的优点是]]></description>
-</item><item>
-  <title>Windows和Linux的不同换行符导致脚本执行异常</title>
-  <link>https://whuwangyong.github.io/2022-03-13-linebreak-in-windows-and-linux/</link>
-  <pubDate>Sun, 13 Mar 2022 00:00:00 &#43;0800</pubDate>
-  <author>Wang Yong</author>
-  <guid>https://whuwangyong.github.io/2022-03-13-linebreak-in-windows-and-linux/</guid>
-  <description><![CDATA[问题描述 有一个配置文件 config： 1 2 KAFKA_HOME=/home/wy/dev/kafka_2.13-2.6.0 BOOTSTRAP_SERVER=127.0.0.1:9092 另有一个使用该配置文件的脚本 list-topics.sh： 1 2 3 4 #!/bin/bash . config &#34;$KAFKA_HOME&#34;/bin/kafka-topics.sh --bootstrap-server &#34;$BOOTSTRAP_SERVER&#34; --list 我使用虚拟机Ubuntu挂载Windows分区，执行在Windows环境下编写的脚本，提示： 1 2 wy@ship:/mnt/hgfs/D/projects/kafka-mate/scripts$ ./list-topics.sh /bin/kafka-topics.sh: No such file or directory13-2.6.0 解决]]></description>
-</item><item>
-  <title>shadowsocks 服务端安装指南</title>
-  <link>https://whuwangyong.github.io/2022-03-09-shadowsocks/</link>
-  <pubDate>Wed, 09 Mar 2022 00:00:00 &#43;0800</pubDate>
-  <author>Wang Yong</author>
-  <guid>https://whuwangyong.github.io/2022-03-09-shadowsocks/</guid>
-  <description><![CDATA[官方地址： shadowsocks/shadowsocks-libev: Bug-fix-only libev port of shadowsocks. Future development moved to shadowsocks-rust (github.com) 旧地址，不再更新： shadowsocks/shadowsocks at master (github.com) clowwindy/shadowsocks-libev at master (github.com) 本文基于Ubuntu。 install 1 2 3 $ sudo apt install shadowsocks-libev ... Created symlink /etc/systemd/system/multi-user.target.wants/shadowsocks-libev.service → /lib/systemd/system/shadowsocks-libev.service. Configuration 官方文档说配置文件在这里： Edit your config.json file. By default, it&rsquo;s located in /usr/local/etc/shadowsocks-libev. 但我的不是。 编辑/etc/shadowsocks-libev/confi]]></description>
 </item></channel>
 </rss>

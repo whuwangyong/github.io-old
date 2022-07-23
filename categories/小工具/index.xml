@@ -4,7 +4,14 @@
     <link>https://whuwangyong.github.io/categories/%E5%B0%8F%E5%B7%A5%E5%85%B7/</link>
     <description>小工具 - 分类 - 武大路飞</description>
     <generator>Hugo -- gohugo.io</generator><managingEditor>whuwangyong@gmail.com (Wang Yong)</managingEditor>
-      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Thu, 28 Apr 2022 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://whuwangyong.github.io/categories/%E5%B0%8F%E5%B7%A5%E5%85%B7/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Sat, 23 Jul 2022 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://whuwangyong.github.io/categories/%E5%B0%8F%E5%B7%A5%E5%85%B7/" rel="self" type="application/rss+xml" /><item>
+  <title>Process Explorer检测弹窗广告的利器</title>
+  <link>https://whuwangyong.github.io/2022-07-23-use-process-explorer-to-detect-ad-process/</link>
+  <pubDate>Sat, 23 Jul 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-07-23-use-process-explorer-to-detect-ad-process/</guid>
+  <description><![CDATA[有时候电脑右下角、正中间弹出的广告，没有任何logo和落款，不知道是哪个软件搞的。这就好比挨了一拳，没看见出拳的人。 微软的一个大佬开发的 Process Explorer 功能强大，能解决这个问题。将工具栏上的瞄准镜拖动到广告弹窗上面即可。]]></description>
+</item><item>
   <title>使用python爬取jar包、npm包、go包的最新版本</title>
   <link>https://whuwangyong.github.io/2022-04-28-crawl-latest-version-for-jar-npm-go-pkg/</link>
   <pubDate>Thu, 28 Apr 2022 00:00:00 &#43;0800</pubDate>

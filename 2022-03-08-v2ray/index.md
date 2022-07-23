@@ -223,7 +223,7 @@ Linux 命令生成：`cat /proc/sys/kernel/random/uuid`
 
 官方的这个图真的太皮了，特意拿过来：
 
-![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-08-v2ray/assets/image-20220308230038-enct8t4.png)
+![image.png](assets/image-20220308230038-enct8t4.png)
 
 
 ## 运行
@@ -241,3 +241,8 @@ Created symlink /etc/systemd/system/multi-user.target.wants/v2ray.service → /e
 
 
 
+
+---
+
+> 作者: Wang Yong  
+> https://whuwangyong.github.io/2022-03-08-v2ray/

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="">
   <head>
+    
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-    <title>Linux CPU 性能测试 - 武大路飞</title><meta name="author" content="Wang Yong: https://github.com/whuwangyong">
+    <title>Linux CPU 性能测试 - 武大路飞</title><meta name="author" content="Wang Yong">
+<meta name="author-link" content="https://github.com/whuwangyong">
 <meta name="description" content="sysbench Sysbench is mainly intended for doing database benchmarking. However it includes options to test CPU, memory and file throughput as well. 安装 1 sudo apt install sysbench 使用 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 ubuntu@instance:~$ sysbench cpu --threads=3 run sysbench 1.0.18 (using system LuaJIT 2.1.0-beta3) Running the test with following options: Number of threads: 3 Initializing random number generator from current time Prime numbers limit: 10000 Initializing worker threads... Threads started! CPU speed: events per second: 10519.03 General statistics: total time: 10.0003s total number of events: 105208 Latency (ms): min: 0.28 avg:" />
 <meta name="keywords" content="sysbench,7z" /><meta itemprop="name" content="Linux CPU 性能测试">
 <meta itemprop="description" content="sysbench Sysbench is mainly intended for doing database benchmarking. However it includes options to test CPU, memory and file throughput as well. 安装 1 sudo apt install sysbench 使用 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 ubuntu@instance:~$ sysbench cpu --threads=3 run sysbench 1.0.18 (using system LuaJIT 2.1.0-beta3) Running the test with following options: Number of threads: 3 Initializing random number generator from current time Prime numbers limit: 10000 Initializing worker threads... Threads started! CPU speed: events per second: 10519.03 General statistics: total time: 10.0003s total number of events: 105208 Latency (ms): min: 0.28 avg:"><meta itemprop="datePublished" content="2022-04-27T00:00:00+08:00" />
@@ -26,7 +28,7 @@
 <meta name="application-name" content="武大路飞">
 <meta name="apple-mobile-web-app-title" content="武大路飞"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://whuwangyong.github.io/2022-04-27-linux-cpu-benchmark/" /><link rel="prev" href="https://whuwangyong.github.io/2022-04-19-hugo/" /><link rel="next" href="https://whuwangyong.github.io/2022-04-28-crawl-latest-version-for-jar-npm-go-pkg/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://whuwangyong.github.io/2022-04-27-linux-cpu-benchmark/" /><link rel="prev" href="https://whuwangyong.github.io/2022-04-19-hugo/" /><link rel="next" href="https://whuwangyong.github.io/2022-04-28-crawl-latest-version-for-jar-npm-go-pkg/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
@@ -49,9 +51,7 @@
       },"description": ""
   }
   </script></head>
-  <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
-
-    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+  <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script><div class="wrapper"><header class="desktop" id="header-desktop">
   <div class="header-wrapper">
     <div class="header-title">
       <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a></div>
@@ -113,19 +113,20 @@
               ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
             <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-desktop">
             <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
-              <i class="fas fa-search fa-fw"></i>
+              <i class="fa-solid fa-search fa-fw"></i>
             </a>
             <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
-              <i class="fas fa-times-circle fa-fw"></i>
+              <i class="fa-solid fa-times-circle fa-fw"></i>
             </a>
             <span class="search-button search-loading" id="search-loading-desktop">
-              <i class="fas fa-spinner fa-fw fa-spin"></i>
+              <i class="fa-solid fa-spinner fa-fw fa-spin"></i>
             </span>
           </li><li class="menu-item theme-switch" title="切换主题">
-          <i class="fas fa-adjust fa-fw"></i>
+          <i class="fa-solid fa-adjust fa-fw"></i>
         </li>
       </ul>
-    </nav></div>
+    </nav>
+  </div>
 </header><header class="mobile" id="header-mobile">
   <div class="header-container">
     <div class="header-wrapper">
@@ -140,13 +141,13 @@
             <div class="search mobile" id="search-mobile">
               <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-mobile">
               <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
-                <i class="fas fa-search fa-fw"></i>
+                <i class="fa-solid fa-search fa-fw"></i>
               </a>
               <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
-                <i class="fas fa-times-circle fa-fw"></i>
+                <i class="fa-solid fa-times-circle fa-fw"></i>
               </a>
               <span class="search-button search-loading" id="search-loading-mobile">
-                <i class="fas fa-spinner fa-fw fa-spin"></i>
+                <i class="fa-solid fa-spinner fa-fw fa-spin"></i>
               </span>
             </div>
             <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
@@ -195,7 +196,7 @@
                 title="GitHub"
                 rel="noopener noreffer" target="_blank"
               ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item theme-switch" title="切换主题">
-          <i class="fas fa-adjust fa-fw"></i>
+          <i class="fa-solid fa-adjust fa-fw"></i>
         </li></ul>
     </nav>
   </div>
@@ -206,18 +207,19 @@
 <div class="search-dropdown mobile">
   <div id="search-dropdown-mobile"></div>
 </div>
-<main class="container" page-style="custom"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录</h2>
+<main class="container" page-style="custom"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录 <i class="toc-icon fa-solid fa-angle-down fa-fw"></i></h2>
       <div class="toc-content always-active" id="toc-content-auto"></div></aside>
 
   <aside class="aside-custom">
     
   </aside>
 
-  <article class="page single"><h1 class="single-title animate__animated animate__flipInX">Linux CPU 性能测试</h1><div class="post-meta">
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX">Linux CPU 性能测试</h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><a
   href="https://github.com/whuwangyong"
   
-    title="Author"
+    title="作者"
   
   
     
@@ -228,19 +230,26 @@
     rel="external nofollow noopener noreffer author"
   
   
-  
     class="author"
   
   
-><i class="fas fa-user-circle fa-fw"></i>Wang Yong</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a>&nbsp;<a href="/categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"><i class="far fa-folder fa-fw"></i>性能测试</a></span></div>
+><img
+    class="lazyload avatar"
+    src="/svg/loading.min.svg"
+    data-src="/images/avatar150x150.jpg"
+    data-srcset="/images/avatar150x150.jpg, /images/avatar150x150.jpg 1.5x, /images/avatar150x150.jpg 2x"
+    data-sizes="auto"
+    alt="Wang Yong"
+    title="Wang Yong" />&nbsp;Wang Yong</a></span>
+          <span class="post-category">收录于 <a href="/categories/linux/"><i class="fa-regular fa-folder fa-fw"></i>&nbsp;linux</a>&ensp;<a href="/categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"><i class="fa-regular fa-folder fa-fw"></i>&nbsp;性能测试</a></span></div>
       <div class="post-meta-line"><span title=2022-04-27&#32;00:00:00>
-            <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-04-27" >2022-04-27</time>
-          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 932 字&nbsp;
-        <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+            <i class="fa-regular fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-04-27" >2022-04-27</time>
+          </span>&nbsp;<i class="fa-solid fa-pencil-alt fa-fw"></i>&nbsp;约 932 字&nbsp;
+        <i class="fa-regular fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
     </div><div class="details toc" id="toc-static" kept="false">
         <div class="details-summary toc-title">
           <span>目录</span>
-          <span><i class="details-icon fas fa-angle-right"></i></span>
+          <span><i class="details-icon fa-solid fa-angle-right"></i></span>
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
@@ -259,7 +268,12 @@
     <li><a href="#数值运算">数值运算</a></li>
   </ul>
 </nav></div>
-      </div><div class="content" id="content"><h2 id="sysbench">sysbench</h2>
+      </div><div
+      class="content"
+      id="content"
+      
+      
+    ><h2 id="sysbench">sysbench</h2>
 <p>Sysbench is mainly intended for doing database benchmarking. However it includes options to test CPU, memory and file throughput as well.</p>
 <h3 id="安装">安装</h3>
 <div class="highlight"><div class="chroma">
@@ -352,7 +366,6 @@ Threads fairness:
   
   
     rel="external nofollow noopener noreffer"
-  
   
   
   
@@ -462,7 +475,6 @@ Tot:             194   4457   8647
   
   
   
-  
 >7-Zip LZMA Benchmark (7-cpu.com)</a>）</li>
 <li>**MIPS：**million instructions per second</li>
 <li><strong>R/U MIPS</strong>：单核性能。</li>
@@ -510,14 +522,23 @@ Tot:             194   4457   8647
     <div class="post-info-line">
       <div class="post-info-mod">
         <span title=2022-05-02&#32;15:52:52>更新于 2022-05-02&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/716e6f285a47f42ea64ef64f860ca9b08a97da46" rel="external nofollow noopener noreffer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) 716e6f285a47f42ea64ef64f860ca9b08a97da46: 移除文末添加的同步发布链接">
-                  <i class="fas fa-hashtag fa-fw"></i>716e6f2</a></span>
+                  <i class="fa-solid fa-hashtag fa-fw"></i>716e6f2</a></span>
       </div>
-      <div class="post-info-license"></div>
+      <div class="post-info-license "></div>
     </div>
     <div class="post-info-line">
-      <div class="post-info-md"><span>
-              <a class="link-to-markdown" href="/2022-04-27-linux-cpu-benchmark/index.md" target="_blank">阅读原始文档</a>
-            </span></div>
+      <div class="post-info-md"><span><a
+  href="/2022-04-27-linux-cpu-benchmark/index.md"
+  
+    title="阅读原始文档"
+  
+  
+  
+  
+    class="link-to-markdown"
+  
+  
+>阅读原始文档</a></span></div>
       <div class="post-info-share">
         <span></span>
       </div>
@@ -525,14 +546,14 @@ Tot:             194   4457   8647
   </div>
 
   <div class="post-info-more">
-    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/sysbench/">sysbench</a>,&nbsp;<a href="/tags/7z/">7z</a></section>
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw"></i>&nbsp;<a href="/tags/sysbench/">sysbench</a>,&nbsp;<a href="/tags/7z/">7z</a></section>
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
     </section>
   </div>
 
-  <div class="post-nav"><a href="/2022-04-19-hugo/" class="prev" rel="prev" title="使用 Hugo &#43; Github Pages 创建静态网站博客"><i class="fas fa-angle-left fa-fw"></i>使用 Hugo &#43; Github Pages 创建静态网站博客</a>
-      <a href="/2022-04-28-crawl-latest-version-for-jar-npm-go-pkg/" class="next" rel="next" title="使用python爬取jar包、npm包、go包的最新版本">使用python爬取jar包、npm包、go包的最新版本<i class="fas fa-angle-right fa-fw"></i></a></div>
+  <div class="post-nav"><a href="/2022-04-19-hugo/" class="prev" rel="prev" title="使用 Hugo &#43; Github Pages 创建静态网站博客"><i class="fa-solid fa-angle-left fa-fw"></i>使用 Hugo &#43; Github Pages 创建静态网站博客</a>
+      <a href="/2022-04-28-crawl-latest-version-for-jar-npm-go-pkg/" class="next" rel="next" title="使用python爬取jar包、npm包、go包的最新版本">使用python爬取jar包、npm包、go包的最新版本<i class="fa-solid fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="utterances"></div><noscript>
         Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/" rel="external nofollow noopener noreffer">Utterances</a>.
@@ -554,8 +575,9 @@ Tot:             194   4457   8647
           </a>
         </div>
       </noscript>
-      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt 0.2.14"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" /> FixIt</a>
-        </div><div class="footer-line copyright"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">
+      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+        </div><div class="footer-line copyright"><i class="fa-regular fa-copyright fa-fw"></i>
+            <span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">
               <a
   href="https://github.com/whuwangyong"
   
@@ -569,14 +591,13 @@ Tot:             194   4457   8647
   
   
   
-  
->Wang Yong</a></span><span class="footer-divider"></span><span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div></div>
-  </footer></div>
-
-    <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
-        <i class="fas fa-arrow-up fa-fw"></i>
-      </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
-        <i class="fas fa-comment fa-fw"></i>
-      </a>
-    </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.11.0/dist/algoliasearch-lite.umd.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js" async defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/dist/js/lightgallery.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.3.0/dist/lg-zoom.min.js" defer></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":30},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"comments","lightTheme":"github-light","repo":"whuwangyong/whuwangyong.github.io"}},"enablePWA":null,"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"YMLBEBNFHL","algoliaIndex":"new-index-1649076215","algoliaSearchKey":"9028b251fe4eecb5ad4d47af0715a4f0","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js" defer></script></body>
+>Wang Yong</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div></div>
+  </footer></div><div class="widgets">
+  <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+      <i class="fa-solid fa-arrow-up fa-fw"></i>
+    </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+      <i class="fa-solid fa-comment fa-fw"></i>
+    </a>
+  </div><div id="mask"></div>
+</div><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js" defer></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js" async defer></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js" defer></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js" defer></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js" defer></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":30},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"comments","lightTheme":"github-light","repo":"whuwangyong/whuwangyong.github.io"}},"enablePWA":null,"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"YMLBEBNFHL","algoliaIndex":"new-index-1649076215","algoliaSearchKey":"9028b251fe4eecb5ad4d47af0715a4f0","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js" defer></script></body>
 </html>

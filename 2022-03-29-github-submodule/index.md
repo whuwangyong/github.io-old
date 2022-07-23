@@ -42,7 +42,7 @@ modified:   themes/hugo-theme-stack (new commits)
 
 git clone 了一个包含submodule的仓库，打开submodule目录，发现里面是空的：
 
-![image.png](https://cdn.jsdelivr.net/gh/whuwangyong/whuwangyong.github.io@gh-pages/2022-03-29-github-submodule/assets/image-20220404003800-3hsabzt.png)
+![image.png](assets/image-20220404003800-3hsabzt.png)
 
 可尝试以下命令：
 
@@ -121,3 +121,8 @@ rm -rf .git/module/hugo-theme-stack
 
 
 
+
+---
+
+> 作者: Wang Yong  
+> https://whuwangyong.github.io/2022-03-29-github-submodule/
