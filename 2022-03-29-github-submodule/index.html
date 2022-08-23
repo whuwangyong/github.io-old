@@ -28,7 +28,7 @@
 <meta name="application-name" content="武大路飞">
 <meta name="apple-mobile-web-app-title" content="武大路飞"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://whuwangyong.github.io/2022-03-29-github-submodule/" /><link rel="prev" href="https://whuwangyong.github.io/2022-03-08-notesapp-benchmark/" /><link rel="next" href="https://whuwangyong.github.io/2022-03-31-vercel-disable-comments-and-preview-deployments/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://whuwangyong.github.io/2022-03-29-github-submodule/" /><link rel="prev" href="https://whuwangyong.github.io/2022-03-29-jekyll/" /><link rel="next" href="https://whuwangyong.github.io/2022-03-31-vercel-disable-comments-and-preview-deployments/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
@@ -292,9 +292,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">&gt; git submodule status
-f0dc1cf84d7c47dc1625e956f07b37b6c238a3dc themes/hugo-theme-stack <span class="o">(</span>v3.8.0-4-gf0dc1cf<span class="o">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&gt; git submodule status
+</span></span><span class="line"><span class="cl">f0dc1cf84d7c47dc1625e956f07b37b6c238a3dc themes/hugo-theme-stack <span class="o">(</span>v3.8.0-4-gf0dc1cf<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>子模块修改后，父模块虽然无法<code>git add/commit/push</code>，但是<code>git status</code>却可以显示：</p>
 <div class="highlight"><div class="chroma">
@@ -309,15 +309,15 @@ f0dc1cf84d7c47dc1625e956f07b37b6c238a3dc themes/hugo-theme-stack <span class="o"
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">&gt; git status
-On branch master
-Your branch is up to date with <span class="s1">&#39;origin/master&#39;</span>.
-
-Changes not staged <span class="k">for</span> commit:
-<span class="o">(</span>use <span class="s2">&#34;git add ...&#34;</span> to update what will be committed<span class="o">)</span>
-<span class="o">(</span>use <span class="s2">&#34;git restore ...&#34;</span> to discard changes in working directory<span class="o">)</span>
-modified:   themes/hugo-theme-stack <span class="o">(</span>new commits<span class="o">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&gt; git status
+</span></span><span class="line"><span class="cl">On branch master
+</span></span><span class="line"><span class="cl">Your branch is up to date with <span class="s1">&#39;origin/master&#39;</span>.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Changes not staged <span class="k">for</span> commit:
+</span></span><span class="line"><span class="cl"><span class="o">(</span>use <span class="s2">&#34;git add ...&#34;</span> to update what will be committed<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">(</span>use <span class="s2">&#34;git restore ...&#34;</span> to discard changes in working directory<span class="o">)</span>
+</span></span><span class="line"><span class="cl">modified:   themes/hugo-theme-stack <span class="o">(</span>new commits<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这里会让人疑惑，有changes，但是无法add进来。</p>
 <p>这是因为，子模块的修改，只能在子模块里面进行<code>commit &amp; push</code>。</p>
@@ -343,10 +343,10 @@ modified:   themes/hugo-theme-stack <span class="o">(</span>new commits<span cla
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git submodule update
-git submodule update --recursive --remote
-git submodule update --init
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git submodule update
+</span></span><span class="line"><span class="cl">git submodule update --recursive --remote
+</span></span><span class="line"><span class="cl">git submodule update --init
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="fatal-could-not-get-a-repository-handle-for-submodule-xxx">fatal: could not get a repository handle for submodule xxx</h2>
 <p>这是很常见的错误。当上次 clone into 未完成就直接关闭，下次 git submodule update 就会报这个错。</p>
@@ -361,14 +361,14 @@ git submodule update --init
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ git submodule update --init
-Cloning into <span class="s1">&#39;D:/blog/whuwangyong.github.io/themes/FixIt&#39;</span>...
-^C
-
-$ git submodule update
-BUG: submodule considered <span class="k">for</span> cloning, doesn<span class="s1">&#39;t need cloning any more?
-</span><span class="s1">fatal: could not get a repository handle for submodule &#39;</span>themes/FixIt<span class="err">&#39;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git submodule update --init
+</span></span><span class="line"><span class="cl">Cloning into <span class="s1">&#39;D:/blog/whuwangyong.github.io/themes/FixIt&#39;</span>...
+</span></span><span class="line"><span class="cl">^C
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ git submodule update
+</span></span><span class="line"><span class="cl">BUG: submodule considered <span class="k">for</span> cloning, doesn<span class="s1">&#39;t need cloning any more?
+</span></span></span><span class="line"><span class="cl"><span class="s1">fatal: could not get a repository handle for submodule &#39;</span>themes/FixIt<span class="err">&#39;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>解决办法：将 submodule 路径下的<code>.git</code>文件删掉即可。</p>
 <h2 id="如何修改子模块的-remote-url">如何修改子模块的 remote url</h2>
@@ -391,8 +391,8 @@ BUG: submodule considered <span class="k">for</span> cloning, doesn<span class="
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git submodule add https://github.com/whuwangyong/hugo-theme-stack/ themes/hugo-theme-stack
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git submodule add https://github.com/whuwangyong/hugo-theme-stack/ themes/hugo-theme-stack
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果遇到如下错误：</p>
 <blockquote>
@@ -430,8 +430,8 @@ BUG: submodule considered <span class="k">for</span> cloning, doesn<span class="
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git rm --cached sub/module 
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git rm --cached sub/module 
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>或直接删除站点根目录的<code>.git/module/</code>下面对应的子模块：</p>
 <div class="highlight"><div class="chroma">
@@ -439,8 +439,8 @@ BUG: submodule considered <span class="k">for</span> cloning, doesn<span class="
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">rm -rf .git/module/hugo-theme-stack
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">rm -rf .git/module/hugo-theme-stack
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>然后再次执行<code>git submodule add</code>。</p>
 <h2 id="reference">Reference</h2>
@@ -537,7 +537,7 @@ BUG: submodule considered <span class="k">for</span> cloning, doesn<span class="
     </section>
   </div>
 
-  <div class="post-nav"><a href="/2022-03-08-notesapp-benchmark/" class="prev" rel="prev" title="云笔记软件简评"><i class="fa-solid fa-angle-left fa-fw"></i>云笔记软件简评</a>
+  <div class="post-nav"><a href="/2022-03-29-jekyll/" class="prev" rel="prev" title="使用Jekyll &#43; Github Pages搭建静态网站"><i class="fa-solid fa-angle-left fa-fw"></i>使用Jekyll &#43; Github Pages搭建静态网站</a>
       <a href="/2022-03-31-vercel-disable-comments-and-preview-deployments/" class="next" rel="next" title="Vercel关闭评论 禁止Preview Deployments">Vercel关闭评论 禁止Preview Deployments<i class="fa-solid fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="utterances"></div><noscript>
@@ -560,7 +560,7 @@ BUG: submodule considered <span class="k">for</span> cloning, doesn<span class="
           </a>
         </div>
       </noscript>
-      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.101.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
         </div><div class="footer-line copyright"><i class="fa-regular fa-copyright fa-fw"></i>
             <span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">
               <a

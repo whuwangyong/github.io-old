@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <title>MySQL外键 - 武大路飞</title><meta name="author" content="Wang Yong">
+<meta name="author-link" content="https://github.com/whuwangyong">
+<meta name="description" content="语法 在创建表的时候指定外键约束 1 2 3 4 5 6 7 8 9 10 CREATE TABLE 表名 ( column1 datatype null/not null, column2 datatype null/not null, ... CONSTRAINT 外键约束名 FOREIGN KEY (column1,column2,... column_n) REFERENCES 外键依赖的表 (column1,column2,...column_n) ON DELETE CASCADE--级联删除 ON UPDATE CASCADE--级联更新 ); 测试 有如下2个表： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 CREATE TABLE t_product" />
+<meta name="keywords" content="mysql,外键" /><meta itemprop="name" content="MySQL外键">
+<meta itemprop="description" content="语法 在创建表的时候指定外键约束 1 2 3 4 5 6 7 8 9 10 CREATE TABLE 表名 ( column1 datatype null/not null, column2 datatype null/not null, ... CONSTRAINT 外键约束名 FOREIGN KEY (column1,column2,... column_n) REFERENCES 外键依赖的表 (column1,column2,...column_n) ON DELETE CASCADE--级联删除 ON UPDATE CASCADE--级联更新 ); 测试 有如下2个表： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 CREATE TABLE t_product"><meta itemprop="datePublished" content="2022-08-22T00:00:00+08:00" />
+<meta itemprop="dateModified" content="2022-08-23T09:04:55+08:00" />
+<meta itemprop="wordCount" content="1562"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
+<meta itemprop="keywords" content="mysql,外键," /><meta property="og:title" content="MySQL外键" />
+<meta property="og:description" content="语法 在创建表的时候指定外键约束 1 2 3 4 5 6 7 8 9 10 CREATE TABLE 表名 ( column1 datatype null/not null, column2 datatype null/not null, ... CONSTRAINT 外键约束名 FOREIGN KEY (column1,column2,... column_n) REFERENCES 外键依赖的表 (column1,column2,...column_n) ON DELETE CASCADE--级联删除 ON UPDATE CASCADE--级联更新 ); 测试 有如下2个表： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 CREATE TABLE t_product" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://whuwangyong.github.io/2022-08-22-mysql-foreign-key/" /><meta property="og:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-08-22T00:00:00+08:00" />
+<meta property="article:modified_time" content="2022-08-23T09:04:55+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
+
+<meta name="twitter:title" content="MySQL外键"/>
+<meta name="twitter:description" content="语法 在创建表的时候指定外键约束 1 2 3 4 5 6 7 8 9 10 CREATE TABLE 表名 ( column1 datatype null/not null, column2 datatype null/not null, ... CONSTRAINT 外键约束名 FOREIGN KEY (column1,column2,... column_n) REFERENCES 外键依赖的表 (column1,column2,...column_n) ON DELETE CASCADE--级联删除 ON UPDATE CASCADE--级联更新 ); 测试 有如下2个表： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 CREATE TABLE t_product"/>
+<meta name="application-name" content="武大路飞">
+<meta name="apple-mobile-web-app-title" content="武大路飞"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://whuwangyong.github.io/2022-08-22-mysql-foreign-key/" /><link rel="prev" href="https://whuwangyong.github.io/2022-07-23-use-process-explorer-to-detect-ad-process/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "MySQL外键",
+    "inLanguage": "",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/whuwangyong.github.io\/2022-08-22-mysql-foreign-key\/"
+    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "mysql, 外键","wordcount":  1562 ,
+    "url": "https:\/\/whuwangyong.github.io\/2022-08-22-mysql-foreign-key\/","datePublished": "2022-08-22T00:00:00+08:00","dateModified": "2022-08-23T09:04:55+08:00","publisher": {
+      "@type": "Organization",
+      "name": "Wang Yong","logo": {
+          "@type": "ImageObject",
+          "url": "https:\/\/whuwangyong.github.io\/images\/avatar150x150.jpg",
+          "width":  150 ,
+          "height":  151 
+        }},"author": {
+        "@type": "Person",
+        "name": "Wang Yong"
+      },"description": ""
+  }
+  </script></head>
+  <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script><div class="wrapper"><header class="desktop" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a></div>
+    <nav>
+      <ul class="menu"><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              >归档</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              >标签</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              >分类</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/links/"
+                title="友情链接"
+                
+              >友链</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              >关于</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="https://github.com/whuwangyong"
+                title="GitHub"
+                rel="noopener noreffer" target="_blank"
+              ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw"></i>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header><header class="mobile" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              >归档</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              >标签</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              >分类</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/links/"
+                title="友情链接"
+                
+              >友链</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/about/"
+                
+                
+              >关于</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="https://github.com/whuwangyong"
+                title="GitHub"
+                rel="noopener noreffer" target="_blank"
+              ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header>
+<div class="search-dropdown desktop">
+  <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+  <div id="search-dropdown-mobile"></div>
+</div>
+<main class="container" page-style="custom"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录 <i class="toc-icon fa-solid fa-angle-down fa-fw"></i></h2>
+      <div class="toc-content always-active" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    
+  </aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX">MySQL外键</h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a
+  href="https://github.com/whuwangyong"
+  
+    title="作者"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer author"
+  
+  
+    class="author"
+  
+  
+><img
+    class="lazyload avatar"
+    src="/svg/loading.min.svg"
+    data-src="/images/avatar150x150.jpg"
+    data-srcset="/images/avatar150x150.jpg, /images/avatar150x150.jpg 1.5x, /images/avatar150x150.jpg 2x"
+    data-sizes="auto"
+    alt="Wang Yong"
+    title="Wang Yong" />&nbsp;Wang Yong</a></span>
+          <span class="post-category">收录于 <a href="/categories/mysql/"><i class="fa-regular fa-folder fa-fw"></i>&nbsp;mysql</a></span></div>
+      <div class="post-meta-line"><span title=2022-08-22&#32;00:00:00>
+            <i class="fa-regular fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-08-22" >2022-08-22</time>
+          </span>&nbsp;<i class="fa-solid fa-pencil-alt fa-fw"></i>&nbsp;约 1562 字&nbsp;
+        <i class="fa-regular fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
+    </div><div class="details toc" id="toc-static" kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#语法">语法</a></li>
+    <li><a href="#测试">测试</a>
+      <ul>
+        <li><a href="#删表的顺序">删表的顺序</a></li>
+        <li><a href="#级联删除">级联删除</a></li>
+        <li><a href="#droptruncate父表">drop/truncate父表</a>
+          <ul>
+            <li><a href="#临时关闭外键约束">临时关闭外键约束</a></li>
+            <li><a href="#使用delete">使用delete</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#是否推荐使用外键">是否推荐使用外键</a></li>
+  </ul>
+</nav></div>
+      </div><div
+      class="content"
+      id="content"
+      
+      
+    ><h2 id="语法">语法</h2>
+<p>在创建表的时候指定外键约束</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">column1</span><span class="w"> </span><span class="n">datatype</span><span class="w"> </span><span class="k">null</span><span class="o">/</span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">column2</span><span class="w"> </span><span class="n">datatype</span><span class="w"> </span><span class="k">null</span><span class="o">/</span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="err">外键约束名</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w">  </span><span class="p">(</span><span class="n">column1</span><span class="p">,</span><span class="n">column2</span><span class="p">,...</span><span class="w"> </span><span class="n">column_n</span><span class="p">)</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">REFERENCES</span><span class="w"> </span><span class="err">外键依赖的表</span><span class="w"> </span><span class="p">(</span><span class="n">column1</span><span class="p">,</span><span class="n">column2</span><span class="p">,...</span><span class="n">column_n</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">CASCADE</span><span class="c1">--级联删除
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">CASCADE</span><span class="c1">--级联更新
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="测试">测试</h2>
+<p>有如下2个表：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t_product</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">id</span><span class="w">    </span><span class="nb">int</span><span class="w">         </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">name</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">price</span><span class="w"> </span><span class="n">double</span><span class="w">      </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_name</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t_order</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">id</span><span class="w">         </span><span class="nb">int</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">product_id</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">amount</span><span class="w">     </span><span class="nb">int</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">fk_pid</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">product_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">t_product</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="err">这里未启用级联删除</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="删表的顺序">删表的顺序</h3>
+<p>删表时，要先删子表<code>t_order</code>，再删父表<code>t_product</code></p>
+<h3 id="级联删除">级联删除</h3>
+<p>被子表引用的记录，无法直接从父表删除</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t_product</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;xiaomi&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1999</span><span class="p">.</span><span class="mi">99</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t_product</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;redmi&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">999</span><span class="p">.</span><span class="mi">99</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t_order</span><span class="p">(</span><span class="n">product_id</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="w"> </span><span class="err">失败，被子表引用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="w"> </span><span class="p">[</span><span class="mi">23000</span><span class="p">][</span><span class="mi">1451</span><span class="p">]</span><span class="w"> </span><span class="n">Cannot</span><span class="w"> </span><span class="k">delete</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="k">update</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">parent</span><span class="w"> </span><span class="k">row</span><span class="p">:</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">foreign</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="k">constraint</span><span class="w"> </span><span class="n">fails</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t_product</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;xiaomi&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="w"> </span><span class="err">成功，未被引用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t_product</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;redmi&#39;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>如何实现删除父表记录时，<strong>级联删除</strong>子表的记录？定义外键时指定<code>ON DELETE CASCADE</code>：</p>
+<p>建表时申明：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t_order</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">id</span><span class="w">         </span><span class="nb">int</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">product_id</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">amount</span><span class="w">     </span><span class="nb">int</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">fk_pid</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">product_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">t_product</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">ON</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">CASCADE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>修改已有的表：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">test</span><span class="p">.</span><span class="n">t_order</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">drop</span><span class="w"> </span><span class="k">foreign</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="n">fk_pid</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">test</span><span class="p">.</span><span class="n">t_order</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">add</span><span class="w"> </span><span class="k">constraint</span><span class="w"> </span><span class="n">fk_pid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">foreign</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="p">(</span><span class="n">product_id</span><span class="p">)</span><span class="w"> </span><span class="k">references</span><span class="w"> </span><span class="n">test</span><span class="p">.</span><span class="n">t_product</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">on</span><span class="w"> </span><span class="k">delete</span><span class="w"> </span><span class="k">cascade</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="droptruncate父表">drop/truncate父表</h3>
+<p>设置了级联关系的表，可以直接<code>drop/truncate</code>父表吗？不行。即使子表里面已经没有引用父表的记录，子表为空表也不行。</p>
+<p>如何解决：</p>
+<h4 id="临时关闭外键约束">临时关闭外键约束</h4>
+<p>缺点：可能破坏完整性。删表之后务必手动清理关联的子表里面的记录。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SET</span><span class="w"> </span><span class="n">FOREIGN_KEY_CHECKS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">TRUNCATE</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="err">$</span><span class="k">table_name</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="n">FOREIGN_KEY_CHECKS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="使用delete">使用delete</h4>
+<p>优点是保证了完整性，缺点是数据量大时很慢。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">mytest</span><span class="p">.</span><span class="n">instance</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">mytest</span><span class="p">.</span><span class="n">instance</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="是否推荐使用外键">是否推荐使用外键</h2>
+<blockquote>
+<p>《高性能MySQL》7.3节</p>
+<p>InnoDB是目前MySQL中唯一支持外键的内置存储引擎，所以如果需要外键支持那选
+择就不多了（PBXT也有外键支持）。</p>
+<p>使用外键是有成本的。比如外键通常都要求每次在修改数据时都要在另外一张表中多
+执行一次查找操作。虽然InnoDB强制外键使用索引，但还是无法消除这种约束检查的开
+销。如果外键列的选择性很低，则会导致一个非常大且选择性很低的索引。例如，在一个
+非常大的表上有status列，并希望限制这个状态列的取值，如果该列只能取三个值——虽
+然这个列本身很小，但是如果主键很大，那么这个索引就会很大——而且这个索引除了做
+这个外键限制，也没有任何其他的作用了。
+不过，在某些场景下，外键会提升一些性能。如果想确保两个相关表始终有一致的数
+据，那么使用外键比在应用程序中检查一致性的性能要高得多，此外，外键在相关数据的
+删除和更新上，也比在应用中维护要更高效，不过，外键维护操作是逐行进行的，所以这
+样的更新会比批量删除和更新要慢些。
+外键约束使得查询需要额外访问一些别的表，这也意味着需要额外的锁。如果向子表
+中写入一条记录，外键约束会让InnoDB检查对应的父表的记录，也就需要对父表对应记
+录进行加锁操作，来确保这条记录不会在这个事务完成之时就被删除了。这会导致额外的
+锁等待，甚至会导致一些死锁。因为没有直接访问这些表，所以这类死锁问题往往难以排
+查。
+有时，可以使用触发器来代替外键。对于相关数据的同时更新外键更合适，但是如果
+外键只是用作数值约束，那么触发器或者显式地限制取值会更好些。（这里，可以直接使
+用ENUM类型。）
+如果只是使用外键做约束，那通</p>
+<p><strong>总结</strong></p>
+<p>外键限制会将约束放到MySQL中，这对于必须维护外键的场景，性能会更高。
+不过这也会带来额外的复杂性和额外的索引消耗，还会增加多表之间的交互，会导致
+系统中更多的锁和竞争。外键可以被看作是一个确保系统完整性的额外的特性，但是
+如果设计的是一个高性能的系统，那么外键就显得很臃肿了。很多人在更在意系统的
+性能的时候都不会使用外键，而是通过应用程序来维护。常在应用程序里实现该约束会更好。外键会带来很大
+的额外消耗。这里没有相关的基准测试的数据，不过我们碰到过很多案例，在对性能进行
+剖析时发现外键约束就是瓶颈所在，删除外键后性能立即大幅提升。</p>
+</blockquote>
+</div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title=2022-08-23&#32;09:04:55>更新于 2022-08-23&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/40fd815c5a34afd32b801250a5e66a73e94a983f" rel="external nofollow noopener noreffer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) 40fd815c5a34afd32b801250a5e66a73e94a983f: new post: mysql外键">
+                  <i class="fa-solid fa-hashtag fa-fw"></i>40fd815</a></span>
+      </div>
+      <div class="post-info-license "></div>
+    </div>
+    <div class="post-info-line">
+      <div class="post-info-md"><span><a
+  href="/2022-08-22-mysql-foreign-key/index.md"
+  
+    title="阅读原始文档"
+  
+  
+  
+  
+    class="link-to-markdown"
+  
+  
+>阅读原始文档</a></span></div>
+      <div class="post-info-share">
+        <span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw"></i>&nbsp;<a href="/tags/mysql/">mysql</a>,&nbsp;<a href="/tags/%E5%A4%96%E9%94%AE/">外键</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/2022-07-23-use-process-explorer-to-detect-ad-process/" class="prev" rel="prev" title="Process Explorer检测弹窗广告的利器"><i class="fa-solid fa-angle-left fa-fw"></i>Process Explorer检测弹窗广告的利器</a></div>
+</div>
+<div id="comments"><div id="utterances"></div><noscript>
+        Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/" rel="external nofollow noopener noreffer">Utterances</a>.
+      </noscript></div></article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line custom">      <a href="https://statcounter.com/p12730999/?guest=1" target="_blank">访问统计</a>
+      <!-- Default Statcounter code for github.io https://whuwangyong.github.io/ -->
+      <script type="text/javascript">
+      var sc_project=12730999; 
+      var sc_invisible=0; 
+      var sc_security="7ad44351"; 
+      var scJsHost = "https://";
+      document.write("<sc"+"ript type='text/javascript' src='" + scJsHost + "statcounter.com/counter/counter.js'></"+"script>");
+      </script>
+      <noscript>
+        <div class="statcounter">
+          <a title="Web Analytics" href="https://statcounter.com/" target="_blank">
+            <img class="statcounter" src="https://c.statcounter.com/12730999/0/7ad44351/0/" alt="Web Analytics" 
+              referrerPolicy="no-referrer-when-downgrade">
+          </a>
+        </div>
+      </noscript>
+      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.101.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+        </div><div class="footer-line copyright"><i class="fa-regular fa-copyright fa-fw"></i>
+            <span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">
+              <a
+  href="https://github.com/whuwangyong"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+>Wang Yong</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div></div>
+  </footer></div><div class="widgets">
+  <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+      <i class="fa-solid fa-arrow-up fa-fw"></i>
+    </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+      <i class="fa-solid fa-comment fa-fw"></i>
+    </a>
+  </div><div id="mask"></div>
+</div><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js" defer></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js" async defer></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js" defer></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js" defer></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js" defer></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":30},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"comments","lightTheme":"github-light","repo":"whuwangyong/whuwangyong.github.io"}},"enablePWA":null,"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"YMLBEBNFHL","algoliaIndex":"new-index-1649076215","algoliaSearchKey":"9028b251fe4eecb5ad4d47af0715a4f0","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js" defer></script></body>
+</html>

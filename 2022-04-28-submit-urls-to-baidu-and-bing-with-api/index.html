@@ -286,9 +286,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext">http://www.your-site.com/1.html
-http://www.your-site.com/2.html
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">http://www.your-site.com/1.html
+</span></span><span class="line"><span class="cl">http://www.your-site.com/2.html
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>有两种方式生成url列表。</p>
 <h3 id="从sitemapxml获取">从sitemap.xml获取</h3>
@@ -311,21 +311,21 @@ http://www.your-site.com/2.html
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;urlset</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.sitemaps.org/schemas/sitemap/0.9&#34;</span> <span class="na">xmlns:xhtml=</span><span class="s">&#34;http://www.w3.org/1999/xhtml&#34;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;url&gt;</span>
-        <span class="nt">&lt;loc&gt;</span>https://whuwangyong.github.io/2022-03-29-github-submodule/<span class="nt">&lt;/loc&gt;</span>
-        <span class="nt">&lt;lastmod&gt;</span>2022-04-27T23:14:33+08:00<span class="nt">&lt;/lastmod&gt;</span>
-        <span class="nt">&lt;changefreq&gt;</span>weekly<span class="nt">&lt;/changefreq&gt;</span>
-        <span class="nt">&lt;priority&gt;</span>1<span class="nt">&lt;/priority&gt;</span>
-    <span class="nt">&lt;/url&gt;</span>
-    <span class="nt">&lt;url&gt;</span>
-        <span class="nt">&lt;loc&gt;</span>https://whuwangyong.github.io/2022-04-27-linux-cpu-benchmark/<span class="nt">&lt;/loc&gt;</span>
-        <span class="nt">&lt;lastmod&gt;</span>2022-04-27T23:14:33+08:00<span class="nt">&lt;/lastmod&gt;</span>
-        <span class="nt">&lt;changefreq&gt;</span>weekly<span class="nt">&lt;/changefreq&gt;</span>
-        <span class="nt">&lt;priority&gt;</span>1<span class="nt">&lt;/priority&gt;</span>
-    <span class="nt">&lt;/url&gt;</span>
-<span class="nt">&lt;/urlset&gt;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;urlset</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.sitemaps.org/schemas/sitemap/0.9&#34;</span> <span class="na">xmlns:xhtml=</span><span class="s">&#34;http://www.w3.org/1999/xhtml&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;url&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;loc&gt;</span>https://whuwangyong.github.io/2022-03-29-github-submodule/<span class="nt">&lt;/loc&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;lastmod&gt;</span>2022-04-27T23:14:33+08:00<span class="nt">&lt;/lastmod&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;changefreq&gt;</span>weekly<span class="nt">&lt;/changefreq&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;priority&gt;</span>1<span class="nt">&lt;/priority&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/url&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;url&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;loc&gt;</span>https://whuwangyong.github.io/2022-04-27-linux-cpu-benchmark/<span class="nt">&lt;/loc&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;lastmod&gt;</span>2022-04-27T23:14:33+08:00<span class="nt">&lt;/lastmod&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;changefreq&gt;</span>weekly<span class="nt">&lt;/changefreq&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;priority&gt;</span>1<span class="nt">&lt;/priority&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/url&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/urlset&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>用以下Linux命令可以将sitemap.xml中的url提取出来：</p>
 <div class="highlight"><div class="chroma">
@@ -333,8 +333,8 @@ http://www.your-site.com/2.html
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">grep <span class="s2">&#34;&lt;loc&gt;&#34;</span> sitemap.xml <span class="p">|</span> grep -v <span class="s1">&#39;html&#39;</span> <span class="p">|</span> awk -F <span class="s1">&#39;[&lt; &gt;]&#39;</span> <span class="s1">&#39;{print $3}&#39;</span> &gt; urls.txt
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">grep <span class="s2">&#34;&lt;loc&gt;&#34;</span> sitemap.xml <span class="p">|</span> grep -v <span class="s1">&#39;html&#39;</span> <span class="p">|</span> awk -F <span class="s1">&#39;[&lt; &gt;]&#39;</span> <span class="s1">&#39;{print $3}&#39;</span> &gt; urls.txt
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这样做的弊端是每次提交的url列表是全量的。而百度和Bing都限制了每天提交的数量，百度 3000条/天，Bing 100条/天。随着文章增多，可能会超限。因此，更好的做法是，每次只提交本次更新的文章的url，通过<code>git log</code>可以实现。</p>
 <h3 id="从git-log获取">从git log获取</h3>
@@ -365,30 +365,30 @@ http://www.your-site.com/2.html
 </span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 获取最近一次的commit_id</span>
-&gt; git rev-parse --short HEAD
-2bfe64f
-
-<span class="c1"># 显示本次提交修改的文件</span>
-&gt; git diff-tree --no-commit-id --name-only -r 2bfe64f
-2022-03-29-github-submodule/assets/image-20220404003800-3hsabzt.png
-2022-03-29-github-submodule/index.html
-2022-03-29-github-submodule/index.md
-2022-04-27-linux-cpu-benchmark/index.html
-2022-04-27-linux-cpu-benchmark/index.md
-index.json
-sitemap.xml
-
-<span class="c1"># 显示本次提交修改的文件 （另一种方法）</span>
-&gt; git show --pretty<span class="o">=</span><span class="s2">&#34;&#34;</span> --name-only 2bfe64f
-2022-03-29-github-submodule/assets/image-20220404003800-3hsabzt.png
-2022-03-29-github-submodule/index.html
-2022-03-29-github-submodule/index.md
-2022-04-27-linux-cpu-benchmark/index.html
-2022-04-27-linux-cpu-benchmark/index.md
-index.json
-sitemap.xml
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 获取最近一次的commit_id</span>
+</span></span><span class="line"><span class="cl">&gt; git rev-parse --short HEAD
+</span></span><span class="line"><span class="cl">2bfe64f
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 显示本次提交修改的文件</span>
+</span></span><span class="line"><span class="cl">&gt; git diff-tree --no-commit-id --name-only -r 2bfe64f
+</span></span><span class="line"><span class="cl">2022-03-29-github-submodule/assets/image-20220404003800-3hsabzt.png
+</span></span><span class="line"><span class="cl">2022-03-29-github-submodule/index.html
+</span></span><span class="line"><span class="cl">2022-03-29-github-submodule/index.md
+</span></span><span class="line"><span class="cl">2022-04-27-linux-cpu-benchmark/index.html
+</span></span><span class="line"><span class="cl">2022-04-27-linux-cpu-benchmark/index.md
+</span></span><span class="line"><span class="cl">index.json
+</span></span><span class="line"><span class="cl">sitemap.xml
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 显示本次提交修改的文件 （另一种方法）</span>
+</span></span><span class="line"><span class="cl">&gt; git show --pretty<span class="o">=</span><span class="s2">&#34;&#34;</span> --name-only 2bfe64f
+</span></span><span class="line"><span class="cl">2022-03-29-github-submodule/assets/image-20220404003800-3hsabzt.png
+</span></span><span class="line"><span class="cl">2022-03-29-github-submodule/index.html
+</span></span><span class="line"><span class="cl">2022-03-29-github-submodule/index.md
+</span></span><span class="line"><span class="cl">2022-04-27-linux-cpu-benchmark/index.html
+</span></span><span class="line"><span class="cl">2022-04-27-linux-cpu-benchmark/index.md
+</span></span><span class="line"><span class="cl">index.json
+</span></span><span class="line"><span class="cl">sitemap.xml
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>然后从修改文件列表中，删选出<code>.html</code>结尾的路径，与站点根目录拼起来，得到完整url。后文有提供python代码来生成url列表。</p>
 <p>准备好了url列表，下面开始使用API提交。</p>
@@ -434,8 +434,8 @@ sitemap.xml
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">curl -H <span class="s1">&#39;Content-Type:text/plain&#39;</span> --data-binary @urls.txt <span class="s2">&#34;http://data.zz.baidu.com/urls?site=https://whuwangyong.github.io&amp;token=xxxxx&#34;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s1">&#39;Content-Type:text/plain&#39;</span> --data-binary @urls.txt <span class="s2">&#34;http://data.zz.baidu.com/urls?site=https://whuwangyong.github.io&amp;token=xxxxx&#34;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="post推送">post推送</h3>
 <p>也很简单，具体可以参考文末代码。</p>
@@ -453,17 +453,17 @@ sitemap.xml
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext">POST /urls?site=https://whuwangyong.github.io&amp;token=your-token HTTP/1.1
-
-User-Agent: curl/7.12.1
-Host: data.zz.baidu.com
-Content-Type: text/plain
-
-data = [
-    &#34;http://www.example.com/1.html&#34;,
-    &#34;http://www.example.com/2.html&#34;
-]
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">POST /urls?site=https://whuwangyong.github.io&amp;token=your-token HTTP/1.1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">User-Agent: curl/7.12.1
+</span></span><span class="line"><span class="cl">Host: data.zz.baidu.com
+</span></span><span class="line"><span class="cl">Content-Type: text/plain
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">data = [
+</span></span><span class="line"><span class="cl">    &#34;http://www.example.com/1.html&#34;,
+</span></span><span class="line"><span class="cl">    &#34;http://www.example.com/2.html&#34;
+</span></span><span class="line"><span class="cl">]
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="php推送ruby推送">php推送、ruby推送</h3>
 <p>未尝试。</p>
@@ -542,32 +542,32 @@ data = [
 </span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext">JSON request sample: 
-
-POST /webmaster/api.svc/json/SubmitUrlbatch?apikey=sampleapikeyEDECC1EA4AE341CC8B6 HTTP/1.1
-Content-Type: application/json; charset=utf-8
-Host: ssl.bing.com
-
-{
-    &#34;siteUrl&#34;:&#34;http://yoursite.com&#34;,
-    &#34;urlList&#34;:[
-        &#34;http://yoursite.com/url1&#34;,
-        &#34;http://yoursite.com/url2&#34;,
-        &#34;http://yoursite.com/url3&#34;
-    ]
-}
-
-
-JSON response sample:
-
-HTTP/1.1 200 OK
-Content-Length: 10
-Content-Type: application/json; charset=utf-8
-
-{
-    &#34;d&#34;:null
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">JSON request sample: 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">POST /webmaster/api.svc/json/SubmitUrlbatch?apikey=sampleapikeyEDECC1EA4AE341CC8B6 HTTP/1.1
+</span></span><span class="line"><span class="cl">Content-Type: application/json; charset=utf-8
+</span></span><span class="line"><span class="cl">Host: ssl.bing.com
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">    &#34;siteUrl&#34;:&#34;http://yoursite.com&#34;,
+</span></span><span class="line"><span class="cl">    &#34;urlList&#34;:[
+</span></span><span class="line"><span class="cl">        &#34;http://yoursite.com/url1&#34;,
+</span></span><span class="line"><span class="cl">        &#34;http://yoursite.com/url2&#34;,
+</span></span><span class="line"><span class="cl">        &#34;http://yoursite.com/url3&#34;
+</span></span><span class="line"><span class="cl">    ]
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">JSON response sample:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">HTTP/1.1 200 OK
+</span></span><span class="line"><span class="cl">Content-Length: 10
+</span></span><span class="line"><span class="cl">Content-Type: application/json; charset=utf-8
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">    &#34;d&#34;:null
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="代码">代码</h2>
 <div class="highlight"><div class="chroma">
@@ -628,61 +628,61 @@ Content-Type: application/json; charset=utf-8
 </span><span class="lnt">54
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">commit_urls</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;将最新的url提交到百度和bing&#34;</span><span class="p">)</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&#34;git checkout gh-pages&#34;</span><span class="p">)</span>
-    <span class="n">urls</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="c1"># 生成url列表</span>
-    <span class="n">ret</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-        <span class="s2">&#34;git rev-parse --short HEAD&#34;</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span>
-    <span class="p">)</span>
-    <span class="k">if</span> <span class="n">ret</span><span class="o">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">commit_id</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="s2">&#34;utf_8&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-        <span class="n">ret</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-            <span class="s2">&#34;git show --pretty=&#34;</span> <span class="s2">&#34; --name-only &#34;</span> <span class="o">+</span> <span class="n">commit_id</span><span class="p">,</span>
-            <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
-            <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
-        <span class="p">)</span>
-        <span class="k">if</span> <span class="n">ret</span><span class="o">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">changes</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="s2">&#34;utf-8&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">change</span> <span class="ow">in</span> <span class="n">changes</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">change</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&#34;.html&#34;</span><span class="p">):</span>
-                    <span class="c1"># change[:-10] 是为了去掉末尾的index.html</span>
-                    <span class="n">urls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&#34;https://whuwangyong.github.io/</span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">change</span><span class="p">[:</span><span class="o">-</span><span class="mi">10</span><span class="p">]))</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;subprocess run error:</span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">stderr</span><span class="p">))</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;subprocess run error:</span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">stderr</span><span class="p">))</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;本次提交的urls:&#34;</span><span class="p">,</span> <span class="n">urls</span><span class="p">)</span>
-
-    <span class="c1"># 提交到bing</span>
-    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&#34;Content-Type&#34;</span><span class="p">:</span> <span class="s2">&#34;application/json; charset=utf-8&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;Host&#34;</span><span class="p">:</span> <span class="s2">&#34;ssl.bing.com&#34;</span><span class="p">,</span>
-    <span class="p">}</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;siteUrl&#34;</span><span class="p">:</span> <span class="s2">&#34;your-site.com&#34;</span><span class="p">,</span> <span class="s2">&#34;urlList&#34;</span><span class="p">:</span> <span class="n">urls</span><span class="p">}</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-        <span class="n">url</span><span class="o">=</span><span class="s2">&#34;https://www.bing.com/webmaster/api.svc/json/SubmitUrlbatch?apikey=your-key&#34;</span><span class="p">,</span>
-        <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
-        <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-    <span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;bing的响应: &#34;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
-
-    <span class="c1"># 提交到百度</span>
-    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&#34;User-Agent&#34;</span><span class="p">:</span> <span class="s2">&#34;curl/7.12.1&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;Host&#34;</span><span class="p">:</span> <span class="s2">&#34;data.zz.baidu.com&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;Content-Type&#34;</span><span class="p">:</span> <span class="s2">&#34;text/plain&#34;</span>
-    <span class="p">}</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-        <span class="n">url</span><span class="o">=</span><span class="s2">&#34;http://data.zz.baidu.com/urls?site=your-site.com&amp;token=your-token&#34;</span><span class="p">,</span>
-        <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
-        <span class="n">data</span><span class="o">=</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">urls</span><span class="p">)</span>
-    <span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;百度的响应: &#34;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">commit_urls</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;将最新的url提交到百度和bing&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&#34;git checkout gh-pages&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">urls</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 生成url列表</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ret</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;git rev-parse --short HEAD&#34;</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">ret</span><span class="o">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">commit_id</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="s2">&#34;utf_8&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ret</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;git show --pretty=&#34;</span> <span class="s2">&#34; --name-only &#34;</span> <span class="o">+</span> <span class="n">commit_id</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">ret</span><span class="o">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">changes</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="s2">&#34;utf-8&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">change</span> <span class="ow">in</span> <span class="n">changes</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">change</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&#34;.html&#34;</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># change[:-10] 是为了去掉末尾的index.html</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">urls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&#34;https://whuwangyong.github.io/</span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">change</span><span class="p">[:</span><span class="o">-</span><span class="mi">10</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;subprocess run error:</span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">stderr</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;subprocess run error:</span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">stderr</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;本次提交的urls:&#34;</span><span class="p">,</span> <span class="n">urls</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 提交到bing</span>
+</span></span><span class="line"><span class="cl">    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Content-Type&#34;</span><span class="p">:</span> <span class="s2">&#34;application/json; charset=utf-8&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Host&#34;</span><span class="p">:</span> <span class="s2">&#34;ssl.bing.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;siteUrl&#34;</span><span class="p">:</span> <span class="s2">&#34;your-site.com&#34;</span><span class="p">,</span> <span class="s2">&#34;urlList&#34;</span><span class="p">:</span> <span class="n">urls</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">url</span><span class="o">=</span><span class="s2">&#34;https://www.bing.com/webmaster/api.svc/json/SubmitUrlbatch?apikey=your-key&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;bing的响应: &#34;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 提交到百度</span>
+</span></span><span class="line"><span class="cl">    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;User-Agent&#34;</span><span class="p">:</span> <span class="s2">&#34;curl/7.12.1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Host&#34;</span><span class="p">:</span> <span class="s2">&#34;data.zz.baidu.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Content-Type&#34;</span><span class="p">:</span> <span class="s2">&#34;text/plain&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">url</span><span class="o">=</span><span class="s2">&#34;http://data.zz.baidu.com/urls?site=your-site.com&amp;token=your-token&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">data</span><span class="o">=</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">urls</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;百度的响应: &#34;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>运行结果：</p>
 <div class="highlight"><div class="chroma">
@@ -697,15 +697,15 @@ Content-Type: application/json; charset=utf-8
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext">&gt; python commit_urls.py
-
-将最新的url提交到百度和bing
-Switched to branch &#39;gh-pages&#39;
-Your branch is up to date with &#39;origin/gh-pages&#39;.
-本次提交的urls: [&#39;https://whuwangyong.github.io/2022-03-29-github-submodule/&#39;, &#39;https://whuwangyong.github.io/2022-04-27-linux-cpu-benchmark/&#39;]
-bing的响应:  b&#39;{&#34;d&#34;:null}&#39;
-百度的响应:  b&#39;{&#34;remain&#34;:2998,&#34;success&#34;:2}&#39;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">&gt; python commit_urls.py
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">将最新的url提交到百度和bing
+</span></span><span class="line"><span class="cl">Switched to branch &#39;gh-pages&#39;
+</span></span><span class="line"><span class="cl">Your branch is up to date with &#39;origin/gh-pages&#39;.
+</span></span><span class="line"><span class="cl">本次提交的urls: [&#39;https://whuwangyong.github.io/2022-03-29-github-submodule/&#39;, &#39;https://whuwangyong.github.io/2022-04-27-linux-cpu-benchmark/&#39;]
+</span></span><span class="line"><span class="cl">bing的响应:  b&#39;{&#34;d&#34;:null}&#39;
+</span></span><span class="line"><span class="cl">百度的响应:  b&#39;{&#34;remain&#34;:2998,&#34;success&#34;:2}&#39;
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
   <div class="post-info">
@@ -765,7 +765,7 @@ bing的响应:  b&#39;{&#34;d&#34;:null}&#39;
           </a>
         </div>
       </noscript>
-      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.101.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
         </div><div class="footer-line copyright"><i class="fa-regular fa-copyright fa-fw"></i>
             <span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">
               <a

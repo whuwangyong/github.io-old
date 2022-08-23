@@ -324,10 +324,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ sudo apt install shadowsocks-libev
-...
-Created symlink /etc/systemd/system/multi-user.target.wants/shadowsocks-libev.service → /lib/systemd/system/shadowsocks-libev.service.
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ sudo apt install shadowsocks-libev
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">Created symlink /etc/systemd/system/multi-user.target.wants/shadowsocks-libev.service → /lib/systemd/system/shadowsocks-libev.service.
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="configuration">Configuration</h2>
 <blockquote>
@@ -361,15 +361,15 @@ Created symlink /etc/systemd/system/multi-user.target.wants/shadowsocks-libev.se
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="o">{</span>
-    <span class="s2">&#34;server&#34;</span>:<span class="s2">&#34;0.0.0.0&#34;</span>,
-    <span class="s2">&#34;mode&#34;</span>:<span class="s2">&#34;tcp_and_udp&#34;</span>,
-    <span class="s2">&#34;server_port&#34;</span>:your-port,
-    <span class="s2">&#34;password&#34;</span>:<span class="s2">&#34;your-pass&#34;</span>,
-    <span class="s2">&#34;timeout&#34;</span>:300,
-    <span class="s2">&#34;method&#34;</span>:<span class="s2">&#34;chacha20-ietf-poly1305&#34;</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;server&#34;</span>:<span class="s2">&#34;0.0.0.0&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;mode&#34;</span>:<span class="s2">&#34;tcp_and_udp&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;server_port&#34;</span>:your-port,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;password&#34;</span>:<span class="s2">&#34;your-pass&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;timeout&#34;</span>:300,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;method&#34;</span>:<span class="s2">&#34;chacha20-ietf-poly1305&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>mode有三种：tcp_only，udp_only，tcp_and_udp。</p>
 <p>&ldquo;server&rdquo;:&ldquo;0.0.0.0&rdquo; //只使用ipv4</p>
@@ -393,11 +393,11 @@ Created symlink /etc/systemd/system/multi-user.target.wants/shadowsocks-libev.se
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">echo</span> net.core.default_qdisc<span class="o">=</span>fq &gt;&gt; /etc/sysctl.conf
-<span class="nb">echo</span> net.ipv4.tcp_congestion_control<span class="o">=</span>bbr &gt;&gt; /etc/sysctl.conf
-sysctl -p
-sysctl net.ipv4.tcp_available_congestion_control
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">echo</span> net.core.default_qdisc<span class="o">=</span>fq &gt;&gt; /etc/sysctl.conf
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> net.ipv4.tcp_congestion_control<span class="o">=</span>bbr &gt;&gt; /etc/sysctl.conf
+</span></span><span class="line"><span class="cl">sysctl -p
+</span></span><span class="line"><span class="cl">sysctl net.ipv4.tcp_available_congestion_control
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="开机启动">开机启动</h2>
 <div class="highlight"><div class="chroma">
@@ -407,10 +407,10 @@ sysctl net.ipv4.tcp_available_congestion_control
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">sudo systemctl <span class="nb">enable</span> shadowsocks-libev.service
-<span class="c1"># 禁用开机启动</span>
-sudo systemctl disable shadowsocks-libev.service
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> shadowsocks-libev.service
+</span></span><span class="line"><span class="cl"><span class="c1"># 禁用开机启动</span>
+</span></span><span class="line"><span class="cl">sudo systemctl disable shadowsocks-libev.service
+</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>官方文档做法：</p>
@@ -420,8 +420,8 @@ sudo systemctl disable shadowsocks-libev.service
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">shadowsocks_libev_enable=&#34;YES&#34;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">shadowsocks_libev_enable=&#34;YES&#34;
+</span></span></code></pre></td></tr></table>
 </div>
 </div></blockquote>
 <h2 id="run">Run</h2>
@@ -433,17 +433,17 @@ sudo systemctl disable shadowsocks-libev.service
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">systemctrl start shadowsocks-libev.service
-<span class="c1"># 或者</span>
-service shadowsocks-libev start
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">systemctrl start shadowsocks-libev.service
+</span></span><span class="line"><span class="cl"><span class="c1"># 或者</span>
+</span></span><span class="line"><span class="cl">service shadowsocks-libev start
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="提示">提示</h2>
 <p>shadowsocks的服务器在v2rayNG app上无法使用，需使用Shadowsocks app。但是PC上的v2rayN可以使用ss服务器。</p>
-<section class="footnotes" role="doc-endnotes">
+<div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn:1" role="doc-endnote">
+<li id="fn:1">
 <h3 id="using-tcp-bbr">Using TCP BBR</h3>
 <p>TCP BBR is a TCP congestion control algorithm developed by Google and its been reported to improve performance on certain networks. You can enable it by adding the following to lines to your system configuration file.</p>
 <div class="highlight"><div class="chroma">
@@ -451,8 +451,8 @@ service shadowsocks-libev start
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sudo nano /etc/sysctl.conf
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo nano /etc/sysctl.conf
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -460,9 +460,9 @@ service shadowsocks-libev start
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">net.core.default_qdisc=fq
-net.ipv4.tcp_congestion_control=bbr
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">net.core.default_qdisc=fq
+</span></span><span class="line"><span class="cl">net.ipv4.tcp_congestion_control=bbr
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Then save the file and reload the settings.</p>
 <div class="highlight"><div class="chroma">
@@ -470,8 +470,8 @@ net.ipv4.tcp_congestion_control=bbr
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sudo sysctl -p
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo sysctl -p
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Check the changes by running the next command.</p>
 <div class="highlight"><div class="chroma">
@@ -479,8 +479,8 @@ net.ipv4.tcp_congestion_control=bbr
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sudo sysctl net.ipv4.tcp_congestion_control
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo sysctl net.ipv4.tcp_congestion_control
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>If the output is as follows the setting was applied successfully.</p>
 <div class="highlight"><div class="chroma">
@@ -488,13 +488,13 @@ net.ipv4.tcp_congestion_control=bbr
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">net.ipv4.tcp_congestion_control = bbr
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">net.ipv4.tcp_congestion_control = bbr
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>These optimisations should help alleviate any possible performance issues.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
-</section>
+</div>
 </div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
@@ -553,7 +553,7 @@ net.ipv4.tcp_congestion_control=bbr
           </a>
         </div>
       </noscript>
-      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.101.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
         </div><div class="footer-line copyright"><i class="fa-regular fa-copyright fa-fw"></i>
             <span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">
               <a

@@ -12,7 +12,7 @@
 <meta name="keywords" content="jekyll,kramdown,github pages,vercel,netlify" /><meta itemprop="name" content="使用Jekyll &#43; Github Pages搭建静态网站">
 <meta itemprop="description" content="Jekyll 是 Github Pages 官方支持的静态网站生成工具，优点是在可以直接github上使用vscode online编辑md，提交后，github会承担生成html的工作。而使用hugo等工具，需要先在本地将md文件渲染成html，然后上传。 提示 hugo的优点是"><meta itemprop="datePublished" content="2022-03-29T00:00:00+08:00" />
 <meta itemprop="dateModified" content="2022-06-03T13:07:44+08:00" />
-<meta itemprop="wordCount" content="5235"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
+<meta itemprop="wordCount" content="5053"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
 <meta itemprop="keywords" content="jekyll,kramdown,github pages,vercel,netlify," /><meta property="og:title" content="使用Jekyll &#43; Github Pages搭建静态网站" />
 <meta property="og:description" content="Jekyll 是 Github Pages 官方支持的静态网站生成工具，优点是在可以直接github上使用vscode online编辑md，提交后，github会承担生成html的工作。而使用hugo等工具，需要先在本地将md文件渲染成html，然后上传。 提示 hugo的优点是" />
 <meta property="og:type" content="article" />
@@ -28,7 +28,7 @@
 <meta name="application-name" content="武大路飞">
 <meta name="apple-mobile-web-app-title" content="武大路飞"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://whuwangyong.github.io/2022-03-29-jekyll/" /><link rel="prev" href="https://whuwangyong.github.io/2022-03-25-geektime-core-kafka-in-action-notes/" /><link rel="next" href="https://whuwangyong.github.io/2022-03-08-notesapp-benchmark/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://whuwangyong.github.io/2022-03-29-jekyll/" /><link rel="prev" href="https://whuwangyong.github.io/2022-03-08-notesapp-benchmark/" /><link rel="next" href="https://whuwangyong.github.io/2022-03-29-github-submodule/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
@@ -37,7 +37,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/whuwangyong.github.io\/2022-03-29-jekyll\/"
-    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "jekyll, kramdown, github pages, vercel, netlify","wordcount":  5235 ,
+    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "jekyll, kramdown, github pages, vercel, netlify","wordcount":  5053 ,
     "url": "https:\/\/whuwangyong.github.io\/2022-03-29-jekyll\/","datePublished": "2022-03-29T00:00:00+08:00","dateModified": "2022-06-03T13:07:44+08:00","publisher": {
       "@type": "Organization",
       "name": "Wang Yong","logo": {
@@ -244,7 +244,7 @@
           <span class="post-category">收录于 <a href="/categories/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E5%8D%9A%E5%AE%A2/"><i class="fa-regular fa-folder fa-fw"></i>&nbsp;静态网站博客</a></span></div>
       <div class="post-meta-line"><span title=2022-03-29&#32;00:00:00>
             <i class="fa-regular fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-29" >2022-03-29</time>
-          </span>&nbsp;<i class="fa-solid fa-pencil-alt fa-fw"></i>&nbsp;约 5235 字&nbsp;
+          </span>&nbsp;<i class="fa-solid fa-pencil-alt fa-fw"></i>&nbsp;约 5053 字&nbsp;
         <i class="fa-regular fa-clock fa-fw"></i>&nbsp;预计阅读 11 分钟&nbsp;</div>
     </div><div class="details toc" id="toc-static" kept="false">
         <div class="details-summary toc-title">
@@ -441,10 +441,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext">git clone git@github.com:&lt;GH_USERNAME&gt;/&lt;GH_USERNAME&gt;.github.io
-cd &lt;GH_USERNAME&gt;.github.io
-bundle
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">git clone git@github.com:&lt;GH_USERNAME&gt;/&lt;GH_USERNAME&gt;.github.io
+</span></span><span class="line"><span class="cl">cd &lt;GH_USERNAME&gt;.github.io
+</span></span><span class="line"><span class="cl">bundle
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>依赖安装完后，生成一个<code>Gemfile.lock</code>文件。</p>
 <blockquote>
@@ -457,8 +457,8 @@ bundle
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext">bundle lock --add-platform x86_64-linux
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">bundle lock --add-platform x86_64-linux
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="configuration">Configuration</h3>
 <p>主要就是修改如下几个文件：</p>
@@ -476,16 +476,16 @@ bundle
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">timezone</span><span class="p">:</span><span class="w"> </span><span class="l">Asia/Shanghai</span><span class="w">
-</span><span class="w"></span><span class="nt">google_site_verification</span><span class="p">:</span><span class="w"> </span><span class="l">googledxxxxxxx.html</span><span class="w"> </span><span class="c"># 去Google Search Console申请，用于google收录</span><span class="w">
-</span><span class="w"></span><span class="nt">avatar</span><span class="p">:</span><span class="w"> </span><span class="l">assets/img/avatar/wy-avatar-339x335.jpg</span><span class="w"> </span><span class="c"># 头像</span><span class="w">
-</span><span class="w"></span><span class="nt">comments</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">active</span><span class="p">:</span><span class="w"> </span><span class="l">utterances</span><span class="w"> </span><span class="c"># 使用github issue作为文章的评论系统</span><span class="w">
-</span><span class="w">  </span><span class="nt">utterances</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l">whuwangyong/whuwangyong.github.io       </span><span class="w"> </span><span class="c"># &lt;gh-username&gt;/&lt;repo&gt;</span><span class="w">
-</span><span class="w">    </span><span class="nt">issue_term</span><span class="p">:</span><span class="w"> </span><span class="l">title </span><span class="w"> </span><span class="c"># &lt; url | pathname | title | ...&gt;</span><span class="w">
-</span><span class="w"></span><span class="nt">paginate</span><span class="p">:</span><span class="w"> </span><span class="m">20</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">timezone</span><span class="p">:</span><span class="w"> </span><span class="l">Asia/Shanghai</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">google_site_verification</span><span class="p">:</span><span class="w"> </span><span class="l">googledxxxxxxx.html</span><span class="w"> </span><span class="c"># 去Google Search Console申请，用于google收录</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">avatar</span><span class="p">:</span><span class="w"> </span><span class="l">assets/img/avatar/wy-avatar-339x335.jpg</span><span class="w"> </span><span class="c"># 头像</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">comments</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">active</span><span class="p">:</span><span class="w"> </span><span class="l">utterances</span><span class="w"> </span><span class="c"># 使用github issue作为文章的评论系统</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">utterances</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l">whuwangyong/whuwangyong.github.io       </span><span class="w"> </span><span class="c"># &lt;gh-username&gt;/&lt;repo&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">issue_term</span><span class="p">:</span><span class="w"> </span><span class="l">title </span><span class="w"> </span><span class="c"># &lt; url | pathname | title | ...&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">paginate</span><span class="p">:</span><span class="w"> </span><span class="m">20</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="_tabsaboutmd">_tabs/about.md</h4>
 <p>自定义“关于我”的内容。</p>
@@ -545,22 +545,22 @@ bundle
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nn">---</span><span class="w">
-</span><span class="w"></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">TITLE</span><span class="w">
-</span><span class="w"></span><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="l">YYYY-MM-DD HH:MM:SS +/-TTTT</span><span class="w"> </span><span class="c"># 2022-01-01 13:14:15 +0800 只写日期也行；不写秒也行；这样也行 2022-03-09T00:55:42+08:00</span><span class="w">
-</span><span class="w"></span><span class="nt">categories</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">TOP_CATEGORIE, SUB_CATEGORIE]</span><span class="w">
-</span><span class="w"></span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">TAG]    </span><span class="w"> </span><span class="c"># TAG names should always be lowercase</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nt">author</span><span class="p">:</span><span class="w"> </span><span class="c"># 不写默认就是自己</span><span class="w">
-</span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Full Name</span><span class="w">
-</span><span class="w">  </span><span class="nt">link</span><span class="p">:</span><span class="w"> </span><span class="l">https://example.com</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="c"># 以下默认false</span><span class="w">
-</span><span class="w"></span><span class="nt">math</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w"></span><span class="nt">mermaid</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w"></span><span class="nt">pin</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w"></span><span class="nn">---</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">TITLE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="l">YYYY-MM-DD HH:MM:SS +/-TTTT</span><span class="w"> </span><span class="c"># 2022-01-01 13:14:15 +0800 只写日期也行；不写秒也行；这样也行 2022-03-09T00:55:42+08:00</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">categories</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">TOP_CATEGORIE, SUB_CATEGORIE]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">TAG]    </span><span class="w"> </span><span class="c"># TAG names should always be lowercase</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">author</span><span class="p">:</span><span class="w"> </span><span class="c"># 不写默认就是自己</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Full Name</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">link</span><span class="p">:</span><span class="w"> </span><span class="l">https://example.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 以下默认false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">math</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">mermaid</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">pin</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="分类">分类</h4>
 <p>支持多层级。如<code>categories: [Java, Spring, AOP]</code>，最终的分类效果是<code>Java/Spring/AOP</code>，这样就可以复用笔记软件里面设置好的分类。</p>
@@ -588,8 +588,8 @@ bundle
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext">{{ page.title }}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">{{ page.title }}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>更多参考：<a
   href="https://liquid.bootcss.com/"
@@ -615,11 +615,11 @@ bundle
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">bundle <span class="nb">exec</span> jekyll s <span class="c1"># serve, server, s      Serve your site locally</span>
-
-<span class="c1"># 编译命令是</span>
-bundle <span class="nb">exec</span> jekyll b <span class="c1"># build, b              Build your site</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bundle <span class="nb">exec</span> jekyll s <span class="c1"># serve, server, s      Serve your site locally</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 编译命令是</span>
+</span></span><span class="line"><span class="cl">bundle <span class="nb">exec</span> jekyll b <span class="c1"># build, b              Build your site</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>After a while, the local service will be published at  <em><a
   href="http://127.0.0.1:4000/"
@@ -645,9 +645,9 @@ bundle <span class="nb">exec</span> jekyll b <span class="c1"># build, b        
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="gd">- gem &#34;jekyll-theme-chirpy&#34;, &#34;~&gt; 3.2&#34;, &#34;&gt;= 3.2.1&#34;
-</span><span class="gd"></span><span class="gi">+ gem &#34;jekyll-theme-chirpy&#34;, &#34;~&gt; 3.3&#34;, &#34;&gt;= 3.3.0&#34;
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="cl"><span class="gd">- gem &#34;jekyll-theme-chirpy&#34;, &#34;~&gt; 3.2&#34;, &#34;&gt;= 3.2.1&#34;
+</span></span></span><span class="line"><span class="cl"><span class="gd"></span><span class="gi">+ gem &#34;jekyll-theme-chirpy&#34;, &#34;~&gt; 3.3&#34;, &#34;&gt;= 3.3.0&#34;
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>And then execute the following command:</p>
 <div class="highlight"><div class="chroma">
@@ -655,8 +655,8 @@ bundle <span class="nb">exec</span> jekyll b <span class="c1"># build, b        
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext">bundle update jekyll-theme-chirpy
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">bundle update jekyll-theme-chirpy
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>As the version upgrades, the critical files (for details, see the <a
   href="https://github.com/cotes2020/chirpy-starter"
@@ -720,12 +720,12 @@ bundle <span class="nb">exec</span> jekyll b <span class="c1"># build, b        
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext">---
-title: 友情链接
-icon: fas fa-link
-order: 5
----
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">title: 友情链接
+</span></span><span class="line"><span class="cl">icon: fas fa-link
+</span></span><span class="line"><span class="cl">order: 5
+</span></span><span class="line"><span class="cl">---
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>调整order和icon。icon去<a
   href="http://www.fontawesome.com.cn/"
@@ -778,36 +778,36 @@ order: 5
 </span><span class="lnt">29
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Automatic build&#39;</span><span class="w">
-</span><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- <span class="l">main</span><span class="w">
-</span><span class="w">    </span><span class="nt">paths-ignore</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- <span class="l">.gitignore</span><span class="w">
-</span><span class="w">      </span>- <span class="l">README.md</span><span class="w">
-</span><span class="w">      </span>- <span class="l">LICENSE</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">continuous-delivery</span><span class="p">:</span><span class="w">
-</span><span class="w">
-</span><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
-</span><span class="w">
-</span><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Checkout</span><span class="w">
-</span><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v2</span><span class="w">
-</span><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="nt">fetch-depth</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">  </span><span class="c"># for posts&#39;s lastmod</span><span class="w">
-</span><span class="w">
-</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Setup Ruby</span><span class="w">
-</span><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">ruby/setup-ruby@v1</span><span class="w">
-</span><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="nt">ruby-version</span><span class="p">:</span><span class="w"> </span><span class="m">2.7</span><span class="w">
-</span><span class="w">          </span><span class="nt">bundler-cache</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w">
-</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy</span><span class="w">
-</span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">bash tools/deploy.sh</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Automatic build&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">main</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">paths-ignore</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">.gitignore</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">README.md</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">LICENSE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">continuous-delivery</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Checkout</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">fetch-depth</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">  </span><span class="c"># for posts&#39;s lastmod</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Setup Ruby</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">ruby/setup-ruby@v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">ruby-version</span><span class="p">:</span><span class="w"> </span><span class="m">2.7</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">bundler-cache</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">bash tools/deploy.sh</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>该文件定义了一个workflow：当push代码到main分支时，执行jobs里面定义的动作。最关键的是<code>Deploy</code>这一步，它执行了一个脚本：<code>tools/deploy.sh</code>。这个脚本做的事情，就是执行<code>bundle exec jekyll build -d _site</code>将md文件编译为html，生成静态网站，然后将<code>_site</code>下的内容push到<code>gh-pages</code>分支。到这里就很清楚了，是github帮助我们执行了build操作，将md转换成了html。</p>
 <p>在github上查看你的github.io项目，在Actions下面可以看到每次提交新文章时触发的workflows：<br>
@@ -895,25 +895,25 @@ order: 5
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># file_name: tools/deploy.sh</span>
-<span class="c1"># 新增 submit_sitemap 函数，在 deploy 之后调用</span>
-submit_sitemap<span class="o">()</span> <span class="o">{</span>
-  <span class="nb">echo</span> <span class="s2">&#34;------ &gt;&gt;&gt; submit_sitemap ---------&#34;</span>
-  grep <span class="s2">&#34;&lt;loc&gt;&#34;</span> sitemap.xml <span class="p">|</span> grep -v <span class="s1">&#39;html&#39;</span> <span class="p">|</span> awk -F <span class="s1">&#39;[&lt; &gt;]&#39;</span> <span class="s1">&#39;{print $3}&#39;</span> &gt; sitemap.txt
-  curl -H <span class="s1">&#39;Content-Type:text/plain&#39;</span> --data-binary @sitemap.txt <span class="s2">&#34;http://data.zz.baidu.com/urls?site=https://whuwangyong.github.io&amp;token=5os4wCK5ct7kBZRN&#34;</span>
-  curl -H <span class="s1">&#39;Content-Type:text/plain&#39;</span> --data-binary @sitemap.txt <span class="s2">&#34;http://data.zz.baidu.com/urls?site=https://whuwangyong.vercel.app&amp;token=5os4wCK5ct7kBZRN&#34;</span>
-  rm -f sitemap.txt
-  <span class="nb">echo</span> <span class="s2">&#34;------ submit_sitemap &lt;&lt;&lt; ---------&#34;</span>
-<span class="o">}</span>
-
-main<span class="o">()</span> <span class="o">{</span>
-  init
-  build
-  <span class="c1"># ...</span>
-  deploy
-  submit_sitemap
-<span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># file_name: tools/deploy.sh</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 新增 submit_sitemap 函数，在 deploy 之后调用</span>
+</span></span><span class="line"><span class="cl">submit_sitemap<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;------ &gt;&gt;&gt; submit_sitemap ---------&#34;</span>
+</span></span><span class="line"><span class="cl">  grep <span class="s2">&#34;&lt;loc&gt;&#34;</span> sitemap.xml <span class="p">|</span> grep -v <span class="s1">&#39;html&#39;</span> <span class="p">|</span> awk -F <span class="s1">&#39;[&lt; &gt;]&#39;</span> <span class="s1">&#39;{print $3}&#39;</span> &gt; sitemap.txt
+</span></span><span class="line"><span class="cl">  curl -H <span class="s1">&#39;Content-Type:text/plain&#39;</span> --data-binary @sitemap.txt <span class="s2">&#34;http://data.zz.baidu.com/urls?site=https://whuwangyong.github.io&amp;token=5os4wCK5ct7kBZRN&#34;</span>
+</span></span><span class="line"><span class="cl">  curl -H <span class="s1">&#39;Content-Type:text/plain&#39;</span> --data-binary @sitemap.txt <span class="s2">&#34;http://data.zz.baidu.com/urls?site=https://whuwangyong.vercel.app&amp;token=5os4wCK5ct7kBZRN&#34;</span>
+</span></span><span class="line"><span class="cl">  rm -f sitemap.txt
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;------ submit_sitemap &lt;&lt;&lt; ---------&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">main<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  init
+</span></span><span class="line"><span class="cl">  build
+</span></span><span class="line"><span class="cl">  <span class="c1"># ...</span>
+</span></span><span class="line"><span class="cl">  deploy
+</span></span><span class="line"><span class="cl">  submit_sitemap
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="netlifyvercel是什么">netlify、vercel是什么</h3>
 <p>除了github pages，还有<a
@@ -965,9 +965,9 @@ main<span class="o">()</span> <span class="o">{</span>
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown">[<span class="nt">A | B</span>](<span class="na">http://foo.com</span>)
-[<span class="nt">img | 1</span>](<span class="na">http://img.com/1.jpg</span>)
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">[<span class="nt">A | B</span>](<span class="na">http://foo.com</span>)
+</span></span><span class="line"><span class="cl">[<span class="nt">img | 1</span>](<span class="na">http://img.com/1.jpg</span>)
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这个问题2014年就有人提了，但是作者一直没修复：</p>
 <ol>
@@ -1317,8 +1317,8 @@ main<span class="o">()</span> <span class="o">{</span>
     </section>
   </div>
 
-  <div class="post-nav"><a href="/2022-03-25-geektime-core-kafka-in-action-notes/" class="prev" rel="prev" title="《Kafka 核心技术与实战》学习笔记"><i class="fa-solid fa-angle-left fa-fw"></i>《Kafka 核心技术与实战》学习笔记</a>
-      <a href="/2022-03-08-notesapp-benchmark/" class="next" rel="next" title="云笔记软件简评">云笔记软件简评<i class="fa-solid fa-angle-right fa-fw"></i></a></div>
+  <div class="post-nav"><a href="/2022-03-08-notesapp-benchmark/" class="prev" rel="prev" title="云笔记软件简评"><i class="fa-solid fa-angle-left fa-fw"></i>云笔记软件简评</a>
+      <a href="/2022-03-29-github-submodule/" class="next" rel="next" title="Github SubModule 指南">Github SubModule 指南<i class="fa-solid fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="utterances"></div><noscript>
         Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/" rel="external nofollow noopener noreffer">Utterances</a>.
@@ -1340,7 +1340,7 @@ main<span class="o">()</span> <span class="o">{</span>
           </a>
         </div>
       </noscript>
-      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.101.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
         </div><div class="footer-line copyright"><i class="fa-regular fa-copyright fa-fw"></i>
             <span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">
               <a

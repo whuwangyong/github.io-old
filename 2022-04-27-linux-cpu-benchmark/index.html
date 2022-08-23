@@ -281,8 +281,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt install sysbench
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install sysbench
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="使用">使用</h3>
 <div class="highlight"><div class="chroma">
@@ -320,38 +320,38 @@
 </span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ubuntu@instance:~$ sysbench cpu --threads<span class="o">=</span><span class="m">3</span> run
-sysbench 1.0.18 <span class="o">(</span>using system LuaJIT 2.1.0-beta3<span class="o">)</span>
-
-Running the <span class="nb">test</span> with following options:
-Number of threads: <span class="m">3</span>
-Initializing random number generator from current <span class="nb">time</span>
-
-
-Prime numbers limit: <span class="m">10000</span>
-
-Initializing worker threads...
-
-Threads started!
-
-CPU speed:
-    events per second: 10519.03
-
-General statistics:
-    total time:                          10.0003s
-    total number of events:              <span class="m">105208</span>
-
-Latency <span class="o">(</span>ms<span class="o">)</span>:
-         min:                                    0.28
-         avg:                                    0.28
-         max:                                    5.22
-         95th percentile:                        0.29
-         sum:                                29976.02
-
-Threads fairness:
-    events <span class="o">(</span>avg/stddev<span class="o">)</span>:           35069.3333/81.99
-    execution <span class="nb">time</span> <span class="o">(</span>avg/stddev<span class="o">)</span>:   9.9920/0.00
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ubuntu@instance:~$ sysbench cpu --threads<span class="o">=</span><span class="m">3</span> run
+</span></span><span class="line"><span class="cl">sysbench 1.0.18 <span class="o">(</span>using system LuaJIT 2.1.0-beta3<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Running the <span class="nb">test</span> with following options:
+</span></span><span class="line"><span class="cl">Number of threads: <span class="m">3</span>
+</span></span><span class="line"><span class="cl">Initializing random number generator from current <span class="nb">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Prime numbers limit: <span class="m">10000</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Initializing worker threads...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Threads started!
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">CPU speed:
+</span></span><span class="line"><span class="cl">    events per second: 10519.03
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">General statistics:
+</span></span><span class="line"><span class="cl">    total time:                          10.0003s
+</span></span><span class="line"><span class="cl">    total number of events:              <span class="m">105208</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Latency <span class="o">(</span>ms<span class="o">)</span>:
+</span></span><span class="line"><span class="cl">         min:                                    0.28
+</span></span><span class="line"><span class="cl">         avg:                                    0.28
+</span></span><span class="line"><span class="cl">         max:                                    5.22
+</span></span><span class="line"><span class="cl">         95th percentile:                        0.29
+</span></span><span class="line"><span class="cl">         sum:                                29976.02
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Threads fairness:
+</span></span><span class="line"><span class="cl">    events <span class="o">(</span>avg/stddev<span class="o">)</span>:           35069.3333/81.99
+</span></span><span class="line"><span class="cl">    execution <span class="nb">time</span> <span class="o">(</span>avg/stddev<span class="o">)</span>:   9.9920/0.00
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>events per second，值越大，性能越强。</p>
 <p>上面是一个Oracle主机的测试结果，3个OCPU，每秒事件10519。单个OCPU每秒事件数为3484。i7-7700 CPU，单核每秒事件数1438，8核每秒事件数8469。可见Oracle主机的OCPU性能很强，单核性能是 i7-7700 的2.4倍。</p>
@@ -376,8 +376,8 @@ Threads fairness:
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt install p7zip-full
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install p7zip-full
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="使用-1">使用</h3>
 <p>语法：</p>
@@ -386,8 +386,8 @@ Threads fairness:
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext">7z b [number_of_iterations] [-mmt{N}] [-md{N}] [-mm={Method}]
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">7z b [number_of_iterations] [-mmt{N}] [-md{N}] [-mm={Method}]
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>number_of_iterations 迭代次数，测试多少轮，可用于检查内存错误</li>
@@ -402,11 +402,11 @@ Threads fairness:
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 单线程</span>
-$ 7z b -mmt1
-<span class="c1"># 多线程</span>
-$ 7z b
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 单线程</span>
+</span></span><span class="line"><span class="cl">$ 7z b -mmt1
+</span></span><span class="line"><span class="cl"><span class="c1"># 多线程</span>
+</span></span><span class="line"><span class="cl">$ 7z b
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>结果说明：</p>
 <div class="highlight"><div class="chroma">
@@ -435,29 +435,29 @@ $ 7z b
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext">ubuntu@instance:~$ 7z b
-
-7-Zip [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21
-p7zip Version 16.02 (locale=C.UTF-8,Utf16=on,HugeFiles=on,64 bits,3 CPUs LE)
-
-LE
-CPU Freq: - - - - - - 512000000 - -
-
-RAM size:   17954 MB,  # CPU hardware threads:   3
-RAM usage:    441 MB,  # Benchmark threads:      3
-
-                       Compressing  |                  Decompressing
-Dict     Speed Usage    R/U Rating  |      Speed Usage    R/U Rating
-         KiB/s     %   MIPS   MIPS  |      KiB/s     %   MIPS   MIPS
-
-22:       8642   175   4813   8407  |      98748   199   4227   8431
-23:       8612   187   4695   8775  |      97477   200   4228   8438
-24:       8438   196   4622   9073  |      95682   200   4201   8400
-25:       8151   198   4694   9307  |      93742   200   4176   8344
-----------------------------------  | ------------------------------
-Avr:             189   4706   8891  |              200   4208   8403
-Tot:             194   4457   8647
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">ubuntu@instance:~$ 7z b
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">7-Zip [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21
+</span></span><span class="line"><span class="cl">p7zip Version 16.02 (locale=C.UTF-8,Utf16=on,HugeFiles=on,64 bits,3 CPUs LE)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">LE
+</span></span><span class="line"><span class="cl">CPU Freq: - - - - - - 512000000 - -
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">RAM size:   17954 MB,  # CPU hardware threads:   3
+</span></span><span class="line"><span class="cl">RAM usage:    441 MB,  # Benchmark threads:      3
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                       Compressing  |                  Decompressing
+</span></span><span class="line"><span class="cl">Dict     Speed Usage    R/U Rating  |      Speed Usage    R/U Rating
+</span></span><span class="line"><span class="cl">         KiB/s     %   MIPS   MIPS  |      KiB/s     %   MIPS   MIPS
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">22:       8642   175   4813   8407  |      98748   199   4227   8431
+</span></span><span class="line"><span class="cl">23:       8612   187   4695   8775  |      97477   200   4228   8438
+</span></span><span class="line"><span class="cl">24:       8438   196   4622   9073  |      95682   200   4201   8400
+</span></span><span class="line"><span class="cl">25:       8151   198   4694   9307  |      93742   200   4176   8344
+</span></span><span class="line"><span class="cl">----------------------------------  | ------------------------------
+</span></span><span class="line"><span class="cl">Avr:             189   4706   8891  |              200   4208   8403
+</span></span><span class="line"><span class="cl">Tot:             194   4457   8647
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>上面是Orace OCPU的测试结果，单核4706。i7-7700单核3768。</p>
 <ul>
@@ -491,8 +491,8 @@ Tot:             194   4457   8647
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">chrome /usr/share/doc/p7zip/DOC/MANUAL/cmdline/commands/bench.htm
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">chrome /usr/share/doc/p7zip/DOC/MANUAL/cmdline/commands/bench.htm
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="数值运算">数值运算</h2>
 <p>比如写个python脚本：</p>
@@ -507,14 +507,14 @@ Tot:             194   4457   8647
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">time</span>
-
-<span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10000000</span><span class="p">):</span>
-    <span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">47</span><span class="p">,</span><span class="mi">39</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">math</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10000000</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">47</span><span class="p">,</span><span class="mi">39</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>将该脚本在不同的CPU上执行，通过对比运行时间，估计待测CPU的性能。</p>
 </div><div class="post-footer" id="post-footer">
@@ -575,7 +575,7 @@ Tot:             194   4457   8647
           </a>
         </div>
       </noscript>
-      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.101.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
         </div><div class="footer-line copyright"><i class="fa-regular fa-copyright fa-fw"></i>
             <span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">
               <a

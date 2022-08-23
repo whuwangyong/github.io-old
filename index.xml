@@ -4,9 +4,16 @@
     <link>https://whuwangyong.github.io/</link>
     <description>武大路飞的博客</description>
     <generator>Hugo -- gohugo.io</generator><managingEditor>whuwangyong@gmail.com (Wang Yong)</managingEditor>
-      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Sat, 23 Jul 2022 00:00:00 &#43;0800</lastBuildDate>
+      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Mon, 22 Aug 2022 00:00:00 &#43;0800</lastBuildDate>
       <atom:link href="https://whuwangyong.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+  <title>MySQL外键</title>
+  <link>https://whuwangyong.github.io/2022-08-22-mysql-foreign-key/</link>
+  <pubDate>Mon, 22 Aug 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-08-22-mysql-foreign-key/</guid>
+  <description><![CDATA[语法 在创建表的时候指定外键约束 1 2 3 4 5 6 7 8 9 10 CREATE TABLE 表名 ( column1 datatype null/not null, column2 datatype null/not null, ... CONSTRAINT 外键约束名 FOREIGN KEY (column1,column2,... column_n) REFERENCES 外键依赖的表 (column1,column2,...column_n) ON DELETE CASCADE--级联删除 ON UPDATE CASCADE--级联更新 ); 测试 有如下2个表： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 CREATE TABLE t_product]]></description>
+</item><item>
   <title>Process Explorer检测弹窗广告的利器</title>
   <link>https://whuwangyong.github.io/2022-07-23-use-process-explorer-to-detect-ad-process/</link>
   <pubDate>Sat, 23 Jul 2022 00:00:00 &#43;0800</pubDate>
@@ -69,12 +76,5 @@
   <author>Wang Yong</author>
   <guid>https://whuwangyong.github.io/2022-03-31-vercel-disable-comments-and-preview-deployments/</guid>
   <description><![CDATA[关键字：disable Vercel bot; disable Preview Deployments Vercel是一个支持部署前端框架和静态网站的平台。你可以方便的把 Github Pages 上面的站点导入Vercel，这样做有两个好处： 有些地区有些时候，Vercel上面的站点比Github Pages上的访问速度快； Github Pages 屏蔽了百]]></description>
-</item><item>
-  <title>Github SubModule 指南</title>
-  <link>https://whuwangyong.github.io/2022-03-29-github-submodule/</link>
-  <pubDate>Tue, 29 Mar 2022 00:00:00 &#43;0800</pubDate>
-  <author>Wang Yong</author>
-  <guid>https://whuwangyong.github.io/2022-03-29-github-submodule/</guid>
-  <description><![CDATA[最近学习使用 Hugo 构建静态网站。安装主题时，接触到git submodule这个命令，踩了些坑，总结一下。 子模块与父模块如何同步更新 子模块是一个单独的项目，commit push等操作需要在子模块自己的repo目录下操作。父项目的操作与子模块无关。]]></description>
 </item></channel>
 </rss>

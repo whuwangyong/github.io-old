@@ -276,9 +276,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">KAFKA_HOME</span><span class="o">=</span>/home/wy/dev/kafka_2.13-2.6.0
-<span class="nv">BOOTSTRAP_SERVER</span><span class="o">=</span>127.0.0.1:9092
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">KAFKA_HOME</span><span class="o">=</span>/home/wy/dev/kafka_2.13-2.6.0
+</span></span><span class="line"><span class="cl"><span class="nv">BOOTSTRAP_SERVER</span><span class="o">=</span>127.0.0.1:9092
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>另有一个使用该配置文件的脚本 list-topics.sh：</p>
 <div class="highlight"><div class="chroma">
@@ -289,11 +289,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
-</span><span class="cp"></span>. config
-
-<span class="s2">&#34;</span><span class="nv">$KAFKA_HOME</span><span class="s2">&#34;</span>/bin/kafka-topics.sh --bootstrap-server <span class="s2">&#34;</span><span class="nv">$BOOTSTRAP_SERVER</span><span class="s2">&#34;</span> --list
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>. config
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;</span><span class="nv">$KAFKA_HOME</span><span class="s2">&#34;</span>/bin/kafka-topics.sh --bootstrap-server <span class="s2">&#34;</span><span class="nv">$BOOTSTRAP_SERVER</span><span class="s2">&#34;</span> --list
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>我使用虚拟机Ubuntu挂载Windows分区，执行在Windows环境下编写的脚本，提示：</p>
 <div class="highlight"><div class="chroma">
@@ -302,9 +302,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">wy@ship:/mnt/hgfs/D/projects/kafka-mate/scripts$ ./list-topics.sh 
-/bin/kafka-topics.sh: No such file or directory13-2.6.0
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wy@ship:/mnt/hgfs/D/projects/kafka-mate/scripts$ ./list-topics.sh 
+</span></span><span class="line"><span class="cl">/bin/kafka-topics.sh: No such file or directory13-2.6.0
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="解决">解决</h2>
 <p>找了好久的原因，最终注意到config文件的换行符编码为<code>CRLF</code>。</p>
@@ -366,20 +366,20 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">&#34;hello-dos.txt&#34; [noeol][dos] 2L, 10C                          1,1           All
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&#34;hello-dos.txt&#34; [noeol][dos] 2L, 10C                          1,1           All
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这两个符号有何含义？</p>
-<p>直观上理解，&lsquo;noeol&rsquo; 就是 &lsquo;no end-of-line&rsquo;, 即“没有行末结束符”， Linux 下的文本编辑器（如 Vim）会在每一行 （包括最后一行）末尾添加一个换行符。比如我们在 Debian 下新建一个名为 &lsquo;hello-unix.txt&rsquo; 的文本文件，内容如下：</p>
+<p>直观上理解，&rsquo;noeol&rsquo; 就是 &rsquo;no end-of-line&rsquo;, 即“没有行末结束符”， Linux 下的文本编辑器（如 Vim）会在每一行 （包括最后一行）末尾添加一个换行符。比如我们在 Debian 下新建一个名为 &lsquo;hello-unix.txt&rsquo; 的文本文件，内容如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Hello
-Unix
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Hello
+</span></span><span class="line"><span class="cl">Unix
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>那么，使用<code>cat -A hello-unix.txt</code>命令可以看到这些换行符：</p>
 <div class="highlight"><div class="chroma">
@@ -390,11 +390,11 @@ Unix
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ts@TS:~/www/document$ cat -A hello-unix.txt
-Hello$
-Unix$
-ts@TS:~/www/document$
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ts@TS:~/www/document$ cat -A hello-unix.txt
+</span></span><span class="line"><span class="cl">Hello$
+</span></span><span class="line"><span class="cl">Unix$
+</span></span><span class="line"><span class="cl">ts@TS:~/www/document$
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>从中可以清楚地看到每行末尾的 &lsquo;<code>$</code>&rsquo; 字符，这就是 Linux 下的“行末结束符”。</p>
 <p>下面我们再在 Windows 下创建一个名为 &lsquo;hello-dos.txt&rsquo; 记事本文件，内容如下：</p>
@@ -404,9 +404,9 @@ ts@TS:~/www/document$
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Hello
-DOS
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Hello
+</span></span><span class="line"><span class="cl">DOS
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在 Debian 下查看此文件的换行符信息：</p>
 <div class="highlight"><div class="chroma">
@@ -416,10 +416,10 @@ DOS
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ts@TS:~/www/document$ cat -A hello-dos.txt
-Hello^M$
-DOSts@TS:~/www/document$
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ts@TS:~/www/document$ cat -A hello-dos.txt
+</span></span><span class="line"><span class="cl">Hello^M$
+</span></span><span class="line"><span class="cl">DOSts@TS:~/www/document$
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>同样是两行，每行一个单词，Windows 和 Linux 下的换行符有两个明显不同：</p>
 <ol>
@@ -437,11 +437,11 @@ DOSts@TS:~/www/document$
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ts@TS:~/www/document$ cat -A hello-dos.txt
-Hello^M$
-DOS^M$
-ts@TS:~/www/document$
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ts@TS:~/www/document$ cat -A hello-dos.txt
+</span></span><span class="line"><span class="cl">Hello^M$
+</span></span><span class="line"><span class="cl">DOS^M$
+</span></span><span class="line"><span class="cl">ts@TS:~/www/document$
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>换行符已经追加上去，这里要注意的是追加的是 Windows 下的换行符（回车+换行） <code>^M$</code>, 而不是 Linux 下的换行符（换行）<code>$</code>, 因为 Vim 已经发现此文件是在 Windows 下创建的（[dos] Flag），尽管是在 Linux 下编辑，Vim 也会按照文件创建时所在的操作系统下的换行规则添加换行符。</p>
 <h3 id="如何消除-dos-flag">如何消除 [dos] Flag？</h3>
@@ -523,7 +523,7 @@ ts@TS:~/www/document$
           </a>
         </div>
       </noscript>
-      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.101.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
         </div><div class="footer-line copyright"><i class="fa-regular fa-copyright fa-fw"></i>
             <span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">
               <a

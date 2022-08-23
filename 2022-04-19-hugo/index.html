@@ -12,7 +12,7 @@
 <meta name="keywords" content="hugo,github pages,vercel,netlify" /><meta itemprop="name" content="使用 Hugo &#43; Github Pages 创建静态网站博客">
 <meta itemprop="description" content="最好的参考资料仍然是官方。本文仅作一个基本描述 安装 Hugo 在此处下载安装包。有两个版本：（1）hugo；（2）hugo_extended。怎么选？很多功能，包括一些主题，都需要 hugo_extended 的支持，因此，建议安装 hugo_extended。下载之后，解压，将"><meta itemprop="datePublished" content="2022-04-19T00:00:00+08:00" />
 <meta itemprop="dateModified" content="2022-06-29T15:32:56+08:00" />
-<meta itemprop="wordCount" content="4977"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
+<meta itemprop="wordCount" content="4649"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
 <meta itemprop="keywords" content="hugo,github pages,vercel,netlify," /><meta property="og:title" content="使用 Hugo &#43; Github Pages 创建静态网站博客" />
 <meta property="og:description" content="最好的参考资料仍然是官方。本文仅作一个基本描述 安装 Hugo 在此处下载安装包。有两个版本：（1）hugo；（2）hugo_extended。怎么选？很多功能，包括一些主题，都需要 hugo_extended 的支持，因此，建议安装 hugo_extended。下载之后，解压，将" />
 <meta property="og:type" content="article" />
@@ -37,7 +37,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/whuwangyong.github.io\/2022-04-19-hugo\/"
-    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "hugo, github pages, vercel, netlify","wordcount":  4977 ,
+    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "hugo, github pages, vercel, netlify","wordcount":  4649 ,
     "url": "https:\/\/whuwangyong.github.io\/2022-04-19-hugo\/","datePublished": "2022-04-19T00:00:00+08:00","dateModified": "2022-06-29T15:32:56+08:00","publisher": {
       "@type": "Organization",
       "name": "Wang Yong","logo": {
@@ -244,7 +244,7 @@
           <span class="post-category">收录于 <a href="/categories/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E5%8D%9A%E5%AE%A2/"><i class="fa-regular fa-folder fa-fw"></i>&nbsp;静态网站博客</a></span></div>
       <div class="post-meta-line"><span title=2022-04-19&#32;00:00:00>
             <i class="fa-regular fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-04-19" >2022-04-19</time>
-          </span>&nbsp;<i class="fa-solid fa-pencil-alt fa-fw"></i>&nbsp;约 4977 字&nbsp;
+          </span>&nbsp;<i class="fa-solid fa-pencil-alt fa-fw"></i>&nbsp;约 4649 字&nbsp;
         <i class="fa-regular fa-clock fa-fw"></i>&nbsp;预计阅读 10 分钟&nbsp;</div>
     </div><div class="details toc" id="toc-static" kept="false">
         <div class="details-summary toc-title">
@@ -339,8 +339,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext">&gt; hugo new site my_blog
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">&gt; hugo new site my_blog
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>站点的目录结构如下：</p>
 <div class="highlight"><div class="chroma">
@@ -357,17 +357,17 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext">&gt; ls my_blog
-Mode                 LastWriteTime         Length Name
-----                 -------------         ------ ----
-d-----         2022/4/16     16:32                archetypes
-d-----         2022/4/16     16:32                content
-d-----         2022/4/16     16:32                data
-d-----         2022/4/16     16:32                layouts
-d-----         2022/4/16     16:32                static
-d-----         2022/4/16     16:32                themes
--a----         2022/4/16     16:32             82 config.toml
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">&gt; ls my_blog
+</span></span><span class="line"><span class="cl">Mode                 LastWriteTime         Length Name
+</span></span><span class="line"><span class="cl">----                 -------------         ------ ----
+</span></span><span class="line"><span class="cl">d-----         2022/4/16     16:32                archetypes
+</span></span><span class="line"><span class="cl">d-----         2022/4/16     16:32                content
+</span></span><span class="line"><span class="cl">d-----         2022/4/16     16:32                data
+</span></span><span class="line"><span class="cl">d-----         2022/4/16     16:32                layouts
+</span></span><span class="line"><span class="cl">d-----         2022/4/16     16:32                static
+</span></span><span class="line"><span class="cl">d-----         2022/4/16     16:32                themes
+</span></span><span class="line"><span class="cl">-a----         2022/4/16     16:32             82 config.toml
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>最关键的几个文件/目录:</p>
 <ol>
@@ -389,13 +389,13 @@ d-----         2022/4/16     16:32                themes
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext">content/
-└── posts/
-    └── this-is-my-first-blog/        &lt;-- page bundle
-    |   ├── index.md
-    |   └── sunset.jpg                &lt;-- page resource
-    └—— this-is-my-second-blog.md
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">content/
+</span></span><span class="line"><span class="cl">└── posts/
+</span></span><span class="line"><span class="cl">    └── this-is-my-first-blog/        &lt;-- page bundle
+</span></span><span class="line"><span class="cl">    |   ├── index.md
+</span></span><span class="line"><span class="cl">    |   └── sunset.jpg                &lt;-- page resource
+</span></span><span class="line"><span class="cl">    └—— this-is-my-second-blog.md
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>注意，如果将 md 文件和引用的图片放在一个文件夹下（官方叫 <code>page bundle</code>），则 md 文件需命令为 index.md，否则 md 在渲染为 html 后，里面的图片不会显示。</p>
 </li>
@@ -432,16 +432,16 @@ d-----         2022/4/16     16:32                themes
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">&gt; <span class="nb">cd</span> my_blog
-&gt; git init
-&gt; git submodule add https://github.com/Lruihao/FixIt.git themes/FixIt
-
-<span class="c1"># 以后可以使用以下命令升级主题</span>
-&gt; git submodule update --remote --merge
-&gt; git add .
-&gt; git commit -m <span class="s2">&#34;upgrade theme&#34;</span>
-&gt; git push
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&gt; <span class="nb">cd</span> my_blog
+</span></span><span class="line"><span class="cl">&gt; git init
+</span></span><span class="line"><span class="cl">&gt; git submodule add https://github.com/Lruihao/FixIt.git themes/FixIt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 以后可以使用以下命令升级主题</span>
+</span></span><span class="line"><span class="cl">&gt; git submodule update --remote --merge
+</span></span><span class="line"><span class="cl">&gt; git add .
+</span></span><span class="line"><span class="cl">&gt; git commit -m <span class="s2">&#34;upgrade theme&#34;</span>
+</span></span><span class="line"><span class="cl">&gt; git push
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="主题推荐">主题推荐</h2>
 <p>官网提供了很多主题，我试用了一些，从以下几个角度进行选择：</p>
@@ -622,28 +622,28 @@ d-----         2022/4/16     16:32                themes
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="p">[</span><span class="l">params.search]</span><span class="w">
-</span><span class="w">    </span><span class="l">enable = true</span><span class="w">
-</span><span class="w">    </span><span class="c"># 搜索引擎的类型 (&#34;lunr&#34;, &#34;algolia&#34;)</span><span class="w">
-</span><span class="w">    </span><span class="l">type = &#34;algolia&#34;</span><span class="w">
-</span><span class="w">    </span><span class="c"># 文章内容最长索引长度</span><span class="w">
-</span><span class="w">    </span><span class="l">contentLength = 4000</span><span class="w">
-</span><span class="w">    </span><span class="c"># 搜索框的占位提示语</span><span class="w">
-</span><span class="w">    </span><span class="l">placeholder = &#34;&#34;</span><span class="w">
-</span><span class="w">    </span><span class="c"># 最大结果数目</span><span class="w">
-</span><span class="w">    </span><span class="l">maxResultLength = 10</span><span class="w">
-</span><span class="w">    </span><span class="c"># 结果内容片段长度</span><span class="w">
-</span><span class="w">    </span><span class="l">snippetLength = 50</span><span class="w">
-</span><span class="w">    </span><span class="c"># 搜索结果中高亮部分的 HTML 标签</span><span class="w">
-</span><span class="w">    </span><span class="l">highlightTag = &#34;em&#34;</span><span class="w">
-</span><span class="w">    </span><span class="c"># 是否在搜索索引中使用基于 baseURL 的绝对路径</span><span class="w">
-</span><span class="w">    </span><span class="l">absoluteURL = false</span><span class="w">
-</span><span class="w">    </span><span class="p">[</span><span class="l">params.search.algolia]</span><span class="w">
-</span><span class="w">      </span><span class="c"># 这里填写你在algolia上面创建的索引名</span><span class="w">
-</span><span class="w">      </span><span class="l">index = &#34;new-index-1649076215&#34;</span><span class="w">
-</span><span class="w">      </span><span class="l">appID = &#34;YMLXXXXFHL&#34;</span><span class="w">
-</span><span class="w">      </span><span class="l">searchKey = &#34;9028b251fe4eexxxxxxxxxxxxx5a4f0&#34;</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="p">[</span><span class="l">params.search]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">enable = true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># 搜索引擎的类型 (&#34;lunr&#34;, &#34;algolia&#34;)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">type = &#34;algolia&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># 文章内容最长索引长度</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">contentLength = 4000</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># 搜索框的占位提示语</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">placeholder = &#34;&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># 最大结果数目</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">maxResultLength = 10</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># 结果内容片段长度</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">snippetLength = 50</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># 搜索结果中高亮部分的 HTML 标签</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">highlightTag = &#34;em&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># 是否在搜索索引中使用基于 baseURL 的绝对路径</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">absoluteURL = false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">[</span><span class="l">params.search.algolia]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 这里填写你在algolia上面创建的索引名</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">index = &#34;new-index-1649076215&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">appID = &#34;YMLXXXXFHL&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">searchKey = &#34;9028b251fe4eexxxxxxxxxxxxx5a4f0&#34;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="多语言">多语言</h4>
 <p>所有写在 <code>[languages]</code> 外面的，都是所有语言公用的。<a
@@ -754,14 +754,14 @@ d-----         2022/4/16     16:32                themes
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext">Failed to find a valid digest in the &#39;integrity&#39; attribute for resource &#39;https://whuwangyong.github.io/lib/lunr/lunr.stemmer.support.min.d73a55668c9df0f2cbb2b14c7d57d14b50f71837e9d511144b75347e84c12ff8.js&#39; with computed SHA-256 integrity &#39;EVRhgSylsJP5vMLxXSaTpskOj+ONq/I3Xl8Y4cNI2Xw=&#39;. The resource has been blocked.
-whuwangyong.github.io/:1 
-  
-Failed to find a valid digest in the &#39;integrity&#39; attribute for resource &#39;https://whuwangyong.github.io/lib/lunr/lunr.zh.min.e9abb2f5c7c0f738290cd8a5ff2ce1cf5deac6942f44ce5dd89c9ab1ae27006a.js&#39; with computed SHA-256 integrity &#39;s6qyS9abdG0o9DP0qC7PoVVqdbpe+fTKorzHq40yfBQ=&#39;. The resource has been blocked.
-whuwangyong.github.io/:1 
-  
-Failed to find a valid digest in the &#39;integrity&#39; attribute for resource &#39;https://whuwangyong.github.io/js/theme.min.09729ab43fbb7b49c065c597d41bb70983c7852ea77794a00b8f78099b049b43.js&#39; with computed SHA-256 integrity &#39;9Rk48wZaQO6EG8tVjkMw4x/SbA6lU0P/+HcLiLAxmjw=&#39;. The resource has been blocked.
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">Failed to find a valid digest in the &#39;integrity&#39; attribute for resource &#39;https://whuwangyong.github.io/lib/lunr/lunr.stemmer.support.min.d73a55668c9df0f2cbb2b14c7d57d14b50f71837e9d511144b75347e84c12ff8.js&#39; with computed SHA-256 integrity &#39;EVRhgSylsJP5vMLxXSaTpskOj+ONq/I3Xl8Y4cNI2Xw=&#39;. The resource has been blocked.
+</span></span><span class="line"><span class="cl">whuwangyong.github.io/:1 
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">Failed to find a valid digest in the &#39;integrity&#39; attribute for resource &#39;https://whuwangyong.github.io/lib/lunr/lunr.zh.min.e9abb2f5c7c0f738290cd8a5ff2ce1cf5deac6942f44ce5dd89c9ab1ae27006a.js&#39; with computed SHA-256 integrity &#39;s6qyS9abdG0o9DP0qC7PoVVqdbpe+fTKorzHq40yfBQ=&#39;. The resource has been blocked.
+</span></span><span class="line"><span class="cl">whuwangyong.github.io/:1 
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">Failed to find a valid digest in the &#39;integrity&#39; attribute for resource &#39;https://whuwangyong.github.io/js/theme.min.09729ab43fbb7b49c065c597d41bb70983c7852ea77794a00b8f78099b049b43.js&#39; with computed SHA-256 integrity &#39;9Rk48wZaQO6EG8tVjkMw4x/SbA6lU0P/+HcLiLAxmjw=&#39;. The resource has been blocked.
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>页面现象就是侧边栏目录、评论都不显示。但是在 vercel.app 没问题。另外，console 还有个 warning：Error with Permissions-Policy header: Unrecognized feature: &lsquo;interest-cohort&rsquo;.</p>
 <h4 id="loveit-总结">LoveIt 总结</h4>
@@ -806,28 +806,28 @@ Failed to find a valid digest in the &#39;integrity&#39; attribute for resource 
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nn">---</span><span class="w">
-</span><span class="w"></span><span class="nt">weight</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="c"># 置顶</span><span class="w">
-</span><span class="w"></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;主题文档 - 基本概念&#34;</span><span class="w">
-</span><span class="w"></span><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="ld">2020-03-06T21:40:32</span><span class="m">+08</span><span class="p">:</span><span class="m">00</span><span class="w">
-</span><span class="w"></span><span class="nt">lastmod</span><span class="p">:</span><span class="w"> </span><span class="ld">2020-03-06T21:40:32</span><span class="m">+08</span><span class="p">:</span><span class="m">00</span><span class="w">
-</span><span class="w"></span><span class="nt">draft</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span><span class="w"></span><span class="nt">author</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Dillon&#34;</span><span class="w">
-</span><span class="w"></span><span class="nt">authorLink</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://dillonzq.com&#34;</span><span class="w">
-</span><span class="w"></span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;探索 Hugo - LoveIt 主题的全部内容和背后的核心概念.&#34;</span><span class="w">
-</span><span class="w"></span><span class="nt">resources</span><span class="p">:</span><span class="w">
-</span><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;featured-image&#34;</span><span class="w">
-</span><span class="w">  </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;featured-image.jpg&#34;</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;installation&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;configuration&#34;</span><span class="p">]</span><span class="w">
-</span><span class="w"></span><span class="nt">categories</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;documentation&#34;</span><span class="p">]</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nt">lightgallery</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nt">toc</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">auto</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span><span class="w"></span><span class="nn">---</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">weight</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="c"># 置顶</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;主题文档 - 基本概念&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="ld">2020-03-06T21:40:32</span><span class="m">+08</span><span class="p">:</span><span class="m">00</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">lastmod</span><span class="p">:</span><span class="w"> </span><span class="ld">2020-03-06T21:40:32</span><span class="m">+08</span><span class="p">:</span><span class="m">00</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">draft</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">author</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Dillon&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">authorLink</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://dillonzq.com&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;探索 Hugo - LoveIt 主题的全部内容和背后的核心概念.&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">resources</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;featured-image&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;featured-image.jpg&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;installation&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;configuration&#34;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">categories</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;documentation&#34;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">lightgallery</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">toc</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">auto</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
@@ -846,8 +846,8 @@ Failed to find a valid digest in the &#39;integrity&#39; attribute for resource 
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown">![<span class="nt">image.png</span>](<span class="na">assets/image-20220329160821-l8rh3to.png &#34;图片描述&#34;</span>)
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">![<span class="nt">image.png</span>](<span class="na">assets/image-20220329160821-l8rh3to.png &#34;图片描述&#34;</span>)
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -1011,8 +1011,8 @@ Failed to find a valid digest in the &#39;integrity&#39; attribute for resource 
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">hugo server
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo server
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>访问 <code>localhost:1313</code> 即可查看效果。</p>
 <blockquote>
@@ -1036,16 +1036,16 @@ Failed to find a valid digest in the &#39;integrity&#39; attribute for resource 
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">&gt; ls .<span class="se">\t</span>hemes<span class="se">\F</span>ixIt<span class="se">\a</span>rchetypes<span class="se">\
-</span><span class="se"></span>
-Mode                 LastWriteTime         Length Name
-----                 -------------         ------ ----
-d-----         2022/4/14     21:02                post-bundle
--a----         2022/4/14     21:02            <span class="m">151</span> default.md
--a----         2022/4/14     21:02           <span class="m">1044</span> friends.md
--a----         2022/4/14     21:02            <span class="m">179</span> offline.md
--a----         2022/4/14     21:02            <span class="m">633</span> posts.md
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&gt; ls .<span class="se">\t</span>hemes<span class="se">\F</span>ixIt<span class="se">\a</span>rchetypes<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>
+</span></span><span class="line"><span class="cl">Mode                 LastWriteTime         Length Name
+</span></span><span class="line"><span class="cl">----                 -------------         ------ ----
+</span></span><span class="line"><span class="cl">d-----         2022/4/14     21:02                post-bundle
+</span></span><span class="line"><span class="cl">-a----         2022/4/14     21:02            <span class="m">151</span> default.md
+</span></span><span class="line"><span class="cl">-a----         2022/4/14     21:02           <span class="m">1044</span> friends.md
+</span></span><span class="line"><span class="cl">-a----         2022/4/14     21:02            <span class="m">179</span> offline.md
+</span></span><span class="line"><span class="cl">-a----         2022/4/14     21:02            <span class="m">633</span> posts.md
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="渲染">渲染</h2>
 <p>在站点目录下运行 <code>hugo</code> 命令即可。渲染之后的静态文件位于 public 目录下。将该目录下的所有文件放在一个 http 服务器下面，即可提供服务。比如，在 public 目录下，使用 python 命令运行一个 http 服务器：</p>
@@ -1055,9 +1055,9 @@ d-----         2022/4/14     21:02                post-bundle
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">&gt; python -m http.server
-Serving HTTP on :: port <span class="m">8000</span> <span class="o">(</span>http://<span class="o">[</span>::<span class="o">]</span>:8000/<span class="o">)</span> ...
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&gt; python -m http.server
+</span></span><span class="line"><span class="cl">Serving HTTP on :: port <span class="m">8000</span> <span class="o">(</span>http://<span class="o">[</span>::<span class="o">]</span>:8000/<span class="o">)</span> ...
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>然后浏览器访问 <code>localhost:8000</code> 即查看该站点。</p>
 <h2 id="发布到-github-pages">发布到 github pages</h2>
@@ -1106,13 +1106,13 @@ Serving HTTP on :: port <span class="m">8000</span> <span class="o">(</span>http
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nn">---</span><span class="w">
-</span><span class="w"></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;使用Jekyll + Github Pages搭建静态网站&#34;</span><span class="w">
-</span><span class="w"></span><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="ld">2022-03-29</span><span class="w">
-</span><span class="w"></span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;jekyll&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;kramdown&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;github pages&#34;</span><span class="p">]</span><span class="w">
-</span><span class="w"></span><span class="nt">categories</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;静态网站博客&#34;</span><span class="p">]</span><span class="w">
-</span><span class="w"></span><span class="nn">---</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;使用Jekyll + Github Pages搭建静态网站&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="ld">2022-03-29</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;jekyll&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;kramdown&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;github pages&#34;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">categories</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;静态网站博客&#34;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="hugo-时区问题导致文章未显示">hugo 时区问题导致文章未显示</h3>
 <p>比如现在时间是 2022-04-19 0:56，我要发一篇文章，Front Matter 写为：</p>
@@ -1125,12 +1125,12 @@ Serving HTTP on :: port <span class="m">8000</span> <span class="o">(</span>http
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nn">---</span><span class="w">
-</span><span class="w"></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;使用 Hugo + Github Pages 创建静态网站博客&#34;</span><span class="w">
-</span><span class="w"></span><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="ld">2022-04-19</span><span class="w">
-</span><span class="w"></span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;hugo&#34;</span><span class="p">]</span><span class="w">
-</span><span class="w"></span><span class="nn">---</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;使用 Hugo + Github Pages 创建静态网站博客&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="ld">2022-04-19</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;hugo&#34;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>date 字段我一般只写日期，不写时间。好，现在问题来了，hugo server 一把，发现该文章未显示。这是因为 hugo 默认时区比中国时间慢 8 小时，当前还是 4 月 18 日。解决办法有 4 个：</p>
 <ol>
@@ -1198,7 +1198,7 @@ Serving HTTP on :: port <span class="m">8000</span> <span class="o">(</span>http
           </a>
         </div>
       </noscript>
-      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.101.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
         </div><div class="footer-line copyright"><i class="fa-regular fa-copyright fa-fw"></i>
             <span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">
               <a

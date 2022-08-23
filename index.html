@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="">
   <head>
-	<meta name="generator" content="Hugo 0.92.2" />
+	<meta name="generator" content="Hugo 0.101.0" />
     
       <meta name="theme" content='FixIt v0.2.15-RC'>
     
@@ -246,6 +246,35 @@
 ><i class="fa-solid fa-rss fa-fw"></i>
     </a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+    <a href="/2022-08-22-mysql-foreign-key/">MySQL外键</a>
+  </h1><div class="post-meta"><span class="post-author"><a
+  href="https://github.com/whuwangyong"
+  
+    title="作者"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer author"
+  
+  
+    class="author"
+  
+  
+><img
+    class="lazyload avatar"
+    src="/svg/loading.min.svg"
+    data-src="/images/avatar150x150.jpg"
+    data-srcset="/images/avatar150x150.jpg, /images/avatar150x150.jpg 1.5x, /images/avatar150x150.jpg 2x"
+    data-sizes="auto"
+    alt="Wang Yong"
+    title="Wang Yong" />&nbsp;Wang Yong</a></span>&nbsp;<span class="post-publish" title='2022-08-22 00:00:00'>发布于 <time datetime="2022-08-22">2022-08-22</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/mysql/"><i class="fa-regular fa-folder fa-fw"></i>&nbsp;mysql</a></span></div><div class="content">语法 在创建表的时候指定外键约束 1 2 3 4 5 6 7 8 9 10 CREATE TABLE 表名 ( column1 datatype null/not null, column2 datatype null/not null, ... CONSTRAINT 外键约束名 FOREIGN KEY (column1,column2,... column_n) REFERENCES 外键依赖的表 (column1,column2,...column_n) ON DELETE CASCADE--级联删除 ON UPDATE CASCADE--级联更新 ); 测试 有如下2个表： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 CREATE TABLE t_product</div><div class="post-footer">
+    <a href="/2022-08-22-mysql-foreign-key/">阅读全文</a><div class="post-tags">
+        <i class="fa-solid fa-tags fa-fw"></i>&nbsp;<a href="/tags/mysql/">mysql</a>,&nbsp;<a href="/tags/%E5%A4%96%E9%94%AE/">外键</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
     <a href="/2022-07-23-use-process-explorer-to-detect-ad-process/">Process Explorer检测弹窗广告的利器</a>
   </h1><div class="post-meta"><span class="post-author"><a
   href="https://github.com/whuwangyong"
@@ -536,35 +565,6 @@
     <a href="/2022-03-29-github-submodule/">阅读全文</a><div class="post-tags">
         <i class="fa-solid fa-tags fa-fw"></i>&nbsp;<a href="/tags/git-submodule/">git submodule</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-    <a href="/2022-03-08-notesapp-benchmark/">云笔记软件简评</a>
-  </h1><div class="post-meta"><span class="post-author"><a
-  href="https://github.com/whuwangyong"
-  
-    title="作者"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer author"
-  
-  
-    class="author"
-  
-  
-><img
-    class="lazyload avatar"
-    src="/svg/loading.min.svg"
-    data-src="/images/avatar150x150.jpg"
-    data-srcset="/images/avatar150x150.jpg, /images/avatar150x150.jpg 1.5x, /images/avatar150x150.jpg 2x"
-    data-sizes="auto"
-    alt="Wang Yong"
-    title="Wang Yong" />&nbsp;Wang Yong</a></span>&nbsp;<span class="post-publish" title='2022-03-29 00:00:00'>发布于 <time datetime="2022-03-29">2022-03-29</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6/"><i class="fa-regular fa-folder fa-fw"></i>&nbsp;笔记软件</a></span></div><div class="content">这段时间试用了好多笔记软件，我本来就是个选择困难症，一个个试下来，愁死我了。 分享一下我的一些阶段性结论。 有道 缺点： 编辑器有问题，Ctrl+Home/End无法跳转、table键无法切换单元格、光标移动慢等问题 富文本不能导出md（这是我想放弃</div><div class="post-footer">
-    <a href="/2022-03-08-notesapp-benchmark/">阅读全文</a><div class="post-tags">
-        <i class="fa-solid fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E4%B8%BA%E7%9F%A5%E7%AC%94%E8%AE%B0/">为知笔记</a>,&nbsp;<a href="/tags/%E6%9C%89%E9%81%93%E4%BA%91%E7%AC%94%E8%AE%B0/">有道云笔记</a>,&nbsp;<a href="/tags/%E6%80%9D%E6%BA%90%E7%AC%94%E8%AE%B0/">思源笔记</a>,&nbsp;<a href="/tags/logseq/">logseq</a>,&nbsp;<a href="/tags/%E5%8F%8C%E9%93%BE%E7%AC%94%E8%AE%B0/">双链笔记</a>,&nbsp;<a href="/tags/obsidian/">obsidian</a>,&nbsp;<a href="/tags/joplin/">joplin</a>,&nbsp;<a href="/tags/%E8%AF%AD%E9%9B%80/">语雀</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
     <a href="/2022-03-29-jekyll/">使用Jekyll &#43; Github Pages搭建静态网站</a>
   </h1><div class="post-meta"><span class="post-author"><a
   href="https://github.com/whuwangyong"
@@ -593,6 +593,35 @@
     title="Wang Yong" />&nbsp;Wang Yong</a></span>&nbsp;<span class="post-publish" title='2022-03-29 00:00:00'>发布于 <time datetime="2022-03-29">2022-03-29</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E5%8D%9A%E5%AE%A2/"><i class="fa-regular fa-folder fa-fw"></i>&nbsp;静态网站博客</a></span></div><div class="content">Jekyll 是 Github Pages 官方支持的静态网站生成工具，优点是在可以直接github上使用vscode online编辑md，提交后，github会承担生成html的工作。而使用hugo等工具，需要先在本地将md文件渲染成html，然后上传。 提示 hugo的优点是</div><div class="post-footer">
     <a href="/2022-03-29-jekyll/">阅读全文</a><div class="post-tags">
         <i class="fa-solid fa-tags fa-fw"></i>&nbsp;<a href="/tags/jekyll/">jekyll</a>,&nbsp;<a href="/tags/kramdown/">kramdown</a>,&nbsp;<a href="/tags/github-pages/">github pages</a>,&nbsp;<a href="/tags/vercel/">vercel</a>,&nbsp;<a href="/tags/netlify/">netlify</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+    <a href="/2022-03-08-notesapp-benchmark/">云笔记软件简评</a>
+  </h1><div class="post-meta"><span class="post-author"><a
+  href="https://github.com/whuwangyong"
+  
+    title="作者"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer author"
+  
+  
+    class="author"
+  
+  
+><img
+    class="lazyload avatar"
+    src="/svg/loading.min.svg"
+    data-src="/images/avatar150x150.jpg"
+    data-srcset="/images/avatar150x150.jpg, /images/avatar150x150.jpg 1.5x, /images/avatar150x150.jpg 2x"
+    data-sizes="auto"
+    alt="Wang Yong"
+    title="Wang Yong" />&nbsp;Wang Yong</a></span>&nbsp;<span class="post-publish" title='2022-03-29 00:00:00'>发布于 <time datetime="2022-03-29">2022-03-29</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6/"><i class="fa-regular fa-folder fa-fw"></i>&nbsp;笔记软件</a></span></div><div class="content">这段时间试用了好多笔记软件，我本来就是个选择困难症，一个个试下来，愁死我了。 分享一下我的一些阶段性结论。 有道 缺点： 编辑器有问题，Ctrl+Home/End无法跳转、table键无法切换单元格、光标移动慢等问题 富文本不能导出md（这是我想放弃</div><div class="post-footer">
+    <a href="/2022-03-08-notesapp-benchmark/">阅读全文</a><div class="post-tags">
+        <i class="fa-solid fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E4%B8%BA%E7%9F%A5%E7%AC%94%E8%AE%B0/">为知笔记</a>,&nbsp;<a href="/tags/%E6%9C%89%E9%81%93%E4%BA%91%E7%AC%94%E8%AE%B0/">有道云笔记</a>,&nbsp;<a href="/tags/%E6%80%9D%E6%BA%90%E7%AC%94%E8%AE%B0/">思源笔记</a>,&nbsp;<a href="/tags/logseq/">logseq</a>,&nbsp;<a href="/tags/%E5%8F%8C%E9%93%BE%E7%AC%94%E8%AE%B0/">双链笔记</a>,&nbsp;<a href="/tags/obsidian/">obsidian</a>,&nbsp;<a href="/tags/joplin/">joplin</a>,&nbsp;<a href="/tags/%E8%AF%AD%E9%9B%80/">语雀</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
     <a href="/2022-03-25-geektime-core-kafka-in-action-notes/">《Kafka 核心技术与实战》学习笔记</a>
   </h1><div class="post-meta"><span class="post-author"><a
@@ -785,7 +814,7 @@
           </a>
         </div>
       </noscript>
-      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.101.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
         </div><div class="footer-line copyright"><i class="fa-regular fa-copyright fa-fw"></i>
             <span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">
               <a

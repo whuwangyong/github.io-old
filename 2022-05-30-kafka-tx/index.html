@@ -325,15 +325,15 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="c1">//Read and validate deposits validated
-</span><span class="c1"></span><span class="n">Deposits</span> <span class="o">=</span> <span class="n">validate</span><span class="o">(</span><span class="n">consumer</span><span class="o">.</span><span class="na">poll</span><span class="o">(</span><span class="n">0</span><span class="o">))</span>
-
-<span class="c1">//Send validated deposits &amp; commit offsets atomically
-</span><span class="c1"></span><span class="n">producer</span><span class="o">.</span><span class="na">beginTransaction</span><span class="o">()</span> 
-<span class="n">producer</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">validatedDeposits</span><span class="o">)</span> 
-<span class="n">producer</span><span class="o">.</span><span class="na">sendOffsetsToTransaction</span><span class="o">(</span><span class="n">offsets</span><span class="o">(</span><span class="n">consumer</span><span class="o">))</span> 
-<span class="n">producer</span><span class="o">.</span><span class="na">endTransaction</span><span class="o">()</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//Read and validate deposits validated
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Deposits</span> <span class="o">=</span> <span class="n">validate</span><span class="o">(</span><span class="n">consumer</span><span class="o">.</span><span class="na">poll</span><span class="o">(</span><span class="n">0</span><span class="o">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//Send validated deposits &amp; commit offsets atomically
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">producer</span><span class="o">.</span><span class="na">beginTransaction</span><span class="o">()</span> 
+</span></span><span class="line"><span class="cl"><span class="n">producer</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">validatedDeposits</span><span class="o">)</span> 
+</span></span><span class="line"><span class="cl"><span class="n">producer</span><span class="o">.</span><span class="na">sendOffsetsToTransaction</span><span class="o">(</span><span class="n">offsets</span><span class="o">(</span><span class="n">consumer</span><span class="o">))</span> 
+</span></span><span class="line"><span class="cl"><span class="n">producer</span><span class="o">.</span><span class="na">endTransaction</span><span class="o">()</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="how-transactions-work">How Transactions Work</h3>
 <p><img
@@ -622,7 +622,7 @@
           </a>
         </div>
       </noscript>
-      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.101.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
         </div><div class="footer-line copyright"><i class="fa-regular fa-copyright fa-fw"></i>
             <span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">
               <a

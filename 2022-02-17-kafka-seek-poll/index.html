@@ -282,12 +282,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">consumer</span><span class="o">.</span><span class="na">subscribe</span><span class="o">(</span><span class="s">&#34;topics&#34;</span><span class="o">);</span>
-<span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">){</span>
-    <span class="n">records</span> <span class="o">=</span> <span class="n">consumer</span><span class="o">.</span><span class="na">poll</span><span class="o">(</span><span class="n">Duration</span><span class="o">.</span><span class="na">ofSeconds</span><span class="o">(</span><span class="n">1</span><span class="o">));</span>
-    <span class="c1">// do something with records
-</span><span class="c1"></span><span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">consumer</span><span class="o">.</span><span class="na">subscribe</span><span class="o">(</span><span class="s">&#34;topics&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">    <span class="n">records</span> <span class="o">=</span> <span class="n">consumer</span><span class="o">.</span><span class="na">poll</span><span class="o">(</span><span class="n">Duration</span><span class="o">.</span><span class="na">ofSeconds</span><span class="o">(</span><span class="n">1</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// do something with records
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>但我使用的是consumer.assign()方法，而不是subscribe()。因为要灵活指定分区，用subscribe的话，触发rebalance很麻烦。代码如下：</p>
 <div class="highlight"><div class="chroma">
@@ -307,20 +307,20 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="n">ConsumerRecord</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="nf">seekAndPoll</span><span class="o">(</span><span class="n">String</span> <span class="n">topic</span><span class="o">,</span> <span class="kt">int</span> <span class="n">partition</span><span class="o">,</span> <span class="kt">long</span> <span class="n">offset</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">TopicPartition</span> <span class="n">tp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TopicPartition</span><span class="o">(</span><span class="n">topic</span><span class="o">,</span> <span class="n">partition</span><span class="o">);</span>
-    <span class="n">consumer</span><span class="o">.</span><span class="na">assign</span><span class="o">(</span><span class="n">Collections</span><span class="o">.</span><span class="na">singleton</span><span class="o">(</span><span class="n">tp</span><span class="o">));</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;assignment:&#34;</span> <span class="o">+</span> <span class="n">consumer</span><span class="o">.</span><span class="na">assignment</span><span class="o">());</span> <span class="c1">// 这里是有分配到分区的
-</span><span class="c1"></span>    <span class="n">consumer</span><span class="o">.</span><span class="na">seek</span><span class="o">(</span><span class="n">tp</span><span class="o">,</span> <span class="n">offset</span><span class="o">);</span>
-    <span class="n">ConsumerRecords</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">records</span> <span class="o">=</span> <span class="n">consumer</span><span class="o">.</span><span class="na">poll</span><span class="o">(</span><span class="n">Duration</span><span class="o">.</span><span class="na">ofMillis</span><span class="o">(</span><span class="n">100</span><span class="o">))</span>
-    <span class="k">if</span><span class="o">(</span><span class="n">records</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
-        <span class="c1">// 大概率拉取不到消息，进入此分支
-</span><span class="c1"></span>        <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
-    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">records</span><span class="o">.</span><span class="na">iterator</span><span class="o">().</span><span class="na">next</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">ConsumerRecord</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="nf">seekAndPoll</span><span class="o">(</span><span class="n">String</span> <span class="n">topic</span><span class="o">,</span> <span class="kt">int</span> <span class="n">partition</span><span class="o">,</span> <span class="kt">long</span> <span class="n">offset</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TopicPartition</span> <span class="n">tp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TopicPartition</span><span class="o">(</span><span class="n">topic</span><span class="o">,</span> <span class="n">partition</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">consumer</span><span class="o">.</span><span class="na">assign</span><span class="o">(</span><span class="n">Collections</span><span class="o">.</span><span class="na">singleton</span><span class="o">(</span><span class="n">tp</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;assignment:&#34;</span> <span class="o">+</span> <span class="n">consumer</span><span class="o">.</span><span class="na">assignment</span><span class="o">());</span> <span class="c1">// 这里是有分配到分区的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">consumer</span><span class="o">.</span><span class="na">seek</span><span class="o">(</span><span class="n">tp</span><span class="o">,</span> <span class="n">offset</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ConsumerRecords</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">records</span> <span class="o">=</span> <span class="n">consumer</span><span class="o">.</span><span class="na">poll</span><span class="o">(</span><span class="n">Duration</span><span class="o">.</span><span class="na">ofMillis</span><span class="o">(</span><span class="n">100</span><span class="o">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="o">(</span><span class="n">records</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 大概率拉取不到消息，进入此分支
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">records</span><span class="o">.</span><span class="na">iterator</span><span class="o">().</span><span class="na">next</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>由于我只poll一次，这就要求必须一次拉到消息。从现象上看，感觉是在seek之后，kafka有些metadata更新之类的操作未执行完毕，此时poll就拉不到消息。</p>
 <p>我在StackOverflow上也搜到了这个问题（<a
@@ -353,15 +353,15 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Deprecated</span>
-<span class="kd">public</span> <span class="n">ConsumerRecords</span><span class="o">&lt;</span><span class="n">K</span><span class="o">,</span> <span class="n">V</span><span class="o">&gt;</span> <span class="nf">poll</span><span class="o">(</span><span class="kd">final</span> <span class="kt">long</span> <span class="n">timeoutMs</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="n">poll</span><span class="o">(</span><span class="n">time</span><span class="o">.</span><span class="na">timer</span><span class="o">(</span><span class="n">timeoutMs</span><span class="o">),</span> <span class="kc">false</span><span class="o">);</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="n">ConsumerRecords</span><span class="o">&lt;</span><span class="n">K</span><span class="o">,</span> <span class="n">V</span><span class="o">&gt;</span> <span class="nf">poll</span><span class="o">(</span><span class="kd">final</span> <span class="n">Duration</span> <span class="n">timeout</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="n">poll</span><span class="o">(</span><span class="n">time</span><span class="o">.</span><span class="na">timer</span><span class="o">(</span><span class="n">timeout</span><span class="o">),</span> <span class="kc">true</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Deprecated</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">ConsumerRecords</span><span class="o">&lt;</span><span class="n">K</span><span class="o">,</span> <span class="n">V</span><span class="o">&gt;</span> <span class="nf">poll</span><span class="o">(</span><span class="kd">final</span> <span class="kt">long</span> <span class="n">timeoutMs</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">poll</span><span class="o">(</span><span class="n">time</span><span class="o">.</span><span class="na">timer</span><span class="o">(</span><span class="n">timeoutMs</span><span class="o">),</span> <span class="kc">false</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">ConsumerRecords</span><span class="o">&lt;</span><span class="n">K</span><span class="o">,</span> <span class="n">V</span><span class="o">&gt;</span> <span class="nf">poll</span><span class="o">(</span><span class="kd">final</span> <span class="n">Duration</span> <span class="n">timeout</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">poll</span><span class="o">(</span><span class="n">time</span><span class="o">.</span><span class="na">timer</span><span class="o">(</span><span class="n">timeout</span><span class="o">),</span> <span class="kc">true</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>二者都调用了下面的这个poll方法，关键在于第二个参数<code>includeMetadataInTimeout</code>，新版为false，老版为true。</p>
 <div class="highlight"><div class="chroma">
@@ -380,19 +380,19 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="n">ConsumerRecords</span><span class="o">&lt;</span><span class="n">K</span><span class="o">,</span> <span class="n">V</span><span class="o">&gt;</span> <span class="nf">poll</span><span class="o">(</span><span class="kd">final</span> <span class="n">Timer</span> <span class="n">timer</span><span class="o">,</span> <span class="kd">final</span> <span class="kt">boolean</span> <span class="n">includeMetadataInTimeout</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">// 略
-</span><span class="c1"></span>    <span class="k">if</span> <span class="o">(</span><span class="n">includeMetadataInTimeout</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// try to update assignment metadata BUT do not need to block on the timer for join group
-</span><span class="c1"></span>        <span class="n">updateAssignmentMetadataIfNeeded</span><span class="o">(</span><span class="n">timer</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
-    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-        <span class="k">while</span> <span class="o">(!</span><span class="n">updateAssignmentMetadataIfNeeded</span><span class="o">(</span><span class="n">time</span><span class="o">.</span><span class="na">timer</span><span class="o">(</span><span class="n">Long</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">),</span> <span class="kc">true</span><span class="o">))</span> <span class="o">{</span>
-            <span class="n">log</span><span class="o">.</span><span class="na">warn</span><span class="o">(</span><span class="s">&#34;Still waiting for metadata&#34;</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-    <span class="c1">// 略
-</span><span class="c1"></span><span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">private</span> <span class="n">ConsumerRecords</span><span class="o">&lt;</span><span class="n">K</span><span class="o">,</span> <span class="n">V</span><span class="o">&gt;</span> <span class="nf">poll</span><span class="o">(</span><span class="kd">final</span> <span class="n">Timer</span> <span class="n">timer</span><span class="o">,</span> <span class="kd">final</span> <span class="kt">boolean</span> <span class="n">includeMetadataInTimeout</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 略
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="o">(</span><span class="n">includeMetadataInTimeout</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// try to update assignment metadata BUT do not need to block on the timer for join group
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">updateAssignmentMetadataIfNeeded</span><span class="o">(</span><span class="n">timer</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="o">(!</span><span class="n">updateAssignmentMetadataIfNeeded</span><span class="o">(</span><span class="n">time</span><span class="o">.</span><span class="na">timer</span><span class="o">(</span><span class="n">Long</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">),</span> <span class="kc">true</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">log</span><span class="o">.</span><span class="na">warn</span><span class="o">(</span><span class="s">&#34;Still waiting for metadata&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 略
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这个Boolean值最终传递给了<code>coordinator.poll()</code>的<code>waitForJoinGroup</code>。因此，关键就在于<code>coordinator</code>在poll的时候是否等待消费者成功加入消费组。</p>
 <div class="highlight"><div class="chroma">
@@ -406,14 +406,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kt">boolean</span> <span class="nf">updateAssignmentMetadataIfNeeded</span><span class="o">(</span><span class="kd">final</span> <span class="n">Timer</span> <span class="n">timer</span><span class="o">,</span> <span class="kd">final</span> <span class="kt">boolean</span> <span class="n">waitForJoinGroup</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">coordinator</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">coordinator</span><span class="o">.</span><span class="na">poll</span><span class="o">(</span><span class="n">timer</span><span class="o">,</span> <span class="n">waitForJoinGroup</span><span class="o">))</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="k">return</span> <span class="n">updateFetchPositions</span><span class="o">(</span><span class="n">timer</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">boolean</span> <span class="nf">updateAssignmentMetadataIfNeeded</span><span class="o">(</span><span class="kd">final</span> <span class="n">Timer</span> <span class="n">timer</span><span class="o">,</span> <span class="kd">final</span> <span class="kt">boolean</span> <span class="n">waitForJoinGroup</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">coordinator</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">coordinator</span><span class="o">.</span><span class="na">poll</span><span class="o">(</span><span class="n">timer</span><span class="o">,</span> <span class="n">waitForJoinGroup</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">updateFetchPositions</span><span class="o">(</span><span class="n">timer</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>但调试发现，在使用assign手动指定消费分区时，coordinator 为 null。这很好理解，只有subscribe模式才存在重平衡等情况，需要coordinator进行协调。</p>
 <p><img
@@ -528,29 +528,29 @@
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="n">ConsumerRecord</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="nf">seekAndPoll</span><span class="o">(</span><span class="n">String</span> <span class="n">topic</span><span class="o">,</span> <span class="kt">int</span> <span class="n">partition</span><span class="o">,</span> <span class="kt">long</span> <span class="n">offset</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">TopicPartition</span> <span class="n">tp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TopicPartition</span><span class="o">(</span><span class="n">topic</span><span class="o">,</span> <span class="n">partition</span><span class="o">);</span>
-    <span class="n">consumer</span><span class="o">.</span><span class="na">assign</span><span class="o">(</span><span class="n">Collections</span><span class="o">.</span><span class="na">singleton</span><span class="o">(</span><span class="n">tp</span><span class="o">));</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;assignment:&#34;</span> <span class="o">+</span> <span class="n">consumer</span><span class="o">.</span><span class="na">assignment</span><span class="o">());</span> <span class="c1">// 这里是有分配到分区的
-</span><span class="c1"></span>  
-    <span class="c1">// endOffset: the offset of the last successfully replicated message plus one
-</span><span class="c1"></span>    <span class="c1">// if there has 5 messages, valid offsets are [0,1,2,3,4], endOffset is 4+1=5
-</span><span class="c1"></span>    <span class="n">Long</span> <span class="n">endOffset</span> <span class="o">=</span> <span class="n">consumer</span><span class="o">.</span><span class="na">endOffsets</span><span class="o">(</span><span class="n">Collections</span><span class="o">.</span><span class="na">singleton</span><span class="o">(</span><span class="n">tp</span><span class="o">)).</span><span class="na">get</span><span class="o">(</span><span class="n">tp</span><span class="o">);</span> 
-    <span class="n">Long</span> <span class="n">beginOffset</span> <span class="o">=</span> <span class="n">consumer</span><span class="o">.</span><span class="na">beginningOffsets</span><span class="o">(</span><span class="n">Collections</span><span class="o">.</span><span class="na">singleton</span><span class="o">(</span><span class="n">tp</span><span class="o">)).</span><span class="na">get</span><span class="o">(</span><span class="n">tp</span><span class="o">);</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">offset</span> <span class="o">&lt;</span> <span class="n">beginOffset</span> <span class="o">||</span> <span class="n">offset</span> <span class="o">&gt;=</span> <span class="n">endOffset</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;offset is illegal&#34;</span><span class="o">);</span>
-        <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
-    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-        <span class="n">consumer</span><span class="o">.</span><span class="na">seek</span><span class="o">(</span><span class="n">tp</span><span class="o">,</span> <span class="n">offset</span><span class="o">);</span>
-        <span class="n">ConsumerRecords</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">records</span> <span class="o">=</span> <span class="n">consumer</span><span class="o">.</span><span class="na">poll</span><span class="o">(</span><span class="n">Duration</span><span class="o">.</span><span class="na">ofMillis</span><span class="o">(</span><span class="n">2000</span><span class="o">))</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">records</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
-            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">records</span><span class="o">.</span><span class="na">iterator</span><span class="o">().</span><span class="na">next</span><span class="o">();</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">ConsumerRecord</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="nf">seekAndPoll</span><span class="o">(</span><span class="n">String</span> <span class="n">topic</span><span class="o">,</span> <span class="kt">int</span> <span class="n">partition</span><span class="o">,</span> <span class="kt">long</span> <span class="n">offset</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TopicPartition</span> <span class="n">tp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TopicPartition</span><span class="o">(</span><span class="n">topic</span><span class="o">,</span> <span class="n">partition</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">consumer</span><span class="o">.</span><span class="na">assign</span><span class="o">(</span><span class="n">Collections</span><span class="o">.</span><span class="na">singleton</span><span class="o">(</span><span class="n">tp</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;assignment:&#34;</span> <span class="o">+</span> <span class="n">consumer</span><span class="o">.</span><span class="na">assignment</span><span class="o">());</span> <span class="c1">// 这里是有分配到分区的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  
+</span></span><span class="line"><span class="cl">    <span class="c1">// endOffset: the offset of the last successfully replicated message plus one
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// if there has 5 messages, valid offsets are [0,1,2,3,4], endOffset is 4+1=5
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Long</span> <span class="n">endOffset</span> <span class="o">=</span> <span class="n">consumer</span><span class="o">.</span><span class="na">endOffsets</span><span class="o">(</span><span class="n">Collections</span><span class="o">.</span><span class="na">singleton</span><span class="o">(</span><span class="n">tp</span><span class="o">)).</span><span class="na">get</span><span class="o">(</span><span class="n">tp</span><span class="o">);</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">Long</span> <span class="n">beginOffset</span> <span class="o">=</span> <span class="n">consumer</span><span class="o">.</span><span class="na">beginningOffsets</span><span class="o">(</span><span class="n">Collections</span><span class="o">.</span><span class="na">singleton</span><span class="o">(</span><span class="n">tp</span><span class="o">)).</span><span class="na">get</span><span class="o">(</span><span class="n">tp</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">offset</span> <span class="o">&lt;</span> <span class="n">beginOffset</span> <span class="o">||</span> <span class="n">offset</span> <span class="o">&gt;=</span> <span class="n">endOffset</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;offset is illegal&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">consumer</span><span class="o">.</span><span class="na">seek</span><span class="o">(</span><span class="n">tp</span><span class="o">,</span> <span class="n">offset</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ConsumerRecords</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">records</span> <span class="o">=</span> <span class="n">consumer</span><span class="o">.</span><span class="na">poll</span><span class="o">(</span><span class="n">Duration</span><span class="o">.</span><span class="na">ofMillis</span><span class="o">(</span><span class="n">2000</span><span class="o">))</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="o">(</span><span class="n">records</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">records</span><span class="o">.</span><span class="na">iterator</span><span class="o">().</span><span class="na">next</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="真相-consumerendoffsets">真相？ consumer.endOffsets()</h3>
 <p>我做了一个测试，在2个topic的4个partition上反复执行猜测2的代码，循环10000次，并更改timeout的大小，期望得出timeout值的大小与seekAndPoll失败之间量化关系。结果发现，即使timeout只有10ms，poll也有非常高的成功率；timeout=50ms时，poll成功率就能达到<strong>100%</strong>。而之前要<code>timeout=1000ms ~ 2000ms</code>才能有这么高的成功率。我反复检查，最终发现是这两行代码造成的：</p>
@@ -560,9 +560,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">Long</span> <span class="n">beginOffset</span> <span class="o">=</span> <span class="n">consumer</span><span class="o">.</span><span class="na">beginningOffsets</span><span class="o">(</span><span class="n">Collections</span><span class="o">.</span><span class="na">singleton</span><span class="o">(</span><span class="n">tp</span><span class="o">)).</span><span class="na">get</span><span class="o">(</span><span class="n">tp</span><span class="o">);</span>
-<span class="n">Long</span> <span class="n">endOffset</span> <span class="o">=</span> <span class="n">consumer</span><span class="o">.</span><span class="na">endOffsets</span><span class="o">(</span><span class="n">Collections</span><span class="o">.</span><span class="na">singleton</span><span class="o">(</span><span class="n">tp</span><span class="o">)).</span><span class="na">get</span><span class="o">(</span><span class="n">tp</span><span class="o">);</span> 
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Long</span> <span class="n">beginOffset</span> <span class="o">=</span> <span class="n">consumer</span><span class="o">.</span><span class="na">beginningOffsets</span><span class="o">(</span><span class="n">Collections</span><span class="o">.</span><span class="na">singleton</span><span class="o">(</span><span class="n">tp</span><span class="o">)).</span><span class="na">get</span><span class="o">(</span><span class="n">tp</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">Long</span> <span class="n">endOffset</span> <span class="o">=</span> <span class="n">consumer</span><span class="o">.</span><span class="na">endOffsets</span><span class="o">(</span><span class="n">Collections</span><span class="o">.</span><span class="na">singleton</span><span class="o">(</span><span class="n">tp</span><span class="o">)).</span><span class="na">get</span><span class="o">(</span><span class="n">tp</span><span class="o">);</span> 
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>点进<code>endOffsets</code>方法浏览了一下，底下大概做了<code>fetchOffsetsByTimes</code>、<code>awaitMetadataUpdate</code>等事情。但是consumer.endOffsets()方法也不是万无一失的，当timeout=5ms时，poll成功率为97%。</p>
 <p>测试代码见文末。</p>
@@ -644,7 +644,7 @@
           </a>
         </div>
       </noscript>
-      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.101.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
         </div><div class="footer-line copyright"><i class="fa-regular fa-copyright fa-fw"></i>
             <span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">
               <a

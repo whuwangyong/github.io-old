@@ -12,7 +12,7 @@
 <meta name="keywords" content="kafka" /><meta itemprop="name" content="《Kafka 核心技术与实战》学习笔记">
 <meta itemprop="description" content="简介 Apach Kafka 是一款分布式流处理框架，用于实时构建流处理应用。它有一个核心的功能广为人知，即作为企业级的消息引擎被广泛使用。 很多主流消息引擎系统都支持 JMS（Java Message Service）规范，比如 ActiveMQ、RabbitMQ、IBM 的 WebSphere MQ 和 Apache"><meta itemprop="datePublished" content="2022-03-25T00:00:00+08:00" />
 <meta itemprop="dateModified" content="2022-06-29T10:01:23+08:00" />
-<meta itemprop="wordCount" content="11231"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
+<meta itemprop="wordCount" content="11207"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
 <meta itemprop="keywords" content="kafka," /><meta property="og:title" content="《Kafka 核心技术与实战》学习笔记" />
 <meta property="og:description" content="简介 Apach Kafka 是一款分布式流处理框架，用于实时构建流处理应用。它有一个核心的功能广为人知，即作为企业级的消息引擎被广泛使用。 很多主流消息引擎系统都支持 JMS（Java Message Service）规范，比如 ActiveMQ、RabbitMQ、IBM 的 WebSphere MQ 和 Apache" />
 <meta property="og:type" content="article" />
@@ -28,7 +28,7 @@
 <meta name="application-name" content="武大路飞">
 <meta name="apple-mobile-web-app-title" content="武大路飞"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://whuwangyong.github.io/2022-03-25-geektime-core-kafka-in-action-notes/" /><link rel="prev" href="https://whuwangyong.github.io/2022-03-13-linebreak-in-windows-and-linux/" /><link rel="next" href="https://whuwangyong.github.io/2022-03-29-jekyll/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://whuwangyong.github.io/2022-03-25-geektime-core-kafka-in-action-notes/" /><link rel="prev" href="https://whuwangyong.github.io/2022-03-13-linebreak-in-windows-and-linux/" /><link rel="next" href="https://whuwangyong.github.io/2022-03-08-notesapp-benchmark/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
@@ -37,7 +37,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/whuwangyong.github.io\/2022-03-25-geektime-core-kafka-in-action-notes\/"
-    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "kafka","wordcount":  11231 ,
+    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "kafka","wordcount":  11207 ,
     "url": "https:\/\/whuwangyong.github.io\/2022-03-25-geektime-core-kafka-in-action-notes\/","datePublished": "2022-03-25T00:00:00+08:00","dateModified": "2022-06-29T10:01:23+08:00","publisher": {
       "@type": "Organization",
       "name": "Wang Yong","logo": {
@@ -244,7 +244,7 @@
           <span class="post-category">收录于 <a href="/categories/kafka/"><i class="fa-regular fa-folder fa-fw"></i>&nbsp;kafka</a></span></div>
       <div class="post-meta-line"><span title=2022-03-25&#32;00:00:00>
             <i class="fa-regular fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-25" >2022-03-25</time>
-          </span>&nbsp;<i class="fa-solid fa-pencil-alt fa-fw"></i>&nbsp;约 11231 字&nbsp;
+          </span>&nbsp;<i class="fa-solid fa-pencil-alt fa-fw"></i>&nbsp;约 11207 字&nbsp;
         <i class="fa-regular fa-clock fa-fw"></i>&nbsp;预计阅读 23 分钟&nbsp;</div>
     </div><div class="details toc" id="toc-static" kept="false">
         <div class="details-summary toc-title">
@@ -418,9 +418,9 @@ message.max.bytes：控制 Broker 能够接收的最大消息大小</p>
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$&gt; <span class="nb">export</span> <span class="nv">KAFKA_HEAP_OPTS</span><span class="o">=</span>--Xms6g  --Xmx6g
-$&gt; <span class="nb">export</span> <span class="nv">KAFKA_JVM_PERFORMANCE_OPTS</span><span class="o">=</span> -server -XX:+UseG1GC -XX:MaxGCPauseMillis<span class="o">=</span><span class="m">20</span> -XX:InitiatingHeapOccupancyPercent<span class="o">=</span><span class="m">35</span> -XX:+ExplicitGCInvokesConcurrent -Djava.awt.headless<span class="o">=</span><span class="nb">true</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$&gt; <span class="nb">export</span> <span class="nv">KAFKA_HEAP_OPTS</span><span class="o">=</span>--Xms6g  --Xmx6g
+</span></span><span class="line"><span class="cl">$&gt; <span class="nb">export</span> <span class="nv">KAFKA_JVM_PERFORMANCE_OPTS</span><span class="o">=</span> -server -XX:+UseG1GC -XX:MaxGCPauseMillis<span class="o">=</span><span class="m">20</span> -XX:InitiatingHeapOccupancyPercent<span class="o">=</span><span class="m">35</span> -XX:+ExplicitGCInvokesConcurrent -Djava.awt.headless<span class="o">=</span><span class="nb">true</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="操作系统参数">操作系统参数</h4>
 <p>文件描述符限制：通常情况下将它设置成一个超大的值是合理的做法，比如ulimit -n 1000000，避免“Too many open files”的错误。</p>
@@ -442,12 +442,12 @@ $&gt; <span class="nb">export</span> <span class="nv">KAFKA_JVM_PERFORMANCE_OPTS
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">Properties</span> <span class="n">props</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Properties</span><span class="o">();</span>
-<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">interceptors</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-<span class="n">interceptors</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;com.yourcompany.kafkaproject.interceptors.AddTimestampInterceptor&#34;</span><span class="o">);</span> <span class="c1">// 拦截器1
-</span><span class="c1"></span><span class="n">interceptors</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;com.yourcompany.kafkaproject.interceptors.UpdateCounterInterceptor&#34;</span><span class="o">);</span> <span class="c1">// 拦截器2
-</span><span class="c1"></span><span class="n">props</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">ProducerConfig</span><span class="o">.</span><span class="na">INTERCEPTOR_CLASSES_CONFIG</span><span class="o">,</span> <span class="n">interceptors</span><span class="o">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Properties</span> <span class="n">props</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Properties</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">interceptors</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+</span></span><span class="line"><span class="cl"><span class="n">interceptors</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;com.yourcompany.kafkaproject.interceptors.AddTimestampInterceptor&#34;</span><span class="o">);</span> <span class="c1">// 拦截器1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">interceptors</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;com.yourcompany.kafkaproject.interceptors.UpdateCounterInterceptor&#34;</span><span class="o">);</span> <span class="c1">// 拦截器2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">props</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">ProducerConfig</span><span class="o">.</span><span class="na">INTERCEPTOR_CLASSES_CONFIG</span><span class="o">,</span> <span class="n">interceptors</span><span class="o">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="生产者拦截器">生产者拦截器</h4>
 <p>实现 org.apache.kafka.clients.producer.ProducerInterceptor 接口：</p>
@@ -671,12 +671,12 @@ Further, when in  read_committed  the seekToEnd method will return the LSO。</p
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java">
-<span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="n">accept</span><span class="o">(</span><span class="n">connection</span><span class="o">);</span>
-    <span class="n">handle</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="n">accept</span><span class="o">(</span><span class="n">connection</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">handle</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>（2）每个请求使用单独线程处理，异步。每个请求都创建线程，开销大</p>
 <div class="highlight"><div class="chroma">
@@ -690,14 +690,14 @@ Further, when in  read_committed  the seekToEnd method will return the LSO。</p
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java">
-<span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">Request</span> <span class="o">=</span> <span class="n">request</span> <span class="o">=</span> <span class="n">accept</span><span class="o">(</span><span class="n">connection</span><span class="o">);</span>
-    <span class="n">Thread</span> <span class="n">thread</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span> 
-        <span class="n">handle</span><span class="o">(</span><span class="n">request</span><span class="o">);});</span>
-    <span class="n">thread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Request</span> <span class="o">=</span> <span class="n">request</span> <span class="o">=</span> <span class="n">accept</span><span class="o">(</span><span class="n">connection</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Thread</span> <span class="n">thread</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">handle</span><span class="o">(</span><span class="n">request</span><span class="o">);});</span>
+</span></span><span class="line"><span class="cl">    <span class="n">thread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="kafka-使用-reactor-模式">Kafka 使用 Reactor 模式</h4>
 <p>Reactor 模式是事件驱动架构的一种实现方式，用于处理多个客户端并发向服务器端发送请求的场景。Reactor 有个请求分发线程 Dispatcher，也就是图中的 Acceptor。Kafka 提供了 Broker 端参数 num.network.threads，用于调整该网络线程池的线程数。其默认值是 3，表示每台 Broker 启动时会创建 3 个网络线程，专门处理客户端发送的请求。</p>
@@ -779,17 +779,17 @@ Further, when in  read_committed  the seekToEnd method will return the LSO。</p
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">
-$ bin/kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list kafka-host:port --time -2 --topic test-topic
-
-test-topic:0:0
-test-topic:1:0
-
-$ bin/kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list kafka-host:port --time -1 --topic test-topic
-
-test-topic:0:5500000
-test-topic:1:5500000
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ bin/kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list kafka-host:port --time -2 --topic test-topic
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">test-topic:0:0
+</span></span><span class="line"><span class="cl">test-topic:1:0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ bin/kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list kafka-host:port --time -1 --topic test-topic
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">test-topic:0:5500000
+</span></span><span class="line"><span class="cl">test-topic:1:5500000
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="查看消息文件数据">查看消息文件数据</h4>
 <p>kafka-dump-log：</p>
@@ -799,9 +799,9 @@ test-topic:1:5500000
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">
-$ bin/kafka-dump-log.sh --files ../data_dir/kafka_1/test-topic-1/00000000000000000000.log --deep-iteration --print-data-log
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ bin/kafka-dump-log.sh --files ../data_dir/kafka_1/test-topic-1/00000000000000000000.log --deep-iteration --print-data-log
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="adminclient">AdminClient</h3>
 <p>服务器端也有一个 AdminClient，包路径是 kafka.admin。这是之前的老运维工具类，提供的功能也比较有限，社区已经不再推荐使用它了。所以，我们最好统一使用客户端的 AdminClient。</p>
@@ -855,8 +855,8 @@ $ bin/kafka-dump-log.sh --files ../data_dir/kafka_1/test-topic-1/000000000000000
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">authorizer.class.name=kafka.security.auth.SimpleAclAuthorizer
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">authorizer.class.name=kafka.security.auth.SimpleAclAuthorizer
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Kafka 的授权机制可以不配置认证机制单独使用，但是只能为IP地址设置权限。</p>
 <h3 id="跨集群备份mirrormaker">跨集群备份MirrorMaker</h3>
@@ -914,11 +914,11 @@ $ bin/kafka-dump-log.sh --files ../data_dir/kafka_1/test-topic-1/000000000000000
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext">[2019-05-27 10:00:54,142] DEBUG [Consumer clientId=consumer-1, groupId=test] Initiating connection to node localhost:9092 (id: -1 rack: null) using address localhost/127.0.0.1 (org.apache.kafka.clients.NetworkClient:944)
-[2019-05-27 10:00:54,188] DEBUG [Consumer clientId=consumer-1, groupId=test] Sending metadata request MetadataRequestData(topics=[MetadataRequestTopic(name=‘t4’)], allowAutoTopicCreation=true, includeClusterAuthorizedOperations=false, includeTopicAuthorizedOperations=false) to node localhost:9092 (id: -1 rack: null) (org.apache.kafka.clients.NetworkClient:1097)
-[2019-05-27 10:00:54,188] TRACE [Consumer clientId=consumer-1, groupId=test] Sending FIND_COORDINATOR {key=test,key_type=0} with correlation id 0 to node -1 (org.apache.kafka.clients.NetworkClient:496)
-[2019-05-27 10:00:54,203] TRACE [Consumer clientId=consumer-1, groupId=test] Completed receive from node -1 for FIND_COORDINATOR with correlation id 0, received {throttle_time_ms=0,error_code=0,error_message=null,
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">[2019-05-27 10:00:54,142] DEBUG [Consumer clientId=consumer-1, groupId=test] Initiating connection to node localhost:9092 (id: -1 rack: null) using address localhost/127.0.0.1 (org.apache.kafka.clients.NetworkClient:944)
+</span></span><span class="line"><span class="cl">[2019-05-27 10:00:54,188] DEBUG [Consumer clientId=consumer-1, groupId=test] Sending metadata request MetadataRequestData(topics=[MetadataRequestTopic(name=‘t4’)], allowAutoTopicCreation=true, includeClusterAuthorizedOperations=false, includeTopicAuthorizedOperations=false) to node localhost:9092 (id: -1 rack: null) (org.apache.kafka.clients.NetworkClient:1097)
+</span></span><span class="line"><span class="cl">[2019-05-27 10:00:54,188] TRACE [Consumer clientId=consumer-1, groupId=test] Sending FIND_COORDINATOR {key=test,key_type=0} with correlation id 0 to node -1 (org.apache.kafka.clients.NetworkClient:496)
+</span></span><span class="line"><span class="cl">[2019-05-27 10:00:54,203] TRACE [Consumer clientId=consumer-1, groupId=test] Completed receive from node -1 for FIND_COORDINATOR with correlation id 0, received {throttle_time_ms=0,error_code=0,error_message=null,
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>日志的第一行是消费者程序创建的第一个 TCP 连接，就像我们前面说的，这个 Socket 用于发送 FindCoordinator 请求。由于这是消费者程序创建的第一个连接，此时<strong>消费者对于要连接的 Kafka 集群一无所知，因此它连接的 Broker 节点的 ID 是 -1</strong>，表示消费者根本不知道要连接的 Kafka Broker 的任何信息。</p>
 <p>那么 2147483645 这个 id 是怎么来的呢？它是<strong>由 Integer.MAX_VALUE 减去协调者所在 Broker 的真实 ID 计算得来的</strong>。看第四行标为橙色的内容，我们可以知道协调者 ID 是 2，因此这个 Socket 连接的节点 ID 就是 Integer.MAX_VALUE 减去 2，即 2147483647 减去 2，也就是 2147483645。这种节点 ID 的标记方式是 Kafka 社区特意为之的结果，目的就是要让组协调请求和真正的数据获取请求使用不同的 Socket 连接。</p>
@@ -1003,7 +1003,7 @@ $ bin/kafka-dump-log.sh --files ../data_dir/kafka_1/test-topic-1/000000000000000
   </div>
 
   <div class="post-nav"><a href="/2022-03-13-linebreak-in-windows-and-linux/" class="prev" rel="prev" title="Windows和Linux的不同换行符导致shell脚本执行异常"><i class="fa-solid fa-angle-left fa-fw"></i>Windows和Linux的不同换行符导致shell脚本执行异常</a>
-      <a href="/2022-03-29-jekyll/" class="next" rel="next" title="使用Jekyll &#43; Github Pages搭建静态网站">使用Jekyll &#43; Github Pages搭建静态网站<i class="fa-solid fa-angle-right fa-fw"></i></a></div>
+      <a href="/2022-03-08-notesapp-benchmark/" class="next" rel="next" title="云笔记软件简评">云笔记软件简评<i class="fa-solid fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="utterances"></div><noscript>
         Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/" rel="external nofollow noopener noreffer">Utterances</a>.
@@ -1025,7 +1025,7 @@ $ bin/kafka-dump-log.sh --files ../data_dir/kafka_1/test-topic-1/000000000000000
           </a>
         </div>
       </noscript>
-      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.101.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
         </div><div class="footer-line copyright"><i class="fa-regular fa-copyright fa-fw"></i>
             <span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">
               <a

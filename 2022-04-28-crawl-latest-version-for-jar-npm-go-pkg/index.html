@@ -12,7 +12,7 @@
 <meta name="keywords" content="python,package,maven" /><meta itemprop="name" content="使用python爬取jar包、npm包、go包的最新版本">
 <meta itemprop="description" content="场景 公司内网有maven仓库，扫描之后发现很多组件有漏洞，主要是因为版本太老。因此需要将这些漏洞组件的最新版导入内部的maven私服。 问题 这么多漏洞组件，一个个去中央仓库找最新版，显然不科学。因此要整个脚本来做这件事情。 方案 众所周知，jar"><meta itemprop="datePublished" content="2022-04-28T00:00:00+08:00" />
 <meta itemprop="dateModified" content="2022-05-02T15:52:52+08:00" />
-<meta itemprop="wordCount" content="1213"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
+<meta itemprop="wordCount" content="1214"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
 <meta itemprop="keywords" content="python,package,maven," /><meta property="og:title" content="使用python爬取jar包、npm包、go包的最新版本" />
 <meta property="og:description" content="场景 公司内网有maven仓库，扫描之后发现很多组件有漏洞，主要是因为版本太老。因此需要将这些漏洞组件的最新版导入内部的maven私服。 问题 这么多漏洞组件，一个个去中央仓库找最新版，显然不科学。因此要整个脚本来做这件事情。 方案 众所周知，jar" />
 <meta property="og:type" content="article" />
@@ -37,7 +37,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/whuwangyong.github.io\/2022-04-28-crawl-latest-version-for-jar-npm-go-pkg\/"
-    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "python, package, maven","wordcount":  1213 ,
+    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "python, package, maven","wordcount":  1214 ,
     "url": "https:\/\/whuwangyong.github.io\/2022-04-28-crawl-latest-version-for-jar-npm-go-pkg\/","datePublished": "2022-04-28T00:00:00+08:00","dateModified": "2022-05-02T15:52:52+08:00","publisher": {
       "@type": "Organization",
       "name": "Wang Yong","logo": {
@@ -244,7 +244,7 @@
           <span class="post-category">收录于 <a href="/categories/%E5%B0%8F%E5%B7%A5%E5%85%B7/"><i class="fa-regular fa-folder fa-fw"></i>&nbsp;小工具</a></span></div>
       <div class="post-meta-line"><span title=2022-04-28&#32;00:00:00>
             <i class="fa-regular fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-04-28" >2022-04-28</time>
-          </span>&nbsp;<i class="fa-solid fa-pencil-alt fa-fw"></i>&nbsp;约 1213 字&nbsp;
+          </span>&nbsp;<i class="fa-solid fa-pencil-alt fa-fw"></i>&nbsp;约 1214 字&nbsp;
         <i class="fa-regular fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
     </div><div class="details toc" id="toc-static" kept="false">
         <div class="details-summary toc-title">
@@ -317,17 +317,17 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">import</span> <span class="nn">traceback</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span>
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-
-<span class="kn">from</span> <span class="nn">distutils.version</span> <span class="kn">import</span> <span class="n">StrictVersion</span>
-<span class="kn">from</span> <span class="nn">natsort</span> <span class="kn">import</span> <span class="n">natsorted</span>
-<span class="kn">from</span> <span class="nn">soupsieve</span> <span class="kn">import</span> <span class="n">match</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">math</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">traceback</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">distutils.version</span> <span class="kn">import</span> <span class="n">StrictVersion</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">natsort</span> <span class="kn">import</span> <span class="n">natsorted</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">soupsieve</span> <span class="kn">import</span> <span class="n">match</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>获取jar包的最新版本：</p>
 <div class="highlight"><div class="chroma">
@@ -388,61 +388,61 @@
 </span><span class="lnt">54
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">process_maven</span><span class="p">(</span><span class="n">group_id</span><span class="p">,</span> <span class="n">artifact_id</span><span class="p">):</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="s2">&#34;https://search.maven.org/solrsearch/select?q=g:</span><span class="si">{}</span><span class="s2"> a:</span><span class="si">{}</span><span class="s2">&amp;core=gav&amp;rows=5&amp;wt=json&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">group_id</span><span class="p">,</span> <span class="n">artifact_id</span><span class="p">)</span>
-        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-        <span class="n">json</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-        <span class="n">docs</span> <span class="o">=</span> <span class="n">json</span><span class="p">[</span><span class="s2">&#34;response&#34;</span><span class="p">][</span><span class="s2">&#34;docs&#34;</span><span class="p">]</span>
-        <span class="n">versions</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">:</span>
-            <span class="n">version</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">doc</span><span class="p">[</span><span class="s2">&#34;v&#34;</span><span class="p">])</span>
-            <span class="k">if</span> <span class="p">(</span><span class="s2">&#34;alpha&#34;</span> <span class="ow">in</span> <span class="n">version</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">or</span> <span class="s2">&#34;beta&#34;</span> <span class="ow">in</span> <span class="n">version</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">or</span> <span class="s2">&#34;dev&#34;</span> <span class="ow">in</span> <span class="n">version</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">or</span> <span class="s2">&#34;rc&#34;</span> <span class="ow">in</span> <span class="n">version</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="p">):</span>
-                <span class="k">continue</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">versions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">version</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">versions</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;没有找到符合要求的版本，g=</span><span class="si">{}</span><span class="s2">, a=</span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">group_id</span><span class="p">,</span> <span class="n">artifact_id</span><span class="p">))</span>
-            <span class="k">continue</span>
-        <span class="n">latest_version</span> <span class="o">=</span> <span class="n">get_lastest_version</span><span class="p">(</span><span class="n">versions</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">latest_version</span>
-    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="n">traceback</span><span class="o">.</span><span class="n">print_exc</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;error: </span><span class="si">%s</span><span class="s2">. artifact_id=</span><span class="si">%s</span><span class="s2">.&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">artifact_id</span><span class="p">))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;response:&#34;</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">get_lastest_version</span><span class="p">(</span><span class="n">versions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">version</span> <span class="ow">in</span> <span class="n">versions</span><span class="p">:</span>  <span class="c1"># version=4.3.10-RELEASE</span>
-        <span class="c1"># 这种做法有问题  1.1.73.android: invalid version number &#39;1.1.73.0000000&#39;</span>
-        <span class="c1"># fix_version = re.sub(r&#34;[a-zA-Z-]&#34;, &#34;0&#34;, version)</span>
-
-        <span class="c1"># 最多只取前三位 1.2.3.4 -&gt; 1.2.3</span>
-        <span class="n">fix_version</span> <span class="o">=</span> <span class="n">version</span>
-        <span class="k">if</span> <span class="n">version</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
-            <span class="n">i</span> <span class="o">=</span> <span class="n">version</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">)</span>
-            <span class="n">fix_version</span> <span class="o">=</span> <span class="n">version</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span>
-
-        <span class="c1"># 1.2.Final -&gt; 1.2.</span>
-        <span class="n">a</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;[0-9.]&#34;</span><span class="p">,</span> <span class="n">fix_version</span><span class="p">)</span>
-        <span class="c1"># 1.2. -&gt; 1.2</span>
-        <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;.&#34;</span><span class="p">:</span>
-            <span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-        <span class="n">fix_version</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-
-        <span class="c1"># 排除掉以日期命名的版本号，这种版本号不正式，如 20030418.083655</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">fix_version</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="mi">8</span><span class="p">:</span>
-            <span class="k">continue</span>
-
-        <span class="c1"># 31.1-jre 31.1-android</span>
-        <span class="k">if</span> <span class="n">fix_version</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
-            <span class="n">d</span><span class="p">[</span><span class="n">fix_version</span><span class="p">]</span> <span class="o">=</span> <span class="n">version</span>
-
-    <span class="n">l</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">StrictVersion</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">d</span><span class="p">[</span><span class="n">l</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">process_maven</span><span class="p">(</span><span class="n">group_id</span><span class="p">,</span> <span class="n">artifact_id</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">url</span> <span class="o">=</span> <span class="s2">&#34;https://search.maven.org/solrsearch/select?q=g:</span><span class="si">{}</span><span class="s2"> a:</span><span class="si">{}</span><span class="s2">&amp;core=gav&amp;rows=5&amp;wt=json&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">group_id</span><span class="p">,</span> <span class="n">artifact_id</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">json</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">docs</span> <span class="o">=</span> <span class="n">json</span><span class="p">[</span><span class="s2">&#34;response&#34;</span><span class="p">][</span><span class="s2">&#34;docs&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">versions</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">version</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">doc</span><span class="p">[</span><span class="s2">&#34;v&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="s2">&#34;alpha&#34;</span> <span class="ow">in</span> <span class="n">version</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">or</span> <span class="s2">&#34;beta&#34;</span> <span class="ow">in</span> <span class="n">version</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">or</span> <span class="s2">&#34;dev&#34;</span> <span class="ow">in</span> <span class="n">version</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">or</span> <span class="s2">&#34;rc&#34;</span> <span class="ow">in</span> <span class="n">version</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="p">):</span>
+</span></span><span class="line"><span class="cl">                <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">versions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">version</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">versions</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;没有找到符合要求的版本，g=</span><span class="si">{}</span><span class="s2">, a=</span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">group_id</span><span class="p">,</span> <span class="n">artifact_id</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">            <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">        <span class="n">latest_version</span> <span class="o">=</span> <span class="n">get_lastest_version</span><span class="p">(</span><span class="n">versions</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">latest_version</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">traceback</span><span class="o">.</span><span class="n">print_exc</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;error: </span><span class="si">%s</span><span class="s2">. artifact_id=</span><span class="si">%s</span><span class="s2">.&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">artifact_id</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;response:&#34;</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_lastest_version</span><span class="p">(</span><span class="n">versions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">version</span> <span class="ow">in</span> <span class="n">versions</span><span class="p">:</span>  <span class="c1"># version=4.3.10-RELEASE</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 这种做法有问题  1.1.73.android: invalid version number &#39;1.1.73.0000000&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># fix_version = re.sub(r&#34;[a-zA-Z-]&#34;, &#34;0&#34;, version)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 最多只取前三位 1.2.3.4 -&gt; 1.2.3</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fix_version</span> <span class="o">=</span> <span class="n">version</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">version</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">i</span> <span class="o">=</span> <span class="n">version</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">fix_version</span> <span class="o">=</span> <span class="n">version</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 1.2.Final -&gt; 1.2.</span>
+</span></span><span class="line"><span class="cl">        <span class="n">a</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;[0-9.]&#34;</span><span class="p">,</span> <span class="n">fix_version</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 1.2. -&gt; 1.2</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;.&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fix_version</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 排除掉以日期命名的版本号，这种版本号不正式，如 20030418.083655</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">fix_version</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="mi">8</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 31.1-jre 31.1-android</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">fix_version</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">d</span><span class="p">[</span><span class="n">fix_version</span><span class="p">]</span> <span class="o">=</span> <span class="n">version</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">l</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">StrictVersion</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">d</span><span class="p">[</span><span class="n">l</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>获取npm包的最新版本：</p>
 <div class="highlight"><div class="chroma">
@@ -457,15 +457,15 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">process_npm</span><span class="p">(</span><span class="n">npm</span><span class="p">):</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">&#34;https://registry.npmjs.org/&#34;</span> <span class="o">+</span> <span class="n">npm</span> <span class="o">+</span> <span class="s2">&#34;/latest&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-        <span class="n">version</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s2">&#34;version&#34;</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">version</span>
-    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;error: </span><span class="si">%s</span><span class="s2">. npm=</span><span class="si">%s</span><span class="s2">.&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">npm</span><span class="p">))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;response:&#34;</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">process_npm</span><span class="p">(</span><span class="n">npm</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">&#34;https://registry.npmjs.org/&#34;</span> <span class="o">+</span> <span class="n">npm</span> <span class="o">+</span> <span class="s2">&#34;/latest&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">version</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s2">&#34;version&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">version</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;error: </span><span class="si">%s</span><span class="s2">. npm=</span><span class="si">%s</span><span class="s2">.&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">npm</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;response:&#34;</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>获取go module的最新版本：</p>
 <div class="highlight"><div class="chroma">
@@ -482,17 +482,17 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">process_go</span><span class="p">(</span><span class="n">go_pkg</span><span class="p">):</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">&#34;https://pkg.go.dev/&#34;</span> <span class="o">+</span> <span class="n">go_pkg</span> <span class="o">+</span> <span class="s2">&#34;?tab=versions&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
-        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s2">&#34;html.parser&#34;</span><span class="p">)</span>
-        <span class="n">version_str</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&#34;a&#34;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&#34;js-versionLink&#34;</span><span class="p">)</span>
-        <span class="n">version</span> <span class="o">=</span> <span class="n">version_str</span><span class="o">.</span><span class="n">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">version</span>
-    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;error: </span><span class="si">%s</span><span class="s2">. go_pkg=</span><span class="si">%s</span><span class="s2">.&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">go_pkg</span><span class="p">))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;response:&#34;</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">process_go</span><span class="p">(</span><span class="n">go_pkg</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">&#34;https://pkg.go.dev/&#34;</span> <span class="o">+</span> <span class="n">go_pkg</span> <span class="o">+</span> <span class="s2">&#34;?tab=versions&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
+</span></span><span class="line"><span class="cl">        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s2">&#34;html.parser&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">version_str</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&#34;a&#34;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&#34;js-versionLink&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">version</span> <span class="o">=</span> <span class="n">version_str</span><span class="o">.</span><span class="n">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">version</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;error: </span><span class="si">%s</span><span class="s2">. go_pkg=</span><span class="si">%s</span><span class="s2">.&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">go_pkg</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;response:&#34;</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
   <div class="post-info">
@@ -552,7 +552,7 @@
           </a>
         </div>
       </noscript>
-      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.101.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
         </div><div class="footer-line copyright"><i class="fa-regular fa-copyright fa-fw"></i>
             <span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">
               <a

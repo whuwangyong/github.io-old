@@ -366,9 +366,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">// 安装可执行文件和 .dat 数据文件
-# bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// 安装可执行文件和 .dat 数据文件
+</span></span><span class="line"><span class="cl"># bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="安装最新发行的-geoipdat-和-geositedat">安装最新发行的 geoip.dat 和 geosite.dat</h3>
 <div class="highlight"><div class="chroma">
@@ -377,9 +377,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">// 只更新 .dat 数据文件
-# bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// 只更新 .dat 数据文件
+</span></span><span class="line"><span class="cl"># bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="移除-v2ray">移除 V2Ray</h3>
 <div class="highlight"><div class="chroma">
@@ -387,8 +387,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"># bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh) --remove
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh) --remove
+</span></span></code></pre></td></tr></table>
 </div>
 </div></blockquote>
 <p>我的安装日志：</p>
@@ -460,71 +460,71 @@
 </span><span class="lnt">64
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 先切换到root</span>
-$ sudo su
-<span class="c1"># 执行</span>
-root@ubuntu:~# bash &lt;<span class="o">(</span>curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh<span class="o">)</span>
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-<span class="m">100</span> <span class="m">21647</span>  <span class="m">100</span> <span class="m">21647</span>    <span class="m">0</span>     <span class="m">0</span>  1321k      <span class="m">0</span> --:--:-- --:--:-- --:--:-- 1321k
-info: Installing V2Ray v4.44.0 <span class="k">for</span> aarch64
-Downloading V2Ray archive: https://github.com/v2fly/v2ray-core/releases/download/v4.44.0/v2ray-linux-arm64-v8a.zip
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-<span class="m">100</span>   <span class="m">664</span>  <span class="m">100</span>   <span class="m">664</span>    <span class="m">0</span>     <span class="m">0</span>   <span class="m">2055</span>      <span class="m">0</span> --:--:-- --:--:-- --:--:--  <span class="m">2055</span>
-<span class="m">100</span> 12.4M  <span class="m">100</span> 12.4M    <span class="m">0</span>     <span class="m">0</span>  3138k      <span class="m">0</span>  0:00:04  0:00:04 --:--:-- 4019k
-Downloading verification file <span class="k">for</span> V2Ray archive: https://github.com/v2fly/v2ray-core/releases/download/v4.44.0/v2ray-linux-arm64-v8a.zip.dgst
-info: Extract the V2Ray package to /tmp/tmp.A891dl5AVC and prepare it <span class="k">for</span> installation.
-info: Systemd service files have been installed successfully!
-warning: The following are the actual parameters <span class="k">for</span> the v2ray service startup.
-warning: Please make sure the configuration file path is correctly set.
-<span class="c1"># /etc/systemd/system/v2ray.service</span>
-<span class="o">[</span>Unit<span class="o">]</span>
-<span class="nv">Description</span><span class="o">=</span>V2Ray Service
-<span class="nv">Documentation</span><span class="o">=</span>https://www.v2fly.org/
-<span class="nv">After</span><span class="o">=</span>network.target nss-lookup.target
-
-<span class="o">[</span>Service<span class="o">]</span>
-<span class="nv">User</span><span class="o">=</span>nobody
-<span class="nv">CapabilityBoundingSet</span><span class="o">=</span>CAP_NET_ADMIN CAP_NET_BIND_SERVICE
-<span class="nv">AmbientCapabilities</span><span class="o">=</span>CAP_NET_ADMIN CAP_NET_BIND_SERVICE
-<span class="nv">NoNewPrivileges</span><span class="o">=</span><span class="nb">true</span>
-<span class="nv">ExecStart</span><span class="o">=</span>/usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
-<span class="nv">Restart</span><span class="o">=</span>on-failure
-<span class="nv">RestartPreventExitStatus</span><span class="o">=</span><span class="m">23</span>
-
-<span class="o">[</span>Install<span class="o">]</span>
-<span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
-
-<span class="c1"># /etc/systemd/system/v2ray.service.d/10-donot_touch_single_conf.conf</span>
-<span class="c1"># In case you have a good reason to do so, duplicate this file in the same directory and make your customizes there.</span>
-<span class="c1"># Or all changes you made will be lost!  # Refer: https://www.freedesktop.org/software/systemd/man/systemd.unit.html</span>
-<span class="o">[</span>Service<span class="o">]</span>
-<span class="nv">ExecStart</span><span class="o">=</span>
-<span class="nv">ExecStart</span><span class="o">=</span>/usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
-
-installed: /usr/local/bin/v2ray
-installed: /usr/local/bin/v2ctl
-installed: /usr/local/share/v2ray/geoip.dat
-installed: /usr/local/share/v2ray/geosite.dat
-installed: /usr/local/etc/v2ray/config.json
-installed: /var/log/v2ray/
-installed: /var/log/v2ray/access.log
-installed: /var/log/v2ray/error.log
-installed: /etc/systemd/system/v2ray.service
-installed: /etc/systemd/system/v2ray@.service
-removed: /tmp/tmp.A891dl5AVC
-info: V2Ray v4.44.0 is installed.
-You may need to execute a <span class="nb">command</span> to remove dependent software: apt purge curl unzip
-Please execute the command: systemctl <span class="nb">enable</span> v2ray<span class="p">;</span> systemctl start v2ray
-root@instance-20220307-2119:/home/ubuntu/v2ray# systemctl status v2ray 
-● v2ray.service - V2Ray Service
-     Loaded: loaded <span class="o">(</span>/etc/systemd/system/v2ray.service<span class="p">;</span> disabled<span class="p">;</span> vendor preset: enabled<span class="o">)</span>
-    Drop-In: /etc/systemd/system/v2ray.service.d
-             └─10-donot_touch_single_conf.conf
-     Active: inactive <span class="o">(</span>dead<span class="o">)</span>
-       Docs: https://www.v2fly.org/
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 先切换到root</span>
+</span></span><span class="line"><span class="cl">$ sudo su
+</span></span><span class="line"><span class="cl"><span class="c1"># 执行</span>
+</span></span><span class="line"><span class="cl">root@ubuntu:~# bash &lt;<span class="o">(</span>curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh<span class="o">)</span>
+</span></span><span class="line"><span class="cl">  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+</span></span><span class="line"><span class="cl">                                 Dload  Upload   Total   Spent    Left  Speed
+</span></span><span class="line"><span class="cl"><span class="m">100</span> <span class="m">21647</span>  <span class="m">100</span> <span class="m">21647</span>    <span class="m">0</span>     <span class="m">0</span>  1321k      <span class="m">0</span> --:--:-- --:--:-- --:--:-- 1321k
+</span></span><span class="line"><span class="cl">info: Installing V2Ray v4.44.0 <span class="k">for</span> aarch64
+</span></span><span class="line"><span class="cl">Downloading V2Ray archive: https://github.com/v2fly/v2ray-core/releases/download/v4.44.0/v2ray-linux-arm64-v8a.zip
+</span></span><span class="line"><span class="cl">  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+</span></span><span class="line"><span class="cl">                                 Dload  Upload   Total   Spent    Left  Speed
+</span></span><span class="line"><span class="cl"><span class="m">100</span>   <span class="m">664</span>  <span class="m">100</span>   <span class="m">664</span>    <span class="m">0</span>     <span class="m">0</span>   <span class="m">2055</span>      <span class="m">0</span> --:--:-- --:--:-- --:--:--  <span class="m">2055</span>
+</span></span><span class="line"><span class="cl"><span class="m">100</span> 12.4M  <span class="m">100</span> 12.4M    <span class="m">0</span>     <span class="m">0</span>  3138k      <span class="m">0</span>  0:00:04  0:00:04 --:--:-- 4019k
+</span></span><span class="line"><span class="cl">Downloading verification file <span class="k">for</span> V2Ray archive: https://github.com/v2fly/v2ray-core/releases/download/v4.44.0/v2ray-linux-arm64-v8a.zip.dgst
+</span></span><span class="line"><span class="cl">info: Extract the V2Ray package to /tmp/tmp.A891dl5AVC and prepare it <span class="k">for</span> installation.
+</span></span><span class="line"><span class="cl">info: Systemd service files have been installed successfully!
+</span></span><span class="line"><span class="cl">warning: The following are the actual parameters <span class="k">for</span> the v2ray service startup.
+</span></span><span class="line"><span class="cl">warning: Please make sure the configuration file path is correctly set.
+</span></span><span class="line"><span class="cl"><span class="c1"># /etc/systemd/system/v2ray.service</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Unit<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Description</span><span class="o">=</span>V2Ray Service
+</span></span><span class="line"><span class="cl"><span class="nv">Documentation</span><span class="o">=</span>https://www.v2fly.org/
+</span></span><span class="line"><span class="cl"><span class="nv">After</span><span class="o">=</span>network.target nss-lookup.target
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Service<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">User</span><span class="o">=</span>nobody
+</span></span><span class="line"><span class="cl"><span class="nv">CapabilityBoundingSet</span><span class="o">=</span>CAP_NET_ADMIN CAP_NET_BIND_SERVICE
+</span></span><span class="line"><span class="cl"><span class="nv">AmbientCapabilities</span><span class="o">=</span>CAP_NET_ADMIN CAP_NET_BIND_SERVICE
+</span></span><span class="line"><span class="cl"><span class="nv">NoNewPrivileges</span><span class="o">=</span><span class="nb">true</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ExecStart</span><span class="o">=</span>/usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
+</span></span><span class="line"><span class="cl"><span class="nv">Restart</span><span class="o">=</span>on-failure
+</span></span><span class="line"><span class="cl"><span class="nv">RestartPreventExitStatus</span><span class="o">=</span><span class="m">23</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Install<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># /etc/systemd/system/v2ray.service.d/10-donot_touch_single_conf.conf</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># In case you have a good reason to do so, duplicate this file in the same directory and make your customizes there.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Or all changes you made will be lost!  # Refer: https://www.freedesktop.org/software/systemd/man/systemd.unit.html</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Service<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ExecStart</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ExecStart</span><span class="o">=</span>/usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">installed: /usr/local/bin/v2ray
+</span></span><span class="line"><span class="cl">installed: /usr/local/bin/v2ctl
+</span></span><span class="line"><span class="cl">installed: /usr/local/share/v2ray/geoip.dat
+</span></span><span class="line"><span class="cl">installed: /usr/local/share/v2ray/geosite.dat
+</span></span><span class="line"><span class="cl">installed: /usr/local/etc/v2ray/config.json
+</span></span><span class="line"><span class="cl">installed: /var/log/v2ray/
+</span></span><span class="line"><span class="cl">installed: /var/log/v2ray/access.log
+</span></span><span class="line"><span class="cl">installed: /var/log/v2ray/error.log
+</span></span><span class="line"><span class="cl">installed: /etc/systemd/system/v2ray.service
+</span></span><span class="line"><span class="cl">installed: /etc/systemd/system/v2ray@.service
+</span></span><span class="line"><span class="cl">removed: /tmp/tmp.A891dl5AVC
+</span></span><span class="line"><span class="cl">info: V2Ray v4.44.0 is installed.
+</span></span><span class="line"><span class="cl">You may need to execute a <span class="nb">command</span> to remove dependent software: apt purge curl unzip
+</span></span><span class="line"><span class="cl">Please execute the command: systemctl <span class="nb">enable</span> v2ray<span class="p">;</span> systemctl start v2ray
+</span></span><span class="line"><span class="cl">root@instance-20220307-2119:/home/ubuntu/v2ray# systemctl status v2ray 
+</span></span><span class="line"><span class="cl">● v2ray.service - V2Ray Service
+</span></span><span class="line"><span class="cl">     Loaded: loaded <span class="o">(</span>/etc/systemd/system/v2ray.service<span class="p">;</span> disabled<span class="p">;</span> vendor preset: enabled<span class="o">)</span>
+</span></span><span class="line"><span class="cl">    Drop-In: /etc/systemd/system/v2ray.service.d
+</span></span><span class="line"><span class="cl">             └─10-donot_touch_single_conf.conf
+</span></span><span class="line"><span class="cl">     Active: inactive <span class="o">(</span>dead<span class="o">)</span>
+</span></span><span class="line"><span class="cl">       Docs: https://www.v2fly.org/
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="配置">配置</h2>
 <p>官方给了模板：<a
@@ -598,30 +598,30 @@ root@instance-20220307-2119:/home/ubuntu/v2ray# systemctl status v2ray
 </span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
-  <span class="nt">&#34;inbounds&#34;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">16823</span><span class="p">,</span> <span class="c1">// 服务器监听端口
-</span><span class="c1"></span>      <span class="nt">&#34;protocol&#34;</span><span class="p">:</span> <span class="s2">&#34;vmess&#34;</span><span class="p">,</span>    <span class="c1">// 主传入协议
-</span><span class="c1"></span>      <span class="nt">&#34;settings&#34;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&#34;clients&#34;</span><span class="p">:</span> <span class="p">[</span>
-          <span class="p">{</span>
-            <span class="nt">&#34;id&#34;</span><span class="p">:</span> <span class="s2">&#34;b831381d-6324-4d53-ad4f-8cda48b30811&#34;</span><span class="p">,</span>  <span class="c1">// 用户 ID，客户端与服务器必须相同
-</span><span class="c1"></span>            <span class="nt">&#34;alterId&#34;</span><span class="p">:</span> <span class="mi">0</span> <span class="c1">// 新版本不能设置为64
-</span><span class="c1"></span>
-          <span class="p">}</span>
-        <span class="p">]</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="nt">&#34;outbounds&#34;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="nt">&#34;protocol&#34;</span><span class="p">:</span> <span class="s2">&#34;freedom&#34;</span><span class="p">,</span>  <span class="c1">// 主传出协议
-</span><span class="c1"></span>      <span class="nt">&#34;settings&#34;</span><span class="p">:</span> <span class="p">{}</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;inbounds&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">16823</span><span class="p">,</span> <span class="c1">// 服务器监听端口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;protocol&#34;</span><span class="p">:</span> <span class="s2">&#34;vmess&#34;</span><span class="p">,</span>    <span class="c1">// 主传入协议
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;settings&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;clients&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">          <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;id&#34;</span><span class="p">:</span> <span class="s2">&#34;b831381d-6324-4d53-ad4f-8cda48b30811&#34;</span><span class="p">,</span>  <span class="c1">// 用户 ID，客户端与服务器必须相同
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nt">&#34;alterId&#34;</span><span class="p">:</span> <span class="mi">0</span> <span class="c1">// 新版本不能设置为64
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;outbounds&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;protocol&#34;</span><span class="p">:</span> <span class="s2">&#34;freedom&#34;</span><span class="p">,</span>  <span class="c1">// 主传出协议
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;settings&#34;</span><span class="p">:</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>客户端</p>
 <div class="highlight"><div class="chroma">
@@ -662,41 +662,41 @@ root@instance-20220307-2119:/home/ubuntu/v2ray# systemctl status v2ray
 </span><span class="lnt">34
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
-  <span class="nt">&#34;inbounds&#34;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">1080</span><span class="p">,</span> <span class="c1">// 监听端口
-</span><span class="c1"></span>      <span class="nt">&#34;protocol&#34;</span><span class="p">:</span> <span class="s2">&#34;socks&#34;</span><span class="p">,</span> <span class="c1">// 入口协议为 SOCKS 5
-</span><span class="c1"></span>      <span class="nt">&#34;sniffing&#34;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&#34;enabled&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-        <span class="nt">&#34;destOverride&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;http&#34;</span><span class="p">,</span> <span class="s2">&#34;tls&#34;</span><span class="p">]</span>
-      <span class="p">},</span>
-      <span class="nt">&#34;settings&#34;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&#34;auth&#34;</span><span class="p">:</span> <span class="s2">&#34;noauth&#34;</span>  <span class="c1">//socks的认证设置，noauth 代表不认证，由于 socks 通常在客户端使用，所以这里不认证
-</span><span class="c1"></span>      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="nt">&#34;outbounds&#34;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="nt">&#34;protocol&#34;</span><span class="p">:</span> <span class="s2">&#34;vmess&#34;</span><span class="p">,</span> <span class="c1">// 出口协议
-</span><span class="c1"></span>      <span class="nt">&#34;settings&#34;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&#34;vnext&#34;</span><span class="p">:</span> <span class="p">[</span>
-          <span class="p">{</span>
-            <span class="nt">&#34;address&#34;</span><span class="p">:</span> <span class="s2">&#34;serveraddr.com&#34;</span><span class="p">,</span> <span class="c1">// 服务器地址，请修改为你自己的服务器 IP 或域名
-</span><span class="c1"></span>            <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">16823</span><span class="p">,</span>  <span class="c1">// 服务器端口
-</span><span class="c1"></span>            <span class="nt">&#34;users&#34;</span><span class="p">:</span> <span class="p">[</span>
-              <span class="p">{</span>
-                <span class="nt">&#34;id&#34;</span><span class="p">:</span> <span class="s2">&#34;b831381d-6324-4d53-ad4f-8cda48b30811&#34;</span><span class="p">,</span>  <span class="c1">// 用户 ID，必须与服务器端配置相同
-</span><span class="c1"></span>                <span class="nt">&#34;alterId&#34;</span><span class="p">:</span> <span class="mi">0</span> <span class="c1">// 此处的值也应当与服务器相同
-</span><span class="c1"></span>              <span class="p">}</span>
-            <span class="p">]</span>
-          <span class="p">}</span>
-        <span class="p">]</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;inbounds&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">1080</span><span class="p">,</span> <span class="c1">// 监听端口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;protocol&#34;</span><span class="p">:</span> <span class="s2">&#34;socks&#34;</span><span class="p">,</span> <span class="c1">// 入口协议为 SOCKS 5
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;sniffing&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;enabled&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;destOverride&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;http&#34;</span><span class="p">,</span> <span class="s2">&#34;tls&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;settings&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;auth&#34;</span><span class="p">:</span> <span class="s2">&#34;noauth&#34;</span>  <span class="c1">//socks的认证设置，noauth 代表不认证，由于 socks 通常在客户端使用，所以这里不认证
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;outbounds&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;protocol&#34;</span><span class="p">:</span> <span class="s2">&#34;vmess&#34;</span><span class="p">,</span> <span class="c1">// 出口协议
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;settings&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;vnext&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">          <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;address&#34;</span><span class="p">:</span> <span class="s2">&#34;serveraddr.com&#34;</span><span class="p">,</span> <span class="c1">// 服务器地址，请修改为你自己的服务器 IP 或域名
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">16823</span><span class="p">,</span>  <span class="c1">// 服务器端口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nt">&#34;users&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">              <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;id&#34;</span><span class="p">:</span> <span class="s2">&#34;b831381d-6324-4d53-ad4f-8cda48b30811&#34;</span><span class="p">,</span>  <span class="c1">// 用户 ID，必须与服务器端配置相同
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="nt">&#34;alterId&#34;</span><span class="p">:</span> <span class="mi">0</span> <span class="c1">// 此处的值也应当与服务器相同
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>              <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">]</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="如何生成-uuid">如何生成 UUID</h3>
 <p>在线生成器：<a
@@ -783,8 +783,8 @@ root@instance-20220307-2119:/home/ubuntu/v2ray# systemctl status v2ray
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">sudo systemctl start v2ray
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo systemctl start v2ray
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>开机自启：</p>
 <div class="highlight"><div class="chroma">
@@ -793,9 +793,9 @@ root@instance-20220307-2119:/home/ubuntu/v2ray# systemctl status v2ray
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">sudo systemctl <span class="nb">enable</span> v2ray.service
-Created symlink /etc/systemd/system/multi-user.target.wants/v2ray.service → /etc/systemd/system/v2ray.service.
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> v2ray.service
+</span></span><span class="line"><span class="cl">Created symlink /etc/systemd/system/multi-user.target.wants/v2ray.service → /etc/systemd/system/v2ray.service.
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
   <div class="post-info">
@@ -855,7 +855,7 @@ Created symlink /etc/systemd/system/multi-user.target.wants/v2ray.service → /e
           </a>
         </div>
       </noscript>
-      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.101.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
         </div><div class="footer-line copyright"><i class="fa-regular fa-copyright fa-fw"></i>
             <span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">
               <a
