@@ -172,7 +172,7 @@ def commit_html():
         if os.path.isfile(f) and f not in ["commit-message", ".gitignore"]:
             os.remove(f)
             # print("remove:", f)
-        if os.path.isdir(f) and f not in [".git", "public", "themes"]:
+        if os.path.isdir(f) and f not in [".git", "public", "themes", ".idea"]:
             shutil.rmtree(f)
             # print("remove:", f)
 
