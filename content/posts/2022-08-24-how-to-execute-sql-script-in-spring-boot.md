@@ -54,7 +54,7 @@ void createTable() throws SQLException {
 
 ## 提示
 
-上面两种方法都指定了`utf-8`编码。当表里面有中文时，需要注意。
+上面两种方法都指定了`utf-8`编码。当表里面有中文时，不指定时会报错。
 
 案例：
 
@@ -72,7 +72,7 @@ CREATE TABLE app
   DEFAULT CHARSET = utf8mb4;
 ```
 
-env字段为枚举类型，通过本文提到的两种方法建表后，在插入数据时报错：
+env字段为枚举类型，通过本文提到的两种方法建表后（未指定`utf-8`编码），在插入数据时报错：
 
 ```sql
 > INSERT app(name, env) VALUES ('app-1', '生产');
