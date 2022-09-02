@@ -11,14 +11,14 @@
 <meta name="description" content="在spring应用运行时，有一些建表语句，或则初始化数据，需要从sql脚本导入。 本文推荐以下两种方法。 假设脚本位于/resources/ddl.sql 1 使用@sql注解 该注解可用于类和方法。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 @Sql(scripts = {&#34;/ddl.sql&#34;}, config = @SqlConfig(encoding =" />
 <meta name="keywords" content="springboot,mysql" /><meta itemprop="name" content="如何在Spring Boot代码中执行sql脚本">
 <meta itemprop="description" content="在spring应用运行时，有一些建表语句，或则初始化数据，需要从sql脚本导入。 本文推荐以下两种方法。 假设脚本位于/resources/ddl.sql 1 使用@sql注解 该注解可用于类和方法。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 @Sql(scripts = {&#34;/ddl.sql&#34;}, config = @SqlConfig(encoding ="><meta itemprop="datePublished" content="2022-08-24T00:00:00+08:00" />
-<meta itemprop="dateModified" content="2022-08-24T12:08:34+08:00" />
-<meta itemprop="wordCount" content="459"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
+<meta itemprop="dateModified" content="2022-09-02T21:40:22+08:00" />
+<meta itemprop="wordCount" content="1284"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
 <meta itemprop="keywords" content="springboot,mysql," /><meta property="og:title" content="如何在Spring Boot代码中执行sql脚本" />
 <meta property="og:description" content="在spring应用运行时，有一些建表语句，或则初始化数据，需要从sql脚本导入。 本文推荐以下两种方法。 假设脚本位于/resources/ddl.sql 1 使用@sql注解 该注解可用于类和方法。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 @Sql(scripts = {&#34;/ddl.sql&#34;}, config = @SqlConfig(encoding =" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://whuwangyong.github.io/2022-08-24-how-to-execute-sql-script-in-spring-boot/" /><meta property="og:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-08-24T00:00:00+08:00" />
-<meta property="article:modified_time" content="2022-08-24T12:08:34+08:00" />
+<meta property="article:modified_time" content="2022-09-02T21:40:22+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
@@ -37,8 +37,8 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/whuwangyong.github.io\/2022-08-24-how-to-execute-sql-script-in-spring-boot\/"
-    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "springboot, mysql","wordcount":  459 ,
-    "url": "https:\/\/whuwangyong.github.io\/2022-08-24-how-to-execute-sql-script-in-spring-boot\/","datePublished": "2022-08-24T00:00:00+08:00","dateModified": "2022-08-24T12:08:34+08:00","publisher": {
+    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "springboot, mysql","wordcount":  1284 ,
+    "url": "https:\/\/whuwangyong.github.io\/2022-08-24-how-to-execute-sql-script-in-spring-boot\/","datePublished": "2022-08-24T00:00:00+08:00","dateModified": "2022-09-02T21:40:22+08:00","publisher": {
       "@type": "Organization",
       "name": "Wang Yong","logo": {
           "@type": "ImageObject",
@@ -244,8 +244,8 @@
           <span class="post-category">收录于 <a href="/categories/springboot/"><i class="fa-regular fa-folder fa-fw"></i>&nbsp;springboot</a>&ensp;<a href="/categories/mysql/"><i class="fa-regular fa-folder fa-fw"></i>&nbsp;mysql</a></span></div>
       <div class="post-meta-line"><span title=2022-08-24&#32;00:00:00>
             <i class="fa-regular fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-08-24" >2022-08-24</time>
-          </span>&nbsp;<i class="fa-solid fa-pencil-alt fa-fw"></i>&nbsp;约 459 字&nbsp;
-        <i class="fa-regular fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
+          </span>&nbsp;<i class="fa-solid fa-pencil-alt fa-fw"></i>&nbsp;约 1284 字&nbsp;
+        <i class="fa-regular fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
     </div><div class="details toc" id="toc-static" kept="false">
         <div class="details-summary toc-title">
           <span>目录</span>
@@ -255,7 +255,8 @@
   <ul>
     <li><a href="#1-使用sql注解">1 使用@sql注解</a></li>
     <li><a href="#2-使用scriptutilsexecutesqlscript">2 使用ScriptUtils.executeSqlScript</a></li>
-    <li><a href="#提示">提示</a></li>
+    <li><a href="#中文编码">中文编码</a></li>
+    <li><a href="#代码">代码</a></li>
     <li><a href="#reference">Reference</a></li>
   </ul>
 </nav></div>
@@ -304,11 +305,131 @@
 </span></span><span class="line"><span class="cl">  
 </span></span><span class="line"><span class="cl">    <span class="nd">@Test</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@Order</span><span class="o">(</span><span class="n">1</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testInsert</span><span class="o">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">insertApp</span><span class="o">(){</span>
 </span></span><span class="line"><span class="cl">        <span class="n">appRepository</span><span class="o">.</span><span class="na">add</span><span class="o">(...)</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// ...
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>注意，如果<code>@Sql</code>用于class，那么测试类里面的<strong>每个测试方法在运行之前都会跑一次这个脚本</strong>。</p>
+<p>@sql上的注释有说明：</p>
+<blockquote>
+<p>@Sql is used to annotate a test class or test method to configure SQL scripts and statements to be executed against a given database during integration tests.</p>
+<p>&hellip;</p>
+<p>Script execution is performed by the SqlScriptsTestExecutionListener&hellip;</p>
+</blockquote>
+<p>看见<code>during integration tests</code>了吧。</p>
+<p>另外，从注释可知，脚本是被<code>SqlScriptsTestExecutionListener</code>执行的。打开这个类，可以看到里面有一些方法和debug级别的日志。将这个包的日志级别设为debug：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">logging.level.root=info
+</span></span><span class="line"><span class="cl">logging.level.org.springframework.test.context.jdbc=debug
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后运行，即可看到类似下面的日志：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl"> INFO [    Test worker] cn.whu.wy.osgov.test.RepositoryTest      : Started RepositoryTest in 1.959 seconds (JVM running for 2.746)
+</span></span><span class="line"><span class="cl">DEBUG [    Test worker] .s.t.c.j.SqlScriptsTestExecutionListener : Processing [MergedSqlConfig@e4927bb dataSource = &#39;&#39;, transactionManager = &#39;&#39;, transactionMode = ISOLATED, encoding = &#39;utf-8&#39;, separator = &#39;;&#39;,...
+</span></span><span class="line"><span class="cl">DEBUG [    Test worker] .s.t.c.j.SqlScriptsTestExecutionListener : Executing SQL scripts: [class path resource [ddl.sql]]
+</span></span><span class="line"><span class="cl"> INFO [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+</span></span><span class="line"><span class="cl"> INFO [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+</span></span><span class="line"><span class="cl"> INFO [    Test worker] cn.whu.wy.osgov.test.RepositoryTest      : insertApp
+</span></span><span class="line"><span class="cl">DEBUG [    Test worker] .s.t.c.j.SqlScriptsTestExecutionListener : Processing [MergedSqlConfig@5e704109 dataSource = &#39;&#39;, transactionManager = &#39;&#39;, transactionMode = ISOLATED, encoding = &#39;utf-8&#39;, separator = &#39;;&#39;,...
+</span></span><span class="line"><span class="cl">DEBUG [    Test worker] .s.t.c.j.SqlScriptsTestExecutionListener : Executing SQL scripts: [class path resource [ddl.sql]]
+</span></span><span class="line"><span class="cl"> INFO [    Test worker] cn.whu.wy.osgov.test.RepositoryTest      : insertArtifact
+</span></span><span class="line"><span class="cl">DEBUG [    Test worker] .s.t.c.j.SqlScriptsTestExecutionListener : Processing [MergedSqlConfig@701e3274 dataSource = &#39;&#39;, transactionManager = &#39;&#39;, transactionMode = ISOLATED, encoding = &#39;utf-8&#39;, separator = &#39;;&#39;,...
+</span></span><span class="line"><span class="cl">DEBUG [    Test worker] .s.t.c.j.SqlScriptsTestExecutionListener : Executing SQL scripts: [class path resource [ddl.sql]]
+</span></span><span class="line"><span class="cl"> INFO [    Test worker] cn.whu.wy.osgov.test.RepositoryTest      : insertHost
+</span></span><span class="line"><span class="cl">DEBUG [    Test worker] .s.t.c.j.SqlScriptsTestExecutionListener : Processing [MergedSqlConfig@48ab1f96 dataSource = &#39;&#39;, transactionManager = &#39;&#39;, transactionMode = ISOLATED, encoding = &#39;utf-8&#39;, separator = &#39;;&#39;,...
+</span></span><span class="line"><span class="cl">DEBUG [    Test worker] .s.t.c.j.SqlScriptsTestExecutionListener : Executing SQL scripts: [class path resource [ddl.sql]]
+</span></span><span class="line"><span class="cl"> INFO [    Test worker] cn.whu.wy.osgov.test.RepositoryTest      : insertLicense
+</span></span><span class="line"><span class="cl">DEBUG [    Test worker] .s.t.c.j.SqlScriptsTestExecutionListener : Processing [MergedSqlConfig@67d2c696 dataSource = &#39;&#39;, transactionManager = &#39;&#39;, transactionMode = ISOLATED, encoding = &#39;utf-8&#39;, separator = &#39;;&#39;,...
+</span></span><span class="line"><span class="cl">DEBUG [    Test worker] .s.t.c.j.SqlScriptsTestExecutionListener : Executing SQL scripts: [class path resource [ddl.sql]]
+</span></span><span class="line"><span class="cl"> INFO [    Test worker] cn.whu.wy.osgov.test.RepositoryTest      : insertTag
+</span></span><span class="line"><span class="cl">DEBUG [    Test worker] .s.t.c.j.SqlScriptsTestExecutionListener : Processing [MergedSqlConfig@2473bf20 dataSource = &#39;&#39;, transactionManager = &#39;&#39;, transactionMode = ISOLATED, encoding = &#39;utf-8&#39;, separator = &#39;;&#39;,...
+</span></span><span class="line"><span class="cl">DEBUG [    Test worker] .s.t.c.j.SqlScriptsTestExecutionListener : Executing SQL scripts: [class path resource [ddl.sql]]
+</span></span><span class="line"><span class="cl"> INFO [    Test worker] cn.whu.wy.osgov.test.RepositoryTest      : insertVulnerability
+</span></span><span class="line"><span class="cl"> INFO [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+</span></span><span class="line"><span class="cl"> INFO [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+</span></span><span class="line"><span class="cl">BUILD SUCCESSFUL in 7s
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>从日志可见，确实在每个测试用例之前执行了脚本：</p>
+<blockquote>
+<p>Executing SQL scripts: [class path resource [ddl.sql]]</p>
+</blockquote>
+<p>如果只需要该脚本执行一次该怎么做呢？将<code>@Sql(....)</code>注解放在某个<code>@Test</code>方法上，比如init方法，那么该脚本只会在执行init方法之前执行一次：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Sql</span><span class="o">(</span><span class="n">scripts</span> <span class="o">=</span> <span class="o">{</span><span class="s">&#34;/ddl.sql&#34;</span><span class="o">},</span> <span class="n">config</span> <span class="o">=</span> <span class="nd">@SqlConfig</span><span class="o">(</span><span class="n">encoding</span> <span class="o">=</span> <span class="s">&#34;utf-8&#34;</span><span class="o">,</span> <span class="n">transactionMode</span> <span class="o">=</span> <span class="n">SqlConfig</span><span class="o">.</span><span class="na">TransactionMode</span><span class="o">.</span><span class="na">ISOLATED</span><span class="o">))</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@Test</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">init</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;createTableUseAnno&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>日志：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl"> INFO [    Test worker] cn.whu.wy.osgov.test.RepositoryTest      : Started RepositoryTest in 1.916 seconds (JVM running for 2.683)
+</span></span><span class="line"><span class="cl">DEBUG [    Test worker] .s.t.c.j.SqlScriptsTestExecutionListener : Processing [MergedSqlConfig@6367d99b dataSource = &#39;&#39;, transactionManager = ...
+</span></span><span class="line"><span class="cl">DEBUG [    Test worker] .s.t.c.j.SqlScriptsTestExecutionListener : Executing SQL scripts: [class path resource [ddl.sql]]
+</span></span><span class="line"><span class="cl"> INFO [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+</span></span><span class="line"><span class="cl"> INFO [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+</span></span><span class="line"><span class="cl"> INFO [    Test worker] cn.whu.wy.osgov.test.RepositoryTest      : createTableUseAnno
+</span></span><span class="line"><span class="cl"> INFO [    Test worker] cn.whu.wy.osgov.test.RepositoryTest      : insertApp
+</span></span><span class="line"><span class="cl"> INFO [    Test worker] cn.whu.wy.osgov.test.RepositoryTest      : insertArtifact
+</span></span><span class="line"><span class="cl">...
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="2-使用scriptutilsexecutesqlscript">2 使用ScriptUtils.executeSqlScript</h2>
@@ -337,10 +458,9 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>这种方式更加灵活，DataSource可以是自己创建的。</p>
-<h2 id="提示">提示</h2>
-<p>上面两种方法都指定了<code>utf-8</code>编码。当表里面有中文时，需要注意。</p>
-<p>案例：</p>
-<p>有这样一个表，</p>
+<h2 id="中文编码">中文编码</h2>
+<p>上面两种方法都指定了<code>utf-8</code>编码。当表里面有中文时，不指定时会报错。</p>
+<p>案例：有这样一个表，</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -365,7 +485,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">CHARSET</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">utf8mb4</span><span class="p">;</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>env字段为枚举类型，通过本文提到的两种方法建表后，在插入数据时报错：</p>
+</div><p>env字段为枚举类型，通过本文提到的两种方法建表后（未指定<code>utf-8</code>编码），在插入数据时报错：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -380,7 +500,22 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">nested</span><span class="w"> </span><span class="k">exception</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="k">sql</span><span class="p">.</span><span class="k">SQLException</span><span class="p">:</span><span class="w"> </span><span class="k">Data</span><span class="w"> </span><span class="n">truncated</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">column</span><span class="w"> </span><span class="s1">&#39;env&#39;</span><span class="w"> </span><span class="k">at</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="mi">1</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="reference">Reference</h2>
+</div><h2 id="代码">代码</h2>
+<p>我的<a
+  href="https://github.com/whuwangyong/os-gov/blob/main/src/test/java/cn/whu/wy/osgov/test/RepositoryTest.java"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+>这个</a>项目使用了本文提到的内容，可以参考。</p>
+<h2 id="reference">Reference</h2>
 <ol>
 <li><a
   href="https://www.baeldung.com/spring-boot-data-sql-and-schema-sql"
@@ -415,8 +550,8 @@
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title=2022-08-24&#32;12:08:34>更新于 2022-08-24&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/e2f125bd8794e9ec3653acd3c681be2ff8c83bcd" rel="external nofollow noopener noreffer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) e2f125bd8794e9ec3653acd3c681be2ff8c83bcd: new post: 如何在Spring Boot代码中执行sql脚本">
-                  <i class="fa-solid fa-hashtag fa-fw"></i>e2f125b</a></span>
+        <span title=2022-09-02&#32;21:40:22>更新于 2022-09-02&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/8df528c6ecf0c37f566f8c232a03439e84f28cf9" rel="external nofollow noopener noreffer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) 8df528c6ecf0c37f566f8c232a03439e84f28cf9: 更新使用@Sql执行脚本的脚本">
+                  <i class="fa-solid fa-hashtag fa-fw"></i>8df528c</a></span>
       </div>
       <div class="post-info-license "></div>
     </div>
