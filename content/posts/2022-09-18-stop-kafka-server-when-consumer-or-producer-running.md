@@ -17,7 +17,7 @@ categories: ["kafka"]
 
 消费者：
 
-```java
+```plaintext
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -70,7 +70,7 @@ categories: ["kafka"]
 
 生产者
 
-```java
+```plaintext
 wy@ship:~/dev/kafka-mate/scripts$ ./produce-to.sh test
 >msg-1
 >msg-2
@@ -117,7 +117,7 @@ wy@ship:~/dev/kafka-mate/scripts$ ./produce-to.sh test
 
 生产者：
 
-```java
+```plaintext
 >msg-3
 >msg-4
 >
@@ -125,7 +125,7 @@ wy@ship:~/dev/kafka-mate/scripts$ ./produce-to.sh test
 
 消费者：
 
-```java
+```plaintext
 2022-09-18 16:56:52.578  INFO 16572 --- [pool-1-thread-1] cn.whu.wy.kafkamate.core.KafkaMate       : receive: msg-3
 2022-09-18 16:56:59.688  INFO 16572 --- [pool-1-thread-1] cn.whu.wy.kafkamate.core.KafkaMate       : receive: msg-4
 ```
