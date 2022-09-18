@@ -1,5 +1,5 @@
 ---
-title: "在producer/consumer运行时删除topic会怎么样"
+title: "在producer consumer运行时删除topic会怎么样"
 date: 2022-09-18
 tags: ["kafka"]
 categories: ["kafka"]
