@@ -4,9 +4,30 @@
     <link>https://whuwangyong.github.io/</link>
     <description>武大路飞的博客</description>
     <generator>Hugo -- gohugo.io</generator><managingEditor>whuwangyong@gmail.com (Wang Yong)</managingEditor>
-      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Wed, 24 Aug 2022 00:00:00 &#43;0800</lastBuildDate>
+      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Wed, 21 Sep 2022 00:00:00 &#43;0800</lastBuildDate>
       <atom:link href="https://whuwangyong.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+  <title>如何确保kafka topic已经删除</title>
+  <link>https://whuwangyong.github.io/2022-09-21-how-to-ensure-kafka-topics-deleted/</link>
+  <pubDate>Wed, 21 Sep 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-09-21-how-to-ensure-kafka-topics-deleted/</guid>
+  <description><![CDATA[问题描述 TopicExistsException: Topic &lsquo;xxx&rsquo; is marked for deletion. 在写kafka工具时，有两个方法：批量创建topic和批量删除topic。 运维操作一般是，批量删除一堆topic，然后再重建删除的那些topic。在创建时，可能会遇到如下错误： 1 2 3 4 5 6 7 8 2022-09-19 08:37:55.150 INFO 20376 --- [nio-8080-exec-4] c.w.w.k.service.TopicManagerImpl : input topics num: 100, deleted]]></description>
+</item><item>
+  <title>在consumer producer运行时停止kafka服务端会怎样</title>
+  <link>https://whuwangyong.github.io/2022-09-18-stop-kafka-server-when-consumer-or-producer-running/</link>
+  <pubDate>Sun, 18 Sep 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-09-18-stop-kafka-server-when-consumer-or-producer-running/</guid>
+  <description><![CDATA[结论 服务端停止时，客户端程序会报错； 服务端启动后，客户端程序能继续运行。也就是，消费者线程并未异常退出。 实验步骤 （1）停止后，consumer和producer会报错。 消费者： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32]]></description>
+</item><item>
+  <title>在producer consumer运行时删除topic会怎么样</title>
+  <link>https://whuwangyong.github.io/2022-09-18-delete-topic-when-consumer-or-producer-running/</link>
+  <pubDate>Sun, 18 Sep 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-09-18-delete-topic-when-consumer-or-producer-running/</guid>
+  <description><![CDATA[broker端有个参数（kafka_2.13-3.2.1/config/server.properties），auto.create.topics.enable，默认为true。意思是，当生产者、消费者读写一个不存在的topic时，是否自动]]></description>
+</item><item>
   <title>如何在Spring Boot代码中执行sql脚本</title>
   <link>https://whuwangyong.github.io/2022-08-24-how-to-execute-sql-script-in-spring-boot/</link>
   <pubDate>Wed, 24 Aug 2022 00:00:00 &#43;0800</pubDate>
@@ -55,26 +76,5 @@
   <author>Wang Yong</author>
   <guid>https://whuwangyong.github.io/2022-04-28-submit-urls-to-baidu-and-bing-with-api/</guid>
   <description><![CDATA[建站之后，为了文章能够被搜索引擎收录，我们需要将站点提交到Google、百度、Bing等搜索网站，通过验证之后，搜索引擎才会去我们的网站爬数据。 为了方便爬虫爬取我们站点里的文章，我们可以将站点地图（sitemap.xml）提交到搜索网站。提]]></description>
-</item><item>
-  <title>使用python爬取jar包、npm包、go包的最新版本</title>
-  <link>https://whuwangyong.github.io/2022-04-28-crawl-latest-version-for-jar-npm-go-pkg/</link>
-  <pubDate>Thu, 28 Apr 2022 00:00:00 &#43;0800</pubDate>
-  <author>Wang Yong</author>
-  <guid>https://whuwangyong.github.io/2022-04-28-crawl-latest-version-for-jar-npm-go-pkg/</guid>
-  <description><![CDATA[场景 公司内网有maven仓库，扫描之后发现很多组件有漏洞，主要是因为版本太老。因此需要将这些漏洞组件的最新版导入内部的maven私服。 问题 这么多漏洞组件，一个个去中央仓库找最新版，显然不科学。因此要整个脚本来做这件事情。 方案 众所周知，jar]]></description>
-</item><item>
-  <title>Linux CPU 性能测试</title>
-  <link>https://whuwangyong.github.io/2022-04-27-linux-cpu-benchmark/</link>
-  <pubDate>Wed, 27 Apr 2022 00:00:00 &#43;0800</pubDate>
-  <author>Wang Yong</author>
-  <guid>https://whuwangyong.github.io/2022-04-27-linux-cpu-benchmark/</guid>
-  <description><![CDATA[sysbench Sysbench is mainly intended for doing database benchmarking. However it includes options to test CPU, memory and file throughput as well. 安装 1 sudo apt install sysbench 使用 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 ubuntu@instance:~$ sysbench cpu --threads=3 run sysbench 1.0.18 (using system LuaJIT 2.1.0-beta3) Running the test with following options: Number of threads: 3 Initializing random number generator from current time Prime numbers limit: 10000 Initializing worker threads... Threads started! CPU speed: events per second: 10519.03 General statistics: total time: 10.0003s total number of events: 105208 Latency (ms): min: 0.28 avg:]]></description>
-</item><item>
-  <title>使用 Hugo &#43; Github Pages 创建静态网站博客</title>
-  <link>https://whuwangyong.github.io/2022-04-19-hugo/</link>
-  <pubDate>Tue, 19 Apr 2022 00:00:00 &#43;0800</pubDate>
-  <author>Wang Yong</author>
-  <guid>https://whuwangyong.github.io/2022-04-19-hugo/</guid>
-  <description><![CDATA[最好的参考资料仍然是官方。本文仅作一个基本描述 安装 Hugo 在此处下载安装包。有两个版本：（1）hugo；（2）hugo_extended。怎么选？很多功能，包括一些主题，都需要 hugo_extended 的支持，因此，建议安装 hugo_extended。下载之后，解压，将]]></description>
 </item></channel>
 </rss>
