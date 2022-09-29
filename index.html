@@ -246,6 +246,35 @@
 ><i class="fa-solid fa-rss fa-fw"></i>
     </a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+    <a href="/2022-09-29-use-statcounter-to-get-access-statistics/">使用statcounter做访问统计</a>
+  </h1><div class="post-meta"><span class="post-author"><a
+  href="https://github.com/whuwangyong"
+  
+    title="作者"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer author"
+  
+  
+    class="author"
+  
+  
+><img
+    class="lazyload avatar"
+    src="/svg/loading.min.svg"
+    data-src="/images/avatar150x150.jpg"
+    data-srcset="/images/avatar150x150.jpg, /images/avatar150x150.jpg 1.5x, /images/avatar150x150.jpg 2x"
+    data-sizes="auto"
+    alt="Wang Yong"
+    title="Wang Yong" />&nbsp;Wang Yong</a></span>&nbsp;<span class="post-publish" title='2022-09-29 00:00:00'>发布于 <time datetime="2022-09-29">2022-09-29</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E5%8D%9A%E5%AE%A2/"><i class="fa-regular fa-folder fa-fw"></i>&nbsp;静态网站博客</a></span></div><div class="content">使用statcounter做访问统计 先看效果 博客园： ​ github.io： ​ statcounter后台： ​ 没啥访问量，见笑了…… 如何实现 本质是将statcounter生成的一段代码，放到自己的网站上就可以了。 注册并生成代码 注册，新建proj</div><div class="post-footer">
+    <a href="/2022-09-29-use-statcounter-to-get-access-statistics/">阅读全文</a><div class="post-tags">
+        <i class="fa-solid fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E8%AE%BF%E9%97%AE%E7%BB%9F%E8%AE%A1/">访问统计</a>,&nbsp;<a href="/tags/statcounter/">statcounter</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
     <a href="/2022-09-21-how-to-ensure-kafka-topics-deleted/">如何确保kafka topic已经删除</a>
   </h1><div class="post-meta"><span class="post-author"><a
   href="https://github.com/whuwangyong"
@@ -796,35 +825,6 @@
     title="Wang Yong" />&nbsp;Wang Yong</a></span>&nbsp;<span class="post-publish" title='2022-03-13 00:00:00'>发布于 <time datetime="2022-03-13">2022-03-13</time></span></div><div class="content">问题描述 有一个配置文件 config： 1 2 KAFKA_HOME=/home/wy/dev/kafka_2.13-2.6.0 BOOTSTRAP_SERVER=127.0.0.1:9092 另有一个使用该配置文件的脚本 list-topics.sh： 1 2 3 4 #!/bin/bash . config &#34;$KAFKA_HOME&#34;/bin/kafka-topics.sh --bootstrap-server &#34;$BOOTSTRAP_SERVER&#34; --list 我使用虚拟机Ubuntu挂载Windows分区，执行在Windows环境下编写的脚本，提示： 1 2 wy@ship:/mnt/hgfs/D/projects/kafka-mate/scripts$ ./list-topics.sh /bin/kafka-topics.sh: No such file or directory13-2.6.0 解决</div><div class="post-footer">
     <a href="/2022-03-13-linebreak-in-windows-and-linux/">阅读全文</a><div class="post-tags">
         <i class="fa-solid fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E6%8D%A2%E8%A1%8C%E7%AC%A6/">换行符</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-    <a href="/2022-03-12-can-not-delete-topics-when-kafka-running-on-windows/">kafka在Windows上无法动态删除topic</a>
-  </h1><div class="post-meta"><span class="post-author"><a
-  href="https://github.com/whuwangyong"
-  
-    title="作者"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer author"
-  
-  
-    class="author"
-  
-  
-><img
-    class="lazyload avatar"
-    src="/svg/loading.min.svg"
-    data-src="/images/avatar150x150.jpg"
-    data-srcset="/images/avatar150x150.jpg, /images/avatar150x150.jpg 1.5x, /images/avatar150x150.jpg 2x"
-    data-sizes="auto"
-    alt="Wang Yong"
-    title="Wang Yong" />&nbsp;Wang Yong</a></span>&nbsp;<span class="post-publish" title='2022-03-12 00:00:00'>发布于 <time datetime="2022-03-12">2022-03-12</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/kafka/"><i class="fa-regular fa-folder fa-fw"></i>&nbsp;kafka</a></span></div><div class="content">问题描述 删除topic时导致集群崩溃，报错： ERROR Shutdown broker because all log dirs in D:\tmp\kafka-logs have failed. 测试了kafka_2.11-1.1.0、kafka_2.13-2.5.0、kafka_2.13-2.6.2、kafka_2.13-2.7.0四个版本，都有这个问题。 搜索了网络</div><div class="post-footer">
-    <a href="/2022-03-12-can-not-delete-topics-when-kafka-running-on-windows/">阅读全文</a><div class="post-tags">
-        <i class="fa-solid fa-tags fa-fw"></i>&nbsp;<a href="/tags/kafka/">kafka</a>,&nbsp;<a href="/tags/kafka-topic/">kafka topic</a></div></div>
 </article><ul class="pagination"><li class="page-item active">
           <span class="page-link">
             <a href="/">1</a>
