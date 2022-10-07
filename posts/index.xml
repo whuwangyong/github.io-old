@@ -4,7 +4,14 @@
     <link>https://whuwangyong.github.io/posts/</link>
     <description>所有文章 | 武大路飞</description>
     <generator>Hugo -- gohugo.io</generator><managingEditor>whuwangyong@gmail.com (Wang Yong)</managingEditor>
-      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Thu, 29 Sep 2022 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://whuwangyong.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Fri, 07 Oct 2022 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://whuwangyong.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+  <title>思源笔记与logseq在PDF标注上的体验</title>
+  <link>https://whuwangyong.github.io/2022-10-07-pdf-reading-on-siyuan-note-and-logseq/</link>
+  <pubDate>Fri, 07 Oct 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-10-07-pdf-reading-on-siyuan-note-and-logseq/</guid>
+  <description><![CDATA[版本：思源2.2.3，logseq 0.8.8 功能对比 功能 思源 logseq 目录/书签 Y Y 高亮、批注、矩形选择 Y Y 页面缩放、跳转 Y Y 关键字搜索 Y N 高亮内容自动添加到笔记 N Y 笔记与PDF原文之间互相跳转 Y Y logseq的明显短板是没有全文搜索，这个应该不难，不知道]]></description>
+</item><item>
   <title>使用statcounter做访问统计</title>
   <link>https://whuwangyong.github.io/2022-09-29-use-statcounter-to-get-access-statistics/</link>
   <pubDate>Thu, 29 Sep 2022 00:00:00 &#43;0800</pubDate>
@@ -67,12 +74,5 @@
   <author>Wang Yong</author>
   <guid>https://whuwangyong.github.io/2022-05-30-kafka-tx/</guid>
   <description><![CDATA[Kafka的事务是什么 生产者往多个topic里面写消息，要么同时成功，要么同时失败。 为什么需要事务 消息系统有3种语义： 最多一次 最少一次 精确一次。Exactly Only Once 为了实现精确一次的语义，Kafka必须引入事务。如下图： 本应用从上游topic]]></description>
-</item><item>
-  <title>kafka offset为什么不连续</title>
-  <link>https://whuwangyong.github.io/2022-05-20-why-kafka-offset-not-sequential/</link>
-  <pubDate>Fri, 20 May 2022 00:00:00 &#43;0800</pubDate>
-  <author>Wang Yong</author>
-  <guid>https://whuwangyong.github.io/2022-05-20-why-kafka-offset-not-sequential/</guid>
-  <description><![CDATA[why kafka offset not sequential 未使用事务时，至少一次语义，消息重发时，会占用offset 使用事务时，每次事务的commit/abort，都会往topic（每个分区？）写一个标志，这个标志会占用offset 官方并未提及offset是连续的 Reference [Solved] Kafka Streams does not increment offset by 1 when producing]]></description>
 </item></channel>
 </rss>

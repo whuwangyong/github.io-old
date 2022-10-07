@@ -4,7 +4,14 @@
     <link>https://whuwangyong.github.io/tags/%E6%80%9D%E6%BA%90%E7%AC%94%E8%AE%B0/</link>
     <description>思源笔记 - 标签 - 武大路飞</description>
     <generator>Hugo -- gohugo.io</generator><managingEditor>whuwangyong@gmail.com (Wang Yong)</managingEditor>
-      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Tue, 29 Mar 2022 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://whuwangyong.github.io/tags/%E6%80%9D%E6%BA%90%E7%AC%94%E8%AE%B0/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Fri, 07 Oct 2022 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://whuwangyong.github.io/tags/%E6%80%9D%E6%BA%90%E7%AC%94%E8%AE%B0/" rel="self" type="application/rss+xml" /><item>
+  <title>思源笔记与logseq在PDF标注上的体验</title>
+  <link>https://whuwangyong.github.io/2022-10-07-pdf-reading-on-siyuan-note-and-logseq/</link>
+  <pubDate>Fri, 07 Oct 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-10-07-pdf-reading-on-siyuan-note-and-logseq/</guid>
+  <description><![CDATA[版本：思源2.2.3，logseq 0.8.8 功能对比 功能 思源 logseq 目录/书签 Y Y 高亮、批注、矩形选择 Y Y 页面缩放、跳转 Y Y 关键字搜索 Y N 高亮内容自动添加到笔记 N Y 笔记与PDF原文之间互相跳转 Y Y logseq的明显短板是没有全文搜索，这个应该不难，不知道]]></description>
+</item><item>
   <title>云笔记软件简评</title>
   <link>https://whuwangyong.github.io/2022-03-08-notesapp-benchmark/</link>
   <pubDate>Tue, 29 Mar 2022 00:00:00 &#43;0800</pubDate>
