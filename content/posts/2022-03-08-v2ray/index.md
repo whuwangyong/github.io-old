@@ -132,7 +132,8 @@ root@instance-20220307-2119:/home/ubuntu/v2ray# systemctl status v2ray
 
 来源：[VMess | 新 V2Ray 白话文指南 (v2fly.org)](https://guide.v2fly.org/basics/vmess.html)
 
-服务端：配置文件位于`/usr/local/etc/v2ray/config.json`
+#### 服务端配置
+配置文件位于`/usr/local/etc/v2ray/config.json`
 
 ```json
 {
@@ -160,8 +161,9 @@ root@instance-20220307-2119:/home/ubuntu/v2ray# systemctl status v2ray
 }
 ```
 
-客户端
-
+#### 客户端配置
+例如，在Windows上使用v2rayN，服务器->添加VMess服务器，可以手动填写各项，也可以导入配置文件。
+![img.png](assets/image-20221107093358-j0wenda.png)
 ```json
 {
   "inbounds": [
