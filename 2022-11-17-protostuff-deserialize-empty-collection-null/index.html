@@ -5,38 +5,38 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>思源笔记与logseq在PDF标注上的体验 - 武大路飞</title><meta name="author" content="Wang Yong">
+    <title>protostuff deserialize empty collection null - 武大路飞</title><meta name="author" content="Wang Yong">
 <meta name="author-link" content="https://github.com/whuwangyong">
-<meta name="description" content="版本：思源2.2.3，logseq 0.8.8 功能对比 功能 思源 logseq 目录/书签 Y Y 高亮、批注、矩形选择 Y Y 页面缩放、跳转 Y Y 关键字搜索 Y N 高亮内容自动添加到笔记 N Y 笔记与PDF原文之间互相跳转 Y Y logseq的明显短板是没有全文搜索，这个应该不难，不知道" /><meta name="keywords" content='思源笔记, logseq, pdf' /><meta itemprop="name" content="思源笔记与logseq在PDF标注上的体验">
-<meta itemprop="description" content="版本：思源2.2.3，logseq 0.8.8 功能对比 功能 思源 logseq 目录/书签 Y Y 高亮、批注、矩形选择 Y Y 页面缩放、跳转 Y Y 关键字搜索 Y N 高亮内容自动添加到笔记 N Y 笔记与PDF原文之间互相跳转 Y Y logseq的明显短板是没有全文搜索，这个应该不难，不知道"><meta itemprop="datePublished" content="2022-10-07T00:00:00+08:00" />
-<meta itemprop="dateModified" content="2022-10-07T16:39:31+08:00" />
-<meta itemprop="wordCount" content="491"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
-<meta itemprop="keywords" content="思源笔记,logseq,pdf," /><meta property="og:title" content="思源笔记与logseq在PDF标注上的体验" />
-<meta property="og:description" content="版本：思源2.2.3，logseq 0.8.8 功能对比 功能 思源 logseq 目录/书签 Y Y 高亮、批注、矩形选择 Y Y 页面缩放、跳转 Y Y 关键字搜索 Y N 高亮内容自动添加到笔记 N Y 笔记与PDF原文之间互相跳转 Y Y logseq的明显短板是没有全文搜索，这个应该不难，不知道" />
+<meta name="description" content="protostuff反序列化空集合为null。 问题描述 有一个class A，含一个集合字段。创建对象时，如果集合字段赋值empty（不是null），那么反序列化后该字段变为null。 1 2 3 4 5 6 7 8 9 10 11 12 public class A { List&lt;Object&gt; lo; String name; } A a = new A(); a.setLo(new ArrarList&lt;&gt;()); a.setName(&#34;a&#34;); var" /><meta name="keywords" content='protostuff, 反序列化, null' /><meta itemprop="name" content="protostuff deserialize empty collection null">
+<meta itemprop="description" content="protostuff反序列化空集合为null。 问题描述 有一个class A，含一个集合字段。创建对象时，如果集合字段赋值empty（不是null），那么反序列化后该字段变为null。 1 2 3 4 5 6 7 8 9 10 11 12 public class A { List&lt;Object&gt; lo; String name; } A a = new A(); a.setLo(new ArrarList&lt;&gt;()); a.setName(&#34;a&#34;); var"><meta itemprop="datePublished" content="2022-11-17T00:00:00+08:00" />
+<meta itemprop="dateModified" content="2022-11-17T20:18:37+08:00" />
+<meta itemprop="wordCount" content="298"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
+<meta itemprop="keywords" content="protostuff,反序列化,null," /><meta property="og:title" content="protostuff deserialize empty collection null" />
+<meta property="og:description" content="protostuff反序列化空集合为null。 问题描述 有一个class A，含一个集合字段。创建对象时，如果集合字段赋值empty（不是null），那么反序列化后该字段变为null。 1 2 3 4 5 6 7 8 9 10 11 12 public class A { List&lt;Object&gt; lo; String name; } A a = new A(); a.setLo(new ArrarList&lt;&gt;()); a.setName(&#34;a&#34;); var" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://whuwangyong.github.io/2022-10-07-pdf-reading-on-siyuan-note-and-logseq/" /><meta property="og:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-10-07T00:00:00+08:00" />
-<meta property="article:modified_time" content="2022-10-07T16:39:31+08:00" />
+<meta property="og:url" content="https://whuwangyong.github.io/2022-11-17-protostuff-deserialize-empty-collection-null/" /><meta property="og:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-11-17T00:00:00+08:00" />
+<meta property="article:modified_time" content="2022-11-17T20:18:37+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
 
-<meta name="twitter:title" content="思源笔记与logseq在PDF标注上的体验"/>
-<meta name="twitter:description" content="版本：思源2.2.3，logseq 0.8.8 功能对比 功能 思源 logseq 目录/书签 Y Y 高亮、批注、矩形选择 Y Y 页面缩放、跳转 Y Y 关键字搜索 Y N 高亮内容自动添加到笔记 N Y 笔记与PDF原文之间互相跳转 Y Y logseq的明显短板是没有全文搜索，这个应该不难，不知道"/>
+<meta name="twitter:title" content="protostuff deserialize empty collection null"/>
+<meta name="twitter:description" content="protostuff反序列化空集合为null。 问题描述 有一个class A，含一个集合字段。创建对象时，如果集合字段赋值empty（不是null），那么反序列化后该字段变为null。 1 2 3 4 5 6 7 8 9 10 11 12 public class A { List&lt;Object&gt; lo; String name; } A a = new A(); a.setLo(new ArrarList&lt;&gt;()); a.setName(&#34;a&#34;); var"/>
 <meta name="application-name" content="武大路飞">
 <meta name="apple-mobile-web-app-title" content="武大路飞"><meta name="theme-color" data-light="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]" data-dark="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]" content="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://whuwangyong.github.io/2022-10-07-pdf-reading-on-siyuan-note-and-logseq/" /><link rel="prev" href="https://whuwangyong.github.io/2022-09-29-use-statcounter-to-get-access-statistics/" /><link rel="next" href="https://whuwangyong.github.io/2022-11-17-protostuff-deserialize-empty-collection-null/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://whuwangyong.github.io/2022-11-17-protostuff-deserialize-empty-collection-null/" /><link rel="prev" href="https://whuwangyong.github.io/2022-10-07-pdf-reading-on-siyuan-note-and-logseq/" /><link rel="next" href="https://whuwangyong.github.io/2022-11-17-kafka-transaction-hanging-causes-consumer-to-stuck/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "headline": "思源笔记与logseq在PDF标注上的体验",
+    "headline": "protostuff deserialize empty collection null",
     "inLanguage": "",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https:\/\/whuwangyong.github.io\/2022-10-07-pdf-reading-on-siyuan-note-and-logseq\/"
-    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "思源笔记, logseq, pdf","wordcount":  491 ,
-    "url": "https:\/\/whuwangyong.github.io\/2022-10-07-pdf-reading-on-siyuan-note-and-logseq\/","datePublished": "2022-10-07T00:00:00+08:00","dateModified": "2022-10-07T16:39:31+08:00","publisher": {
+      "@id": "https:\/\/whuwangyong.github.io\/2022-11-17-protostuff-deserialize-empty-collection-null\/"
+    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "protostuff, 反序列化, null","wordcount":  298 ,
+    "url": "https:\/\/whuwangyong.github.io\/2022-11-17-protostuff-deserialize-empty-collection-null\/","datePublished": "2022-11-17T00:00:00+08:00","dateModified": "2022-11-17T20:18:37+08:00","publisher": {
       "@type": "Organization",
       "name": "Wang Yong","logo": {
           "@type": "ImageObject",
@@ -193,7 +193,7 @@
 
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX">
-        <span>思源笔记与logseq在PDF标注上的体验</span>
+        <span>protostuff deserialize empty collection null</span>
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><a href="https://github.com/whuwangyong" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img
     class="lazyload avatar"
@@ -203,8 +203,8 @@
     data-sizes="auto"
     alt="Wang Yong"
     title="Wang Yong" width="150" height="151"/>&nbsp;Wang Yong</a></span>
-          <span class="post-category">收录于 <a href="/categories/%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 笔记软件</a></span></div>
-      <div class="post-meta-line"><span title=2022-10-07&#32;00:00:00><i class="fa-regular fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-10-07">2022-10-07</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw" aria-hidden="true"></i> 约 491 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw" aria-hidden="true"></i> 预计阅读 1 分钟</span>&nbsp;</div>
+          <span class="post-category">收录于 <a href="/categories/protostuff/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> protostuff</a></span></div>
+      <div class="post-meta-line"><span title=2022-11-17&#32;00:00:00><i class="fa-regular fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-17">2022-11-17</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw" aria-hidden="true"></i> 约 298 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw" aria-hidden="true"></i> 预计阅读 1 分钟</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>目录</span>
@@ -212,95 +212,105 @@
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#功能对比">功能对比</a></li>
-    <li><a href="#思源阅读pdf时的界面">思源阅读PDF时的界面</a></li>
-    <li><a href="#logseq阅读pdf时的界面">logseq阅读PDF时的界面</a></li>
-    <li><a href="#结论">结论</a></li>
+    <li><a href="#问题描述">问题描述</a></li>
+    <li><a href="#原因分析">原因分析</a></li>
+    <li><a href="#reference">Reference</a></li>
   </ul>
 </nav></div>
-      </div><div class="content" id="content"><blockquote>
-<p>版本：思源2.2.3，logseq 0.8.8</p>
-</blockquote>
-<h2 id="功能对比">功能对比</h2>
-<table>
-<thead>
-<tr>
-<th>功能</th>
-<th>思源</th>
-<th>logseq</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>目录/书签</td>
-<td>Y</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>高亮、批注、矩形选择</td>
-<td>Y</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>页面缩放、跳转</td>
-<td>Y</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>关键字搜索</td>
-<td>Y</td>
-<td>N</td>
-</tr>
-<tr>
-<td>高亮内容自动添加到笔记</td>
-<td>N</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>笔记与PDF原文之间互相跳转</td>
-<td>Y</td>
-<td>Y</td>
-</tr>
-</tbody>
-</table>
-<p>logseq的明显短板是没有全文搜索，这个应该不难，不知道为啥没做。</p>
-<p>明显优势是，高亮文本时，自动将选中的内容复制到笔记，并创建双向链接。而思源需要手动复制引用再到笔记里粘贴。</p>
-<p>两个笔记软件都只提供了高亮功能，那么文本批注是如何实现的呢？答案是在笔记里添加额外内容作为批注。与普通的PDF阅读器不同，笔记软件的批注是保存在笔记里，而不是PDF文件里。</p>
-<p>思源笔记可以在鼠标悬停PDF正文高亮部分时，浮窗展示对应的笔记内容。logseq是二次点击之后跳转到对应的笔记。</p>
-<h2 id="思源阅读pdf时的界面">思源阅读PDF时的界面</h2>
-<p><img
-    class="lazyload"
-    src="/svg/loading.min.svg"
-    data-src="/2022-10-07-pdf-reading-on-siyuan-note-and-logseq/assets/image-20221007150903-a20xv27.png"
-    data-srcset="/2022-10-07-pdf-reading-on-siyuan-note-and-logseq/assets/image-20221007150903-a20xv27.png, /2022-10-07-pdf-reading-on-siyuan-note-and-logseq/assets/image-20221007150903-a20xv27.png 1.5x, /2022-10-07-pdf-reading-on-siyuan-note-and-logseq/assets/image-20221007150903-a20xv27.png 2x"
-    data-sizes="auto"
-    alt="image"
-    title="image" width="1920" height="648"/>​</p>
-<h2 id="logseq阅读pdf时的界面">logseq阅读PDF时的界面</h2>
-<p><img
-    class="lazyload"
-    src="/svg/loading.min.svg"
-    data-src="/2022-10-07-pdf-reading-on-siyuan-note-and-logseq/assets/image-20221007151554-cas937g.png"
-    data-srcset="/2022-10-07-pdf-reading-on-siyuan-note-and-logseq/assets/image-20221007151554-cas937g.png, /2022-10-07-pdf-reading-on-siyuan-note-and-logseq/assets/image-20221007151554-cas937g.png 1.5x, /2022-10-07-pdf-reading-on-siyuan-note-and-logseq/assets/image-20221007151554-cas937g.png 2x"
-    data-sizes="auto"
-    alt="image"
-    title="image" width="1916" height="874"/>​</p>
-<h2 id="结论">结论</h2>
-<p>两个笔记软件在PDF阅读上都不完美。</p>
-<p>所以我还是选择福昕、WPS PDF等软件阅读PDF。读完后导出注释，再放进笔记里。缺点就是不能便捷地从笔记跳转到对应的原文，PDF文件没有被笔记软件管理。但是导出的注释里有页面，手动翻一下也行……</p>
-<blockquote>
-<p>注意：高亮文本的导出，我发现目前仅有福昕阅读器支持。</p>
-</blockquote>
+      </div><div class="content" id="content"><p>protostuff反序列化空集合为null。</p>
+<h2 id="问题描述">问题描述</h2>
+<p>有一个class A，含一个集合字段。创建对象时，如果集合字段赋值empty（不是null），那么反序列化后该字段变为null。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">A</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">lo</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">A</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">A</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="na">setLo</span><span class="o">(</span><span class="k">new</span> <span class="n">ArrarList</span><span class="o">&lt;&gt;());</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&#34;a&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">var</span> <span class="n">b</span> <span class="o">=</span> <span class="n">serialize</span><span class="o">(</span><span class="n">a</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">var</span> <span class="n">c</span> <span class="o">=</span> <span class="n">deserialize</span><span class="o">(</span><span class="n">b</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// c.lo is null
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="原因分析">原因分析</h2>
+<p>这是因为protostuff默认不序列collection本身，只序列化collection里面的元素。</p>
+<p>解决1：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">foo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>解决2：</p>
+<p>You can use this scheme，an empty List after deserialization</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">IdStrategy</span> <span class="n">strategy</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultIdStrategy</span><span class="o">(</span><span class="n">IdStrategy</span><span class="o">.</span><span class="na">DEFAULT_FLAGS</span> 
+</span></span><span class="line"><span class="cl">    <span class="o">|</span> <span class="n">IdStrategy</span><span class="o">.</span><span class="na">COLLECTION_SCHEMA_ON_REPEATED_FIELDS</span> <span class="o">,</span><span class="kc">null</span><span class="o">,</span><span class="n">0</span><span class="o">);</span> 
+</span></span><span class="line"><span class="cl"><span class="n">schema</span> <span class="o">=</span> <span class="n">RuntimeSchema</span><span class="o">.</span><span class="na">createFrom</span><span class="o">(</span><span class="n">originClazz</span><span class="o">,</span> <span class="n">strategy</span><span class="o">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>解决3：</p>
+<p>If you are to purely use this to replace java serialization (no compatibility with protobuf), set the following system properties:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">-Dprotostuff.runtime.always_use_sun_reflection_factory=true
+</span></span><span class="line"><span class="cl">-Dprotostuff.runtime.preserve_null_elements=true
+</span></span><span class="line"><span class="cl">-Dprotostuff.runtime.morph_collection_interfaces=true
+</span></span><span class="line"><span class="cl">-Dprotostuff.runtime.morph_map_interfaces=true
+</span></span><span class="line"><span class="cl">-Dprotostuff.runtime.morph_non_final_pojos=true
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="reference">Reference</h2>
+<ol>
+<li><a href="https://github.com/protostuff/protostuff/issues/219"target="_blank" rel="external nofollow noopener noreferrer">Can not correctly deserialize empty List · Issue #219 · protostuff/protostuff (github.com)</a></li>
+<li><a href="https://github.com/protostuff/protostuff/blob/master/protostuff-runtime/src/main/java/io/protostuff/runtime/RuntimeEnv.java"target="_blank" rel="external nofollow noopener noreferrer">protostuff/RuntimeEnv.java at master · protostuff/protostuff (github.com)</a></li>
+<li><a href="https://groups.google.com/g/protostuff/c/tYOdTSUvg_Q/m/eHJr6HwmbmoJ?pli=1"target="_blank" rel="external nofollow noopener noreferrer">Empty ArrayList data member being deserialized back as null (google.com)</a></li>
+</ol>
 </div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title=2022-10-07&#32;16:39:31>更新于 2022-10-07&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/1771595e03601ef48f82d99edb778c62b2f98135" rel="external nofollow noopener noreferrer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) 1771595e03601ef48f82d99edb778c62b2f98135: new post: 思源笔记与logseq在PDF标注上的体验"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>1771595</a></span>
+        <span title=2022-11-17&#32;20:18:37>更新于 2022-11-17&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/6de82b8f3e502b5f2271e39c185d70f6676752b3" rel="external nofollow noopener noreferrer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) 6de82b8f3e502b5f2271e39c185d70f6676752b3: new post: protostuff deserialize empty collection null"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>6de82b8</a></span>
       </div><div class="post-info-license">
           <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
         </div></div>
     <div class="post-info-line">
-      <div class="post-info-md"><span><a href="/2022-10-07-pdf-reading-on-siyuan-note-and-logseq/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+      <div class="post-info-md"><span><a href="/2022-11-17-protostuff-deserialize-empty-collection-null/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
       <div class="post-info-share">
         <span></span>
       </div>
@@ -308,14 +318,14 @@
   </div>
 
   <div class="post-info-more">
-    <section class="post-tags"><i class="fa-solid fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E6%80%9D%E6%BA%90%E7%AC%94%E8%AE%B0/">思源笔记</a>,&nbsp;<a href="/tags/logseq/">logseq</a>,&nbsp;<a href="/tags/pdf/">pdf</a></section>
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/protostuff/">protostuff</a>,&nbsp;<a href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">反序列化</a>,&nbsp;<a href="/tags/null/">null</a></section>
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
     </section>
   </div>
 
-  <div class="post-nav"><a href="/2022-09-29-use-statcounter-to-get-access-statistics/" class="post-nav-item" rel="prev" title="使用statcounter做访问统计"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>使用statcounter做访问统计</a>
-      <a href="/2022-11-17-protostuff-deserialize-empty-collection-null/" class="post-nav-item" rel="next" title="protostuff deserialize empty collection null">protostuff deserialize empty collection null<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+  <div class="post-nav"><a href="/2022-10-07-pdf-reading-on-siyuan-note-and-logseq/" class="post-nav-item" rel="prev" title="思源笔记与logseq在PDF标注上的体验"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>思源笔记与logseq在PDF标注上的体验</a>
+      <a href="/2022-11-17-kafka-transaction-hanging-causes-consumer-to-stuck/" class="post-nav-item" rel="next" title="Kafka transaction hanging causes consumer to stuck">Kafka transaction hanging causes consumer to stuck<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="utterances" class="comment"></div><noscript>
         Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/" rel="external nofollow noopener noreferrer">Utterances</a>.

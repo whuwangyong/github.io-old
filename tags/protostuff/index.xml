@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>protostuff - 标签 - 武大路飞</title>
+    <link>https://whuwangyong.github.io/tags/protostuff/</link>
+    <description>protostuff - 标签 - 武大路飞</description>
+    <generator>Hugo -- gohugo.io</generator><managingEditor>whuwangyong@gmail.com (Wang Yong)</managingEditor>
+      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Thu, 17 Nov 2022 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://whuwangyong.github.io/tags/protostuff/" rel="self" type="application/rss+xml" /><item>
+  <title>protostuff deserialize empty collection null</title>
+  <link>https://whuwangyong.github.io/2022-11-17-protostuff-deserialize-empty-collection-null/</link>
+  <pubDate>Thu, 17 Nov 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-11-17-protostuff-deserialize-empty-collection-null/</guid>
+  <description><![CDATA[protostuff反序列化空集合为null。 问题描述 有一个class A，含一个集合字段。创建对象时，如果集合字段赋值empty（不是null），那么反序列化后该字段变为null。 1 2 3 4 5 6 7 8 9 10 11 12 public class A { List&lt;Object&gt; lo; String name; } A a = new A(); a.setLo(new ArrarList&lt;&gt;()); a.setName(&#34;a&#34;); var]]></description>
+</item>
+</channel>
+</rss>

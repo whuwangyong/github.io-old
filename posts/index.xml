@@ -13,6 +13,14 @@
   <description><![CDATA[Kafka事务未关闭导致消费者无法消费消息。 背景 最近遇到一个问题：有一个公用topic，很多应用都读写这个topic。从某个时间点开始，所有消费该topic的消费者（read_committed级别）都拉不到消息了。随机看了一些应用的日志，]]></description>
 </item>
 <item>
+  <title>protostuff deserialize empty collection null</title>
+  <link>https://whuwangyong.github.io/2022-11-17-protostuff-deserialize-empty-collection-null/</link>
+  <pubDate>Thu, 17 Nov 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-11-17-protostuff-deserialize-empty-collection-null/</guid>
+  <description><![CDATA[protostuff反序列化空集合为null。 问题描述 有一个class A，含一个集合字段。创建对象时，如果集合字段赋值empty（不是null），那么反序列化后该字段变为null。 1 2 3 4 5 6 7 8 9 10 11 12 public class A { List&lt;Object&gt; lo; String name; } A a = new A(); a.setLo(new ArrarList&lt;&gt;()); a.setName(&#34;a&#34;); var]]></description>
+</item>
+<item>
   <title>思源笔记与logseq在PDF标注上的体验</title>
   <link>https://whuwangyong.github.io/2022-10-07-pdf-reading-on-siyuan-note-and-logseq/</link>
   <pubDate>Fri, 07 Oct 2022 00:00:00 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
   <author>Wang Yong</author>
   <guid>https://whuwangyong.github.io/2022-07-23-use-process-explorer-to-detect-ad-process/</guid>
   <description><![CDATA[有时候电脑右下角、正中间弹出的广告，没有任何logo和落款，不知道是哪个软件搞的。这就好比挨了一拳，没看见出拳的人。 微软的一个大佬开发的 Process Explorer 功能强大，能解决这个问题。将工具栏上的瞄准镜拖动到广告弹窗上面即可。]]></description>
-</item>
-<item>
-  <title>kafka consumer seek之后立即poll可能拉不到消息</title>
-  <link>https://whuwangyong.github.io/2022-02-17-kafka-seek-poll/</link>
-  <pubDate>Tue, 31 May 2022 00:00:00 &#43;0800</pubDate>
-  <author>Wang Yong</author>
-  <guid>https://whuwangyong.github.io/2022-02-17-kafka-seek-poll/</guid>
-  <description><![CDATA[问题 有个需求，需要频繁seek到指定partition的指定offset，然后poll，且只poll一次，目的是为了快速将指定offset的消息拉取出来。 通常的poll写法是，将poll逻辑放在死循环里，第一次拉不到，第二次继续。如果off]]></description>
 </item>
 </channel>
 </rss>
