@@ -381,5 +381,6 @@ date 字段我一般只写日期，不写时间。好，现在问题来了，hug
 
 ---
 
-> 作者: Wang Yong  
-> https://whuwangyong.github.io/2022-04-19-hugo/
+> 作者: [Wang Yong](https://github.com/whuwangyong)  
+> URL: https://whuwangyong.github.io/2022-04-19-hugo/  
+

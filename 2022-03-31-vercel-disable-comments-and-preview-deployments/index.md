@@ -52,5 +52,6 @@ Project Settings -> Git -> Ignored Build Step，在 COMMAND 填入 `[ "$VERCEL_E
 
 ---
 
-> 作者: Wang Yong  
-> https://whuwangyong.github.io/2022-03-31-vercel-disable-comments-and-preview-deployments/
+> 作者: [Wang Yong](https://github.com/whuwangyong)  
+> URL: https://whuwangyong.github.io/2022-03-31-vercel-disable-comments-and-preview-deployments/  
+

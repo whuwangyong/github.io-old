@@ -146,5 +146,6 @@ shadowsocks的服务器在v2rayNG app上无法使用，需使用Shadowsocks app�
 
 ---
 
-> 作者: Wang Yong  
-> https://whuwangyong.github.io/2022-03-09-shadowsocks/
+> 作者: [Wang Yong](https://github.com/whuwangyong)  
+> URL: https://whuwangyong.github.io/2022-03-09-shadowsocks/  
+

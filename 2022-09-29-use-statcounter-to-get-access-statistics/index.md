@@ -69,5 +69,6 @@ statcounter还有一些其他的功能，如设置显示的类型PV/UV、邮件�
 
 ---
 
-> 作者: Wang Yong  
-> https://whuwangyong.github.io/2022-09-29-use-statcounter-to-get-access-statistics/
+> 作者: [Wang Yong](https://github.com/whuwangyong)  
+> URL: https://whuwangyong.github.io/2022-09-29-use-statcounter-to-get-access-statistics/  
+

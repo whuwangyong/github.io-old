@@ -546,5 +546,6 @@ Kafka Connect + Kafka Core + Kafka Streams
 
 ---
 
-> 作者: Wang Yong  
-> https://whuwangyong.github.io/2022-03-25-geektime-core-kafka-in-action-notes/
+> 作者: [Wang Yong](https://github.com/whuwangyong)  
+> URL: https://whuwangyong.github.io/2022-03-25-geektime-core-kafka-in-action-notes/  
+

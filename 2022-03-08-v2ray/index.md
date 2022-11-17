@@ -246,5 +246,6 @@ Created symlink /etc/systemd/system/multi-user.target.wants/v2ray.service → /e
 
 ---
 
-> 作者: Wang Yong  
-> https://whuwangyong.github.io/2022-03-08-v2ray/
+> 作者: [Wang Yong](https://github.com/whuwangyong)  
+> URL: https://whuwangyong.github.io/2022-03-08-v2ray/  
+

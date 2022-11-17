@@ -11,5 +11,6 @@
   <author>Wang Yong</author>
   <guid>https://whuwangyong.github.io/2022-08-22-mysql-foreign-key/</guid>
   <description><![CDATA[语法 在创建表的时候指定外键约束 1 2 3 4 5 6 7 8 9 10 CREATE TABLE 表名 ( column1 datatype null/not null, column2 datatype null/not null, ... CONSTRAINT 外键约束名 FOREIGN KEY (column1,column2,... column_n) REFERENCES 外键依赖的表 (column1,column2,...column_n) ON DELETE CASCADE--级联删除 ON UPDATE CASCADE--级联更新 ); 测试 有如下2个表： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 CREATE TABLE t_product]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

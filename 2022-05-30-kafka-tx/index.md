@@ -165,5 +165,6 @@ Transactions cause only moderate write amplification（有限的写放大）. Th
 
 ---
 
-> 作者: Wang Yong  
-> https://whuwangyong.github.io/2022-05-30-kafka-tx/
+> 作者: [Wang Yong](https://github.com/whuwangyong)  
+> URL: https://whuwangyong.github.io/2022-05-30-kafka-tx/  
+

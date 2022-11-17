@@ -149,5 +149,6 @@ print(time.time() - t0)
 
 ---
 
-> 作者: Wang Yong  
-> https://whuwangyong.github.io/2022-04-27-linux-cpu-benchmark/
+> 作者: [Wang Yong](https://github.com/whuwangyong)  
+> URL: https://whuwangyong.github.io/2022-04-27-linux-cpu-benchmark/  
+

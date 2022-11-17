@@ -11,5 +11,6 @@
   <author>Wang Yong</author>
   <guid>https://whuwangyong.github.io/2022-03-29-github-submodule/</guid>
   <description><![CDATA[最近学习使用 Hugo 构建静态网站。安装主题时，接触到git submodule这个命令，踩了些坑，总结一下。 子模块与父模块如何同步更新 子模块是一个单独的项目，commit push等操作需要在子模块自己的repo目录下操作。父项目的操作与子模块无关。]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

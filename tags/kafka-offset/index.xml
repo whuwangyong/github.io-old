@@ -11,5 +11,6 @@
   <author>Wang Yong</author>
   <guid>https://whuwangyong.github.io/2022-05-20-why-kafka-offset-not-sequential/</guid>
   <description><![CDATA[why kafka offset not sequential 未使用事务时，至少一次语义，消息重发时，会占用offset 使用事务时，每次事务的commit/abort，都会往topic（每个分区？）写一个标志，这个标志会占用offset 官方并未提及offset是连续的 Reference [Solved] Kafka Streams does not increment offset by 1 when producing]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

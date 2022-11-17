@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html lang="">
+<html itemscope itemtype="http://schema.org/WebPage" lang="">
   <head>
     
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <title>在consumer producer运行时停止kafka服务端会怎样 - 武大路飞</title><meta name="author" content="Wang Yong">
 <meta name="author-link" content="https://github.com/whuwangyong">
-<meta name="description" content="结论 服务端停止时，客户端程序会报错； 服务端启动后，客户端程序能继续运行。也就是，消费者线程并未异常退出。 实验步骤 （1）停止后，consumer和producer会报错。 消费者： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32" />
-<meta name="keywords" content="kafka" /><meta itemprop="name" content="在consumer producer运行时停止kafka服务端会怎样">
+<meta name="description" content="结论 服务端停止时，客户端程序会报错； 服务端启动后，客户端程序能继续运行。也就是，消费者线程并未异常退出。 实验步骤 （1）停止后，consumer和producer会报错。 消费者： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32" /><meta name="keywords" content='kafka' /><meta itemprop="name" content="在consumer producer运行时停止kafka服务端会怎样">
 <meta itemprop="description" content="结论 服务端停止时，客户端程序会报错； 服务端启动后，客户端程序能继续运行。也就是，消费者线程并未异常退出。 实验步骤 （1）停止后，consumer和producer会报错。 消费者： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32"><meta itemprop="datePublished" content="2022-09-18T00:00:00+08:00" />
 <meta itemprop="dateModified" content="2022-09-18T17:15:42+08:00" />
 <meta itemprop="wordCount" content="1955"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
@@ -26,9 +24,9 @@
 <meta name="twitter:title" content="在consumer producer运行时停止kafka服务端会怎样"/>
 <meta name="twitter:description" content="结论 服务端停止时，客户端程序会报错； 服务端启动后，客户端程序能继续运行。也就是，消费者线程并未异常退出。 实验步骤 （1）停止后，consumer和producer会报错。 消费者： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32"/>
 <meta name="application-name" content="武大路飞">
-<meta name="apple-mobile-web-app-title" content="武大路飞"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="apple-mobile-web-app-title" content="武大路飞"><meta name="theme-color" data-light="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]" data-dark="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]" content="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://whuwangyong.github.io/2022-09-18-stop-kafka-server-when-consumer-or-producer-running/" /><link rel="prev" href="https://whuwangyong.github.io/2022-09-18-delete-topic-when-consumer-or-producer-running/" /><link rel="next" href="https://whuwangyong.github.io/2022-09-21-how-to-ensure-kafka-topics-deleted/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://whuwangyong.github.io/2022-09-18-stop-kafka-server-when-consumer-or-producer-running/" /><link rel="prev" href="https://whuwangyong.github.io/2022-09-18-delete-topic-when-consumer-or-producer-running/" /><link rel="next" href="https://whuwangyong.github.io/2022-09-21-how-to-ensure-kafka-topics-deleted/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
@@ -51,87 +49,69 @@
       },"description": ""
   }
   </script></head>
-  <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script><div class="wrapper"><header class="desktop" id="header-desktop">
+  <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper"><header class="desktop animate__faster" id="header-desktop">
   <div class="header-wrapper">
     <div class="header-title">
-      <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a></div>
+      <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a><span class="header-subtitle"></span></div>
     <nav>
-      <ul class="menu"><li
-              class="menu-item"
-              
-            >
+      <ul class="menu"><li class="menu-item">
               <a
                 class="menu-link"
                 href="/posts/"
                 
                 
-              >归档</a></li><li
-              class="menu-item"
-              
-            >
+              >归档</a></li><li class="menu-item">
               <a
                 class="menu-link"
                 href="/tags/"
                 
                 
-              >标签</a></li><li
-              class="menu-item"
-              
-            >
+              >标签</a></li><li class="menu-item">
               <a
                 class="menu-link"
                 href="/categories/"
                 
                 
-              >分类</a></li><li
-              class="menu-item"
-              
-            >
+              >分类</a></li><li class="menu-item">
               <a
                 class="menu-link"
                 href="/links/"
                 title="友情链接"
                 
-              >友链</a></li><li
-              class="menu-item"
-              
-            >
+              >友链</a></li><li class="menu-item">
               <a
                 class="menu-link"
                 href="/about/"
                 
                 
-              >关于</a></li><li
-              class="menu-item"
-              
-            >
+              >关于</a></li><li class="menu-item">
               <a
                 class="menu-link"
                 href="https://github.com/whuwangyong"
                 title="GitHub"
-                rel="noopener noreffer" target="_blank"
+                rel="noopener noreferrer" target="_blank"
               ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
             <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-desktop">
             <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
-              <i class="fa-solid fa-search fa-fw"></i>
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
             </a>
             <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
-              <i class="fa-solid fa-times-circle fa-fw"></i>
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
             </a>
             <span class="search-button search-loading" id="search-loading-desktop">
-              <i class="fa-solid fa-spinner fa-fw fa-spin"></i>
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
             </span>
           </li><li class="menu-item theme-switch" title="切换主题">
-          <i class="fa-solid fa-adjust fa-fw"></i>
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
         </li>
       </ul>
     </nav>
   </div>
-</header><header class="mobile" id="header-mobile">
+</header><header class="mobile animate__faster" id="header-mobile">
   <div class="header-container">
     <div class="header-wrapper">
       <div class="header-title">
-        <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a></div>
+        <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a><span class="header-subtitle"></span></div>
       <div class="menu-toggle" id="menu-toggle-mobile">
         <span></span><span></span><span></span>
       </div>
@@ -141,13 +121,13 @@
             <div class="search mobile" id="search-mobile">
               <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-mobile">
               <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
-                <i class="fa-solid fa-search fa-fw"></i>
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
               </a>
               <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
-                <i class="fa-solid fa-times-circle fa-fw"></i>
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
               </a>
               <span class="search-button search-loading" id="search-loading-mobile">
-                <i class="fa-solid fa-spinner fa-fw fa-spin"></i>
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
               </span>
             </div>
             <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
@@ -156,100 +136,79 @@
           </li><li
               class="menu-item"
             ><a
-                class="menu-link"
-                href="/posts/"
-                
-                
-              >归档</a></li><li
+                  class="menu-link"
+                  href="/posts/"
+                  
+                  
+                >归档</a></li><li
               class="menu-item"
             ><a
-                class="menu-link"
-                href="/tags/"
-                
-                
-              >标签</a></li><li
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                >标签</a></li><li
               class="menu-item"
             ><a
-                class="menu-link"
-                href="/categories/"
-                
-                
-              >分类</a></li><li
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                >分类</a></li><li
               class="menu-item"
             ><a
-                class="menu-link"
-                href="/links/"
-                title="友情链接"
-                
-              >友链</a></li><li
+                  class="menu-link"
+                  href="/links/"
+                  title="友情链接"
+                  
+                >友链</a></li><li
               class="menu-item"
             ><a
-                class="menu-link"
-                href="/about/"
-                
-                
-              >关于</a></li><li
+                  class="menu-link"
+                  href="/about/"
+                  
+                  
+                >关于</a></li><li
               class="menu-item"
             ><a
-                class="menu-link"
-                href="https://github.com/whuwangyong"
-                title="GitHub"
-                rel="noopener noreffer" target="_blank"
-              ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item theme-switch" title="切换主题">
-          <i class="fa-solid fa-adjust fa-fw"></i>
+                  class="menu-link"
+                  href="https://github.com/whuwangyong"
+                  title="GitHub"
+                  rel="noopener noreferrer" target="_blank"
+                ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
         </li></ul>
     </nav>
   </div>
-</header>
-<div class="search-dropdown desktop">
-  <div id="search-dropdown-desktop"></div>
-</div>
-<div class="search-dropdown mobile">
-  <div id="search-dropdown-mobile"></div>
-</div>
-<main class="container" page-style="custom"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录 <i class="toc-icon fa-solid fa-angle-down fa-fw"></i></h2>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container" data-page-style="custom"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
       <div class="toc-content always-active" id="toc-content-auto"></div></aside>
 
   <aside class="aside-custom">
-    
-  </aside>
+    </aside>
 
   <article class="page single">
-    <div class="header"><h1 class="single-title animate__animated animate__flipInX">在consumer producer运行时停止kafka服务端会怎样</h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a
-  href="https://github.com/whuwangyong"
-  
-    title="作者"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer author"
-  
-  
-    class="author"
-  
-  
-><img
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX">
+        <span>在consumer producer运行时停止kafka服务端会怎样</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/whuwangyong" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img
     class="lazyload avatar"
     src="/svg/loading.min.svg"
     data-src="/images/avatar150x150.jpg"
     data-srcset="/images/avatar150x150.jpg, /images/avatar150x150.jpg 1.5x, /images/avatar150x150.jpg 2x"
     data-sizes="auto"
     alt="Wang Yong"
-    title="Wang Yong" />&nbsp;Wang Yong</a></span>
-          <span class="post-category">收录于 <a href="/categories/kafka/"><i class="fa-regular fa-folder fa-fw"></i>&nbsp;kafka</a></span></div>
-      <div class="post-meta-line"><span title=2022-09-18&#32;00:00:00>
-            <i class="fa-regular fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-09-18" >2022-09-18</time>
-          </span>&nbsp;<i class="fa-solid fa-pencil-alt fa-fw"></i>&nbsp;约 1955 字&nbsp;
-        <i class="fa-regular fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
-    </div><div class="details toc" id="toc-static" kept="false">
+    title="Wang Yong" width="150" height="151"/>&nbsp;Wang Yong</a></span>
+          <span class="post-category">收录于 <a href="/categories/kafka/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> kafka</a></span></div>
+      <div class="post-meta-line"><span title=2022-09-18&#32;00:00:00><i class="fa-regular fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-09-18">2022-09-18</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw" aria-hidden="true"></i> 约 1955 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw" aria-hidden="true"></i> 预计阅读 4 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>目录</span>
-          <span><i class="details-icon fa-solid fa-angle-right"></i></span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
@@ -258,12 +217,7 @@
     <li><a href="#附测试代码">附：测试代码</a></li>
   </ul>
 </nav></div>
-      </div><div
-      class="content"
-      id="content"
-      
-      
-    ><h2 id="结论">结论</h2>
+      </div><div class="content" id="content"><h2 id="结论">结论</h2>
 <p>服务端停止时，客户端程序会报错；</p>
 <p>服务端启动后，客户端程序能继续运行。也就是，消费者线程并未异常退出。</p>
 <h2 id="实验步骤">实验步骤</h2>
@@ -562,24 +516,12 @@
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title=2022-09-18&#32;17:15:42>更新于 2022-09-18&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/d1d3a7896e36362d7dca4e63784a92600874f269" rel="external nofollow noopener noreffer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) d1d3a7896e36362d7dca4e63784a92600874f269: update post: stop-kafka-server-when-consumer-or-producer-running">
-                  <i class="fa-solid fa-hashtag fa-fw"></i>d1d3a78</a></span>
-      </div>
-      <div class="post-info-license "></div>
-    </div>
+        <span title=2022-09-18&#32;17:15:42>更新于 2022-09-18&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/d1d3a7896e36362d7dca4e63784a92600874f269" rel="external nofollow noopener noreferrer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) d1d3a7896e36362d7dca4e63784a92600874f269: update post: stop-kafka-server-when-consumer-or-producer-running"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>d1d3a78</a></span>
+      </div><div class="post-info-license">
+          <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+        </div></div>
     <div class="post-info-line">
-      <div class="post-info-md"><span><a
-  href="/2022-09-18-stop-kafka-server-when-consumer-or-producer-running/index.md"
-  
-    title="阅读原始文档"
-  
-  
-  
-  
-    class="link-to-markdown"
-  
-  
->阅读原始文档</a></span></div>
+      <div class="post-info-md"><span><a href="/2022-09-18-stop-kafka-server-when-consumer-or-producer-running/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
       <div class="post-info-share">
         <span></span>
       </div>
@@ -587,17 +529,17 @@
   </div>
 
   <div class="post-info-more">
-    <section class="post-tags"><i class="fa-solid fa-tags fa-fw"></i>&nbsp;<a href="/tags/kafka/">kafka</a></section>
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/kafka/">kafka</a></section>
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
     </section>
   </div>
 
-  <div class="post-nav"><a href="/2022-09-18-delete-topic-when-consumer-or-producer-running/" class="prev" rel="prev" title="在producer consumer运行时删除topic会怎么样"><i class="fa-solid fa-angle-left fa-fw"></i>在producer consumer运行时删除topic会怎么样</a>
-      <a href="/2022-09-21-how-to-ensure-kafka-topics-deleted/" class="next" rel="next" title="如何确保kafka topic已经删除">如何确保kafka topic已经删除<i class="fa-solid fa-angle-right fa-fw"></i></a></div>
+  <div class="post-nav"><a href="/2022-09-18-delete-topic-when-consumer-or-producer-running/" class="post-nav-item" rel="prev" title="在producer consumer运行时删除topic会怎么样"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>在producer consumer运行时删除topic会怎么样</a>
+      <a href="/2022-09-21-how-to-ensure-kafka-topics-deleted/" class="post-nav-item" rel="next" title="如何确保kafka topic已经删除">如何确保kafka topic已经删除<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
-<div id="comments"><div id="utterances"></div><noscript>
-        Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/" rel="external nofollow noopener noreffer">Utterances</a>.
+<div id="comments"><div id="utterances" class="comment"></div><noscript>
+        Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/" rel="external nofollow noopener noreferrer">Utterances</a>.
       </noscript></div></article></main><footer class="footer">
     <div class="footer-container"><div class="footer-line custom">      <a href="https://statcounter.com/p12730999/?guest=1" target="_blank">访问统计</a>
       <!-- Default Statcounter code for github.io https://whuwangyong.github.io/ -->
@@ -616,29 +558,13 @@
           </a>
         </div>
       </noscript>
-      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.101.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
-        </div><div class="footer-line copyright"><i class="fa-regular fa-copyright fa-fw"></i>
+      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.101.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.17-RC"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">
-              <a
-  href="https://github.com/whuwangyong"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->Wang Yong</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div></div>
-  </footer></div><div class="widgets">
-  <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
-      <i class="fa-solid fa-arrow-up fa-fw"></i>
-    </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
-      <i class="fa-solid fa-comment fa-fw"></i>
-    </a>
-  </div><div id="mask"></div>
-</div><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js" defer></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js" async defer></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js" defer></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js" defer></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js" defer></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":30},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"comments","lightTheme":"github-light","repo":"whuwangyong/whuwangyong.github.io"}},"enablePWA":null,"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"YMLBEBNFHL","algoliaIndex":"new-index-1649076215","algoliaSearchKey":"9028b251fe4eecb5ad4d47af0715a4f0","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js" defer></script></body>
+              <a href="https://github.com/whuwangyong"target="_blank" rel="external nofollow noopener noreferrer">Wang Yong</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div><div class="fixed-button view-comments d-none" role="button" aria-label="查看评论"><i class="fa-solid fa-comment fa-fw" aria-hidden="true"></i></div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script src="/lib/lazysizes/lazysizes.min.js" async defer></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":30},"comment":{"enable":true,"expired":false,"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"comments","lightTheme":"github-light","repo":"whuwangyong/whuwangyong.github.io"}},"lightgallery":true,"search":{"algoliaAppID":"YMLBEBNFHL","algoliaIndex":"new-index-1649076215","algoliaSearchKey":"9028b251fe4eecb5ad4d47af0715a4f0","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js" defer></script></body>
 </html>

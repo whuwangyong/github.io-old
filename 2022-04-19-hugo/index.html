@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html lang="">
+<html itemscope itemtype="http://schema.org/WebPage" lang="">
   <head>
     
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <title>使用 Hugo &#43; Github Pages 创建静态网站博客 - 武大路飞</title><meta name="author" content="Wang Yong">
 <meta name="author-link" content="https://github.com/whuwangyong">
-<meta name="description" content="最好的参考资料仍然是官方。本文仅作一个基本描述 安装 Hugo 在此处下载安装包。有两个版本：（1）hugo；（2）hugo_extended。怎么选？很多功能，包括一些主题，都需要 hugo_extended 的支持，因此，建议安装 hugo_extended。下载之后，解压，将" />
-<meta name="keywords" content="hugo,github pages,vercel,netlify" /><meta itemprop="name" content="使用 Hugo &#43; Github Pages 创建静态网站博客">
+<meta name="description" content="最好的参考资料仍然是官方。本文仅作一个基本描述 安装 Hugo 在此处下载安装包。有两个版本：（1）hugo；（2）hugo_extended。怎么选？很多功能，包括一些主题，都需要 hugo_extended 的支持，因此，建议安装 hugo_extended。下载之后，解压，将" /><meta name="keywords" content='hugo, github pages, vercel, netlify' /><meta itemprop="name" content="使用 Hugo &#43; Github Pages 创建静态网站博客">
 <meta itemprop="description" content="最好的参考资料仍然是官方。本文仅作一个基本描述 安装 Hugo 在此处下载安装包。有两个版本：（1）hugo；（2）hugo_extended。怎么选？很多功能，包括一些主题，都需要 hugo_extended 的支持，因此，建议安装 hugo_extended。下载之后，解压，将"><meta itemprop="datePublished" content="2022-04-19T00:00:00+08:00" />
 <meta itemprop="dateModified" content="2022-06-29T15:32:56+08:00" />
 <meta itemprop="wordCount" content="4649"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
@@ -26,9 +24,9 @@
 <meta name="twitter:title" content="使用 Hugo &#43; Github Pages 创建静态网站博客"/>
 <meta name="twitter:description" content="最好的参考资料仍然是官方。本文仅作一个基本描述 安装 Hugo 在此处下载安装包。有两个版本：（1）hugo；（2）hugo_extended。怎么选？很多功能，包括一些主题，都需要 hugo_extended 的支持，因此，建议安装 hugo_extended。下载之后，解压，将"/>
 <meta name="application-name" content="武大路飞">
-<meta name="apple-mobile-web-app-title" content="武大路飞"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="apple-mobile-web-app-title" content="武大路飞"><meta name="theme-color" data-light="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]" data-dark="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]" content="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://whuwangyong.github.io/2022-04-19-hugo/" /><link rel="prev" href="https://whuwangyong.github.io/2022-03-31-vercel-disable-comments-and-preview-deployments/" /><link rel="next" href="https://whuwangyong.github.io/2022-04-27-linux-cpu-benchmark/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://whuwangyong.github.io/2022-04-19-hugo/" /><link rel="prev" href="https://whuwangyong.github.io/2022-03-31-vercel-disable-comments-and-preview-deployments/" /><link rel="next" href="https://whuwangyong.github.io/2022-04-27-linux-cpu-benchmark/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
@@ -51,87 +49,69 @@
       },"description": ""
   }
   </script></head>
-  <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script><div class="wrapper"><header class="desktop" id="header-desktop">
+  <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper"><header class="desktop animate__faster" id="header-desktop">
   <div class="header-wrapper">
     <div class="header-title">
-      <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a></div>
+      <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a><span class="header-subtitle"></span></div>
     <nav>
-      <ul class="menu"><li
-              class="menu-item"
-              
-            >
+      <ul class="menu"><li class="menu-item">
               <a
                 class="menu-link"
                 href="/posts/"
                 
                 
-              >归档</a></li><li
-              class="menu-item"
-              
-            >
+              >归档</a></li><li class="menu-item">
               <a
                 class="menu-link"
                 href="/tags/"
                 
                 
-              >标签</a></li><li
-              class="menu-item"
-              
-            >
+              >标签</a></li><li class="menu-item">
               <a
                 class="menu-link"
                 href="/categories/"
                 
                 
-              >分类</a></li><li
-              class="menu-item"
-              
-            >
+              >分类</a></li><li class="menu-item">
               <a
                 class="menu-link"
                 href="/links/"
                 title="友情链接"
                 
-              >友链</a></li><li
-              class="menu-item"
-              
-            >
+              >友链</a></li><li class="menu-item">
               <a
                 class="menu-link"
                 href="/about/"
                 
                 
-              >关于</a></li><li
-              class="menu-item"
-              
-            >
+              >关于</a></li><li class="menu-item">
               <a
                 class="menu-link"
                 href="https://github.com/whuwangyong"
                 title="GitHub"
-                rel="noopener noreffer" target="_blank"
+                rel="noopener noreferrer" target="_blank"
               ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
             <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-desktop">
             <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
-              <i class="fa-solid fa-search fa-fw"></i>
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
             </a>
             <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
-              <i class="fa-solid fa-times-circle fa-fw"></i>
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
             </a>
             <span class="search-button search-loading" id="search-loading-desktop">
-              <i class="fa-solid fa-spinner fa-fw fa-spin"></i>
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
             </span>
           </li><li class="menu-item theme-switch" title="切换主题">
-          <i class="fa-solid fa-adjust fa-fw"></i>
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
         </li>
       </ul>
     </nav>
   </div>
-</header><header class="mobile" id="header-mobile">
+</header><header class="mobile animate__faster" id="header-mobile">
   <div class="header-container">
     <div class="header-wrapper">
       <div class="header-title">
-        <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a></div>
+        <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a><span class="header-subtitle"></span></div>
       <div class="menu-toggle" id="menu-toggle-mobile">
         <span></span><span></span><span></span>
       </div>
@@ -141,13 +121,13 @@
             <div class="search mobile" id="search-mobile">
               <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-mobile">
               <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
-                <i class="fa-solid fa-search fa-fw"></i>
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
               </a>
               <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
-                <i class="fa-solid fa-times-circle fa-fw"></i>
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
               </a>
               <span class="search-button search-loading" id="search-loading-mobile">
-                <i class="fa-solid fa-spinner fa-fw fa-spin"></i>
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
               </span>
             </div>
             <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
@@ -156,100 +136,79 @@
           </li><li
               class="menu-item"
             ><a
-                class="menu-link"
-                href="/posts/"
-                
-                
-              >归档</a></li><li
+                  class="menu-link"
+                  href="/posts/"
+                  
+                  
+                >归档</a></li><li
               class="menu-item"
             ><a
-                class="menu-link"
-                href="/tags/"
-                
-                
-              >标签</a></li><li
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                >标签</a></li><li
               class="menu-item"
             ><a
-                class="menu-link"
-                href="/categories/"
-                
-                
-              >分类</a></li><li
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                >分类</a></li><li
               class="menu-item"
             ><a
-                class="menu-link"
-                href="/links/"
-                title="友情链接"
-                
-              >友链</a></li><li
+                  class="menu-link"
+                  href="/links/"
+                  title="友情链接"
+                  
+                >友链</a></li><li
               class="menu-item"
             ><a
-                class="menu-link"
-                href="/about/"
-                
-                
-              >关于</a></li><li
+                  class="menu-link"
+                  href="/about/"
+                  
+                  
+                >关于</a></li><li
               class="menu-item"
             ><a
-                class="menu-link"
-                href="https://github.com/whuwangyong"
-                title="GitHub"
-                rel="noopener noreffer" target="_blank"
-              ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item theme-switch" title="切换主题">
-          <i class="fa-solid fa-adjust fa-fw"></i>
+                  class="menu-link"
+                  href="https://github.com/whuwangyong"
+                  title="GitHub"
+                  rel="noopener noreferrer" target="_blank"
+                ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
         </li></ul>
     </nav>
   </div>
-</header>
-<div class="search-dropdown desktop">
-  <div id="search-dropdown-desktop"></div>
-</div>
-<div class="search-dropdown mobile">
-  <div id="search-dropdown-mobile"></div>
-</div>
-<main class="container" page-style="custom"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录 <i class="toc-icon fa-solid fa-angle-down fa-fw"></i></h2>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container" data-page-style="custom"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
       <div class="toc-content always-active" id="toc-content-auto"></div></aside>
 
   <aside class="aside-custom">
-    
-  </aside>
+    </aside>
 
   <article class="page single">
-    <div class="header"><h1 class="single-title animate__animated animate__flipInX">使用 Hugo &#43; Github Pages 创建静态网站博客</h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a
-  href="https://github.com/whuwangyong"
-  
-    title="作者"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer author"
-  
-  
-    class="author"
-  
-  
-><img
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX">
+        <span>使用 Hugo &#43; Github Pages 创建静态网站博客</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/whuwangyong" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img
     class="lazyload avatar"
     src="/svg/loading.min.svg"
     data-src="/images/avatar150x150.jpg"
     data-srcset="/images/avatar150x150.jpg, /images/avatar150x150.jpg 1.5x, /images/avatar150x150.jpg 2x"
     data-sizes="auto"
     alt="Wang Yong"
-    title="Wang Yong" />&nbsp;Wang Yong</a></span>
-          <span class="post-category">收录于 <a href="/categories/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E5%8D%9A%E5%AE%A2/"><i class="fa-regular fa-folder fa-fw"></i>&nbsp;静态网站博客</a></span></div>
-      <div class="post-meta-line"><span title=2022-04-19&#32;00:00:00>
-            <i class="fa-regular fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-04-19" >2022-04-19</time>
-          </span>&nbsp;<i class="fa-solid fa-pencil-alt fa-fw"></i>&nbsp;约 4649 字&nbsp;
-        <i class="fa-regular fa-clock fa-fw"></i>&nbsp;预计阅读 10 分钟&nbsp;</div>
-    </div><div class="details toc" id="toc-static" kept="false">
+    title="Wang Yong" width="150" height="151"/>&nbsp;Wang Yong</a></span>
+          <span class="post-category">收录于 <a href="/categories/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E5%8D%9A%E5%AE%A2/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 静态网站博客</a></span></div>
+      <div class="post-meta-line"><span title=2022-04-19&#32;00:00:00><i class="fa-regular fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-04-19">2022-04-19</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw" aria-hidden="true"></i> 约 4649 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw" aria-hidden="true"></i> 预计阅读 10 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>目录</span>
-          <span><i class="details-icon fa-solid fa-angle-right"></i></span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
@@ -296,42 +255,11 @@
     </li>
   </ul>
 </nav></div>
-      </div><div
-      class="content"
-      id="content"
-      
-      
-    ><blockquote>
-<p>最好的参考资料仍然是<a
-  href="https://gohugo.io/getting-started/quick-start/"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->官方</a>。本文仅作一个基本描述</p>
+      </div><div class="content" id="content"><blockquote>
+<p>最好的参考资料仍然是<a href="https://gohugo.io/getting-started/quick-start/"target="_blank" rel="external nofollow noopener noreferrer">官方</a>。本文仅作一个基本描述</p>
 </blockquote>
 <h2 id="安装-hugo">安装 Hugo</h2>
-<p>在<a
-  href="https://github.com/gohugoio/hugo/releases"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->此处</a>下载安装包。有两个版本：（1）hugo；（2）hugo_extended。怎么选？很多功能，包括一些主题，都需要 hugo_extended 的支持，因此，建议安装 hugo_extended。下载之后，解压，将 hugo.exe 加入环境变量即可。</p>
+<p>在<a href="https://github.com/gohugoio/hugo/releases"target="_blank" rel="external nofollow noopener noreferrer">此处</a>下载安装包。有两个版本：（1）hugo；（2）hugo_extended。怎么选？很多功能，包括一些主题，都需要 hugo_extended 的支持，因此，建议安装 hugo_extended。下载之后，解压，将 hugo.exe 加入环境变量即可。</p>
 <h2 id="创建站点">创建站点</h2>
 <p>仅需一个命令：</p>
 <div class="highlight"><div class="chroma">
@@ -404,20 +332,7 @@
 <p>新建的站点是空的，需要添加一个主题后才能正常使用。此处以 FixIt 主题为例。关于主题的选择，请看下一节<strong>主题推荐</strong>。</p>
 <p>添加主题有两种方式：
 （1）将主题下载下来，放在 themes 目录下即可
-（2）将主题以子模块的形式添加到站点，使用 git 管理。这么做主要是便于以后升级。本文采用此方式。关于 git submodule 的更多信息查看这里：<a
-  href="https://whuwangyong.github.io/tags/git-submodule/"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->git submodule - 标签 - 武大路飞 (whuwangyong.github.io)</a>
+（2）将主题以子模块的形式添加到站点，使用 git 管理。这么做主要是便于以后升级。本文采用此方式。关于 git submodule 的更多信息查看这里：<a href="https://whuwangyong.github.io/tags/git-submodule/"target="_blank" rel="external nofollow noopener noreferrer">git submodule - 标签 - 武大路飞 (whuwangyong.github.io)</a>
 另外，建议不要直接修改主题里面的文件，以后升级时合并起来很麻烦。没什么问题，主题可以一直使用，没必要频繁升级。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -446,95 +361,30 @@
 </div><h2 id="主题推荐">主题推荐</h2>
 <p>官网提供了很多主题，我试用了一些，从以下几个角度进行选择：</p>
 <ul>
-<li><i class="fa-regular fa-check-square fa-fw"></i> 用的人多，有人维护</li>
-<li><i class="fa-regular fa-check-square fa-fw"></i> 侧边栏具备 Markdown 大纲目录</li>
-<li><i class="fa-regular fa-check-square fa-fw"></i> 具备评论功能</li>
-<li><i class="fa-regular fa-check-square fa-fw"></i> 具备搜索功能</li>
-<li><i class="fa-regular fa-check-square fa-fw"></i> 简洁，美观，易用</li>
+<li><i class="fa-regular fa-check-square fa-fw" aria-hidden="true"></i> 用的人多，有人维护</li>
+<li><i class="fa-regular fa-check-square fa-fw" aria-hidden="true"></i> 侧边栏具备 Markdown 大纲目录</li>
+<li><i class="fa-regular fa-check-square fa-fw" aria-hidden="true"></i> 具备评论功能</li>
+<li><i class="fa-regular fa-check-square fa-fw" aria-hidden="true"></i> 具备搜索功能</li>
+<li><i class="fa-regular fa-check-square fa-fw" aria-hidden="true"></i> 简洁，美观，易用</li>
 </ul>
 <p>最后选出了以下几个。</p>
 <h3 id="stack">Stack</h3>
-<p><a
-  href="https://themes.gohugo.io/themes/hugo-theme-stack/"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->Stack | Hugo Themes (gohugo.io)</a></p>
+<p><a href="https://themes.gohugo.io/themes/hugo-theme-stack/"target="_blank" rel="external nofollow noopener noreferrer">Stack | Hugo Themes (gohugo.io)</a></p>
 <p>特点：</p>
 <ol>
 <li>搜索很快</li>
 <li>首页和正文的间距都很大</li>
 <li>博客无修改时间</li>
 <li>分类与标签的样式是一样的</li>
-<li><a
-  href="https://github.com/CaiJimmy/hugo-theme-stack/issues/272"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->favicon 图标设置</a>：放在 <code>hugo-theme-stack/static/img/</code> 目录下，修改 <code>hugo-theme-stack/config.yaml</code>，设置 <code>params.favicon</code> 为 <code>/img/your-favicon.ico</code>，注意是 <code>/img</code> 不是 <code>img</code></li>
+<li><a href="https://github.com/CaiJimmy/hugo-theme-stack/issues/272"target="_blank" rel="external nofollow noopener noreferrer">favicon 图标设置</a>：放在 <code>hugo-theme-stack/static/img/</code> 目录下，修改 <code>hugo-theme-stack/config.yaml</code>，设置 <code>params.favicon</code> 为 <code>/img/your-favicon.ico</code>，注意是 <code>/img</code> 不是 <code>img</code></li>
 <li>md 图片目录不能以 · 开始。否则渲染之后图片 src=&quot;/&ldquo;是从根路径开始的，就找不到图片</li>
 </ol>
 <h3 id="bootstrap">Bootstrap</h3>
-<p><a
-  href="https://themes.gohugo.io/themes/hugo-theme-bootstrap/"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->Bootstrap Theme for Personal Blog and Documentations | Hugo Themes (gohugo.io)</a></p>
+<p><a href="https://themes.gohugo.io/themes/hugo-theme-bootstrap/"target="_blank" rel="external nofollow noopener noreferrer">Bootstrap Theme for Personal Blog and Documentations | Hugo Themes (gohugo.io)</a></p>
 <p>这个主题的特点是，默认采用的 <code>posts layout</code>，这个布局下面的文章，侧边栏的 <code>TOC</code> 目录是不固定的。如果需要固定，请使用 <code>docs layout</code>。</p>
 <blockquote>
-<p>This theme provides several kinds of layouts, such as <code>posts</code> and <code>docs</code>. Our documentations uses the <code>docs</code> layout. If you&rsquo;re looking for an example that using <code>posts</code> layout, please take a look at <a
-  href="https://hbs-cn.razonyang.com/en/posts/markdown-syntax"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->Markdown Syntax</a>.</p>
-<p>——from：<a
-  href="https://hbs-cn.razonyang.com/en/docs/layouts/docs/"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->Docs Layout - Hugo Bootstrap (razonyang.com)</a></p>
+<p>This theme provides several kinds of layouts, such as <code>posts</code> and <code>docs</code>. Our documentations uses the <code>docs</code> layout. If you&rsquo;re looking for an example that using <code>posts</code> layout, please take a look at <a href="https://hbs-cn.razonyang.com/en/posts/markdown-syntax"target="_blank" rel="external nofollow noopener noreferrer">Markdown Syntax</a>.</p>
+<p>——from：<a href="https://hbs-cn.razonyang.com/en/docs/layouts/docs/"target="_blank" rel="external nofollow noopener noreferrer">Docs Layout - Hugo Bootstrap (razonyang.com)</a></p>
 </blockquote>
 <p><strong>优点</strong></p>
 <ol>
@@ -549,53 +399,27 @@
 <p><img
     class="lazyload"
     src="/svg/loading.min.svg"
-    data-src="assets/image-20220310210552-mjpty29.png"
-    data-srcset="/2022-04-19-hugo/assets/image-20220310210552-mjpty29.png, assets/image-20220310210552-mjpty29.png 1.5x, /2022-04-19-hugo/assets/image-20220310210552-mjpty29.png 2x"
+    data-src="/2022-04-19-hugo/assets/image-20220310210552-mjpty29.png"
+    data-srcset="/2022-04-19-hugo/assets/image-20220310210552-mjpty29.png, /2022-04-19-hugo/assets/image-20220310210552-mjpty29.png 1.5x, /2022-04-19-hugo/assets/image-20220310210552-mjpty29.png 2x"
     data-sizes="auto"
-    alt="/2022-04-19-hugo/assets/image-20220310210552-mjpty29.png"
-    title="image.png" /></p>
+    alt="image.png"
+    title="image.png" width="861" height="490"/></p>
 </li>
 </ol>
 <h3 id="loveit">​LoveIt</h3>
-<p><a
-  href="https://github.com/dillonzq/LoveIt"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->dillonzq/LoveIt: ❤️A clean, elegant but advanced blog theme for Hugo 一个简洁、优雅且高效的 Hugo 主题 (github.com)</a></p>
+<p><a href="https://github.com/dillonzq/LoveIt"target="_blank" rel="external nofollow noopener noreferrer">dillonzq/LoveIt: ❤️A clean, elegant but advanced blog theme for Hugo 一个简洁、优雅且高效的 Hugo 主题 (github.com)</a></p>
 <h4 id="搜索">搜索</h4>
 <p>LoveIt 主题支持&quot;lunr&quot;和&quot;algolia&quot;两种搜索：</p>
 <p><strong>lunr</strong>： 简单，配置 <code>type = &quot;lunr&quot;</code> 即可。运行 hugo 会将生成的 <code>index.json</code> 索引文件放在 <code>public/</code> 目录下，随网站一起发布。没有 <code>contentLength</code> 的限制，但占用带宽大且性能低 (特别是中文需要一个较大的分词依赖库)。客户端需将整个 <code>index.json</code> 从网站下载到本地，然后基于此文件进行搜索。下图是使用 lunr 搜索时，生成的静态文件，可见分词库有 3.6MB：
 ​<img
     class="lazyload"
     src="/svg/loading.min.svg"
-    data-src="assets/image-20220404235734-bs31fkv.png"
-    data-srcset="/2022-04-19-hugo/assets/image-20220404235734-bs31fkv.png, assets/image-20220404235734-bs31fkv.png 1.5x, /2022-04-19-hugo/assets/image-20220404235734-bs31fkv.png 2x"
+    data-src="/2022-04-19-hugo/assets/image-20220404235734-bs31fkv.png"
+    data-srcset="/2022-04-19-hugo/assets/image-20220404235734-bs31fkv.png, /2022-04-19-hugo/assets/image-20220404235734-bs31fkv.png 1.5x, /2022-04-19-hugo/assets/image-20220404235734-bs31fkv.png 2x"
     data-sizes="auto"
-    alt="/2022-04-19-hugo/assets/image-20220404235734-bs31fkv.png"
-    title="image.png" /></p>
-<p><strong>algolia</strong>：高性能并且占用带宽低，但需要将 <code>index.json</code> 上传到 algolia 官网（手动或使用 <a
-  href="https://github.com/chrisdmacrae/atomic-algolia"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->Algolia Atomic</a> 脚本）；有 <code>contentLength</code> 的限制。对于免费用户：Your first 10,000 records are free, and every month you’ll receive 10,000 requests for our Search and Recommend products.</p>
+    alt="image.png"
+    title="image.png" width="657" height="150"/></p>
+<p><strong>algolia</strong>：高性能并且占用带宽低，但需要将 <code>index.json</code> 上传到 algolia 官网（手动或使用 <a href="https://github.com/chrisdmacrae/atomic-algolia"target="_blank" rel="external nofollow noopener noreferrer">Algolia Atomic</a> 脚本）；有 <code>contentLength</code> 的限制。对于免费用户：Your first 10,000 records are free, and every month you’ll receive 10,000 requests for our Search and Recommend products.</p>
 <p>经过测试，lunr 导致网站加载速度变慢，且搜索效果很不理想。所以我选择了 algolia。配置如下：注意 <code>index = &quot;new-index-1649076215&quot;</code>，后面的值是你在 algolia 网站上创建的索引名。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -646,101 +470,23 @@
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="多语言">多语言</h4>
-<p>所有写在 <code>[languages]</code> 外面的，都是所有语言公用的。<a
-  href="https://gohugo.io/content-management/multilingual"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->Multilingual Mode | Hugo (gohugo.io)</a>。我去故意掉了多语言，只保留了中文：将 <code>[languages.zh-cn]</code> 下面的所有配置挪到外面，然后删除空的 <code>[languages]</code> 块。</p>
+<p>所有写在 <code>[languages]</code> 外面的，都是所有语言公用的。<a href="https://gohugo.io/content-management/multilingual"target="_blank" rel="external nofollow noopener noreferrer">Multilingual Mode | Hugo (gohugo.io)</a>。我去故意掉了多语言，只保留了中文：将 <code>[languages.zh-cn]</code> 下面的所有配置挪到外面，然后删除空的 <code>[languages]</code> 块。</p>
 <h4 id="使用本地资源">使用本地资源</h4>
 <blockquote>
 <p>有三种方法来引用<strong>图片</strong>和<strong>音乐</strong>等本地资源:</p>
 <ol>
-<li>使用<a
-  href="https://gohugo.io/content-management/page-bundles/"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->页面包</a>中的<a
-  href="https://gohugo.io/content-management/page-resources/"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->页面资源</a>. 你可以使用适用于 <code>Resources.GetMatch</code> 的值或者直接使用相对于当前页面目录的文件路径来引用页面资源。所谓的页面包，就是图片和 md 文件放在一起（使用相对路径访问）。</li>
+<li>使用<a href="https://gohugo.io/content-management/page-bundles/"target="_blank" rel="external nofollow noopener noreferrer">页面包</a>中的<a href="https://gohugo.io/content-management/page-resources/"target="_blank" rel="external nofollow noopener noreferrer">页面资源</a>. 你可以使用适用于 <code>Resources.GetMatch</code> 的值或者直接使用相对于当前页面目录的文件路径来引用页面资源。所谓的页面包，就是图片和 md 文件放在一起（使用相对路径访问）。</li>
 <li>将本地资源放在 <strong>assets</strong> 目录中, 默认路径是 <code>/assets</code>. 引用资源的文件路径是相对于 assets 目录的.</li>
 <li>将本地资源放在 <strong>static</strong> 目录中, 默认路径是 <code>/static</code>. 引用资源的文件路径是相对于 static 目录的.</li>
 </ol>
 <p>引用的<strong>优先级</strong>符合以上的顺序.</p>
 <p>在这个主题中的很多地方可以使用上面的本地资源引用, 例如  <strong>链接</strong> ,  <strong>图片</strong> , <code>image</code> shortcode, <code>music</code> shortcode 和<strong>前置参数</strong>中的部分参数.</p>
-<p>页面资源或者 <strong>assets</strong> 目录中的<a
-  href="https://gohugo.io/content-management/image-processing/"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->图片处理</a>会在未来的版本中得到支持. 非常酷的功能!</p>
+<p>页面资源或者 <strong>assets</strong> 目录中的<a href="https://gohugo.io/content-management/image-processing/"target="_blank" rel="external nofollow noopener noreferrer">图片处理</a>会在未来的版本中得到支持. 非常酷的功能!</p>
 </blockquote>
 <h4 id="front-matter">Front Matter</h4>
-<p><a
-  href="https://hugoloveit.com/zh-cn/theme-documentation-content/#front-matter"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->https://hugoloveit.com/zh-cn/theme-documentation-content/#front-matter</a></p>
+<p><a href="https://hugoloveit.com/zh-cn/theme-documentation-content/#front-matter"target="_blank" rel="external nofollow noopener noreferrer">https://hugoloveit.com/zh-cn/theme-documentation-content/#front-matter</a></p>
 <h4 id="转义字符">转义字符</h4>
-<p><a
-  href="https://hugoloveit.com/zh-cn/theme-documentation-content/#escape-character"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->https://hugoloveit.com/zh-cn/theme-documentation-content/#escape-character</a></p>
+<p><a href="https://hugoloveit.com/zh-cn/theme-documentation-content/#escape-character"target="_blank" rel="external nofollow noopener noreferrer">https://hugoloveit.com/zh-cn/theme-documentation-content/#escape-character</a></p>
 <h4 id="sri">SRI</h4>
 <p>启用之后在 github.io 有问题：</p>
 <div class="highlight"><div class="chroma">
@@ -851,92 +597,14 @@
 </div>
 </div></li>
 <li>
-<p>最重要的，两年没维护了。但这个主题确实不错，所有有不少人 fork 了一份继续维护。我选择的是 <a
-  href="https://github.com/Lruihao/FixIt"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->Lruihao/FixIt</a>。</p>
+<p>最重要的，两年没维护了。但这个主题确实不错，所有有不少人 fork 了一份继续维护。我选择的是 <a href="https://github.com/Lruihao/FixIt"target="_blank" rel="external nofollow noopener noreferrer">Lruihao/FixIt</a>。</p>
 </li>
 </ol>
 <h3 id="fixit">FixIt</h3>
-<p><a
-  href="https://github.com/Lruihao/FixIt"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->Lruihao/FixIt: 🔧 A clean, elegant but advanced blog theme for Hugo 一个简洁、优雅且高效的 Hugo 主题 (github.com)</a></p>
+<p><a href="https://github.com/Lruihao/FixIt"target="_blank" rel="external nofollow noopener noreferrer">Lruihao/FixIt: 🔧 A clean, elegant but advanced blog theme for Hugo 一个简洁、优雅且高效的 Hugo 主题 (github.com)</a></p>
 <blockquote>
-<p>它的原型基于 <a
-  href="https://github.com/dillonzq/LoveIt"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->LoveIt 主题</a>, <a
-  href="https://github.com/liuzc/LeaveIt"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->LeaveIt 主题</a> 和 <a
-  href="https://github.com/Fastbyte01/KeepIt"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->KeepIt 主题</a>。</p>
-<p><a
-  href="https://github.com/dillonzq/LoveIt"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->LoveIt 主题</a> 对我们来说是一个很棒的 Hugo 主题，很抱歉的是它的存储库已经停止维护很长一段时间了，所以我重建了一个名为 FixIt 的新主题，这样我可以更好地 <strong>Fix It</strong> 并使它用户体验更好。</p>
+<p>它的原型基于 <a href="https://github.com/dillonzq/LoveIt"target="_blank" rel="external nofollow noopener noreferrer">LoveIt 主题</a>, <a href="https://github.com/liuzc/LeaveIt"target="_blank" rel="external nofollow noopener noreferrer">LeaveIt 主题</a> 和 <a href="https://github.com/Fastbyte01/KeepIt"target="_blank" rel="external nofollow noopener noreferrer">KeepIt 主题</a>。</p>
+<p><a href="https://github.com/dillonzq/LoveIt"target="_blank" rel="external nofollow noopener noreferrer">LoveIt 主题</a> 对我们来说是一个很棒的 Hugo 主题，很抱歉的是它的存储库已经停止维护很长一段时间了，所以我重建了一个名为 FixIt 的新主题，这样我可以更好地 <strong>Fix It</strong> 并使它用户体验更好。</p>
 </blockquote>
 <ul>
 <li>修改了高亮颜色，比 LoveIt 更素雅好看一些。LoveIt 的橙色行内代码太花了</li>
@@ -946,63 +614,11 @@
 </ul>
 <p>其他的就去看官方文档吧。</p>
 <h3 id="echo">Echo</h3>
-<p><a
-  href="https://github.com/forecho/hugo-theme-echo"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->https://github.com/forecho/hugo-theme-echo</a></p>
+<p><a href="https://github.com/forecho/hugo-theme-echo"target="_blank" rel="external nofollow noopener noreferrer">https://github.com/forecho/hugo-theme-echo</a></p>
 <p>这个主题未体验，看了下觉得还不错，也列在这里吧。主要是到后面不想再折腾了……</p>
 <h3 id="关于主题选择的总结">关于主题选择的总结</h3>
-<p>我最后的选择是 <a
-  href="https://github.com/Lruihao/FixIt"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->FixIt</a>——<a
-  href="https://github.com/dillonzq/LoveIt"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->LoveIt</a> 的继续维护版。
-其实我最喜欢的主题是 <a
-  href="https://chirpy.cotes.page/"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->Chirpy</a>，但这是 Jekyll 的主题。而 Jekyll 使用的 Kramdown 有问题，我做了很多尝试也无法解决，所以放弃了 Jekyll， 转 Hugo。</p>
+<p>我最后的选择是 <a href="https://github.com/Lruihao/FixIt"target="_blank" rel="external nofollow noopener noreferrer">FixIt</a>——<a href="https://github.com/dillonzq/LoveIt"target="_blank" rel="external nofollow noopener noreferrer">LoveIt</a> 的继续维护版。
+其实我最喜欢的主题是 <a href="https://chirpy.cotes.page/"target="_blank" rel="external nofollow noopener noreferrer">Chirpy</a>，但这是 Jekyll 的主题。而 Jekyll 使用的 Kramdown 有问题，我做了很多尝试也无法解决，所以放弃了 Jekyll， 转 Hugo。</p>
 <p>没有完美的主题，选择一个基本满足要求的即可。比起不断折腾主题，抓紧时间学习并输出优质内容更重要。另外，如果正在使用的主题有什么缺陷，首先应该仔细阅读官方文档和 issue 列表，寻找解决方案（这是一种能力），而不是立即去找一个新的主题代替它。因为，可能在换了主题之后，我发现新的主题在其他地方也有缺陷，最终落入“主题大师”的陷阱——在 N 个主题里面反复横跳，流于表面，没有任何定制或者解决问题的能力。</p>
 <h2 id="运行示例站点">运行示例站点</h2>
 <p>添加主题后，主题一般都带有示例站点，在 exampleSite 目录下。将 exampleSite 目录下的所有文件拷贝到站点目录下（my_blog）。然后使用如下命令启动：</p>
@@ -1066,20 +682,7 @@
 <h3 id="发布到-netlifyvercel">发布到 netlify、vercel</h3>
 <p>netlify、vercel 支持编译 hugo 源文件。因此，你可以直接提交 my_blog 下面的 hugo 源文件（包括你写的 md 文件、hugo 相关的配置、主题文件等等，不包括渲染后的 public/和渲染时生成的 resources/）到 github 的一个 repo，然后将该 repo 关联到 netlify、vercel，它们将会自动渲染并发布到它们的网站下。本站有相关文章，可以查看 netlify、vercel 标签。</p>
 <h3 id="脚本化处理">脚本化处理</h3>
-<p>我写了一个 <a
-  href="https://github.com/whuwangyong/whuwangyong.github.io/blob/hugo-loveit/publish.py"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->python 脚本</a>来做渲染、发布等事情，供参考。</p>
+<p>我写了一个 <a href="https://github.com/whuwangyong/whuwangyong.github.io/blob/hugo-loveit/publish.py"target="_blank" rel="external nofollow noopener noreferrer">python 脚本</a>来做渲染、发布等事情，供参考。</p>
 <h3 id="提交到-google百度bing-等搜索引擎">提交到 Google/百度/Bing 等搜索引擎</h3>
 <p>可以使用在 config.toml 中填写对应的配置；也可以将 Google/百度等提供的验证 html 文件放在站点的 static 目录下。渲染后，这些验证 html 文件会出现在 public/目录下。public/发布之后，它们就位于网站的根目录了，搜索引擎来抓取的时候就可以验证。</p>
 <p>同样位于根目录的还有 <code>sitemap.xml</code>，这是网站地图，便于搜索引起爬取内容。另外，百度/Bing 还提供了提交 url 地址的 api。当你发布新文章后，可以手动或写脚本将 url 提交到搜索引擎，使文章更快地被收录。</p>
@@ -1089,11 +692,11 @@
 <p>​<img
     class="lazyload"
     src="/svg/loading.min.svg"
-    data-src="assets/image-20220418005352-crtqx19.png"
-    data-srcset="/2022-04-19-hugo/assets/image-20220418005352-crtqx19.png, assets/image-20220418005352-crtqx19.png 1.5x, /2022-04-19-hugo/assets/image-20220418005352-crtqx19.png 2x"
+    data-src="/2022-04-19-hugo/assets/image-20220418005352-crtqx19.png"
+    data-srcset="/2022-04-19-hugo/assets/image-20220418005352-crtqx19.png, /2022-04-19-hugo/assets/image-20220418005352-crtqx19.png 1.5x, /2022-04-19-hugo/assets/image-20220418005352-crtqx19.png 2x"
     data-sizes="auto"
-    alt="/2022-04-19-hugo/assets/image-20220418005352-crtqx19.png"
-    title="image.png" /></p>
+    alt="image.png"
+    title="image.png" width="435" height="224"/></p>
 <p>我的建议是不要这样做。因为分类是一个很难的事情，随着时间推移大概率会动态调整。调整之后意味着之前发布的博客的 url 失效。这对于 SEO 是很不利的，好不容易有个用户搜到了你的博客，一点进来却是 404。</p>
 <p>类似的，posts 目录下的文件名、目录名，一经发布就不要改动。文章的标题和分类可以通过 Front Matter 修改：</p>
 <div class="highlight"><div class="chroma">
@@ -1144,24 +747,12 @@
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title=2022-06-29&#32;15:32:56>更新于 2022-06-29&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/f4e6d36439e07531c63a483d193bf1c0a819087b" rel="external nofollow noopener noreffer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) f4e6d36439e07531c63a483d193bf1c0a819087b: update post: hugo，添加升级主题的命令">
-                  <i class="fa-solid fa-hashtag fa-fw"></i>f4e6d36</a></span>
-      </div>
-      <div class="post-info-license "></div>
-    </div>
+        <span title=2022-06-29&#32;15:32:56>更新于 2022-06-29&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/f4e6d36439e07531c63a483d193bf1c0a819087b" rel="external nofollow noopener noreferrer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) f4e6d36439e07531c63a483d193bf1c0a819087b: update post: hugo，添加升级主题的命令"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>f4e6d36</a></span>
+      </div><div class="post-info-license">
+          <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+        </div></div>
     <div class="post-info-line">
-      <div class="post-info-md"><span><a
-  href="/2022-04-19-hugo/index.md"
-  
-    title="阅读原始文档"
-  
-  
-  
-  
-    class="link-to-markdown"
-  
-  
->阅读原始文档</a></span></div>
+      <div class="post-info-md"><span><a href="/2022-04-19-hugo/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
       <div class="post-info-share">
         <span></span>
       </div>
@@ -1169,17 +760,17 @@
   </div>
 
   <div class="post-info-more">
-    <section class="post-tags"><i class="fa-solid fa-tags fa-fw"></i>&nbsp;<a href="/tags/hugo/">hugo</a>,&nbsp;<a href="/tags/github-pages/">github pages</a>,&nbsp;<a href="/tags/vercel/">vercel</a>,&nbsp;<a href="/tags/netlify/">netlify</a></section>
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/hugo/">hugo</a>,&nbsp;<a href="/tags/github-pages/">github pages</a>,&nbsp;<a href="/tags/vercel/">vercel</a>,&nbsp;<a href="/tags/netlify/">netlify</a></section>
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
     </section>
   </div>
 
-  <div class="post-nav"><a href="/2022-03-31-vercel-disable-comments-and-preview-deployments/" class="prev" rel="prev" title="Vercel关闭评论 禁止Preview Deployments"><i class="fa-solid fa-angle-left fa-fw"></i>Vercel关闭评论 禁止Preview Deployments</a>
-      <a href="/2022-04-27-linux-cpu-benchmark/" class="next" rel="next" title="Linux CPU 性能测试">Linux CPU 性能测试<i class="fa-solid fa-angle-right fa-fw"></i></a></div>
+  <div class="post-nav"><a href="/2022-03-31-vercel-disable-comments-and-preview-deployments/" class="post-nav-item" rel="prev" title="Vercel关闭评论 禁止Preview Deployments"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Vercel关闭评论 禁止Preview Deployments</a>
+      <a href="/2022-04-27-linux-cpu-benchmark/" class="post-nav-item" rel="next" title="Linux CPU 性能测试">Linux CPU 性能测试<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
-<div id="comments"><div id="utterances"></div><noscript>
-        Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/" rel="external nofollow noopener noreffer">Utterances</a>.
+<div id="comments"><div id="utterances" class="comment"></div><noscript>
+        Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/" rel="external nofollow noopener noreferrer">Utterances</a>.
       </noscript></div></article></main><footer class="footer">
     <div class="footer-container"><div class="footer-line custom">      <a href="https://statcounter.com/p12730999/?guest=1" target="_blank">访问统计</a>
       <!-- Default Statcounter code for github.io https://whuwangyong.github.io/ -->
@@ -1198,29 +789,13 @@
           </a>
         </div>
       </noscript>
-      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.101.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
-        </div><div class="footer-line copyright"><i class="fa-regular fa-copyright fa-fw"></i>
+      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.101.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.17-RC"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">
-              <a
-  href="https://github.com/whuwangyong"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->Wang Yong</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div></div>
-  </footer></div><div class="widgets">
-  <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
-      <i class="fa-solid fa-arrow-up fa-fw"></i>
-    </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
-      <i class="fa-solid fa-comment fa-fw"></i>
-    </a>
-  </div><div id="mask"></div>
-</div><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js" defer></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js" async defer></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js" defer></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js" defer></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js" defer></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":30},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"comments","lightTheme":"github-light","repo":"whuwangyong/whuwangyong.github.io"}},"enablePWA":null,"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"YMLBEBNFHL","algoliaIndex":"new-index-1649076215","algoliaSearchKey":"9028b251fe4eecb5ad4d47af0715a4f0","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js" defer></script></body>
+              <a href="https://github.com/whuwangyong"target="_blank" rel="external nofollow noopener noreferrer">Wang Yong</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div><div class="fixed-button view-comments d-none" role="button" aria-label="查看评论"><i class="fa-solid fa-comment fa-fw" aria-hidden="true"></i></div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script src="/lib/lazysizes/lazysizes.min.js" async defer></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":30},"comment":{"enable":true,"expired":false,"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"comments","lightTheme":"github-light","repo":"whuwangyong/whuwangyong.github.io"}},"lightgallery":true,"search":{"algoliaAppID":"YMLBEBNFHL","algoliaIndex":"new-index-1649076215","algoliaSearchKey":"9028b251fe4eecb5ad4d47af0715a4f0","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js" defer></script></body>
 </html>

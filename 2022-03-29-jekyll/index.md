@@ -347,5 +347,6 @@ Chirpy主题的作者在[这里](https://github.com/cotes2020/jekyll-theme-chirp
 
 ---
 
-> 作者: Wang Yong  
-> https://whuwangyong.github.io/2022-03-29-jekyll/
+> 作者: [Wang Yong](https://github.com/whuwangyong)  
+> URL: https://whuwangyong.github.io/2022-03-29-jekyll/  
+

@@ -11,5 +11,6 @@
   <author>Wang Yong</author>
   <guid>https://whuwangyong.github.io/2022-03-09-shadowsocks/</guid>
   <description><![CDATA[官方地址： shadowsocks/shadowsocks-libev: Bug-fix-only libev port of shadowsocks. Future development moved to shadowsocks-rust (github.com) 旧地址，不再更新： shadowsocks/shadowsocks at master (github.com) clowwindy/shadowsocks-libev at master (github.com) 本文基于Ubuntu。 install 1 2 3 $ sudo apt install shadowsocks-libev ... Created symlink /etc/systemd/system/multi-user.target.wants/shadowsocks-libev.service → /lib/systemd/system/shadowsocks-libev.service. Configuration 官方文档说配置文件在这里： Edit your config.json file. By default, it&rsquo;s located in /usr/local/etc/shadowsocks-libev. 但我的不是。 编辑/etc/shadowsocks-libev/confi]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

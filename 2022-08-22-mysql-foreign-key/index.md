@@ -143,5 +143,6 @@ ALTER TABLE mytest.instance AUTO_INCREMENT = 1;
 
 ---
 
-> 作者: Wang Yong  
-> https://whuwangyong.github.io/2022-08-22-mysql-foreign-key/
+> 作者: [Wang Yong](https://github.com/whuwangyong)  
+> URL: https://whuwangyong.github.io/2022-08-22-mysql-foreign-key/  
+

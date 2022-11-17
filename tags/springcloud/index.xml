@@ -11,5 +11,6 @@
   <author>Wang Yong</author>
   <guid>https://whuwangyong.github.io/2020-11-14-spring-dependency-management/</guid>
   <description><![CDATA[SpringBoot依赖管理的能力 SpringBoot管理的依赖有1000多个，详见Dependency Versions (spring.io)。这些组件，在和SpringBoot一起使用的时候，可以不指定版本，因为SpringBoot预定义了合适的版本。]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

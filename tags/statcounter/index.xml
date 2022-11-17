@@ -11,5 +11,6 @@
   <author>Wang Yong</author>
   <guid>https://whuwangyong.github.io/2022-09-29-use-statcounter-to-get-access-statistics/</guid>
   <description><![CDATA[使用statcounter做访问统计 先看效果 博客园： ​ github.io： ​ statcounter后台： ​ 没啥访问量，见笑了…… 如何实现 本质是将statcounter生成的一段代码，放到自己的网站上就可以了。 注册并生成代码 注册，新建proj]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

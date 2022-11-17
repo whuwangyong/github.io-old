@@ -11,5 +11,6 @@
   <author>Wang Yong</author>
   <guid>https://whuwangyong.github.io/2022-03-29-jekyll/</guid>
   <description><![CDATA[Jekyll 是 Github Pages 官方支持的静态网站生成工具，优点是在可以直接github上使用vscode online编辑md，提交后，github会承担生成html的工作。而使用hugo等工具，需要先在本地将md文件渲染成html，然后上传。 提示 hugo的优点是]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

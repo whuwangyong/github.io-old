@@ -41,5 +41,6 @@ logseq的明显短板是没有全文搜索，这个应该不难，不知道为�
 
 ---
 
-> 作者: Wang Yong  
-> https://whuwangyong.github.io/2022-10-07-pdf-reading-on-siyuan-note-and-logseq/
+> 作者: [Wang Yong](https://github.com/whuwangyong)  
+> URL: https://whuwangyong.github.io/2022-10-07-pdf-reading-on-siyuan-note-and-logseq/  
+

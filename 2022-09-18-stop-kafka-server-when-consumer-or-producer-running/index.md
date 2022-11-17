@@ -171,5 +171,6 @@ public class KafkaMate {
 
 ---
 
-> 作者: Wang Yong  
-> https://whuwangyong.github.io/2022-09-18-stop-kafka-server-when-consumer-or-producer-running/
+> 作者: [Wang Yong](https://github.com/whuwangyong)  
+> URL: https://whuwangyong.github.io/2022-09-18-stop-kafka-server-when-consumer-or-producer-running/  
+

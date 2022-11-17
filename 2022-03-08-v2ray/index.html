@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html lang="">
+<html itemscope itemtype="http://schema.org/WebPage" lang="">
   <head>
     
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <title>V2Ray 搭建指南 - 武大路飞</title><meta name="author" content="Wang Yong">
 <meta name="author-link" content="https://github.com/whuwangyong">
-<meta name="description" content="所有的教程都不如官网。 官网 官网：V2Fly.org github：v2fly/v2ray-core: A platform for building proxies to bypass network restrictions. (github.com) 以下是旧的官网和github： 官网：Project V · Project V 官方网站 (v2ray.com) github：v2ray/v2ray-core: A platform for" />
-<meta name="keywords" content="v2ray,vpn" /><meta itemprop="name" content="V2Ray 搭建指南">
+<meta name="description" content="所有的教程都不如官网。 官网 官网：V2Fly.org github：v2fly/v2ray-core: A platform for building proxies to bypass network restrictions. (github.com) 以下是旧的官网和github： 官网：Project V · Project V 官方网站 (v2ray.com) github：v2ray/v2ray-core: A platform for" /><meta name="keywords" content='v2ray, vpn' /><meta itemprop="name" content="V2Ray 搭建指南">
 <meta itemprop="description" content="所有的教程都不如官网。 官网 官网：V2Fly.org github：v2fly/v2ray-core: A platform for building proxies to bypass network restrictions. (github.com) 以下是旧的官网和github： 官网：Project V · Project V 官方网站 (v2ray.com) github：v2ray/v2ray-core: A platform for"><meta itemprop="datePublished" content="2022-03-08T00:00:00+08:00" />
 <meta itemprop="dateModified" content="2022-11-07T09:52:02+08:00" />
 <meta itemprop="wordCount" content="1481"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
@@ -26,9 +24,9 @@
 <meta name="twitter:title" content="V2Ray 搭建指南"/>
 <meta name="twitter:description" content="所有的教程都不如官网。 官网 官网：V2Fly.org github：v2fly/v2ray-core: A platform for building proxies to bypass network restrictions. (github.com) 以下是旧的官网和github： 官网：Project V · Project V 官方网站 (v2ray.com) github：v2ray/v2ray-core: A platform for"/>
 <meta name="application-name" content="武大路飞">
-<meta name="apple-mobile-web-app-title" content="武大路飞"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="apple-mobile-web-app-title" content="武大路飞"><meta name="theme-color" data-light="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]" data-dark="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]" content="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://whuwangyong.github.io/2022-03-08-v2ray/" /><link rel="prev" href="https://whuwangyong.github.io/2020-11-14-spring-dependency-management/" /><link rel="next" href="https://whuwangyong.github.io/2022-03-09-shadowsocks/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://whuwangyong.github.io/2022-03-08-v2ray/" /><link rel="prev" href="https://whuwangyong.github.io/2020-11-14-spring-dependency-management/" /><link rel="next" href="https://whuwangyong.github.io/2022-03-09-shadowsocks/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
@@ -51,87 +49,69 @@
       },"description": ""
   }
   </script></head>
-  <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script><div class="wrapper"><header class="desktop" id="header-desktop">
+  <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper"><header class="desktop animate__faster" id="header-desktop">
   <div class="header-wrapper">
     <div class="header-title">
-      <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a></div>
+      <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a><span class="header-subtitle"></span></div>
     <nav>
-      <ul class="menu"><li
-              class="menu-item"
-              
-            >
+      <ul class="menu"><li class="menu-item">
               <a
                 class="menu-link"
                 href="/posts/"
                 
                 
-              >归档</a></li><li
-              class="menu-item"
-              
-            >
+              >归档</a></li><li class="menu-item">
               <a
                 class="menu-link"
                 href="/tags/"
                 
                 
-              >标签</a></li><li
-              class="menu-item"
-              
-            >
+              >标签</a></li><li class="menu-item">
               <a
                 class="menu-link"
                 href="/categories/"
                 
                 
-              >分类</a></li><li
-              class="menu-item"
-              
-            >
+              >分类</a></li><li class="menu-item">
               <a
                 class="menu-link"
                 href="/links/"
                 title="友情链接"
                 
-              >友链</a></li><li
-              class="menu-item"
-              
-            >
+              >友链</a></li><li class="menu-item">
               <a
                 class="menu-link"
                 href="/about/"
                 
                 
-              >关于</a></li><li
-              class="menu-item"
-              
-            >
+              >关于</a></li><li class="menu-item">
               <a
                 class="menu-link"
                 href="https://github.com/whuwangyong"
                 title="GitHub"
-                rel="noopener noreffer" target="_blank"
+                rel="noopener noreferrer" target="_blank"
               ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
             <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-desktop">
             <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
-              <i class="fa-solid fa-search fa-fw"></i>
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
             </a>
             <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
-              <i class="fa-solid fa-times-circle fa-fw"></i>
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
             </a>
             <span class="search-button search-loading" id="search-loading-desktop">
-              <i class="fa-solid fa-spinner fa-fw fa-spin"></i>
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
             </span>
           </li><li class="menu-item theme-switch" title="切换主题">
-          <i class="fa-solid fa-adjust fa-fw"></i>
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
         </li>
       </ul>
     </nav>
   </div>
-</header><header class="mobile" id="header-mobile">
+</header><header class="mobile animate__faster" id="header-mobile">
   <div class="header-container">
     <div class="header-wrapper">
       <div class="header-title">
-        <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a></div>
+        <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a><span class="header-subtitle"></span></div>
       <div class="menu-toggle" id="menu-toggle-mobile">
         <span></span><span></span><span></span>
       </div>
@@ -141,13 +121,13 @@
             <div class="search mobile" id="search-mobile">
               <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-mobile">
               <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
-                <i class="fa-solid fa-search fa-fw"></i>
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
               </a>
               <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
-                <i class="fa-solid fa-times-circle fa-fw"></i>
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
               </a>
               <span class="search-button search-loading" id="search-loading-mobile">
-                <i class="fa-solid fa-spinner fa-fw fa-spin"></i>
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
               </span>
             </div>
             <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
@@ -156,99 +136,78 @@
           </li><li
               class="menu-item"
             ><a
-                class="menu-link"
-                href="/posts/"
-                
-                
-              >归档</a></li><li
+                  class="menu-link"
+                  href="/posts/"
+                  
+                  
+                >归档</a></li><li
               class="menu-item"
             ><a
-                class="menu-link"
-                href="/tags/"
-                
-                
-              >标签</a></li><li
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                >标签</a></li><li
               class="menu-item"
             ><a
-                class="menu-link"
-                href="/categories/"
-                
-                
-              >分类</a></li><li
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                >分类</a></li><li
               class="menu-item"
             ><a
-                class="menu-link"
-                href="/links/"
-                title="友情链接"
-                
-              >友链</a></li><li
+                  class="menu-link"
+                  href="/links/"
+                  title="友情链接"
+                  
+                >友链</a></li><li
               class="menu-item"
             ><a
-                class="menu-link"
-                href="/about/"
-                
-                
-              >关于</a></li><li
+                  class="menu-link"
+                  href="/about/"
+                  
+                  
+                >关于</a></li><li
               class="menu-item"
             ><a
-                class="menu-link"
-                href="https://github.com/whuwangyong"
-                title="GitHub"
-                rel="noopener noreffer" target="_blank"
-              ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item theme-switch" title="切换主题">
-          <i class="fa-solid fa-adjust fa-fw"></i>
+                  class="menu-link"
+                  href="https://github.com/whuwangyong"
+                  title="GitHub"
+                  rel="noopener noreferrer" target="_blank"
+                ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
         </li></ul>
     </nav>
   </div>
-</header>
-<div class="search-dropdown desktop">
-  <div id="search-dropdown-desktop"></div>
-</div>
-<div class="search-dropdown mobile">
-  <div id="search-dropdown-mobile"></div>
-</div>
-<main class="container" page-style="custom"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录 <i class="toc-icon fa-solid fa-angle-down fa-fw"></i></h2>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container" data-page-style="custom"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
       <div class="toc-content always-active" id="toc-content-auto"></div></aside>
 
   <aside class="aside-custom">
-    
-  </aside>
+    </aside>
 
   <article class="page single">
-    <div class="header"><h1 class="single-title animate__animated animate__flipInX">V2Ray 搭建指南</h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a
-  href="https://github.com/whuwangyong"
-  
-    title="作者"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer author"
-  
-  
-    class="author"
-  
-  
-><img
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX">
+        <span>V2Ray 搭建指南</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/whuwangyong" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img
     class="lazyload avatar"
     src="/svg/loading.min.svg"
     data-src="/images/avatar150x150.jpg"
     data-srcset="/images/avatar150x150.jpg, /images/avatar150x150.jpg 1.5x, /images/avatar150x150.jpg 2x"
     data-sizes="auto"
     alt="Wang Yong"
-    title="Wang Yong" />&nbsp;Wang Yong</a></span></div>
-      <div class="post-meta-line"><span title=2022-03-08&#32;00:00:00>
-            <i class="fa-regular fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-08" >2022-03-08</time>
-          </span>&nbsp;<i class="fa-solid fa-pencil-alt fa-fw"></i>&nbsp;约 1481 字&nbsp;
-        <i class="fa-regular fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
-    </div><div class="details toc" id="toc-static" kept="false">
+    title="Wang Yong" width="150" height="151"/>&nbsp;Wang Yong</a></span></div>
+      <div class="post-meta-line"><span title=2022-03-08&#32;00:00:00><i class="fa-regular fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-03-08">2022-03-08</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw" aria-hidden="true"></i> 约 1481 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw" aria-hidden="true"></i> 预计阅读 3 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>目录</span>
-          <span><i class="details-icon fa-solid fa-angle-right"></i></span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
@@ -275,93 +234,23 @@
     <li><a href="#运行">运行</a></li>
   </ul>
 </nav></div>
-      </div><div
-      class="content"
-      id="content"
-      
-      
-    ><blockquote>
+      </div><div class="content" id="content"><blockquote>
 <p>所有的教程都不如官网。</p>
 </blockquote>
 <h2 id="官网">官网</h2>
-<p>官网：<a
-  href="https://www.v2fly.org/"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->V2Fly.org</a></p>
-<p>github：<a
-  href="https://github.com/v2fly/v2ray-core"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->v2fly/v2ray-core: A platform for building proxies to bypass network restrictions. (github.com)</a></p>
+<p>官网：<a href="https://www.v2fly.org/"target="_blank" rel="external nofollow noopener noreferrer">V2Fly.org</a></p>
+<p>github：<a href="https://github.com/v2fly/v2ray-core"target="_blank" rel="external nofollow noopener noreferrer">v2fly/v2ray-core: A platform for building proxies to bypass network restrictions. (github.com)</a></p>
 <blockquote>
 <p>以下是旧的官网和github：</p>
 <ul>
-<li>官网：<a
-  href="https://www.v2ray.com/"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->Project V · Project V 官方网站 (v2ray.com)</a></li>
-<li>github：<a
-  href="https://github.com/v2ray/v2ray-core"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->v2ray/v2ray-core: A platform for building proxies to bypass network restrictions. (github.com)</a></li>
+<li>官网：<a href="https://www.v2ray.com/"target="_blank" rel="external nofollow noopener noreferrer">Project V · Project V 官方网站 (v2ray.com)</a></li>
+<li>github：<a href="https://github.com/v2ray/v2ray-core"target="_blank" rel="external nofollow noopener noreferrer">v2ray/v2ray-core: A platform for building proxies to bypass network restrictions. (github.com)</a></li>
 </ul>
 <p>注意，旧版本的安装脚本已废弃。</p>
 </blockquote>
 <h2 id="安装">安装</h2>
 <p>使用Linux安装脚本：</p>
-<p><a
-  href="https://github.com/v2fly/fhs-install-v2ray"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->v2fly/fhs-install-v2ray: Bash script for installing V2Ray in Linux that support systemd (github.com)</a></p>
+<p><a href="https://github.com/v2fly/fhs-install-v2ray"target="_blank" rel="external nofollow noopener noreferrer">v2fly/fhs-install-v2ray: Bash script for installing V2Ray in Linux that support systemd (github.com)</a></p>
 <blockquote>
 <p>该脚本在运行时会提供 <code>info</code> 和 <code>error</code> 等信息，请仔细阅读。</p>
 <h3 id="安装和更新-v2ray">安装和更新 V2Ray</h3>
@@ -532,49 +421,10 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="配置">配置</h2>
-<p>官方给了模板：<a
-  href="https://github.com/v2fly/v2ray-examples"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->v2fly/v2ray-examples: v2ray-core 的模板们 (github.com)</a></p>
-<p>如果想了解更多，还有一份详细文档：<a
-  href="https://guide.v2fly.org/"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->V2Ray 配置指南 | 新 V2Ray 白话文指南 (v2fly.org)</a></p>
+<p>官方给了模板：<a href="https://github.com/v2fly/v2ray-examples"target="_blank" rel="external nofollow noopener noreferrer">v2fly/v2ray-examples: v2ray-core 的模板们 (github.com)</a></p>
+<p>如果想了解更多，还有一份详细文档：<a href="https://guide.v2fly.org/"target="_blank" rel="external nofollow noopener noreferrer">V2Ray 配置指南 | 新 V2Ray 白话文指南 (v2fly.org)</a></p>
 <h3 id="一份简单的配置">一份简单的配置</h3>
-<p>来源：<a
-  href="https://guide.v2fly.org/basics/vmess.html"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->VMess | 新 V2Ray 白话文指南 (v2fly.org)</a></p>
+<p>来源：<a href="https://guide.v2fly.org/basics/vmess.html"target="_blank" rel="external nofollow noopener noreferrer">VMess | 新 V2Ray 白话文指南 (v2fly.org)</a></p>
 <h4 id="服务端配置">服务端配置</h4>
 <p>配置文件位于<code>/usr/local/etc/v2ray/config.json</code></p>
 <div class="highlight"><div class="chroma">
@@ -634,11 +484,11 @@
 <img
     class="lazyload"
     src="/svg/loading.min.svg"
-    data-src="assets/image-20221107093358-j0wenda.png"
-    data-srcset="/2022-03-08-v2ray/assets/image-20221107093358-j0wenda.png, assets/image-20221107093358-j0wenda.png 1.5x, /2022-03-08-v2ray/assets/image-20221107093358-j0wenda.png 2x"
+    data-src="/2022-03-08-v2ray/assets/image-20221107093358-j0wenda.png"
+    data-srcset="/2022-03-08-v2ray/assets/image-20221107093358-j0wenda.png, /2022-03-08-v2ray/assets/image-20221107093358-j0wenda.png 1.5x, /2022-03-08-v2ray/assets/image-20221107093358-j0wenda.png 2x"
     data-sizes="auto"
-    alt="/2022-03-08-v2ray/assets/image-20221107093358-j0wenda.png"
-    title="img.png" /></p>
+    alt="img.png"
+    title="img.png" width="643" height="355"/></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -714,20 +564,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="如何生成-uuid">如何生成 UUID</h3>
-<p>在线生成器：<a
-  href="https://www.uuidgenerator.net/"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->Online UUID Generator Tool</a></p>
+<p>在线生成器：<a href="https://www.uuidgenerator.net/"target="_blank" rel="external nofollow noopener noreferrer">Online UUID Generator Tool</a></p>
 <p>Linux 命令生成：<code>cat /proc/sys/kernel/random/uuid</code></p>
 <blockquote>
 <p><strong>版本</strong></p>
@@ -736,62 +573,19 @@
 <p>版本1 - UUID 是根据时间和 节点ID（通常是MAC地址）生成；</p>
 <p>版本2 - UUID是根据标识符（通常是组或用户ID）、时间和节点ID生成；</p>
 <p>版本3、版本5 - 确定性UUID 通过散列（hashing）名字空间（namespace）标识符和名称生成；</p>
-<p>版本4 - UUID 使用<a
-  href="https://zh.wikipedia.org/wiki/%E9%9A%8F%E6%9C%BA%E6%80%A7"
-  
-    title="随机性"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->随机性</a>或<a
-  href="https://zh.wikipedia.org/wiki/%E4%BC%AA%E9%9A%8F%E6%9C%BA%E6%80%A7"
-  
-    title="伪随机性"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->伪随机性</a>生成。</p>
-<p>—— 来源：<a
-  href="https://zh.wikipedia.org/wiki/%E9%80%9A%E7%94%A8%E5%94%AF%E4%B8%80%E8%AF%86%E5%88%AB%E7%A0%81#%E7%89%88%E6%9C%AC"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->通用唯一识别码 - 维基百科，自由的百科全书 (wikipedia.org)</a></p>
+<p>版本4 - UUID 使用<a href="https://zh.wikipedia.org/wiki/%E9%9A%8F%E6%9C%BA%E6%80%A7" title="随机性"target="_blank" rel="external nofollow noopener noreferrer">随机性</a>或<a href="https://zh.wikipedia.org/wiki/%E4%BC%AA%E9%9A%8F%E6%9C%BA%E6%80%A7" title="伪随机性"target="_blank" rel="external nofollow noopener noreferrer">伪随机性</a>生成。</p>
+<p>—— 来源：<a href="https://zh.wikipedia.org/wiki/%E9%80%9A%E7%94%A8%E5%94%AF%E4%B8%80%E8%AF%86%E5%88%AB%E7%A0%81#%E7%89%88%E6%9C%AC"target="_blank" rel="external nofollow noopener noreferrer">通用唯一识别码 - 维基百科，自由的百科全书 (wikipedia.org)</a></p>
 </blockquote>
 <h3 id="如何选择配置方案">如何选择配置方案</h3>
 <p>官方的这个图真的太皮了，特意拿过来：</p>
 <p><img
     class="lazyload"
     src="/svg/loading.min.svg"
-    data-src="assets/image-20220308230038-enct8t4.png"
-    data-srcset="/2022-03-08-v2ray/assets/image-20220308230038-enct8t4.png, assets/image-20220308230038-enct8t4.png 1.5x, /2022-03-08-v2ray/assets/image-20220308230038-enct8t4.png 2x"
+    data-src="/2022-03-08-v2ray/assets/image-20220308230038-enct8t4.png"
+    data-srcset="/2022-03-08-v2ray/assets/image-20220308230038-enct8t4.png, /2022-03-08-v2ray/assets/image-20220308230038-enct8t4.png 1.5x, /2022-03-08-v2ray/assets/image-20220308230038-enct8t4.png 2x"
     data-sizes="auto"
-    alt="/2022-03-08-v2ray/assets/image-20220308230038-enct8t4.png"
-    title="image.png" /></p>
+    alt="image.png"
+    title="image.png" width="1437" height="1121"/></p>
 <h2 id="运行">运行</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -816,24 +610,12 @@
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title=2022-11-07&#32;09:52:02>更新于 2022-11-07&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/e87f39899f2baa88d74e4ecf1a57fa09a860471b" rel="external nofollow noopener noreffer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) e87f39899f2baa88d74e4ecf1a57fa09a860471b: update post: v2ray">
-                  <i class="fa-solid fa-hashtag fa-fw"></i>e87f398</a></span>
-      </div>
-      <div class="post-info-license "></div>
-    </div>
+        <span title=2022-11-07&#32;09:52:02>更新于 2022-11-07&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/e87f39899f2baa88d74e4ecf1a57fa09a860471b" rel="external nofollow noopener noreferrer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) e87f39899f2baa88d74e4ecf1a57fa09a860471b: update post: v2ray"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>e87f398</a></span>
+      </div><div class="post-info-license">
+          <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+        </div></div>
     <div class="post-info-line">
-      <div class="post-info-md"><span><a
-  href="/2022-03-08-v2ray/index.md"
-  
-    title="阅读原始文档"
-  
-  
-  
-  
-    class="link-to-markdown"
-  
-  
->阅读原始文档</a></span></div>
+      <div class="post-info-md"><span><a href="/2022-03-08-v2ray/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
       <div class="post-info-share">
         <span></span>
       </div>
@@ -841,17 +623,17 @@
   </div>
 
   <div class="post-info-more">
-    <section class="post-tags"><i class="fa-solid fa-tags fa-fw"></i>&nbsp;<a href="/tags/v2ray/">v2ray</a>,&nbsp;<a href="/tags/vpn/">vpn</a></section>
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/v2ray/">v2ray</a>,&nbsp;<a href="/tags/vpn/">vpn</a></section>
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
     </section>
   </div>
 
-  <div class="post-nav"><a href="/2020-11-14-spring-dependency-management/" class="prev" rel="prev" title="Spring的依赖管理"><i class="fa-solid fa-angle-left fa-fw"></i>Spring的依赖管理</a>
-      <a href="/2022-03-09-shadowsocks/" class="next" rel="next" title="shadowsocks 服务端安装指南">shadowsocks 服务端安装指南<i class="fa-solid fa-angle-right fa-fw"></i></a></div>
+  <div class="post-nav"><a href="/2020-11-14-spring-dependency-management/" class="post-nav-item" rel="prev" title="Spring的依赖管理"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Spring的依赖管理</a>
+      <a href="/2022-03-09-shadowsocks/" class="post-nav-item" rel="next" title="shadowsocks 服务端安装指南">shadowsocks 服务端安装指南<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
-<div id="comments"><div id="utterances"></div><noscript>
-        Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/" rel="external nofollow noopener noreffer">Utterances</a>.
+<div id="comments"><div id="utterances" class="comment"></div><noscript>
+        Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/" rel="external nofollow noopener noreferrer">Utterances</a>.
       </noscript></div></article></main><footer class="footer">
     <div class="footer-container"><div class="footer-line custom">      <a href="https://statcounter.com/p12730999/?guest=1" target="_blank">访问统计</a>
       <!-- Default Statcounter code for github.io https://whuwangyong.github.io/ -->
@@ -870,29 +652,13 @@
           </a>
         </div>
       </noscript>
-      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.101.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
-        </div><div class="footer-line copyright"><i class="fa-regular fa-copyright fa-fw"></i>
+      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.101.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.17-RC"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">
-              <a
-  href="https://github.com/whuwangyong"
-  
-  
-    
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
->Wang Yong</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div></div>
-  </footer></div><div class="widgets">
-  <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
-      <i class="fa-solid fa-arrow-up fa-fw"></i>
-    </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
-      <i class="fa-solid fa-comment fa-fw"></i>
-    </a>
-  </div><div id="mask"></div>
-</div><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js" defer></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js" async defer></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js" defer></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js" defer></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js" defer></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":30},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"comments","lightTheme":"github-light","repo":"whuwangyong/whuwangyong.github.io"}},"enablePWA":null,"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"YMLBEBNFHL","algoliaIndex":"new-index-1649076215","algoliaSearchKey":"9028b251fe4eecb5ad4d47af0715a4f0","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js" defer></script></body>
+              <a href="https://github.com/whuwangyong"target="_blank" rel="external nofollow noopener noreferrer">Wang Yong</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div><div class="fixed-button view-comments d-none" role="button" aria-label="查看评论"><i class="fa-solid fa-comment fa-fw" aria-hidden="true"></i></div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script src="/lib/lazysizes/lazysizes.min.js" async defer></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":30},"comment":{"enable":true,"expired":false,"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"comments","lightTheme":"github-light","repo":"whuwangyong/whuwangyong.github.io"}},"lightgallery":true,"search":{"algoliaAppID":"YMLBEBNFHL","algoliaIndex":"new-index-1649076215","algoliaSearchKey":"9028b251fe4eecb5ad4d47af0715a4f0","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js" defer></script></body>
 </html>

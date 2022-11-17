@@ -239,5 +239,6 @@ bing的响应:  b'{"d":null}'
 
 ---
 
-> 作者: Wang Yong  
-> https://whuwangyong.github.io/2022-04-28-submit-urls-to-baidu-and-bing-with-api/
+> 作者: [Wang Yong](https://github.com/whuwangyong)  
+> URL: https://whuwangyong.github.io/2022-04-28-submit-urls-to-baidu-and-bing-with-api/  
+

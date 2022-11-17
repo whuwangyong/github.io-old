@@ -129,5 +129,6 @@ private Object doDeleteTopics(Set<String> topics) throws ExecutionException, Int
 
 ---
 
-> 作者: Wang Yong  
-> https://whuwangyong.github.io/2022-09-21-how-to-ensure-kafka-topics-deleted/
+> 作者: [Wang Yong](https://github.com/whuwangyong)  
+> URL: https://whuwangyong.github.io/2022-09-21-how-to-ensure-kafka-topics-deleted/  
+

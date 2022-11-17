@@ -11,5 +11,6 @@
   <author>Wang Yong</author>
   <guid>https://whuwangyong.github.io/2022-03-12-can-not-delete-topics-when-kafka-running-on-windows/</guid>
   <description><![CDATA[问题描述 删除topic时导致集群崩溃，报错： ERROR Shutdown broker because all log dirs in D:\tmp\kafka-logs have failed. 测试了kafka_2.11-1.1.0、kafka_2.13-2.5.0、kafka_2.13-2.6.2、kafka_2.13-2.7.0四个版本，都有这个问题。 搜索了网络]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

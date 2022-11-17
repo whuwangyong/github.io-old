@@ -90,5 +90,6 @@ kafka server直接关闭了。
 
 ---
 
-> 作者: Wang Yong  
-> https://whuwangyong.github.io/2022-03-12-can-not-delete-topics-when-kafka-running-on-windows/
+> 作者: [Wang Yong](https://github.com/whuwangyong)  
+> URL: https://whuwangyong.github.io/2022-03-12-can-not-delete-topics-when-kafka-running-on-windows/  
+

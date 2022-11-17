@@ -4,75 +4,85 @@
     <link>https://whuwangyong.github.io/posts/</link>
     <description>所有文章 | 武大路飞</description>
     <generator>Hugo -- gohugo.io</generator><managingEditor>whuwangyong@gmail.com (Wang Yong)</managingEditor>
-      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Fri, 07 Oct 2022 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://whuwangyong.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Thu, 17 Nov 2022 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://whuwangyong.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+  <title>Kafka transaction hanging causes consumer to stuck</title>
+  <link>https://whuwangyong.github.io/2022-11-17-kafka-transaction-hanging-causes-consumer-to-stuck/</link>
+  <pubDate>Thu, 17 Nov 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-11-17-kafka-transaction-hanging-causes-consumer-to-stuck/</guid>
+  <description><![CDATA[Kafka事务未关闭导致消费者无法消费消息。 背景 最近遇到一个问题：有一个公用topic，很多应用都读写这个topic。从某个时间点开始，所有消费该topic的消费者（read_committed级别）都拉不到消息了。随机看了一些应用的日志，]]></description>
+</item>
+<item>
   <title>思源笔记与logseq在PDF标注上的体验</title>
   <link>https://whuwangyong.github.io/2022-10-07-pdf-reading-on-siyuan-note-and-logseq/</link>
   <pubDate>Fri, 07 Oct 2022 00:00:00 &#43;0800</pubDate>
   <author>Wang Yong</author>
   <guid>https://whuwangyong.github.io/2022-10-07-pdf-reading-on-siyuan-note-and-logseq/</guid>
   <description><![CDATA[版本：思源2.2.3，logseq 0.8.8 功能对比 功能 思源 logseq 目录/书签 Y Y 高亮、批注、矩形选择 Y Y 页面缩放、跳转 Y Y 关键字搜索 Y N 高亮内容自动添加到笔记 N Y 笔记与PDF原文之间互相跳转 Y Y logseq的明显短板是没有全文搜索，这个应该不难，不知道]]></description>
-</item><item>
+</item>
+<item>
   <title>使用statcounter做访问统计</title>
   <link>https://whuwangyong.github.io/2022-09-29-use-statcounter-to-get-access-statistics/</link>
   <pubDate>Thu, 29 Sep 2022 00:00:00 &#43;0800</pubDate>
   <author>Wang Yong</author>
   <guid>https://whuwangyong.github.io/2022-09-29-use-statcounter-to-get-access-statistics/</guid>
   <description><![CDATA[使用statcounter做访问统计 先看效果 博客园： ​ github.io： ​ statcounter后台： ​ 没啥访问量，见笑了…… 如何实现 本质是将statcounter生成的一段代码，放到自己的网站上就可以了。 注册并生成代码 注册，新建proj]]></description>
-</item><item>
+</item>
+<item>
   <title>如何确保kafka topic已经删除</title>
   <link>https://whuwangyong.github.io/2022-09-21-how-to-ensure-kafka-topics-deleted/</link>
   <pubDate>Wed, 21 Sep 2022 00:00:00 &#43;0800</pubDate>
   <author>Wang Yong</author>
   <guid>https://whuwangyong.github.io/2022-09-21-how-to-ensure-kafka-topics-deleted/</guid>
   <description><![CDATA[问题描述 TopicExistsException: Topic &lsquo;xxx&rsquo; is marked for deletion. 在写kafka工具时，有两个方法：批量创建topic和批量删除topic。 运维操作一般是，批量删除一堆topic，然后再重建删除的那些topic。在创建时，可能会遇到如下错误： 1 2 3 4 5 6 7 8 2022-09-19 08:37:55.150 INFO 20376 --- [nio-8080-exec-4] c.w.w.k.service.TopicManagerImpl : input topics num: 100, deleted]]></description>
-</item><item>
+</item>
+<item>
   <title>在consumer producer运行时停止kafka服务端会怎样</title>
   <link>https://whuwangyong.github.io/2022-09-18-stop-kafka-server-when-consumer-or-producer-running/</link>
   <pubDate>Sun, 18 Sep 2022 00:00:00 &#43;0800</pubDate>
   <author>Wang Yong</author>
   <guid>https://whuwangyong.github.io/2022-09-18-stop-kafka-server-when-consumer-or-producer-running/</guid>
   <description><![CDATA[结论 服务端停止时，客户端程序会报错； 服务端启动后，客户端程序能继续运行。也就是，消费者线程并未异常退出。 实验步骤 （1）停止后，consumer和producer会报错。 消费者： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32]]></description>
-</item><item>
+</item>
+<item>
   <title>在producer consumer运行时删除topic会怎么样</title>
   <link>https://whuwangyong.github.io/2022-09-18-delete-topic-when-consumer-or-producer-running/</link>
   <pubDate>Sun, 18 Sep 2022 00:00:00 &#43;0800</pubDate>
   <author>Wang Yong</author>
   <guid>https://whuwangyong.github.io/2022-09-18-delete-topic-when-consumer-or-producer-running/</guid>
   <description><![CDATA[broker端有个参数（kafka_2.13-3.2.1/config/server.properties），auto.create.topics.enable，默认为true。意思是，当生产者、消费者读写一个不存在的topic时，是否自动]]></description>
-</item><item>
+</item>
+<item>
   <title>如何在Spring Boot代码中执行sql脚本</title>
   <link>https://whuwangyong.github.io/2022-08-24-how-to-execute-sql-script-in-spring-boot/</link>
   <pubDate>Wed, 24 Aug 2022 00:00:00 &#43;0800</pubDate>
   <author>Wang Yong</author>
   <guid>https://whuwangyong.github.io/2022-08-24-how-to-execute-sql-script-in-spring-boot/</guid>
   <description><![CDATA[在spring应用运行时，有一些建表语句，或则初始化数据，需要从sql脚本导入。 本文推荐以下两种方法。 假设脚本位于/resources/ddl.sql 1 使用@sql注解 该注解可用于类和方法。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 @Sql(scripts = {&#34;/ddl.sql&#34;}, config = @SqlConfig(encoding =]]></description>
-</item><item>
+</item>
+<item>
   <title>MySQL外键</title>
   <link>https://whuwangyong.github.io/2022-08-22-mysql-foreign-key/</link>
   <pubDate>Mon, 22 Aug 2022 00:00:00 &#43;0800</pubDate>
   <author>Wang Yong</author>
   <guid>https://whuwangyong.github.io/2022-08-22-mysql-foreign-key/</guid>
   <description><![CDATA[语法 在创建表的时候指定外键约束 1 2 3 4 5 6 7 8 9 10 CREATE TABLE 表名 ( column1 datatype null/not null, column2 datatype null/not null, ... CONSTRAINT 外键约束名 FOREIGN KEY (column1,column2,... column_n) REFERENCES 外键依赖的表 (column1,column2,...column_n) ON DELETE CASCADE--级联删除 ON UPDATE CASCADE--级联更新 ); 测试 有如下2个表： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 CREATE TABLE t_product]]></description>
-</item><item>
+</item>
+<item>
   <title>Process Explorer检测弹窗广告的利器</title>
   <link>https://whuwangyong.github.io/2022-07-23-use-process-explorer-to-detect-ad-process/</link>
   <pubDate>Sat, 23 Jul 2022 00:00:00 &#43;0800</pubDate>
   <author>Wang Yong</author>
   <guid>https://whuwangyong.github.io/2022-07-23-use-process-explorer-to-detect-ad-process/</guid>
   <description><![CDATA[有时候电脑右下角、正中间弹出的广告，没有任何logo和落款，不知道是哪个软件搞的。这就好比挨了一拳，没看见出拳的人。 微软的一个大佬开发的 Process Explorer 功能强大，能解决这个问题。将工具栏上的瞄准镜拖动到广告弹窗上面即可。]]></description>
-</item><item>
+</item>
+<item>
   <title>kafka consumer seek之后立即poll可能拉不到消息</title>
   <link>https://whuwangyong.github.io/2022-02-17-kafka-seek-poll/</link>
   <pubDate>Tue, 31 May 2022 00:00:00 &#43;0800</pubDate>
   <author>Wang Yong</author>
   <guid>https://whuwangyong.github.io/2022-02-17-kafka-seek-poll/</guid>
   <description><![CDATA[问题 有个需求，需要频繁seek到指定partition的指定offset，然后poll，且只poll一次，目的是为了快速将指定offset的消息拉取出来。 通常的poll写法是，将poll逻辑放在死循环里，第一次拉不到，第二次继续。如果off]]></description>
-</item><item>
-  <title>Kafka事务不完全指南</title>
-  <link>https://whuwangyong.github.io/2022-05-30-kafka-tx/</link>
-  <pubDate>Mon, 30 May 2022 00:00:00 &#43;0800</pubDate>
-  <author>Wang Yong</author>
-  <guid>https://whuwangyong.github.io/2022-05-30-kafka-tx/</guid>
-  <description><![CDATA[Kafka的事务是什么 生产者往多个topic里面写消息，要么同时成功，要么同时失败。 为什么需要事务 消息系统有3种语义： 最多一次 最少一次 精确一次。Exactly Only Once 为了实现精确一次的语义，Kafka必须引入事务。如下图： 本应用从上游topic]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

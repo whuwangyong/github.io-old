@@ -297,5 +297,6 @@ dependencyManagement {
 
 ---
 
-> 作者: Wang Yong  
-> https://whuwangyong.github.io/2020-11-14-spring-dependency-management/
+> 作者: [Wang Yong](https://github.com/whuwangyong)  
+> URL: https://whuwangyong.github.io/2020-11-14-spring-dependency-management/  
+

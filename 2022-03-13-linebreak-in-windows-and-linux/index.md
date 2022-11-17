@@ -135,5 +135,6 @@ ts@TS:~/www/document$
 
 ---
 
-> 作者: Wang Yong  
-> https://whuwangyong.github.io/2022-03-13-linebreak-in-windows-and-linux/
+> 作者: [Wang Yong](https://github.com/whuwangyong)  
+> URL: https://whuwangyong.github.io/2022-03-13-linebreak-in-windows-and-linux/  
+

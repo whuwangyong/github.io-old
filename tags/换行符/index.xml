@@ -11,5 +11,6 @@
   <author>Wang Yong</author>
   <guid>https://whuwangyong.github.io/2022-03-13-linebreak-in-windows-and-linux/</guid>
   <description><![CDATA[问题描述 有一个配置文件 config： 1 2 KAFKA_HOME=/home/wy/dev/kafka_2.13-2.6.0 BOOTSTRAP_SERVER=127.0.0.1:9092 另有一个使用该配置文件的脚本 list-topics.sh： 1 2 3 4 #!/bin/bash . config &#34;$KAFKA_HOME&#34;/bin/kafka-topics.sh --bootstrap-server &#34;$BOOTSTRAP_SERVER&#34; --list 我使用虚拟机Ubuntu挂载Windows分区，执行在Windows环境下编写的脚本，提示： 1 2 wy@ship:/mnt/hgfs/D/projects/kafka-mate/scripts$ ./list-topics.sh /bin/kafka-topics.sh: No such file or directory13-2.6.0 解决]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>
