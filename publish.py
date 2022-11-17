@@ -14,6 +14,7 @@ import sys
 import time
 
 import requests
+from algoliasearch.search_client import SearchClient
 
 COMMIT_MSG_FILE = "commit-message"
 BLOG_BR = "hugo-loveit"
@@ -95,10 +96,10 @@ def add_links():
                     md.seek(0)  # a+ 模式打开文件定位到末尾，需先seek到开始
                     lines = md.readlines()
                     if (
-                        len(lines) > 3
-                        and lines[-1].startswith("- https://whuwangyong.vercel.app/")
-                        and lines[-2].startswith("- https://whuwangyong.netlify.app/")
-                        and lines[-3].startswith("- https://whuwangyong.github.io/")
+                            len(lines) > 3
+                            and lines[-1].startswith("- https://whuwangyong.vercel.app/")
+                            and lines[-2].startswith("- https://whuwangyong.netlify.app/")
+                            and lines[-3].startswith("- https://whuwangyong.github.io/")
                     ):
                         continue
                     else:
@@ -133,10 +134,10 @@ def remove_links():
                     md.seek(0, os.SEEK_END)
                     total = md.tell()
                     if (
-                        len(lines) > 3
-                        and lines[-1].startswith("- https://whuwangyong.vercel.app/")
-                        and lines[-2].startswith("- https://whuwangyong.netlify.app/")
-                        and lines[-3].startswith("- https://whuwangyong.github.io/")
+                            len(lines) > 3
+                            and lines[-1].startswith("- https://whuwangyong.vercel.app/")
+                            and lines[-2].startswith("- https://whuwangyong.netlify.app/")
+                            and lines[-3].startswith("- https://whuwangyong.github.io/")
                     ):
                         # 205 + 21 = 226
                         # md.seek(total - len("".join(lines[-6:]))) # 定位到倒数第6行的行首位置
@@ -249,6 +250,22 @@ def commit_urls():
         print("百度的响应: ", response.content)
 
 
+# 需要在gh-pages分支操作，因为要读index.json文件
+def upload_index_2_algolia():
+    print("上传索引文件到algolia...")
+    # Connect and authenticate with your Algolia app
+    client = SearchClient.create("YMLBEBNFHL", "4962bf8c8b0c034ee6ef247a9c162304")
+
+    # Create a new index and add a record
+    index = client.init_index("new-index-1649076215")
+    with open('./index.json', 'r', encoding='utf8') as fp:
+        json_data = json.load(fp)
+
+    index.save_objects(json_data).wait()
+
+    print("上传索引文件到algolia完成")
+
+
 # 清除日志信息
 def clear_commit_msg():
     print("清除日志信息")
@@ -279,6 +296,8 @@ def main():
     commit_html()
 
     commit_urls()
+
+    upload_index_2_algolia()
 
     clear_commit_msg()
 
