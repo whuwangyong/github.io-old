@@ -91,7 +91,7 @@
                 title="GitHub"
                 rel="noopener noreferrer" target="_blank"
               ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
-            <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
             <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
               <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
             </a>
@@ -119,7 +119,7 @@
     <nav>
       <ul class="menu" id="menu-mobile"><li class="search-wrapper">
             <div class="search mobile" id="search-mobile">
-              <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
               <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
                 <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
               </a>
@@ -195,14 +195,7 @@
     <div class="header"><h1 class="single-title animate__animated animate__flipInX">
         <span>Kafka事务不完全指南</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/whuwangyong" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img
-    class="lazyload avatar"
-    src="/svg/loading.min.svg"
-    data-src="/images/avatar150x150.jpg"
-    data-srcset="/images/avatar150x150.jpg, /images/avatar150x150.jpg 1.5x, /images/avatar150x150.jpg 2x"
-    data-sizes="auto"
-    alt="Wang Yong"
-    title="Wang Yong" width="150" height="151"/>&nbsp;Wang Yong</a></span>
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/whuwangyong" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="/images/avatar150x150.jpg" srcset="/images/avatar150x150.jpg, /images/avatar150x150.jpg 1.5x, /images/avatar150x150.jpg 2x" sizes="auto" data-title="Wang Yong" data-alt="Wang Yong" width="150" height="151" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Wang Yong</a></span>
           <span class="post-category">收录于 <a href="/categories/kafka/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> kafka</a></span></div>
       <div class="post-meta-line"><span title=2022-05-30&#32;00:00:00><i class="fa-regular fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-05-30">2022-05-30</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw" aria-hidden="true"></i> 约 2290 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw" aria-hidden="true"></i> 预计阅读 5 分钟</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -243,14 +236,7 @@
 </ol>
 <p>为了实现精确一次的语义，Kafka必须引入事务。如下图：</p>
 <p>本应用从上游topic消费消息，处理后发到下游topic，同时将处理进度发送到<code>__consumer_offsets</code>topic里面进行保存，对这两个topic的写，是一个原子操作（atomic）。</p>
-<p><img
-    class="lazyload"
-    src="/svg/loading.min.svg"
-    data-src="/2022-05-30-kafka-tx/assets/image-20220530095714242.png"
-    data-srcset="/2022-05-30-kafka-tx/assets/image-20220530095714242.png, /2022-05-30-kafka-tx/assets/image-20220530095714242.png 1.5x, /2022-05-30-kafka-tx/assets/image-20220530095714242.png 2x"
-    data-sizes="auto"
-    alt="image-20220530095714242"
-    title="image-20220530095714242" width="415" height="151"/></p>
+<p><img loading="lazy" src="assets/image-20220530095714242.png" srcset="/2022-05-30-kafka-tx/assets/image-20220530095714242.png, assets/image-20220530095714242.png 1.5x, /2022-05-30-kafka-tx/assets/image-20220530095714242.png 2x" sizes="auto" data-title="image-20220530095714242" data-alt="image-20220530095714242" width="415" height="151" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
 <p>如果没有事务，发生以下情况时，消息可能会重复或者丢失：</p>
 <blockquote>
 <ul>
@@ -290,14 +276,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="how-transactions-work">How Transactions Work</h3>
-<p><img
-    class="lazyload"
-    src="/svg/loading.min.svg"
-    data-src="/2022-05-30-kafka-tx/assets/image-20220528201239-6jlhsxf.jpg"
-    data-srcset="/2022-05-30-kafka-tx/assets/image-20220528201239-6jlhsxf.jpg, /2022-05-30-kafka-tx/assets/image-20220528201239-6jlhsxf.jpg 1.5x, /2022-05-30-kafka-tx/assets/image-20220528201239-6jlhsxf.jpg 2x"
-    data-sizes="auto"
-    alt="image.png"
-    title="image.png" width="461" height="312"/></p>
+<p><img loading="lazy" src="assets/image-20220528201239-6jlhsxf.jpg" srcset="/2022-05-30-kafka-tx/assets/image-20220528201239-6jlhsxf.jpg, assets/image-20220528201239-6jlhsxf.jpg 1.5x, /2022-05-30-kafka-tx/assets/image-20220528201239-6jlhsxf.jpg 2x" sizes="auto" data-title="image.png" data-alt="image.png" width="461" height="312" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
 <h3 id="the-transaction-coordinator-and-transaction-log">The Transaction Coordinator and Transaction Log</h3>
 <blockquote>
 <p>The transaction coordinator is a module running <strong>inside every Kafka broker</strong>. The transaction log is an <strong>internal kafka topic</strong>. Each coordinator owns some subset of the partitions in the transaction log, ie. the partitions for <strong>which its broker is the leader</strong>.</p>
@@ -364,14 +343,7 @@
 </blockquote>
 <h3 id="如何实现跨数据源的事务kafkadb混合事务">如何实现跨数据源的事务：kafka+DB混合事务</h3>
 <p>对于如下的一个逻辑：</p>
-<p><img
-    class="lazyload"
-    src="/svg/loading.min.svg"
-    data-src="/2022-05-30-kafka-tx/assets/image-20220530104540910.png"
-    data-srcset="/2022-05-30-kafka-tx/assets/image-20220530104540910.png, /2022-05-30-kafka-tx/assets/image-20220530104540910.png 1.5x, /2022-05-30-kafka-tx/assets/image-20220530104540910.png 2x"
-    data-sizes="auto"
-    alt="image-20220530104540910"
-    title="image-20220530104540910" width="314" height="257"/></p>
+<p><img loading="lazy" src="assets/image-20220530104540910.png" srcset="/2022-05-30-kafka-tx/assets/image-20220530104540910.png, assets/image-20220530104540910.png 1.5x, /2022-05-30-kafka-tx/assets/image-20220530104540910.png 2x" sizes="auto" data-title="image-20220530104540910" data-alt="image-20220530104540910" width="314" height="257" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
 <p>本应用消费上游topic的消息，然后将结果1发送到下游topic，同时将结果2写入db，另外还要提交消费进度到<code>__consumer_offsets</code>topic。如何保证这3个写操作是一个事务？kafka的事务并不支持跨数据源。官方文档如下：</p>
 <blockquote>
 <p>When writing to an external system, the limitation is in the need to coordinate the consumer&rsquo;s position with what is actually stored as output. The classic way of achieving this would be to introduce a two-phase commit between the storage of the consumer position and the storage of the consumers output. But this can be handled more simply and generally by letting the consumer store its offset in the same place as its output.</p>
@@ -381,14 +353,7 @@
 </blockquote>
 <p>官方建议，“letting the consumer store its offset in the same place as its output”，将输出保存到同一数据源：要么全部写数据库（消费进度也存在数据库里），此时可以用数据库的事务；要么全部写kafka。</p>
 <p>根据这种思路，提供设计如下：</p>
-<p><img
-    class="lazyload"
-    src="/svg/loading.min.svg"
-    data-src="/2022-05-30-kafka-tx/assets/image-20220530104521400.png"
-    data-srcset="/2022-05-30-kafka-tx/assets/image-20220530104521400.png, /2022-05-30-kafka-tx/assets/image-20220530104521400.png 1.5x, /2022-05-30-kafka-tx/assets/image-20220530104521400.png 2x"
-    data-sizes="auto"
-    alt="image-20220530104521400"
-    title="image-20220530104521400" width="686" height="383"/></p>
+<p><img loading="lazy" src="assets/image-20220530104521400.png" srcset="/2022-05-30-kafka-tx/assets/image-20220530104521400.png, assets/image-20220530104521400.png 1.5x, /2022-05-30-kafka-tx/assets/image-20220530104521400.png 2x" sizes="auto" data-title="image-20220530104521400" data-alt="image-20220530104521400" width="686" height="383" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
 <p>结果2也写到kafka里面，这样写结果1+结果2+消费进度是一个kafka事务，可以做到精确一次消费。然后单独写一个持久化线程，将数据从kafka里面消费，写到db。<strong>注意写db的时候，需要将消费进度一起写入db，利用数据库事务来确保精确一次持久化。</strong></p>
 <h3 id="reference">Reference</h3>
 <ol>
@@ -416,7 +381,7 @@
   </div>
 
   <div class="post-info-more">
-    <section class="post-tags"><i class="fa-solid fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/kafka/">kafka</a>,&nbsp;<a href="/tags/kafka%E4%BA%8B%E5%8A%A1/">kafka事务</a></section>
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/kafka/' class="post-tag">kafka</a><a href='/tags/kafka%E4%BA%8B%E5%8A%A1/' class="post-tag">kafka事务</a></section>
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
     </section>
@@ -445,7 +410,7 @@
           </a>
         </div>
       </noscript>
-      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.101.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.17-RC"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.101.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18-RC"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
         </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">
               <a href="https://github.com/whuwangyong"target="_blank" rel="external nofollow noopener noreferrer">Wang Yong</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"></div></div>
@@ -453,5 +418,5 @@
         </div><div class="fixed-button view-comments d-none" role="button" aria-label="查看评论"><i class="fa-solid fa-comment fa-fw" aria-hidden="true"></i></div></div><div id="mask"></div><noscript>
     <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
   </noscript>
-</div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script src="/lib/lazysizes/lazysizes.min.js" async defer></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":30},"comment":{"enable":true,"expired":false,"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"comments","lightTheme":"github-light","repo":"whuwangyong/whuwangyong.github.io"}},"lightgallery":true,"search":{"algoliaAppID":"YMLBEBNFHL","algoliaIndex":"new-index-1649076215","algoliaSearchKey":"9028b251fe4eecb5ad4d47af0715a4f0","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js" defer></script></body>
+</div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":30},"comment":{"enable":true,"expired":false,"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"comments","lightTheme":"github-light","repo":"whuwangyong/whuwangyong.github.io"}},"lightgallery":true,"search":{"algoliaAppID":"YMLBEBNFHL","algoliaIndex":"new-index-1649076215","algoliaSearchKey":"9028b251fe4eecb5ad4d47af0715a4f0","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js" defer></script></body>
 </html>

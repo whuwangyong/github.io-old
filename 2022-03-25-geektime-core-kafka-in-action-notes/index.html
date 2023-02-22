@@ -91,7 +91,7 @@
                 title="GitHub"
                 rel="noopener noreferrer" target="_blank"
               ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
-            <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
             <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
               <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
             </a>
@@ -119,7 +119,7 @@
     <nav>
       <ul class="menu" id="menu-mobile"><li class="search-wrapper">
             <div class="search mobile" id="search-mobile">
-              <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
               <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
                 <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
               </a>
@@ -195,14 +195,7 @@
     <div class="header"><h1 class="single-title animate__animated animate__flipInX">
         <span>《Kafka 核心技术与实战》学习笔记</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/whuwangyong" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img
-    class="lazyload avatar"
-    src="/svg/loading.min.svg"
-    data-src="/images/avatar150x150.jpg"
-    data-srcset="/images/avatar150x150.jpg, /images/avatar150x150.jpg 1.5x, /images/avatar150x150.jpg 2x"
-    data-sizes="auto"
-    alt="Wang Yong"
-    title="Wang Yong" width="150" height="151"/>&nbsp;Wang Yong</a></span>
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/whuwangyong" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="/images/avatar150x150.jpg" srcset="/images/avatar150x150.jpg, /images/avatar150x150.jpg 1.5x, /images/avatar150x150.jpg 2x" sizes="auto" data-title="Wang Yong" data-alt="Wang Yong" width="150" height="151" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Wang Yong</a></span>
           <span class="post-category">收录于 <a href="/categories/kafka/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> kafka</a></span></div>
       <div class="post-meta-line"><span title=2022-03-25&#32;00:00:00><i class="fa-regular fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-03-25">2022-03-25</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw" aria-hidden="true"></i> 约 11194 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw" aria-hidden="true"></i> 预计阅读 23 分钟</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -498,14 +491,7 @@ message.max.bytes：控制 Broker 能够接收的最大消息大小</p>
 </tr>
 </tbody>
 </table>
-<p><img
-    class="lazyload"
-    src="/svg/loading.min.svg"
-    data-src="/2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220407184925-y5yc3d1.jpg"
-    data-srcset="/2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220407184925-y5yc3d1.jpg, /2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220407184925-y5yc3d1.jpg 1.5x, /2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220407184925-y5yc3d1.jpg 2x"
-    data-sizes="auto"
-    alt="image-20220407184925-y5yc3d1.jpg"
-    title="image-20220407184925-y5yc3d1.jpg" width="1074" height="452"/></p>
+<p><img loading="lazy" src="assets/image-20220407184925-y5yc3d1.jpg" srcset="/2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220407184925-y5yc3d1.jpg, assets/image-20220407184925-y5yc3d1.jpg 1.5x, /2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220407184925-y5yc3d1.jpg 2x" sizes="auto" data-title="image-20220407184925-y5yc3d1.jpg" data-alt="image-20220407184925-y5yc3d1.jpg" width="1074" height="452" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
 <p>一个消费者组最开始是 Empty 状态，当重平衡过程开启后，它会被置于 PreparingRebalance 状态等待成员加入，之后变更到 CompletingRebalance 状态等待分配方案，最后流转到 Stable 状态完成重平衡。<br>
 当有新成员加入或已有成员退出时，消费者组的状态从 Stable 直接跳到 PreparingRebalance 状态，此时，所有现存成员就必须重新申请加入组。当所有成员都退出组后，消费者组状态变更为 Empty。Kafka 定期自动删除过期位移的条件就是，组要处于 Empty 状态。因此，如果你的消费者组停掉了很长时间（超过 7 天），那么 Kafka 很可能就把该组的位移数据删除了。我相信，你在 Kafka 的日志中一定经常看到下面这个输出：<br>
 Removed xxx expired offsets in xxx milliseconds.<br>
@@ -535,26 +521,10 @@ Removed xxx expired offsets in xxx milliseconds.<br>
 <li>定义消息可见性，即用来标识分区下的哪些消息是可以被消费者消费的。</li>
 <li>帮助 Kafka 完成副本同步。</li>
 </ul>
-<p><img
-    class="lazyload"
-    src="/svg/loading.min.svg"
-    data-src="/2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220407192639-bm2jo4l.jpg"
-    data-srcset="/2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220407192639-bm2jo4l.jpg, /2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220407192639-bm2jo4l.jpg 1.5x, /2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220407192639-bm2jo4l.jpg 2x"
-    data-sizes="auto"
-    alt="image.png"
-    title="image.png" width="2000" height="792"/></p>
+<p><img loading="lazy" src="assets/image-20220407192639-bm2jo4l.jpg" srcset="/2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220407192639-bm2jo4l.jpg, assets/image-20220407192639-bm2jo4l.jpg 1.5x, /2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220407192639-bm2jo4l.jpg 2x" sizes="auto" data-title="image.png" data-alt="image.png" width="2000" height="792" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
 <blockquote>
 <p>这里的<strong>提交</strong>不是指事务的commit，已经复制到ISR的消息，称为已提交的消息。参考下图：</p>
-<p><figure><a class="lightgallery" href="/2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220629091222-9vbhs9w.png" data-thumbnail="/2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220629091222-9vbhs9w.png" data-sub-html="<h2>image.png</h2><p>来源：《Kafka权威指南》</p>">
-    <img
-      class="lazyload"
-      src="/svg/loading.min.svg"
-      data-src="/2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220629091222-9vbhs9w.png"
-      data-srcset="/2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220629091222-9vbhs9w.png, /2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220629091222-9vbhs9w.png 1.5x, /2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220629091222-9vbhs9w.png 2x"
-      data-sizes="auto"
-      alt="image.png"
-      title="来源：《Kafka权威指南》" width="969" height="329"/>
-  </a><figcaption class="image-caption">image.png</figcaption>
+<p><figure><a class="lightgallery" href="/2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220629091222-9vbhs9w.png" data-thumbnail="/2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220629091222-9vbhs9w.png" data-sub-html="<h2>image.png</h2><p>来源：《Kafka权威指南》</p>"><img loading="lazy" src="assets/image-20220629091222-9vbhs9w.png" srcset="/2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220629091222-9vbhs9w.png, assets/image-20220629091222-9vbhs9w.png 1.5x, /2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220629091222-9vbhs9w.png 2x" sizes="auto" data-title="来源：《Kafka权威指南》" data-alt="image.png" width="969" height="329" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></a><figcaption class="image-caption">image.png</figcaption>
   </figure></p>
 </blockquote>
 <p>在分区高水位以下的消息被认为是已提交消息，反之就是未提交消息。<strong>消费者只能消费已提交消息，即图中位移小于 8 的所有消息。注意，这里我们不讨论 Kafka 事务，因为事务机制会影响消费者所能看到的消息的范围，它不只是简单依赖高水位来判断。它依靠一个名为 LSO（Last Stable Offset）的位移值来判断事务型消费者的可见性。</strong><br>
@@ -643,24 +613,10 @@ Further, when in  read_committed  the seekToEnd method will return the LSO。</p
 </div>
 </div><h4 id="kafka-使用-reactor-模式">Kafka 使用 Reactor 模式</h4>
 <p>Reactor 模式是事件驱动架构的一种实现方式，用于处理多个客户端并发向服务器端发送请求的场景。Reactor 有个请求分发线程 Dispatcher，也就是图中的 Acceptor。Kafka 提供了 Broker 端参数 num.network.threads，用于调整该网络线程池的线程数。其默认值是 3，表示每台 Broker 启动时会创建 3 个网络线程，专门处理客户端发送的请求。</p>
-<p><img
-    class="lazyload"
-    src="/svg/loading.min.svg"
-    data-src="/2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220407174001-v1ni35v.jpg"
-    data-srcset="/2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220407174001-v1ni35v.jpg, /2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220407174001-v1ni35v.jpg 1.5x, /2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220407174001-v1ni35v.jpg 2x"
-    data-sizes="auto"
-    alt="image-20220407174001-v1ni35v.jpg"
-    title="image-20220407174001-v1ni35v.jpg" width="1809" height="858"/></p>
+<p><img loading="lazy" src="assets/image-20220407174001-v1ni35v.jpg" srcset="/2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220407174001-v1ni35v.jpg, assets/image-20220407174001-v1ni35v.jpg 1.5x, /2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220407174001-v1ni35v.jpg 2x" sizes="auto" data-title="image-20220407174001-v1ni35v.jpg" data-alt="image-20220407174001-v1ni35v.jpg" width="1809" height="858" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
 <p>客户端发来的请求会被 Broker 端的 Acceptor 线程分发到任意一个网络线程中，网络线程拿到请求后，它不是自己处理，而是将请求放入到一个共享请求队列中。Broker 端还有个 IO 线程池，负责从该队列中取出请求，执行真正的处理。Broker 端参数 num.io.threads 控制了这个线程池中的线程数。目前该参数默认值是 8，表示每台 Broker 启动后自动创建 8 个 IO 线程处理请求。</p>
 <p>图中有一个叫 Purgatory 的组件，这是 Kafka 中著名的“炼狱”组件。它是用来缓存延时请求（Delayed Request）的。所谓延时请求，就是那些一时未满足条件不能立刻处理的请求。比如设置了 acks=all 的 PRODUCE 请求，一旦设置了 acks=all，那么该请求就必须等待 ISR 中所有副本都接收了消息后才能返回，此时处理该请求的 IO 线程就必须等待其他 Broker 的写入结果。</p>
-<p><img
-    class="lazyload"
-    src="/svg/loading.min.svg"
-    data-src="/2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220407174228-4mcpfbo.jpg"
-    data-srcset="/2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220407174228-4mcpfbo.jpg, /2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220407174228-4mcpfbo.jpg 1.5x, /2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220407174228-4mcpfbo.jpg 2x"
-    data-sizes="auto"
-    alt="image-20220407174228-4mcpfbo.jpg"
-    title="image-20220407174228-4mcpfbo.jpg" width="1769" height="1044"/></p>
+<p><img loading="lazy" src="assets/image-20220407174228-4mcpfbo.jpg" srcset="/2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220407174228-4mcpfbo.jpg, assets/image-20220407174228-4mcpfbo.jpg 1.5x, /2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220407174228-4mcpfbo.jpg 2x" sizes="auto" data-title="image-20220407174228-4mcpfbo.jpg" data-alt="image-20220407174228-4mcpfbo.jpg" width="1769" height="1044" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
 <h3 id="日志">日志</h3>
 <p>Kafka 源码使用ConcurrentSkipListMap类型来保存日志段对象。好处有两个：线程安全；支持 Key 的排序。</p>
 <h2 id="消息语义">消息语义</h2>
@@ -813,14 +769,7 @@ Further, when in  read_committed  the seekToEnd method will return the LSO。</p
 </ul>
 <h3 id="调优">调优</h3>
 <p>优化漏斗：层级越靠上，其调优的效果越明显</p>
-<p><img
-    class="lazyload"
-    src="/svg/loading.min.svg"
-    data-src="/2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220412163025-1adojgc.png"
-    data-srcset="/2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220412163025-1adojgc.png, /2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220412163025-1adojgc.png 1.5x, /2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220412163025-1adojgc.png 2x"
-    data-sizes="auto"
-    alt="image.png"
-    title="image.png" width="540" height="349"/></p>
+<p><img loading="lazy" src="assets/image-20220412163025-1adojgc.png" srcset="/2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220412163025-1adojgc.png, assets/image-20220412163025-1adojgc.png 1.5x, /2022-03-25-geektime-core-kafka-in-action-notes/assets/image-20220412163025-1adojgc.png 2x" sizes="auto" data-title="image.png" data-alt="image.png" width="540" height="349" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
 <h3 id="动态参数配置">动态参数配置</h3>
 <p>无需重启Broker就能立即生效的参数。</p>
 <ul>
@@ -900,7 +849,7 @@ Further, when in  read_committed  the seekToEnd method will return the LSO。</p
   </div>
 
   <div class="post-info-more">
-    <section class="post-tags"><i class="fa-solid fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/kafka/">kafka</a></section>
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/kafka/' class="post-tag">kafka</a></section>
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
     </section>
@@ -929,7 +878,7 @@ Further, when in  read_committed  the seekToEnd method will return the LSO。</p
           </a>
         </div>
       </noscript>
-      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.101.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.17-RC"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.101.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18-RC"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
         </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">
               <a href="https://github.com/whuwangyong"target="_blank" rel="external nofollow noopener noreferrer">Wang Yong</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"></div></div>
@@ -937,5 +886,5 @@ Further, when in  read_committed  the seekToEnd method will return the LSO。</p
         </div><div class="fixed-button view-comments d-none" role="button" aria-label="查看评论"><i class="fa-solid fa-comment fa-fw" aria-hidden="true"></i></div></div><div id="mask"></div><noscript>
     <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
   </noscript>
-</div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script src="/lib/lazysizes/lazysizes.min.js" async defer></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":30},"comment":{"enable":true,"expired":false,"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"comments","lightTheme":"github-light","repo":"whuwangyong/whuwangyong.github.io"}},"lightgallery":true,"search":{"algoliaAppID":"YMLBEBNFHL","algoliaIndex":"new-index-1649076215","algoliaSearchKey":"9028b251fe4eecb5ad4d47af0715a4f0","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js" defer></script></body>
+</div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":30},"comment":{"enable":true,"expired":false,"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"comments","lightTheme":"github-light","repo":"whuwangyong/whuwangyong.github.io"}},"lightgallery":true,"search":{"algoliaAppID":"YMLBEBNFHL","algoliaIndex":"new-index-1649076215","algoliaSearchKey":"9028b251fe4eecb5ad4d47af0715a4f0","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js" defer></script></body>
 </html>

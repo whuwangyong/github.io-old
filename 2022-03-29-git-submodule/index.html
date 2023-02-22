@@ -5,38 +5,38 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>Github SubModule 指南 - 武大路飞</title><meta name="author" content="Wang Yong">
+    <title>Git SubModule 指南 - 武大路飞</title><meta name="author" content="Wang Yong">
 <meta name="author-link" content="https://github.com/whuwangyong">
-<meta name="description" content="最近学习使用 Hugo 构建静态网站。安装主题时，接触到git submodule这个命令，踩了些坑，总结一下。 子模块与父模块如何同步更新 子模块是一个单独的项目，commit push等操作需要在子模块自己的repo目录下操作。父项目的操作与子模块无关。" /><meta name="keywords" content='git submodule' /><meta itemprop="name" content="Github SubModule 指南">
+<meta name="description" content="最近学习使用 Hugo 构建静态网站。安装主题时，接触到git submodule这个命令，踩了些坑，总结一下。 子模块与父模块如何同步更新 子模块是一个单独的项目，commit push等操作需要在子模块自己的repo目录下操作。父项目的操作与子模块无关。" /><meta name="keywords" content='git submodule' /><meta itemprop="name" content="Git SubModule 指南">
 <meta itemprop="description" content="最近学习使用 Hugo 构建静态网站。安装主题时，接触到git submodule这个命令，踩了些坑，总结一下。 子模块与父模块如何同步更新 子模块是一个单独的项目，commit push等操作需要在子模块自己的repo目录下操作。父项目的操作与子模块无关。"><meta itemprop="datePublished" content="2022-03-29T00:00:00+08:00" />
-<meta itemprop="dateModified" content="2022-06-03T13:07:44+08:00" />
+<meta itemprop="dateModified" content="2023-02-22T14:39:58+08:00" />
 <meta itemprop="wordCount" content="1495"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
-<meta itemprop="keywords" content="git submodule," /><meta property="og:title" content="Github SubModule 指南" />
+<meta itemprop="keywords" content="git submodule," /><meta property="og:title" content="Git SubModule 指南" />
 <meta property="og:description" content="最近学习使用 Hugo 构建静态网站。安装主题时，接触到git submodule这个命令，踩了些坑，总结一下。 子模块与父模块如何同步更新 子模块是一个单独的项目，commit push等操作需要在子模块自己的repo目录下操作。父项目的操作与子模块无关。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://whuwangyong.github.io/2022-03-29-github-submodule/" /><meta property="og:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://whuwangyong.github.io/2022-03-29-git-submodule/" /><meta property="og:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-03-29T00:00:00+08:00" />
-<meta property="article:modified_time" content="2022-06-03T13:07:44+08:00" />
+<meta property="article:modified_time" content="2023-02-22T14:39:58+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
 
-<meta name="twitter:title" content="Github SubModule 指南"/>
+<meta name="twitter:title" content="Git SubModule 指南"/>
 <meta name="twitter:description" content="最近学习使用 Hugo 构建静态网站。安装主题时，接触到git submodule这个命令，踩了些坑，总结一下。 子模块与父模块如何同步更新 子模块是一个单独的项目，commit push等操作需要在子模块自己的repo目录下操作。父项目的操作与子模块无关。"/>
 <meta name="application-name" content="武大路飞">
 <meta name="apple-mobile-web-app-title" content="武大路飞"><meta name="theme-color" data-light="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]" data-dark="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]" content="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://whuwangyong.github.io/2022-03-29-github-submodule/" /><link rel="prev" href="https://whuwangyong.github.io/2022-03-29-jekyll/" /><link rel="next" href="https://whuwangyong.github.io/2022-03-31-vercel-disable-comments-and-preview-deployments/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://whuwangyong.github.io/2022-03-29-git-submodule/" /><link rel="prev" href="https://whuwangyong.github.io/2022-03-29-jekyll/" /><link rel="next" href="https://whuwangyong.github.io/2022-03-31-vercel-disable-comments-and-preview-deployments/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "headline": "Github SubModule 指南",
+    "headline": "Git SubModule 指南",
     "inLanguage": "",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https:\/\/whuwangyong.github.io\/2022-03-29-github-submodule\/"
+      "@id": "https:\/\/whuwangyong.github.io\/2022-03-29-git-submodule\/"
     },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "git submodule","wordcount":  1495 ,
-    "url": "https:\/\/whuwangyong.github.io\/2022-03-29-github-submodule\/","datePublished": "2022-03-29T00:00:00+08:00","dateModified": "2022-06-03T13:07:44+08:00","publisher": {
+    "url": "https:\/\/whuwangyong.github.io\/2022-03-29-git-submodule\/","datePublished": "2022-03-29T00:00:00+08:00","dateModified": "2023-02-22T14:39:58+08:00","publisher": {
       "@type": "Organization",
       "name": "Wang Yong","logo": {
           "@type": "ImageObject",
@@ -91,7 +91,7 @@
                 title="GitHub"
                 rel="noopener noreferrer" target="_blank"
               ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
-            <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
             <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
               <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
             </a>
@@ -119,7 +119,7 @@
     <nav>
       <ul class="menu" id="menu-mobile"><li class="search-wrapper">
             <div class="search mobile" id="search-mobile">
-              <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
               <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
                 <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
               </a>
@@ -193,16 +193,9 @@
 
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX">
-        <span>Github SubModule 指南</span>
+        <span>Git SubModule 指南</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/whuwangyong" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img
-    class="lazyload avatar"
-    src="/svg/loading.min.svg"
-    data-src="/images/avatar150x150.jpg"
-    data-srcset="/images/avatar150x150.jpg, /images/avatar150x150.jpg 1.5x, /images/avatar150x150.jpg 2x"
-    data-sizes="auto"
-    alt="Wang Yong"
-    title="Wang Yong" width="150" height="151"/>&nbsp;Wang Yong</a></span></div>
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/whuwangyong" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="/images/avatar150x150.jpg" srcset="/images/avatar150x150.jpg, /images/avatar150x150.jpg 1.5x, /images/avatar150x150.jpg 2x" sizes="auto" data-title="Wang Yong" data-alt="Wang Yong" width="150" height="151" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Wang Yong</a></span></div>
       <div class="post-meta-line"><span title=2022-03-29&#32;00:00:00><i class="fa-regular fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-03-29">2022-03-29</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw" aria-hidden="true"></i> 约 1495 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw" aria-hidden="true"></i> 预计阅读 3 分钟</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
@@ -268,14 +261,7 @@
 <p>再去父模块，<code>git add submoduleDir &amp;&amp; commit &amp;&amp; push</code>。</p>
 <h2 id="无法拉取submodule代码到本地">无法拉取submodule代码到本地</h2>
 <p>git clone 了一个包含submodule的仓库，打开submodule目录，发现里面是空的：</p>
-<p><img
-    class="lazyload"
-    src="/svg/loading.min.svg"
-    data-src="/2022-03-29-github-submodule/assets/image-20220404003800-3hsabzt.png"
-    data-srcset="/2022-03-29-github-submodule/assets/image-20220404003800-3hsabzt.png, /2022-03-29-github-submodule/assets/image-20220404003800-3hsabzt.png 1.5x, /2022-03-29-github-submodule/assets/image-20220404003800-3hsabzt.png 2x"
-    data-sizes="auto"
-    alt="image.png"
-    title="image.png" width="867" height="272"/></p>
+<p><img loading="lazy" src="assets/image-20220404003800-3hsabzt.png" srcset="/2022-03-29-git-submodule/assets/image-20220404003800-3hsabzt.png, assets/image-20220404003800-3hsabzt.png 1.5x, /2022-03-29-git-submodule/assets/image-20220404003800-3hsabzt.png 2x" sizes="auto" data-title="image.png" data-alt="image.png" width="867" height="272" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
 <p>可尝试以下命令：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -369,12 +355,12 @@
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title=2022-06-03&#32;13:07:44>更新于 2022-06-03&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/4f8f05e3737b7377e4b539a142cffc99da674835" rel="external nofollow noopener noreferrer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) 4f8f05e3737b7377e4b539a142cffc99da674835: rm cdn.jsdelivr.net from IMGs in MDs"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>4f8f05e</a></span>
+        <span title=2023-02-22&#32;14:39:58>更新于 2023-02-22&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/11a493772f00791008d6d2819f474853bffd1de2" rel="external nofollow noopener noreferrer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) 11a493772f00791008d6d2819f474853bffd1de2: update"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>11a4937</a></span>
       </div><div class="post-info-license">
           <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
         </div></div>
     <div class="post-info-line">
-      <div class="post-info-md"><span><a href="/2022-03-29-github-submodule/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+      <div class="post-info-md"><span><a href="/2022-03-29-git-submodule/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
       <div class="post-info-share">
         <span></span>
       </div>
@@ -382,7 +368,7 @@
   </div>
 
   <div class="post-info-more">
-    <section class="post-tags"><i class="fa-solid fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/git-submodule/">git submodule</a></section>
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/git-submodule/' class="post-tag">git submodule</a></section>
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
     </section>
@@ -411,7 +397,7 @@
           </a>
         </div>
       </noscript>
-      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.101.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.17-RC"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.101.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18-RC"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
         </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">
               <a href="https://github.com/whuwangyong"target="_blank" rel="external nofollow noopener noreferrer">Wang Yong</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"></div></div>
@@ -419,5 +405,5 @@
         </div><div class="fixed-button view-comments d-none" role="button" aria-label="查看评论"><i class="fa-solid fa-comment fa-fw" aria-hidden="true"></i></div></div><div id="mask"></div><noscript>
     <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
   </noscript>
-</div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script src="/lib/lazysizes/lazysizes.min.js" async defer></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":30},"comment":{"enable":true,"expired":false,"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"comments","lightTheme":"github-light","repo":"whuwangyong/whuwangyong.github.io"}},"lightgallery":true,"search":{"algoliaAppID":"YMLBEBNFHL","algoliaIndex":"new-index-1649076215","algoliaSearchKey":"9028b251fe4eecb5ad4d47af0715a4f0","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js" defer></script></body>
+</div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":30},"comment":{"enable":true,"expired":false,"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"comments","lightTheme":"github-light","repo":"whuwangyong/whuwangyong.github.io"}},"lightgallery":true,"search":{"algoliaAppID":"YMLBEBNFHL","algoliaIndex":"new-index-1649076215","algoliaSearchKey":"9028b251fe4eecb5ad4d47af0715a4f0","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js" defer></script></body>
 </html>
