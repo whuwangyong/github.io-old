@@ -1,5 +1,5 @@
 ---
-title: "Github SubModule 指南"
+title: "Git SubModule 指南"
 date: 2022-03-29
 tags: ["git submodule"]
 ---
