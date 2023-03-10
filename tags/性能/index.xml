@@ -1,0 +1,24 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>性能 - 标签 - 武大路飞</title>
+    <link>https://whuwangyong.github.io/tags/%E6%80%A7%E8%83%BD/</link>
+    <description>性能 - 标签 - 武大路飞</description>
+    <generator>Hugo -- gohugo.io</generator><managingEditor>whuwangyong@gmail.com (Wang Yong)</managingEditor>
+      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Fri, 10 Mar 2023 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://whuwangyong.github.io/tags/%E6%80%A7%E8%83%BD/" rel="self" type="application/rss+xml" /><item>
+  <title>【常识系列】HashMap的查询性能（百万级每秒）</title>
+  <link>https://whuwangyong.github.io/2023-03-10-hashmap-query-performance/</link>
+  <pubDate>Fri, 10 Mar 2023 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2023-03-10-hashmap-query-performance/</guid>
+  <description><![CDATA[常识系列旨在让程序员对一些常见的计算机知识有一个数值上的理解，比如，mysql的一个insert耗时是多少，ssd的顺序写速度是多少，HashMap每秒可以做多少次查询？有了这些常识，在设计系统或者算法的时候，能更准确的预估其上限和下限。 点]]></description>
+</item>
+<item>
+  <title>【常识系列】MySQL insert 性能（单条1ms）</title>
+  <link>https://whuwangyong.github.io/2023-03-10-mysql-insert-performance/</link>
+  <pubDate>Fri, 10 Mar 2023 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2023-03-10-mysql-insert-performance/</guid>
+  <description><![CDATA[常识系列旨在让程序员对一些常见的计算机知识有一个数值上的理解，比如，mysql的一个insert耗时是多少，ssd的顺序写速度是多少，HashMap每秒可以做多少次查询？有了这些常识，在设计系统或者算法的时候，能更准确的预估其上限和下限。 点]]></description>
+</item>
+</channel>
+</rss>
