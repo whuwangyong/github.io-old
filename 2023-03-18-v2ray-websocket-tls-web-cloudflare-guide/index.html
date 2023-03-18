@@ -9,14 +9,14 @@
 <meta name="author-link" content="https://github.com/whuwangyong">
 <meta name="description" content="V2Ray&#43;WebSocket&#43;TLS&#43;Web&#43;Cloudflare教程 背景 一般来说，装好V2Ray之后就可以科学上网了，但是IP经常被封，固有此方案。 WebSocket&#43;TLS&#43;Web的组合怎么来的？这个组合意思是，在机器上部署一个web" /><meta name="keywords" content='v2ray, vpn, websocket, cloudflare, nginx, tls' /><meta itemprop="name" content="V2Ray&#43;WebSocket&#43;TLS&#43;Web&#43;Cloudflare教程">
 <meta itemprop="description" content="V2Ray&#43;WebSocket&#43;TLS&#43;Web&#43;Cloudflare教程 背景 一般来说，装好V2Ray之后就可以科学上网了，但是IP经常被封，固有此方案。 WebSocket&#43;TLS&#43;Web的组合怎么来的？这个组合意思是，在机器上部署一个web"><meta itemprop="datePublished" content="2023-03-18T00:00:00+08:00" />
-<meta itemprop="dateModified" content="2023-03-18T17:39:44+08:00" />
+<meta itemprop="dateModified" content="2023-03-18T17:56:05+08:00" />
 <meta itemprop="wordCount" content="3057"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
 <meta itemprop="keywords" content="v2ray,vpn,websocket,cloudflare,nginx,tls," /><meta property="og:title" content="V2Ray&#43;WebSocket&#43;TLS&#43;Web&#43;Cloudflare教程" />
 <meta property="og:description" content="V2Ray&#43;WebSocket&#43;TLS&#43;Web&#43;Cloudflare教程 背景 一般来说，装好V2Ray之后就可以科学上网了，但是IP经常被封，固有此方案。 WebSocket&#43;TLS&#43;Web的组合怎么来的？这个组合意思是，在机器上部署一个web" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://whuwangyong.github.io/2022-03-18-v2ray-websocket-tls-web-cloudflare-guide/" /><meta property="og:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://whuwangyong.github.io/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/" /><meta property="og:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-03-18T00:00:00+08:00" />
-<meta property="article:modified_time" content="2023-03-18T17:39:44+08:00" />
+<meta property="article:modified_time" content="2023-03-18T17:56:05+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
@@ -26,7 +26,7 @@
 <meta name="application-name" content="武大路飞">
 <meta name="apple-mobile-web-app-title" content="武大路飞"><meta name="theme-color" data-light="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]" data-dark="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]" content="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://whuwangyong.github.io/2022-03-18-v2ray-websocket-tls-web-cloudflare-guide/" /><link rel="prev" href="https://whuwangyong.github.io/2023-03-10-hashmap-query-performance/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://whuwangyong.github.io/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/" /><link rel="prev" href="https://whuwangyong.github.io/2023-03-10-hashmap-query-performance/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
@@ -34,9 +34,9 @@
     "inLanguage": "",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https:\/\/whuwangyong.github.io\/2022-03-18-v2ray-websocket-tls-web-cloudflare-guide\/"
+      "@id": "https:\/\/whuwangyong.github.io\/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide\/"
     },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "v2ray, vpn, websocket, cloudflare, nginx, tls","wordcount":  3057 ,
-    "url": "https:\/\/whuwangyong.github.io\/2022-03-18-v2ray-websocket-tls-web-cloudflare-guide\/","datePublished": "2023-03-18T00:00:00+08:00","dateModified": "2023-03-18T17:39:44+08:00","publisher": {
+    "url": "https:\/\/whuwangyong.github.io\/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide\/","datePublished": "2023-03-18T00:00:00+08:00","dateModified": "2023-03-18T17:56:05+08:00","publisher": {
       "@type": "Organization",
       "name": "Wang Yong","logo": {
           "@type": "ImageObject",
@@ -319,7 +319,7 @@
 <p>​​sudo systemctl restart v2ray.service​</p>
 <h3 id="配置windows客户端">配置Windows客户端</h3>
 <p>在这里下载：<a href="https://github.com/2dust/v2rayN"target="_blank" rel="external nofollow noopener noreferrer">2dust/v2rayN: A V2Ray client for Windows, support Xray core and v2fly core (github.com)</a>。安装后[添加VMess服务器]，核心字段就是VPS的ip、端口、用户ID：（这里也能生成ID，与服务端配置保持一致即可）</p>
-<p>​<img loading="lazy" src="assets/image-20230318153757-vg1pitu.png" srcset="/2022-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318153757-vg1pitu.png, assets/image-20230318153757-vg1pitu.png 1.5x, /2022-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318153757-vg1pitu.png 2x" sizes="auto" data-title="image" data-alt="image" width="726" height="461" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>​</p>
+<p>​<img loading="lazy" src="assets/image-20230318153757-vg1pitu.png" srcset="/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318153757-vg1pitu.png, assets/image-20230318153757-vg1pitu.png 1.5x, /2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318153757-vg1pitu.png 2x" sizes="auto" data-title="image" data-alt="image" width="726" height="461" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>​</p>
 <p>然后试用一下能不能上谷歌，可以的话说明V2Ray安装正确，进入下一步。</p>
 <h2 id="2-部署一个web站点">2 部署一个Web站点</h2>
 <p>安装Nginx：</p>
@@ -442,8 +442,8 @@ cat default：（这个default是指向mydomain.com文件的）</p>
 </span></span><span class="line"><span class="cl">       }
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    listen 443 ssl; # managed by Certbot
-</span></span><span class="line"><span class="cl">    ssl_certificate /etc/letsencrypt/live/duanguyuan.top/fullchain.pem; # managed by Certbot
-</span></span><span class="line"><span class="cl">    ssl_certificate_key /etc/letsencrypt/live/duanguyuan.top/privkey.pem; # managed by Certbot
+</span></span><span class="line"><span class="cl">    ssl_certificate /etc/letsencrypt/live/mydomain.com/fullchain.pem; # managed by Certbot
+</span></span><span class="line"><span class="cl">    ssl_certificate_key /etc/letsencrypt/live/mydomain.com/privkey.pem; # managed by Certbot
 </span></span><span class="line"><span class="cl">    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
 </span></span><span class="line"><span class="cl">    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 </span></span><span class="line"><span class="cl">}
@@ -572,8 +572,8 @@ sudo vim default （这个default是指向mydomain.com文件的）</p>
 </span></span><span class="line"><span class="cl">       }
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    listen 443 ssl; # managed by Certbot
-</span></span><span class="line"><span class="cl">    ssl_certificate /etc/letsencrypt/live/duanguyuan.top/fullchain.pem; # managed by Certbot
-</span></span><span class="line"><span class="cl">    ssl_certificate_key /etc/letsencrypt/live/duanguyuan.top/privkey.pem; # managed by Certbot
+</span></span><span class="line"><span class="cl">    ssl_certificate /etc/letsencrypt/live/mydomain.com/fullchain.pem; # managed by Certbot
+</span></span><span class="line"><span class="cl">    ssl_certificate_key /etc/letsencrypt/live/mydomain.com/privkey.pem; # managed by Certbot
 </span></span><span class="line"><span class="cl">    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
 </span></span><span class="line"><span class="cl">    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 </span></span><span class="line"><span class="cl">
@@ -696,7 +696,7 @@ sudo vim default （这个default是指向mydomain.com文件的）</p>
 </div>
 </div><p>重启Nginx和v2ray服务。</p>
 <h3 id="修改v2ray客户端配置">修改v2ray客户端配置</h3>
-<p>​<img loading="lazy" src="assets/image-20230318164550-mix7a1z.png" srcset="/2022-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318164550-mix7a1z.png, assets/image-20230318164550-mix7a1z.png 1.5x, /2022-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318164550-mix7a1z.png 2x" sizes="auto" data-title="image" data-alt="image" width="722" height="572" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>​</p>
+<p>​<img loading="lazy" src="assets/image-20230318164550-mix7a1z.png" srcset="/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318164550-mix7a1z.png, assets/image-20230318164550-mix7a1z.png 1.5x, /2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318164550-mix7a1z.png 2x" sizes="auto" data-title="image" data-alt="image" width="722" height="572" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>​</p>
 <p>与最开始的配置相比，有以下几点变化：</p>
 <ul>
 <li>地址：之前是VPS机器的IP，变为域名了</li>
@@ -711,21 +711,21 @@ sudo vim default （这个default是指向mydomain.com文件的）</p>
 <p>cloudflare 是一家国外的 CDN 加速服务商，注册之后，添加站点，输入你的域名mydomain.com。</p>
 <h3 id="更换dns服务器">更换DNS服务器</h3>
 <p>然后为域名添加DNS记录：</p>
-<p>​<img loading="lazy" src="assets/image-20230318171405-l7e92hf.png" srcset="/2022-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318171405-l7e92hf.png, assets/image-20230318171405-l7e92hf.png 1.5x, /2022-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318171405-l7e92hf.png 2x" sizes="auto" data-title="image" data-alt="image" width="1093" height="180" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>​</p>
+<p>​<img loading="lazy" src="assets/image-20230318171405-l7e92hf.png" srcset="/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318171405-l7e92hf.png, assets/image-20230318171405-l7e92hf.png 1.5x, /2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318171405-l7e92hf.png 2x" sizes="auto" data-title="image" data-alt="image" width="1093" height="180" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>​</p>
 <p>然后登录阿里云控制台，域名列表-管理，将DNS服务器改为cloudflare的DNS服务器：</p>
 <p>这是阿里云默认的：</p>
-<p>​<img loading="lazy" src="assets/image-20230318171535-uaglot6.png" srcset="/2022-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318171535-uaglot6.png, assets/image-20230318171535-uaglot6.png 1.5x, /2022-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318171535-uaglot6.png 2x" sizes="auto" data-title="image" data-alt="image" width="498" height="154" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>​</p>
+<p>​<img loading="lazy" src="assets/image-20230318171535-uaglot6.png" srcset="/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318171535-uaglot6.png, assets/image-20230318171535-uaglot6.png 1.5x, /2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318171535-uaglot6.png 2x" sizes="auto" data-title="image" data-alt="image" width="498" height="154" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>​</p>
 <p>这是cloudflare的：</p>
-<p>​<img loading="lazy" src="assets/image-20230318171627-8kfpeys.png" srcset="/2022-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318171627-8kfpeys.png, assets/image-20230318171627-8kfpeys.png 1.5x, /2022-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318171627-8kfpeys.png 2x" sizes="auto" data-title="image" data-alt="image" width="863" height="241" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>​</p>
+<p>​<img loading="lazy" src="assets/image-20230318171627-8kfpeys.png" srcset="/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318171627-8kfpeys.png, assets/image-20230318171627-8kfpeys.png 1.5x, /2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318171627-8kfpeys.png 2x" sizes="auto" data-title="image" data-alt="image" width="863" height="241" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>​</p>
 <h3 id="配置加密模式">配置加密模式</h3>
 <p>然后进入cloudflare-SSL/TLS，将加密模式设置为完全（严格）：</p>
-<p>​<img loading="lazy" src="assets/image-20230318171840-hw31hkz.png" srcset="/2022-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318171840-hw31hkz.png, assets/image-20230318171840-hw31hkz.png 1.5x, /2022-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318171840-hw31hkz.png 2x" sizes="auto" data-title="image" data-alt="image" width="976" height="329" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>​</p>
+<p>​<img loading="lazy" src="assets/image-20230318171840-hw31hkz.png" srcset="/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318171840-hw31hkz.png, assets/image-20230318171840-hw31hkz.png 1.5x, /2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318171840-hw31hkz.png 2x" sizes="auto" data-title="image" data-alt="image" width="976" height="329" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>​</p>
 <h3 id="速度优化">速度优化</h3>
 <p>然后在速度-优化中，把这些都勾上：</p>
-<p>​<img loading="lazy" src="assets/image-20230318172150-oevb6f6.png" srcset="/2022-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318172150-oevb6f6.png, assets/image-20230318172150-oevb6f6.png 1.5x, /2022-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318172150-oevb6f6.png 2x" sizes="auto" data-title="image" data-alt="image" width="1083" height="746" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>​</p>
+<p>​<img loading="lazy" src="assets/image-20230318172150-oevb6f6.png" srcset="/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318172150-oevb6f6.png, assets/image-20230318172150-oevb6f6.png 1.5x, /2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318172150-oevb6f6.png 2x" sizes="auto" data-title="image" data-alt="image" width="1083" height="746" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>​</p>
 <h2 id="7-总结">7 总结</h2>
 <p>本文走的右边这条路线：</p>
-<p>​<img loading="lazy" src="assets/image-20220308230038-enct8t4.png" srcset="/2022-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20220308230038-enct8t4.png, assets/image-20220308230038-enct8t4.png 1.5x, /2022-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20220308230038-enct8t4.png 2x" sizes="auto" data-title="v2ray-map" data-alt="v2ray-map" width="1437" height="1121" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>​</p>
+<p>​<img loading="lazy" src="assets/image-20220308230038-enct8t4.png" srcset="/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20220308230038-enct8t4.png, assets/image-20220308230038-enct8t4.png 1.5x, /2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20220308230038-enct8t4.png 2x" sizes="auto" data-title="v2ray-map" data-alt="v2ray-map" width="1437" height="1121" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>​</p>
 <p>‍</p>
 <p>​​</p>
 <h2 id="reference">Reference</h2>
@@ -740,12 +740,12 @@ sudo vim default （这个default是指向mydomain.com文件的）</p>
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title=2023-03-18&#32;17:39:44>更新于 2023-03-18&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/db928310e55e6fcbcc7e2a88e4b8f49d89b03919" rel="external nofollow noopener noreferrer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) db928310e55e6fcbcc7e2a88e4b8f49d89b03919: new post: v2ray&#43;websocket&#43;tls&#43;nginx&#43;cloudflare"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>db92831</a></span>
+        <span title=2023-03-18&#32;17:56:05>更新于 2023-03-18&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/f36af90677f0310e27fecc789e2086dc2d438290" rel="external nofollow noopener noreferrer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) f36af90677f0310e27fecc789e2086dc2d438290: update post : v2ray&#43;websocket&#43;tls&#43;web&#43;cloudflare"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>f36af90</a></span>
       </div><div class="post-info-license">
           <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
         </div></div>
     <div class="post-info-line">
-      <div class="post-info-md"><span><a href="/2022-03-18-v2ray-websocket-tls-web-cloudflare-guide/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+      <div class="post-info-md"><span><a href="/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
       <div class="post-info-share">
         <span></span>
       </div>

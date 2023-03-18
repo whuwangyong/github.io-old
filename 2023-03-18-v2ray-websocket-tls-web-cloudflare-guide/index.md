@@ -156,8 +156,8 @@ server {
        }
 
     listen 443 ssl; # managed by Certbot
-    ssl_certificate /etc/letsencrypt/live/duanguyuan.top/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/duanguyuan.top/privkey.pem; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/mydomain.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/mydomain.com/privkey.pem; # managed by Certbot
     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 }
@@ -227,8 +227,8 @@ server {
        }
 
     listen 443 ssl; # managed by Certbot
-    ssl_certificate /etc/letsencrypt/live/duanguyuan.top/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/duanguyuan.top/privkey.pem; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/mydomain.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/mydomain.com/privkey.pem; # managed by Certbot
     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
@@ -384,5 +384,5 @@ cloudflare 是一家国外的 CDN 加速服务商，注册之后，添加站点�
 ---
 
 > 作者: [Wang Yong](https://github.com/whuwangyong)  
-> URL: https://whuwangyong.github.io/2022-03-18-v2ray-websocket-tls-web-cloudflare-guide/  
+> URL: https://whuwangyong.github.io/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/  
 
