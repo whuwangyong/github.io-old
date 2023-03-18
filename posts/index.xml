@@ -4,7 +4,15 @@
     <link>https://whuwangyong.github.io/posts/</link>
     <description>所有文章 | 武大路飞</description>
     <generator>Hugo -- gohugo.io</generator><managingEditor>whuwangyong@gmail.com (Wang Yong)</managingEditor>
-      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Fri, 10 Mar 2023 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://whuwangyong.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Sat, 18 Mar 2023 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://whuwangyong.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+  <title>V2Ray&#43;WebSocket&#43;TLS&#43;Web&#43;Cloudflare教程</title>
+  <link>https://whuwangyong.github.io/2022-03-18-v2ray-websocket-tls-web-cloudflare-guide/</link>
+  <pubDate>Sat, 18 Mar 2023 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-03-18-v2ray-websocket-tls-web-cloudflare-guide/</guid>
+  <description><![CDATA[V2Ray+WebSocket+TLS+Web+Cloudflare教程 背景 一般来说，装好V2Ray之后就可以科学上网了，但是IP经常被封，固有此方案。 WebSocket+TLS+Web的组合怎么来的？这个组合意思是，在机器上部署一个web]]></description>
+</item>
+<item>
   <title>【常识系列】HashMap的查询性能（百万级每秒）</title>
   <link>https://whuwangyong.github.io/2023-03-10-hashmap-query-performance/</link>
   <pubDate>Fri, 10 Mar 2023 00:00:00 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
   <author>Wang Yong</author>
   <guid>https://whuwangyong.github.io/2022-09-18-delete-topic-when-consumer-or-producer-running/</guid>
   <description><![CDATA[broker端有个参数（kafka_2.13-3.2.1/config/server.properties），auto.create.topics.enable，默认为true。意思是，当生产者、消费者读写一个不存在的topic时，是否自动]]></description>
-</item>
-<item>
-  <title>如何在Spring Boot代码中执行sql脚本</title>
-  <link>https://whuwangyong.github.io/2022-08-24-how-to-execute-sql-script-in-spring-boot/</link>
-  <pubDate>Wed, 24 Aug 2022 00:00:00 &#43;0800</pubDate>
-  <author>Wang Yong</author>
-  <guid>https://whuwangyong.github.io/2022-08-24-how-to-execute-sql-script-in-spring-boot/</guid>
-  <description><![CDATA[在spring应用运行时，有一些建表语句，或则初始化数据，需要从sql脚本导入。 本文推荐以下两种方法。 假设脚本位于/resources/ddl.sql 1 使用@sql注解 该注解可用于类和方法。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 @Sql(scripts = {&#34;/ddl.sql&#34;}, config = @SqlConfig(encoding =]]></description>
 </item>
 </channel>
 </rss>
