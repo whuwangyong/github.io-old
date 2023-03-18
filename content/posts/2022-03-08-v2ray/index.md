@@ -2,6 +2,7 @@
 title: "V2Ray 搭建指南"
 date: 2022-03-08
 tags: ["v2ray","vpn"]
+categories: ["vpn"]
 ---
 
 > 所有的教程都不如官网。
