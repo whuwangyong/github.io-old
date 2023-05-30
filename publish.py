@@ -179,10 +179,11 @@ def commit_html():
 
     # 将 public/ 下面的文件移出来，然后删除空的public/文件夹
     print("将 public/ 下面的文件移出来，然后删除空的public/文件夹")
-    for f in os.listdir("public"):
-        # print("++ move:", f)
-        shutil.move(os.getcwd() + os.sep + "public" + os.sep + f, os.getcwd())
-    os.rmdir("public")
+    if os.path.exists("public"):
+        for f in os.listdir("public"):
+            # print("++ move:", f)
+            shutil.move(os.getcwd() + os.sep + "public" + os.sep + f, os.getcwd())
+        os.rmdir("public")
 
     os.system("git add . > git_add.log 2>&1")
     os.system("git rm -f git_add.log")
