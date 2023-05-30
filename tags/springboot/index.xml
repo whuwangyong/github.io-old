@@ -1,0 +1,24 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>springboot - 标签 - 武大路飞</title>
+    <link>https://whuwangyong.github.io/tags/springboot/</link>
+    <description>springboot - 标签 - 武大路飞</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>whuwangyong@gmail.com (Wang Yong)</managingEditor>
+      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Wed, 24 Aug 2022 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://whuwangyong.github.io/tags/springboot/" rel="self" type="application/rss+xml" /><item>
+  <title>如何在Spring Boot代码中执行sql脚本</title>
+  <link>https://whuwangyong.github.io/2022-08-24-how-to-execute-sql-script-in-spring-boot/</link>
+  <pubDate>Wed, 24 Aug 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-08-24-how-to-execute-sql-script-in-spring-boot/</guid>
+  <description><![CDATA[在spring应用运行时，有一些建表语句，或则初始化数据，需要从sql脚本导入。 本文推荐以下两种方法。 假设脚本位于/resources/ddl.sql 1 使用@sql注解 该注解可用于类和方法。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 @Sql(scripts = {&#34;/ddl.sql&#34;}, config = @SqlConfig(encoding =]]></description>
+</item>
+<item>
+  <title>Spring的依赖管理</title>
+  <link>https://whuwangyong.github.io/2020-11-14-spring-dependency-management/</link>
+  <pubDate>Sat, 14 Nov 2020 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2020-11-14-spring-dependency-management/</guid>
+  <description><![CDATA[SpringBoot依赖管理的能力 SpringBoot管理的依赖有1000多个，详见Dependency Versions (spring.io)。这些组件，在和SpringBoot一起使用的时候，可以不指定版本，因为SpringBoot预定义了合适的版本。]]></description>
+</item>
+</channel>
+</rss>

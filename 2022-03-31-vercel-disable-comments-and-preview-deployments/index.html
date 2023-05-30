@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-cn">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Vercel关闭评论 禁止Preview Deployments - 武大路飞</title><meta name="author" content="Wang Yong">
+<meta name="author-link" content="https://github.com/whuwangyong">
+<meta name="description" content="关键字：disable Vercel bot; disable Preview Deployments Vercel是一个支持部署前端框架和静态网站的平台。你可以方便的把 Github Pages 上面的站点导入Vercel，这样做有两个好处： 有些地区有些时候，Vercel上面的站点比Github Pages上的访问速度快； Github Pages 屏蔽了百" /><meta name="keywords" content='vercel' /><meta itemprop="name" content="Vercel关闭评论 禁止Preview Deployments">
+<meta itemprop="description" content="关键字：disable Vercel bot; disable Preview Deployments Vercel是一个支持部署前端框架和静态网站的平台。你可以方便的把 Github Pages 上面的站点导入Vercel，这样做有两个好处： 有些地区有些时候，Vercel上面的站点比Github Pages上的访问速度快； Github Pages 屏蔽了百"><meta itemprop="datePublished" content="2022-03-31T00:00:00+08:00" />
+<meta itemprop="dateModified" content="2022-06-03T13:07:44+08:00" />
+<meta itemprop="wordCount" content="529"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
+<meta itemprop="keywords" content="vercel," /><meta property="og:title" content="Vercel关闭评论 禁止Preview Deployments" />
+<meta property="og:description" content="关键字：disable Vercel bot; disable Preview Deployments Vercel是一个支持部署前端框架和静态网站的平台。你可以方便的把 Github Pages 上面的站点导入Vercel，这样做有两个好处： 有些地区有些时候，Vercel上面的站点比Github Pages上的访问速度快； Github Pages 屏蔽了百" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://whuwangyong.github.io/2022-03-31-vercel-disable-comments-and-preview-deployments/" /><meta property="og:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-03-31T00:00:00+08:00" />
+<meta property="article:modified_time" content="2022-06-03T13:07:44+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
+
+<meta name="twitter:title" content="Vercel关闭评论 禁止Preview Deployments"/>
+<meta name="twitter:description" content="关键字：disable Vercel bot; disable Preview Deployments Vercel是一个支持部署前端框架和静态网站的平台。你可以方便的把 Github Pages 上面的站点导入Vercel，这样做有两个好处： 有些地区有些时候，Vercel上面的站点比Github Pages上的访问速度快； Github Pages 屏蔽了百"/>
+<meta name="application-name" content="武大路飞">
+<meta name="apple-mobile-web-app-title" content="武大路飞"><meta name="theme-color" data-light="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]" data-dark="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]" content="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://whuwangyong.github.io/2022-03-31-vercel-disable-comments-and-preview-deployments/" /><link rel="prev" href="https://whuwangyong.github.io/2022-03-29-git-submodule/" /><link rel="next" href="https://whuwangyong.github.io/2022-04-19-hugo/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Vercel关闭评论 禁止Preview Deployments",
+    "inLanguage": "zh-cn",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/whuwangyong.github.io\/2022-03-31-vercel-disable-comments-and-preview-deployments\/"
+    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "vercel","wordcount":  529 ,
+    "url": "https:\/\/whuwangyong.github.io\/2022-03-31-vercel-disable-comments-and-preview-deployments\/","datePublished": "2022-03-31T00:00:00+08:00","dateModified": "2022-06-03T13:07:44+08:00","publisher": {
+      "@type": "Organization",
+      "name": "Wang Yong","logo": {
+          "@type": "ImageObject",
+          "url": "https:\/\/whuwangyong.github.io\/images\/avatar150x150.jpg",
+          "width":  150 ,
+          "height":  151 
+        }},"author": {
+        "@type": "Person",
+        "name": "Wang Yong"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              >归档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              >标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              >分类</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/links/"
+                title="友情链接"
+                
+              >友链</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              >关于</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="https://github.com/whuwangyong"
+                title="GitHub"
+                rel="noopener noreferrer" target="_blank"
+              ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/posts/"
+                  
+                  
+                >归档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                >标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                >分类</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/links/"
+                  title="友情链接"
+                  
+                >友链</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/about/"
+                  
+                  
+                >关于</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="https://github.com/whuwangyong"
+                  title="GitHub"
+                  rel="noopener noreferrer" target="_blank"
+                ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container" data-page-style="custom"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content always-active" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    </aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX">
+        <span>Vercel关闭评论 禁止Preview Deployments</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/whuwangyong" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="/images/avatar150x150.jpg" srcset="/images/avatar150x150.jpg, /images/avatar150x150.jpg 1.5x, /images/avatar150x150.jpg 2x" sizes="auto" data-title="Wang Yong" data-alt="Wang Yong" width="150" height="151" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Wang Yong</a></span>
+          <span class="post-category">收录于 <a href="/categories/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E5%8D%9A%E5%AE%A2/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 静态网站博客</a></span></div>
+      <div class="post-meta-line"><span title=2022-03-31&#32;00:00:00><i class="fa-regular fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-03-31">2022-03-31</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw" aria-hidden="true"></i> 约 529 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw" aria-hidden="true"></i> 预计阅读 2 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#关闭评论">关闭评论</a></li>
+    <li><a href="#禁止preview-deployments">禁止Preview Deployments</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><p>关键字：disable Vercel bot; disable Preview Deployments</p>
+<p><a href="https://vercel.com/"target="_blank" rel="external nofollow noopener noreferrer">Vercel</a>是一个支持部署前端框架和静态网站的平台。你可以方便的把 Github Pages 上面的站点导入Vercel，这样做有两个好处：</p>
+<ol>
+<li>有些地区有些时候，Vercel上面的站点比Github Pages上的访问速度快；</li>
+<li>Github Pages 屏蔽了百度的爬虫，因此你的博客不能被百度检索到。但 Vercel 是可以的。</li>
+</ol>
+<p>使用了一段时间的Vercel，发现有两个地方需要调整。</p>
+<h2 id="关闭评论">关闭评论</h2>
+<p>每次提交后，vercel bot会在该commit下评论：</p>
+<p><img loading="lazy" src="assets/image-20220331105648-d4pir0q.png" srcset="/2022-03-31-vercel-disable-comments-and-preview-deployments/assets/image-20220331105648-d4pir0q.png, assets/image-20220331105648-d4pir0q.png 1.5x, /2022-03-31-vercel-disable-comments-and-preview-deployments/assets/image-20220331105648-d4pir0q.png 2x" sizes="auto" data-title="image.png" data-alt="image.png" width="498" height="297" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>这造成了大量的github通知和邮件通知：</p>
+<p><img loading="lazy" src="assets/image-20220331105635-8befsf2.png" srcset="/2022-03-31-vercel-disable-comments-and-preview-deployments/assets/image-20220331105635-8befsf2.png, assets/image-20220331105635-8befsf2.png 1.5x, /2022-03-31-vercel-disable-comments-and-preview-deployments/assets/image-20220331105635-8befsf2.png 2x" sizes="auto" data-title="image.png" data-alt="image.png" width="636" height="335" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>如何关闭？在站点根目录新增<code>vercel.json</code>文件，内容如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;github&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;silent&#34;</span><span class="p">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="禁止preview-deployments">禁止Preview Deployments</h2>
+<p>另一个需要关闭的就是Preview Deployments（与我而言）。我的站点没有预览的必要，都是直接build main分支然后上production。Preview Deployments 构建的是<code>gh-pages</code>分支，可能是我哪里没弄对，这个分支一直无法build成功。如下图，2小时过去了还没结束，然后我手动取消了。</p>
+<p><img loading="lazy" src="assets/image-20220331110211-1bm1n2c.png" srcset="/2022-03-31-vercel-disable-comments-and-preview-deployments/assets/image-20220331110211-1bm1n2c.png, assets/image-20220331110211-1bm1n2c.png 1.5x, /2022-03-31-vercel-disable-comments-and-preview-deployments/assets/image-20220331110211-1bm1n2c.png 2x" sizes="auto" data-title="image.png" data-alt="image.png" width="994" height="78" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>因此，我禁止了Preview Deployments，直允许Production Deployments。操作如下：<br>
+Project Settings -&gt; Git -&gt; Ignored Build Step，在 COMMAND 填入 <code>[ &quot;$VERCEL_ENV&quot; != production ]</code>。<br>
+​<img loading="lazy" src="assets/image-20220331110821-o5ow7rk.png" srcset="/2022-03-31-vercel-disable-comments-and-preview-deployments/assets/image-20220331110821-o5ow7rk.png, assets/image-20220331110821-o5ow7rk.png 1.5x, /2022-03-31-vercel-disable-comments-and-preview-deployments/assets/image-20220331110821-o5ow7rk.png 2x" sizes="auto" data-title="image.png" data-alt="image.png" width="773" height="321" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h2 id="reference">Reference</h2>
+<ol>
+<li><a href="https://vercel.com/support/articles/how-to-prevent-vercel-github-comments"target="_blank" rel="external nofollow noopener noreferrer">How do I prevent the Vercel for GitHub integration comments? – Vercel Docs</a></li>
+<li><a href="https://www.codejam.info/2021/09/vercel-without-preview-deployments.html#turning-off-preview-deployments-kinda"target="_blank" rel="external nofollow noopener noreferrer">Using Vercel without preview deployments (codejam.info)</a></li>
+</ol>
+</div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title=2022-06-03&#32;13:07:44>更新于 2022-06-03&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/4f8f05e3737b7377e4b539a142cffc99da674835" rel="external nofollow noopener noreferrer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) 4f8f05e3737b7377e4b539a142cffc99da674835: rm cdn.jsdelivr.net from IMGs in MDs"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>4f8f05e</a></span>
+      </div><div class="post-info-license">
+          <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+        </div></div>
+    <div class="post-info-line">
+      <div class="post-info-md"><span><a href="/2022-03-31-vercel-disable-comments-and-preview-deployments/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+      <div class="post-info-share">
+        <span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/vercel/' class="post-tag">vercel</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/2022-03-29-git-submodule/" class="post-nav-item" rel="prev" title="Git SubModule 指南"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Git SubModule 指南</a>
+      <a href="/2022-04-19-hugo/" class="post-nav-item" rel="next" title="使用 Hugo &#43; Github Pages 创建静态网站博客">使用 Hugo &#43; Github Pages 创建静态网站博客<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="utterances" class="comment"></div><noscript>
+        Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/" rel="external nofollow noopener noreferrer">Utterances</a>.
+      </noscript></div></article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line custom">      <a href="https://statcounter.com/p12730999/?guest=1" target="_blank">访问统计</a>
+      <!-- Default Statcounter code for github.io https://whuwangyong.github.io/ -->
+      <script type="text/javascript">
+      var sc_project=12730999; 
+      var sc_invisible=0; 
+      var sc_security="7ad44351"; 
+      var scJsHost = "https://";
+      document.write("<sc"+"ript type='text/javascript' src='" + scJsHost + "statcounter.com/counter/counter.js'></"+"script>");
+      </script>
+      <noscript>
+        <div class="statcounter">
+          <a title="Web Analytics" href="https://statcounter.com/" target="_blank">
+            <img class="statcounter" src="https://c.statcounter.com/12730999/0/7ad44351/0/" alt="Web Analytics" 
+              referrerPolicy="no-referrer-when-downgrade">
+          </a>
+        </div>
+      </noscript>
+      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.112.5">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18-RC"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://github.com/whuwangyong"target="_blank" rel="external nofollow noopener noreferrer">Wang Yong</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div><div class="fixed-button view-comments d-none" role="button" aria-label="查看评论"><i class="fa-solid fa-comment fa-fw" aria-hidden="true"></i></div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":30},"comment":{"enable":true,"expired":false,"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"comments","lightTheme":"github-light","repo":"whuwangyong/whuwangyong.github.io"}},"lightgallery":true,"search":{"algoliaAppID":"YMLBEBNFHL","algoliaIndex":"new-index-1649076215","algoliaSearchKey":"9028b251fe4eecb5ad4d47af0715a4f0","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js" defer></script></body>
+</html>

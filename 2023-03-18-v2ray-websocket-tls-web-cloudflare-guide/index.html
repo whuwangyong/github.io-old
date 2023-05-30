@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-cn">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>V2Ray&#43;WebSocket&#43;TLS&#43;Web&#43;Cloudflare教程 - 武大路飞</title><meta name="author" content="Wang Yong">
+<meta name="author-link" content="https://github.com/whuwangyong">
+<meta name="description" content="V2Ray&#43;WebSocket&#43;TLS&#43;Web&#43;Cloudflare教程 背景 一般来说，装好V2Ray之后就可以科学上网了，但是IP经常被封，固有此方案。 WebSocket&#43;TLS&#43;Web的组合怎么来的？这个组合意思是，在机器上部署一个web" /><meta name="keywords" content='v2ray, vpn, websocket, cloudflare, nginx, tls' /><meta itemprop="name" content="V2Ray&#43;WebSocket&#43;TLS&#43;Web&#43;Cloudflare教程">
+<meta itemprop="description" content="V2Ray&#43;WebSocket&#43;TLS&#43;Web&#43;Cloudflare教程 背景 一般来说，装好V2Ray之后就可以科学上网了，但是IP经常被封，固有此方案。 WebSocket&#43;TLS&#43;Web的组合怎么来的？这个组合意思是，在机器上部署一个web"><meta itemprop="datePublished" content="2023-03-18T00:00:00+08:00" />
+<meta itemprop="dateModified" content="2023-03-18T17:56:05+08:00" />
+<meta itemprop="wordCount" content="3057"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
+<meta itemprop="keywords" content="v2ray,vpn,websocket,cloudflare,nginx,tls," /><meta property="og:title" content="V2Ray&#43;WebSocket&#43;TLS&#43;Web&#43;Cloudflare教程" />
+<meta property="og:description" content="V2Ray&#43;WebSocket&#43;TLS&#43;Web&#43;Cloudflare教程 背景 一般来说，装好V2Ray之后就可以科学上网了，但是IP经常被封，固有此方案。 WebSocket&#43;TLS&#43;Web的组合怎么来的？这个组合意思是，在机器上部署一个web" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://whuwangyong.github.io/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/" /><meta property="og:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-03-18T00:00:00+08:00" />
+<meta property="article:modified_time" content="2023-03-18T17:56:05+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
+
+<meta name="twitter:title" content="V2Ray&#43;WebSocket&#43;TLS&#43;Web&#43;Cloudflare教程"/>
+<meta name="twitter:description" content="V2Ray&#43;WebSocket&#43;TLS&#43;Web&#43;Cloudflare教程 背景 一般来说，装好V2Ray之后就可以科学上网了，但是IP经常被封，固有此方案。 WebSocket&#43;TLS&#43;Web的组合怎么来的？这个组合意思是，在机器上部署一个web"/>
+<meta name="application-name" content="武大路飞">
+<meta name="apple-mobile-web-app-title" content="武大路飞"><meta name="theme-color" data-light="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]" data-dark="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]" content="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://whuwangyong.github.io/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/" /><link rel="prev" href="https://whuwangyong.github.io/2023-03-10-hashmap-query-performance/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "V2Ray+WebSocket+TLS+Web+Cloudflare教程",
+    "inLanguage": "zh-cn",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/whuwangyong.github.io\/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide\/"
+    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "v2ray, vpn, websocket, cloudflare, nginx, tls","wordcount":  3057 ,
+    "url": "https:\/\/whuwangyong.github.io\/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide\/","datePublished": "2023-03-18T00:00:00+08:00","dateModified": "2023-03-18T17:56:05+08:00","publisher": {
+      "@type": "Organization",
+      "name": "Wang Yong","logo": {
+          "@type": "ImageObject",
+          "url": "https:\/\/whuwangyong.github.io\/images\/avatar150x150.jpg",
+          "width":  150 ,
+          "height":  151 
+        }},"author": {
+        "@type": "Person",
+        "name": "Wang Yong"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              >归档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              >标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              >分类</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/links/"
+                title="友情链接"
+                
+              >友链</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              >关于</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="https://github.com/whuwangyong"
+                title="GitHub"
+                rel="noopener noreferrer" target="_blank"
+              ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/posts/"
+                  
+                  
+                >归档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                >标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                >分类</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/links/"
+                  title="友情链接"
+                  
+                >友链</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/about/"
+                  
+                  
+                >关于</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="https://github.com/whuwangyong"
+                  title="GitHub"
+                  rel="noopener noreferrer" target="_blank"
+                ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container" data-page-style="custom"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content always-active" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    </aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX">
+        <span>V2Ray&#43;WebSocket&#43;TLS&#43;Web&#43;Cloudflare教程</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/whuwangyong" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="/images/avatar150x150.jpg" srcset="/images/avatar150x150.jpg, /images/avatar150x150.jpg 1.5x, /images/avatar150x150.jpg 2x" sizes="auto" data-title="Wang Yong" data-alt="Wang Yong" width="150" height="151" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Wang Yong</a></span>
+          <span class="post-category">收录于 <a href="/categories/vpn/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> vpn</a></span></div>
+      <div class="post-meta-line"><span title=2023-03-18&#32;00:00:00><i class="fa-regular fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-03-18">2023-03-18</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw" aria-hidden="true"></i> 约 3057 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw" aria-hidden="true"></i> 预计阅读 7 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#背景">背景</a></li>
+    <li><a href="#准备">准备</a></li>
+    <li><a href="#1-安装v2ray">1 安装v2ray</a>
+      <ul>
+        <li><a href="#配置服务端">配置服务端</a></li>
+        <li><a href="#启动v2ray">启动V2Ray</a></li>
+        <li><a href="#配置windows客户端">配置Windows客户端</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-部署一个web站点">2 部署一个Web站点</a></li>
+    <li><a href="#3-设置域名解析">3 设置域名解析</a></li>
+    <li><a href="#4-给web站点安装tls证书">4 给Web站点安装TLS证书</a></li>
+    <li><a href="#5-nginx分流">5 Nginx分流</a>
+      <ul>
+        <li><a href="#修改nginx配置">修改Nginx配置</a></li>
+        <li><a href="#修改v2ray配置">修改V2Ray配置</a></li>
+        <li><a href="#修改v2ray客户端配置">修改v2ray客户端配置</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-使用cloudflare隐藏ip">6 使用Cloudflare隐藏IP</a>
+      <ul>
+        <li><a href="#更换dns服务器">更换DNS服务器</a></li>
+        <li><a href="#配置加密模式">配置加密模式</a></li>
+        <li><a href="#速度优化">速度优化</a></li>
+      </ul>
+    </li>
+    <li><a href="#7-总结">7 总结</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h1 id="v2raywebsockettlswebcloudflare教程">V2Ray+WebSocket+TLS+Web+Cloudflare教程</h1>
+<h2 id="背景">背景</h2>
+<p>一般来说，装好V2Ray之后就可以科学上网了，但是IP经常被封，固有此方案。</p>
+<p>WebSocket+TLS+Web的组合怎么来的？这个组合意思是，在机器上部署一个web站点，使用 Nginx/Caddy/Apache 可以将 V2Ray 稍作隐藏。使用 WebSocket 是因为搭配 Nginx/Caddy/Apache 只能用 WebSocket，使用 TLS 是因为可以流量加密，看起来更像 HTTPS。也就是说，我们的机器看起来是个正常的网站，当访问特定的path，可以把流量转发给V2Ray。</p>
+<p>Cloudflare是一个CDN，可以代理所有的流量，同时隐藏真实的IP，这样IP被封的几率就小了。</p>
+<h2 id="准备">准备</h2>
+<ol>
+<li>用来科学上网的VPS机器，可以SSH登录</li>
+<li>一个域名，我使用的是阿里云的，4块一年，便宜的就行。本文以<code>mydomain.com</code>​域名作为演示。</li>
+</ol>
+<p>下面开始。<strong>建议先通读全文，理解每一步在做什么，不要立即动手，照着命令一顿敲。</strong></p>
+<h2 id="1-安装v2ray">1 安装v2ray</h2>
+<blockquote>
+<p>如果已经装好了v2ray且能通过ip正常使用，跳过这一步</p>
+</blockquote>
+<p>官方文档：<a href="https://github.com/v2fly/fhs-install-v2ray/blob/master/README.zh-Hans-CN.md"target="_blank" rel="external nofollow noopener noreferrer">fhs-install-v2ray/README.zh-Hans-CN.md at master · v2fly/fhs-install-v2ray (github.com)</a></p>
+<p>​<code>sudo su</code>​切换到root用户，执行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash &lt;<span class="o">(</span>curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="配置服务端">配置服务端</h3>
+<p>位于<code>/usr/local/etc/v2ray/config.json</code>​</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;inbounds&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">10000</span><span class="p">,</span> <span class="c1">// 服务器监听端口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;protocol&#34;</span><span class="p">:</span> <span class="s2">&#34;vmess&#34;</span><span class="p">,</span>    <span class="c1">// 主传入协议
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;settings&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;clients&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">          <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;id&#34;</span><span class="p">:</span> <span class="s2">&#34;faef4e76-6e0e-4d6c-aea0-f8dfaf9456d9&#34;</span><span class="p">,</span>  <span class="c1">// 用户 ID
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nt">&#34;alterId&#34;</span><span class="p">:</span> <span class="mi">0</span> <span class="c1">// 新版本不能设置为64
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;outbounds&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;protocol&#34;</span><span class="p">:</span> <span class="s2">&#34;freedom&#34;</span><span class="p">,</span>  <span class="c1">// 主传出协议
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;settings&#34;</span><span class="p">:</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上面的用户ID是UUID，可以理解为密码，请修改为自己的，这里可以在线生成：<a href="https://www.uuidgenerator.net/"target="_blank" rel="external nofollow noopener noreferrer">Online UUID Generator Tool</a></p>
+<h3 id="启动v2ray">启动V2Ray</h3>
+<p>​​sudo systemctl restart v2ray.service​</p>
+<h3 id="配置windows客户端">配置Windows客户端</h3>
+<p>在这里下载：<a href="https://github.com/2dust/v2rayN"target="_blank" rel="external nofollow noopener noreferrer">2dust/v2rayN: A V2Ray client for Windows, support Xray core and v2fly core (github.com)</a>。安装后[添加VMess服务器]，核心字段就是VPS的ip、端口、用户ID：（这里也能生成ID，与服务端配置保持一致即可）</p>
+<p>​<img loading="lazy" src="assets/image-20230318153757-vg1pitu.png" srcset="/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318153757-vg1pitu.png, assets/image-20230318153757-vg1pitu.png 1.5x, /2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318153757-vg1pitu.png 2x" sizes="auto" data-title="image" data-alt="image" width="726" height="461" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>​</p>
+<p>然后试用一下能不能上谷歌，可以的话说明V2Ray安装正确，进入下一步。</p>
+<h2 id="2-部署一个web站点">2 部署一个Web站点</h2>
+<p>安装Nginx：</p>
+<p>sudo apt install nginx</p>
+<p>新建站点目录：</p>
+<p>cd /var/www<br>
+sudo mkdir mydomain.com</p>
+<p>然后在该目录下放一个静态页面，内容随便（可以去github找些静态网站放在这个目录）：</p>
+<p>cd mydomain.com<br>
+sudo echo &ldquo;hello&rdquo; &gt; index.html</p>
+<p>配置virtual host：</p>
+<p>cd /etc/nginx/sites-enabled<br>
+touch mydomain.com<br>
+vim mydomain.com，内容如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">server {
+</span></span><span class="line"><span class="cl">       listen 80; # 本站监听80端口
+</span></span><span class="line"><span class="cl">       server_name mydomain.com; # 虚拟主机名
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       root /var/www/mydomain.com; # 本网站的根目录
+</span></span><span class="line"><span class="cl">       index index.html; # 主页
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       location / {
+</span></span><span class="line"><span class="cl">               try_files $uri $uri/ =404;
+</span></span><span class="line"><span class="cl">       }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后将默认配置文件改为刚刚创建的站点配置文件：</p>
+<p>cd /etc/nginx/sites-enabled<br>
+sudo ln -s mydomain.com default</p>
+<p>重启Nginx：</p>
+<p>sudo systemctl restart nginx.service</p>
+<h2 id="3-设置域名解析">3 设置域名解析</h2>
+<p>登录阿里云控制台，进入域名列表，为自己的域名设置解析记录：添加一条A记录，让该域名指向你的VPS机器的ip。然后验证能否通过域名访问自己的web站点。在浏览器输入<code>http://mydomain.com</code>​，如果不能访问，检查VPS的防火墙是否放开了80端口。</p>
+<h2 id="4-给web站点安装tls证书">4 给Web站点安装TLS证书</h2>
+<p>按照<a href="https://certbot.eff.org/instructions?ws=nginx&amp;os=ubuntufocal"target="_blank" rel="external nofollow noopener noreferrer">certbot</a>的指南操作：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl"># 安装 certbot
+</span></span><span class="line"><span class="cl">sudo apt install snapd
+</span></span><span class="line"><span class="cl">sudo apt remove certbot
+</span></span><span class="line"><span class="cl">sudo snap install --classic certbot
+</span></span><span class="line"><span class="cl">sudo ln -s /snap/bin/certbot /usr/bin/certbot
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 下面这一步就是生成证书并安装到Nginx，有一些交互性的操作，按提示操作即可
+</span></span><span class="line"><span class="cl">sudo certbot --nginx
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>证书装好了之后，再看Nginx的配置文件，发现里面多了一些内容：</p>
+<p>cd /etc/nginx/sites-enabled<br>
+cat default：（这个default是指向mydomain.com文件的）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">server {
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">       server_name mydomain.com;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       root /var/www/mydomain.com;
+</span></span><span class="line"><span class="cl">       index index.html;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       location / {
+</span></span><span class="line"><span class="cl">               try_files $uri $uri/ =404;
+</span></span><span class="line"><span class="cl">       }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    listen 443 ssl; # managed by Certbot
+</span></span><span class="line"><span class="cl">    ssl_certificate /etc/letsencrypt/live/mydomain.com/fullchain.pem; # managed by Certbot
+</span></span><span class="line"><span class="cl">    ssl_certificate_key /etc/letsencrypt/live/mydomain.com/privkey.pem; # managed by Certbot
+</span></span><span class="line"><span class="cl">    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+</span></span><span class="line"><span class="cl">    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">server {
+</span></span><span class="line"><span class="cl">    if ($host = mydomain.com) {
+</span></span><span class="line"><span class="cl">        return 301 https://$host$request_uri;
+</span></span><span class="line"><span class="cl">    } # managed by Certbot
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       listen 80;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       server_name mydomain.com;
+</span></span><span class="line"><span class="cl">    return 404; # managed by Certbot
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可见，以<code>managed by Certbot</code>​注释结尾的就是certbot添加的内容。配置的意思是，监听443端口，如果通过80端口访问，则重定向到443。也就是说，现在在浏览器访问<code>http://mydomain.com</code>​，将会被重定向到<code>https://mydomain.com</code>​。</p>
+<p>重启nginx服务，添加防火墙规则放行443端口。若浏览器可以访问<code>https://mydomain.com</code>​，说明证书无问题，进入下一步。</p>
+<h2 id="5-nginx分流">5 Nginx分流</h2>
+<p>现在流量全都去自己的Web网站了，科学上网怎么办？设置Nginx的path，将特定path的流量转发到V2Ray服务：</p>
+<h3 id="修改nginx配置">修改Nginx配置</h3>
+<p>cd /etc/nginx/sites-enabled<br>
+sudo vim default （这个default是指向mydomain.com文件的）</p>
+<p>将下面这段内容，添加到监听443端口的server里面：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">location /login { # 与 V2Ray 配置中的 path 保持一致
+</span></span><span class="line"><span class="cl">        if ($http_upgrade != &#34;websocket&#34;) { # WebSocket协商失败时返回404
+</span></span><span class="line"><span class="cl">            return 404;
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">        proxy_redirect off;
+</span></span><span class="line"><span class="cl">        proxy_pass http://127.0.0.1:10000; # 假设WebSocket监听在环回地址的10000端口上
+</span></span><span class="line"><span class="cl">        proxy_http_version 1.1;
+</span></span><span class="line"><span class="cl">        proxy_set_header Upgrade $http_upgrade;
+</span></span><span class="line"><span class="cl">        proxy_set_header Connection &#34;upgrade&#34;;
+</span></span><span class="line"><span class="cl">        proxy_set_header Host $host;
+</span></span><span class="line"><span class="cl">        # Show real IP in v2ray access.log
+</span></span><span class="line"><span class="cl">        proxy_set_header X-Real-IP $remote_addr;
+</span></span><span class="line"><span class="cl">        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+</span></span><span class="line"><span class="cl">  }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上述配置的意思是，当访问<code>https://mydomain.com/login</code>​时，将其转发到10000端口，而10000端口就是V2Ray服务的监听端口。</p>
+<blockquote>
+<p>login可以随便写，使用login是为了让这个网站看起来更加“正常”。虽然TLS会加密URL path。</p>
+</blockquote>
+<p>添加后的效果为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">server {
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">       server_name mydomain.com;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       root /var/www/mydomain.com;
+</span></span><span class="line"><span class="cl">       index index.html;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       location / {
+</span></span><span class="line"><span class="cl">               try_files $uri $uri/ =404;
+</span></span><span class="line"><span class="cl">       }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    listen 443 ssl; # managed by Certbot
+</span></span><span class="line"><span class="cl">    ssl_certificate /etc/letsencrypt/live/mydomain.com/fullchain.pem; # managed by Certbot
+</span></span><span class="line"><span class="cl">    ssl_certificate_key /etc/letsencrypt/live/mydomain.com/privkey.pem; # managed by Certbot
+</span></span><span class="line"><span class="cl">    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+</span></span><span class="line"><span class="cl">    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    location /login { # 与 V2Ray 配置中的 path 保持一致
+</span></span><span class="line"><span class="cl">        if ($http_upgrade != &#34;websocket&#34;) { # WebSocket协商失败时返回404
+</span></span><span class="line"><span class="cl">            return 404;
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">        proxy_redirect off;
+</span></span><span class="line"><span class="cl">        proxy_pass http://127.0.0.1:10000; # 假设WebSocket监听在环回地址的10000端口上
+</span></span><span class="line"><span class="cl">        proxy_http_version 1.1;
+</span></span><span class="line"><span class="cl">        proxy_set_header Upgrade $http_upgrade;
+</span></span><span class="line"><span class="cl">        proxy_set_header Connection &#34;upgrade&#34;;
+</span></span><span class="line"><span class="cl">        proxy_set_header Host $host;
+</span></span><span class="line"><span class="cl">        # Show real IP in v2ray access.log
+</span></span><span class="line"><span class="cl">        proxy_set_header X-Real-IP $remote_addr;
+</span></span><span class="line"><span class="cl">        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">server {
+</span></span><span class="line"><span class="cl">    if ($host = mydomain.com) {
+</span></span><span class="line"><span class="cl">        return 301 https://$host$request_uri;
+</span></span><span class="line"><span class="cl">    } # managed by Certbot
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       listen 80;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       server_name mydomain.com;
+</span></span><span class="line"><span class="cl">    return 404; # managed by Certbot
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="修改v2ray配置">修改V2Ray配置</h3>
+<p>sudo vim /usr/local/etc/v2ray/config.json</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;inbounds&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">10000</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;listen&#34;</span><span class="p">:</span> <span class="s2">&#34;127.0.0.1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;protocol&#34;</span><span class="p">:</span> <span class="s2">&#34;vmess&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;settings&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;clients&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="nt">&#34;id&#34;</span><span class="p">:</span> <span class="s2">&#34;faef4e76-6e0e-4d6c-aea0-f8dfaf9456d9&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                        <span class="nt">&#34;alterId&#34;</span><span class="p">:</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;streamSettings&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;network&#34;</span><span class="p">:</span> <span class="s2">&#34;ws&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;wsSettings&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&#34;path&#34;</span><span class="p">:</span> <span class="s2">&#34;/login&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;outbounds&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;protocol&#34;</span><span class="p">:</span> <span class="s2">&#34;freedom&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;settings&#34;</span><span class="p">:</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可见，是在原来的基础上，添加了如下配置：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">&#34;streamSettings&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;network&#34;: &#34;ws&#34;,
+</span></span><span class="line"><span class="cl">    &#34;wsSettings&#34;: {
+</span></span><span class="line"><span class="cl">        &#34;path&#34;: &#34;/login&#34;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>重启Nginx和v2ray服务。</p>
+<h3 id="修改v2ray客户端配置">修改v2ray客户端配置</h3>
+<p>​<img loading="lazy" src="assets/image-20230318164550-mix7a1z.png" srcset="/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318164550-mix7a1z.png, assets/image-20230318164550-mix7a1z.png 1.5x, /2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318164550-mix7a1z.png 2x" sizes="auto" data-title="image" data-alt="image" width="722" height="572" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>​</p>
+<p>与最开始的配置相比，有以下几点变化：</p>
+<ul>
+<li>地址：之前是VPS机器的IP，变为域名了</li>
+<li>端口：之前直接写的v2ray服务端的端口，现在是443端口</li>
+<li>传输协议：之前是TCP，现在是WebSocket(ws)</li>
+<li>然后有一个路径：login</li>
+<li>传输安全性：之前没有，现在是TLS</li>
+</ul>
+<p>改了客户端配置后，再试一下能不能访问谷歌，如果一些顺利的话，进入下一步。</p>
+<h2 id="6-使用cloudflare隐藏ip">6 使用Cloudflare隐藏IP</h2>
+<p>到前面为止，虽然我们配置了使用域名来访问v2ray，但是阿里云的DNS解析服务依然受监管，依然知道我们的流量最终去到了哪个IP。我们我们的流量比较异常，还是会被揪出来，IP还是会被封。因此，可以使用Cloudflare的DNS服务器，增加一层保护，稳一点是一点。</p>
+<p>cloudflare 是一家国外的 CDN 加速服务商，注册之后，添加站点，输入你的域名mydomain.com。</p>
+<h3 id="更换dns服务器">更换DNS服务器</h3>
+<p>然后为域名添加DNS记录：</p>
+<p>​<img loading="lazy" src="assets/image-20230318171405-l7e92hf.png" srcset="/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318171405-l7e92hf.png, assets/image-20230318171405-l7e92hf.png 1.5x, /2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318171405-l7e92hf.png 2x" sizes="auto" data-title="image" data-alt="image" width="1093" height="180" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>​</p>
+<p>然后登录阿里云控制台，域名列表-管理，将DNS服务器改为cloudflare的DNS服务器：</p>
+<p>这是阿里云默认的：</p>
+<p>​<img loading="lazy" src="assets/image-20230318171535-uaglot6.png" srcset="/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318171535-uaglot6.png, assets/image-20230318171535-uaglot6.png 1.5x, /2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318171535-uaglot6.png 2x" sizes="auto" data-title="image" data-alt="image" width="498" height="154" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>​</p>
+<p>这是cloudflare的：</p>
+<p>​<img loading="lazy" src="assets/image-20230318171627-8kfpeys.png" srcset="/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318171627-8kfpeys.png, assets/image-20230318171627-8kfpeys.png 1.5x, /2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318171627-8kfpeys.png 2x" sizes="auto" data-title="image" data-alt="image" width="863" height="241" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>​</p>
+<h3 id="配置加密模式">配置加密模式</h3>
+<p>然后进入cloudflare-SSL/TLS，将加密模式设置为完全（严格）：</p>
+<p>​<img loading="lazy" src="assets/image-20230318171840-hw31hkz.png" srcset="/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318171840-hw31hkz.png, assets/image-20230318171840-hw31hkz.png 1.5x, /2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318171840-hw31hkz.png 2x" sizes="auto" data-title="image" data-alt="image" width="976" height="329" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>​</p>
+<h3 id="速度优化">速度优化</h3>
+<p>然后在速度-优化中，把这些都勾上：</p>
+<p>​<img loading="lazy" src="assets/image-20230318172150-oevb6f6.png" srcset="/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318172150-oevb6f6.png, assets/image-20230318172150-oevb6f6.png 1.5x, /2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20230318172150-oevb6f6.png 2x" sizes="auto" data-title="image" data-alt="image" width="1083" height="746" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>​</p>
+<h2 id="7-总结">7 总结</h2>
+<p>本文走的右边这条路线：</p>
+<p>​<img loading="lazy" src="assets/image-20220308230038-enct8t4.png" srcset="/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20220308230038-enct8t4.png, assets/image-20220308230038-enct8t4.png 1.5x, /2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/assets/image-20220308230038-enct8t4.png 2x" sizes="auto" data-title="v2ray-map" data-alt="v2ray-map" width="1437" height="1121" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>​</p>
+<p>‍</p>
+<p>​​</p>
+<h2 id="reference">Reference</h2>
+<ol>
+<li><a href="https://guide.v2fly.org/advanced/tls.html"target="_blank" rel="external nofollow noopener noreferrer">TLS | 新 V2Ray 白话文指南 (v2fly.org)</a></li>
+<li><a href="https://guide.v2fly.org/advanced/wss_and_web.html"target="_blank" rel="external nofollow noopener noreferrer">WebSocket + TLS + Web | 新 V2Ray 白话文指南 (v2fly.org)</a></li>
+<li><a href="https://github.com/v2fly/v2ray-examples"target="_blank" rel="external nofollow noopener noreferrer">v2fly/v2ray-examples: v2ray-core 的模板们 (github.com)</a></li>
+<li><a href="https://vpsgongyi.com/p/2273/"target="_blank" rel="external nofollow noopener noreferrer">v2ray使用cloudflare中转流量，拯救被墙ip - VPS攻略 (vpsgongyi.com)</a></li>
+</ol>
+<p>‍</p>
+</div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title=2023-03-18&#32;17:56:05>更新于 2023-03-18&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/f36af90677f0310e27fecc789e2086dc2d438290" rel="external nofollow noopener noreferrer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) f36af90677f0310e27fecc789e2086dc2d438290: update post : v2ray&#43;websocket&#43;tls&#43;web&#43;cloudflare"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>f36af90</a></span>
+      </div><div class="post-info-license">
+          <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+        </div></div>
+    <div class="post-info-line">
+      <div class="post-info-md"><span><a href="/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+      <div class="post-info-share">
+        <span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/v2ray/' class="post-tag">v2ray</a><a href='/tags/vpn/' class="post-tag">vpn</a><a href='/tags/websocket/' class="post-tag">websocket</a><a href='/tags/cloudflare/' class="post-tag">cloudflare</a><a href='/tags/nginx/' class="post-tag">nginx</a><a href='/tags/tls/' class="post-tag">tls</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/2023-03-10-hashmap-query-performance/" class="post-nav-item" rel="prev" title="【常识系列】HashMap的查询性能（百万级每秒）"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>【常识系列】HashMap的查询性能（百万级每秒）</a></div>
+</div>
+<div id="comments"><div id="utterances" class="comment"></div><noscript>
+        Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/" rel="external nofollow noopener noreferrer">Utterances</a>.
+      </noscript></div></article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line custom">      <a href="https://statcounter.com/p12730999/?guest=1" target="_blank">访问统计</a>
+      <!-- Default Statcounter code for github.io https://whuwangyong.github.io/ -->
+      <script type="text/javascript">
+      var sc_project=12730999; 
+      var sc_invisible=0; 
+      var sc_security="7ad44351"; 
+      var scJsHost = "https://";
+      document.write("<sc"+"ript type='text/javascript' src='" + scJsHost + "statcounter.com/counter/counter.js'></"+"script>");
+      </script>
+      <noscript>
+        <div class="statcounter">
+          <a title="Web Analytics" href="https://statcounter.com/" target="_blank">
+            <img class="statcounter" src="https://c.statcounter.com/12730999/0/7ad44351/0/" alt="Web Analytics" 
+              referrerPolicy="no-referrer-when-downgrade">
+          </a>
+        </div>
+      </noscript>
+      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.112.5">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18-RC"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://github.com/whuwangyong"target="_blank" rel="external nofollow noopener noreferrer">Wang Yong</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div><div class="fixed-button view-comments d-none" role="button" aria-label="查看评论"><i class="fa-solid fa-comment fa-fw" aria-hidden="true"></i></div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":30},"comment":{"enable":true,"expired":false,"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"comments","lightTheme":"github-light","repo":"whuwangyong/whuwangyong.github.io"}},"lightgallery":true,"search":{"algoliaAppID":"YMLBEBNFHL","algoliaIndex":"new-index-1649076215","algoliaSearchKey":"9028b251fe4eecb5ad4d47af0715a4f0","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js" defer></script></body>
+</html>

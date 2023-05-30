@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-cn">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>V2Ray 搭建指南 - 武大路飞</title><meta name="author" content="Wang Yong">
+<meta name="author-link" content="https://github.com/whuwangyong">
+<meta name="description" content="所有的教程都不如官网。 官网 官网：V2Fly.org github：v2fly/v2ray-core: A platform for building proxies to bypass network restrictions. (github.com) 以下是旧的官网和github： 官网：Project V · Project V 官方网站 (v2ray.com) github：v2ray/v2ray-core: A platform for" /><meta name="keywords" content='v2ray, vpn' /><meta itemprop="name" content="V2Ray 搭建指南">
+<meta itemprop="description" content="所有的教程都不如官网。 官网 官网：V2Fly.org github：v2fly/v2ray-core: A platform for building proxies to bypass network restrictions. (github.com) 以下是旧的官网和github： 官网：Project V · Project V 官方网站 (v2ray.com) github：v2ray/v2ray-core: A platform for"><meta itemprop="datePublished" content="2022-03-08T00:00:00+08:00" />
+<meta itemprop="dateModified" content="2023-03-18T17:39:44+08:00" />
+<meta itemprop="wordCount" content="1481"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
+<meta itemprop="keywords" content="v2ray,vpn," /><meta property="og:title" content="V2Ray 搭建指南" />
+<meta property="og:description" content="所有的教程都不如官网。 官网 官网：V2Fly.org github：v2fly/v2ray-core: A platform for building proxies to bypass network restrictions. (github.com) 以下是旧的官网和github： 官网：Project V · Project V 官方网站 (v2ray.com) github：v2ray/v2ray-core: A platform for" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://whuwangyong.github.io/2022-03-08-v2ray/" /><meta property="og:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-03-08T00:00:00+08:00" />
+<meta property="article:modified_time" content="2023-03-18T17:39:44+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
+
+<meta name="twitter:title" content="V2Ray 搭建指南"/>
+<meta name="twitter:description" content="所有的教程都不如官网。 官网 官网：V2Fly.org github：v2fly/v2ray-core: A platform for building proxies to bypass network restrictions. (github.com) 以下是旧的官网和github： 官网：Project V · Project V 官方网站 (v2ray.com) github：v2ray/v2ray-core: A platform for"/>
+<meta name="application-name" content="武大路飞">
+<meta name="apple-mobile-web-app-title" content="武大路飞"><meta name="theme-color" data-light="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]" data-dark="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]" content="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://whuwangyong.github.io/2022-03-08-v2ray/" /><link rel="prev" href="https://whuwangyong.github.io/2020-11-14-spring-dependency-management/" /><link rel="next" href="https://whuwangyong.github.io/2022-03-09-shadowsocks/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "V2Ray 搭建指南",
+    "inLanguage": "zh-cn",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/whuwangyong.github.io\/2022-03-08-v2ray\/"
+    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "v2ray, vpn","wordcount":  1481 ,
+    "url": "https:\/\/whuwangyong.github.io\/2022-03-08-v2ray\/","datePublished": "2022-03-08T00:00:00+08:00","dateModified": "2023-03-18T17:39:44+08:00","publisher": {
+      "@type": "Organization",
+      "name": "Wang Yong","logo": {
+          "@type": "ImageObject",
+          "url": "https:\/\/whuwangyong.github.io\/images\/avatar150x150.jpg",
+          "width":  150 ,
+          "height":  151 
+        }},"author": {
+        "@type": "Person",
+        "name": "Wang Yong"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              >归档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              >标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              >分类</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/links/"
+                title="友情链接"
+                
+              >友链</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              >关于</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="https://github.com/whuwangyong"
+                title="GitHub"
+                rel="noopener noreferrer" target="_blank"
+              ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/posts/"
+                  
+                  
+                >归档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                >标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                >分类</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/links/"
+                  title="友情链接"
+                  
+                >友链</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/about/"
+                  
+                  
+                >关于</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="https://github.com/whuwangyong"
+                  title="GitHub"
+                  rel="noopener noreferrer" target="_blank"
+                ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container" data-page-style="custom"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content always-active" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    </aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX">
+        <span>V2Ray 搭建指南</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/whuwangyong" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="/images/avatar150x150.jpg" srcset="/images/avatar150x150.jpg, /images/avatar150x150.jpg 1.5x, /images/avatar150x150.jpg 2x" sizes="auto" data-title="Wang Yong" data-alt="Wang Yong" width="150" height="151" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Wang Yong</a></span>
+          <span class="post-category">收录于 <a href="/categories/vpn/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> vpn</a></span></div>
+      <div class="post-meta-line"><span title=2022-03-08&#32;00:00:00><i class="fa-regular fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-03-08">2022-03-08</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw" aria-hidden="true"></i> 约 1481 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw" aria-hidden="true"></i> 预计阅读 3 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#官网">官网</a></li>
+    <li><a href="#安装">安装</a>
+      <ul>
+        <li><a href="#安装和更新-v2ray">安装和更新 V2Ray</a></li>
+        <li><a href="#安装最新发行的-geoipdat-和-geositedat">安装最新发行的 geoip.dat 和 geosite.dat</a></li>
+        <li><a href="#移除-v2ray">移除 V2Ray</a></li>
+      </ul>
+    </li>
+    <li><a href="#配置">配置</a>
+      <ul>
+        <li><a href="#一份简单的配置">一份简单的配置</a>
+          <ul>
+            <li><a href="#服务端配置">服务端配置</a></li>
+            <li><a href="#客户端配置">客户端配置</a></li>
+          </ul>
+        </li>
+        <li><a href="#如何生成-uuid">如何生成 UUID</a></li>
+        <li><a href="#如何选择配置方案">如何选择配置方案</a></li>
+      </ul>
+    </li>
+    <li><a href="#运行">运行</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><blockquote>
+<p>所有的教程都不如官网。</p>
+</blockquote>
+<h2 id="官网">官网</h2>
+<p>官网：<a href="https://www.v2fly.org/"target="_blank" rel="external nofollow noopener noreferrer">V2Fly.org</a></p>
+<p>github：<a href="https://github.com/v2fly/v2ray-core"target="_blank" rel="external nofollow noopener noreferrer">v2fly/v2ray-core: A platform for building proxies to bypass network restrictions. (github.com)</a></p>
+<blockquote>
+<p>以下是旧的官网和github：</p>
+<ul>
+<li>官网：<a href="https://www.v2ray.com/"target="_blank" rel="external nofollow noopener noreferrer">Project V · Project V 官方网站 (v2ray.com)</a></li>
+<li>github：<a href="https://github.com/v2ray/v2ray-core"target="_blank" rel="external nofollow noopener noreferrer">v2ray/v2ray-core: A platform for building proxies to bypass network restrictions. (github.com)</a></li>
+</ul>
+<p>注意，旧版本的安装脚本已废弃。</p>
+</blockquote>
+<h2 id="安装">安装</h2>
+<p>使用Linux安装脚本：</p>
+<p><a href="https://github.com/v2fly/fhs-install-v2ray"target="_blank" rel="external nofollow noopener noreferrer">v2fly/fhs-install-v2ray: Bash script for installing V2Ray in Linux that support systemd (github.com)</a></p>
+<blockquote>
+<p>该脚本在运行时会提供 <code>info</code> 和 <code>error</code> 等信息，请仔细阅读。</p>
+<h3 id="安装和更新-v2ray">安装和更新 V2Ray</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// 安装可执行文件和 .dat 数据文件
+</span></span><span class="line"><span class="cl"># bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="安装最新发行的-geoipdat-和-geositedat">安装最新发行的 geoip.dat 和 geosite.dat</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// 只更新 .dat 数据文件
+</span></span><span class="line"><span class="cl"># bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="移除-v2ray">移除 V2Ray</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh) --remove
+</span></span></code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<p>我的安装日志：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 先切换到root</span>
+</span></span><span class="line"><span class="cl">$ sudo su
+</span></span><span class="line"><span class="cl"><span class="c1"># 执行</span>
+</span></span><span class="line"><span class="cl">root@ubuntu:~# bash &lt;<span class="o">(</span>curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh<span class="o">)</span>
+</span></span><span class="line"><span class="cl">  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+</span></span><span class="line"><span class="cl">                                 Dload  Upload   Total   Spent    Left  Speed
+</span></span><span class="line"><span class="cl"><span class="m">100</span> <span class="m">21647</span>  <span class="m">100</span> <span class="m">21647</span>    <span class="m">0</span>     <span class="m">0</span>  1321k      <span class="m">0</span> --:--:-- --:--:-- --:--:-- 1321k
+</span></span><span class="line"><span class="cl">info: Installing V2Ray v4.44.0 <span class="k">for</span> aarch64
+</span></span><span class="line"><span class="cl">Downloading V2Ray archive: https://github.com/v2fly/v2ray-core/releases/download/v4.44.0/v2ray-linux-arm64-v8a.zip
+</span></span><span class="line"><span class="cl">  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+</span></span><span class="line"><span class="cl">                                 Dload  Upload   Total   Spent    Left  Speed
+</span></span><span class="line"><span class="cl"><span class="m">100</span>   <span class="m">664</span>  <span class="m">100</span>   <span class="m">664</span>    <span class="m">0</span>     <span class="m">0</span>   <span class="m">2055</span>      <span class="m">0</span> --:--:-- --:--:-- --:--:--  <span class="m">2055</span>
+</span></span><span class="line"><span class="cl"><span class="m">100</span> 12.4M  <span class="m">100</span> 12.4M    <span class="m">0</span>     <span class="m">0</span>  3138k      <span class="m">0</span>  0:00:04  0:00:04 --:--:-- 4019k
+</span></span><span class="line"><span class="cl">Downloading verification file <span class="k">for</span> V2Ray archive: https://github.com/v2fly/v2ray-core/releases/download/v4.44.0/v2ray-linux-arm64-v8a.zip.dgst
+</span></span><span class="line"><span class="cl">info: Extract the V2Ray package to /tmp/tmp.A891dl5AVC and prepare it <span class="k">for</span> installation.
+</span></span><span class="line"><span class="cl">info: Systemd service files have been installed successfully!
+</span></span><span class="line"><span class="cl">warning: The following are the actual parameters <span class="k">for</span> the v2ray service startup.
+</span></span><span class="line"><span class="cl">warning: Please make sure the configuration file path is correctly set.
+</span></span><span class="line"><span class="cl"><span class="c1"># /etc/systemd/system/v2ray.service</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Unit<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Description</span><span class="o">=</span>V2Ray Service
+</span></span><span class="line"><span class="cl"><span class="nv">Documentation</span><span class="o">=</span>https://www.v2fly.org/
+</span></span><span class="line"><span class="cl"><span class="nv">After</span><span class="o">=</span>network.target nss-lookup.target
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Service<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">User</span><span class="o">=</span>nobody
+</span></span><span class="line"><span class="cl"><span class="nv">CapabilityBoundingSet</span><span class="o">=</span>CAP_NET_ADMIN CAP_NET_BIND_SERVICE
+</span></span><span class="line"><span class="cl"><span class="nv">AmbientCapabilities</span><span class="o">=</span>CAP_NET_ADMIN CAP_NET_BIND_SERVICE
+</span></span><span class="line"><span class="cl"><span class="nv">NoNewPrivileges</span><span class="o">=</span><span class="nb">true</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ExecStart</span><span class="o">=</span>/usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
+</span></span><span class="line"><span class="cl"><span class="nv">Restart</span><span class="o">=</span>on-failure
+</span></span><span class="line"><span class="cl"><span class="nv">RestartPreventExitStatus</span><span class="o">=</span><span class="m">23</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Install<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># /etc/systemd/system/v2ray.service.d/10-donot_touch_single_conf.conf</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># In case you have a good reason to do so, duplicate this file in the same directory and make your customizes there.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Or all changes you made will be lost!  # Refer: https://www.freedesktop.org/software/systemd/man/systemd.unit.html</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Service<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ExecStart</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ExecStart</span><span class="o">=</span>/usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">installed: /usr/local/bin/v2ray
+</span></span><span class="line"><span class="cl">installed: /usr/local/bin/v2ctl
+</span></span><span class="line"><span class="cl">installed: /usr/local/share/v2ray/geoip.dat
+</span></span><span class="line"><span class="cl">installed: /usr/local/share/v2ray/geosite.dat
+</span></span><span class="line"><span class="cl">installed: /usr/local/etc/v2ray/config.json
+</span></span><span class="line"><span class="cl">installed: /var/log/v2ray/
+</span></span><span class="line"><span class="cl">installed: /var/log/v2ray/access.log
+</span></span><span class="line"><span class="cl">installed: /var/log/v2ray/error.log
+</span></span><span class="line"><span class="cl">installed: /etc/systemd/system/v2ray.service
+</span></span><span class="line"><span class="cl">installed: /etc/systemd/system/v2ray@.service
+</span></span><span class="line"><span class="cl">removed: /tmp/tmp.A891dl5AVC
+</span></span><span class="line"><span class="cl">info: V2Ray v4.44.0 is installed.
+</span></span><span class="line"><span class="cl">You may need to execute a <span class="nb">command</span> to remove dependent software: apt purge curl unzip
+</span></span><span class="line"><span class="cl">Please execute the command: systemctl <span class="nb">enable</span> v2ray<span class="p">;</span> systemctl start v2ray
+</span></span><span class="line"><span class="cl">root@instance-20220307-2119:/home/ubuntu/v2ray# systemctl status v2ray 
+</span></span><span class="line"><span class="cl">● v2ray.service - V2Ray Service
+</span></span><span class="line"><span class="cl">     Loaded: loaded <span class="o">(</span>/etc/systemd/system/v2ray.service<span class="p">;</span> disabled<span class="p">;</span> vendor preset: enabled<span class="o">)</span>
+</span></span><span class="line"><span class="cl">    Drop-In: /etc/systemd/system/v2ray.service.d
+</span></span><span class="line"><span class="cl">             └─10-donot_touch_single_conf.conf
+</span></span><span class="line"><span class="cl">     Active: inactive <span class="o">(</span>dead<span class="o">)</span>
+</span></span><span class="line"><span class="cl">       Docs: https://www.v2fly.org/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="配置">配置</h2>
+<p>官方给了模板：<a href="https://github.com/v2fly/v2ray-examples"target="_blank" rel="external nofollow noopener noreferrer">v2fly/v2ray-examples: v2ray-core 的模板们 (github.com)</a></p>
+<p>如果想了解更多，还有一份详细文档：<a href="https://guide.v2fly.org/"target="_blank" rel="external nofollow noopener noreferrer">V2Ray 配置指南 | 新 V2Ray 白话文指南 (v2fly.org)</a></p>
+<h3 id="一份简单的配置">一份简单的配置</h3>
+<p>来源：<a href="https://guide.v2fly.org/basics/vmess.html"target="_blank" rel="external nofollow noopener noreferrer">VMess | 新 V2Ray 白话文指南 (v2fly.org)</a></p>
+<h4 id="服务端配置">服务端配置</h4>
+<p>配置文件位于<code>/usr/local/etc/v2ray/config.json</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;inbounds&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">16823</span><span class="p">,</span> <span class="c1">// 服务器监听端口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;protocol&#34;</span><span class="p">:</span> <span class="s2">&#34;vmess&#34;</span><span class="p">,</span>    <span class="c1">// 主传入协议
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;settings&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;clients&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">          <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;id&#34;</span><span class="p">:</span> <span class="s2">&#34;b831381d-6324-4d53-ad4f-8cda48b30811&#34;</span><span class="p">,</span>  <span class="c1">// 用户 ID，客户端与服务器必须相同
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nt">&#34;alterId&#34;</span><span class="p">:</span> <span class="mi">0</span> <span class="c1">// 新版本不能设置为64
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;outbounds&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;protocol&#34;</span><span class="p">:</span> <span class="s2">&#34;freedom&#34;</span><span class="p">,</span>  <span class="c1">// 主传出协议
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;settings&#34;</span><span class="p">:</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="客户端配置">客户端配置</h4>
+<p>例如，在Windows上使用v2rayN，服务器-&gt;添加VMess服务器，可以手动填写各项，也可以导入配置文件。
+<img loading="lazy" src="assets/image-20221107093358-j0wenda.png" srcset="/2022-03-08-v2ray/assets/image-20221107093358-j0wenda.png, assets/image-20221107093358-j0wenda.png 1.5x, /2022-03-08-v2ray/assets/image-20221107093358-j0wenda.png 2x" sizes="auto" data-title="img.png" data-alt="img.png" width="643" height="355" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;inbounds&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">1080</span><span class="p">,</span> <span class="c1">// 监听端口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;protocol&#34;</span><span class="p">:</span> <span class="s2">&#34;socks&#34;</span><span class="p">,</span> <span class="c1">// 入口协议为 SOCKS 5
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;sniffing&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;enabled&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;destOverride&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;http&#34;</span><span class="p">,</span> <span class="s2">&#34;tls&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;settings&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;auth&#34;</span><span class="p">:</span> <span class="s2">&#34;noauth&#34;</span>  <span class="c1">//socks的认证设置，noauth 代表不认证，由于 socks 通常在客户端使用，所以这里不认证
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;outbounds&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;protocol&#34;</span><span class="p">:</span> <span class="s2">&#34;vmess&#34;</span><span class="p">,</span> <span class="c1">// 出口协议
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;settings&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;vnext&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">          <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;address&#34;</span><span class="p">:</span> <span class="s2">&#34;serveraddr.com&#34;</span><span class="p">,</span> <span class="c1">// 服务器地址，请修改为你自己的服务器 IP 或域名
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">16823</span><span class="p">,</span>  <span class="c1">// 服务器端口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nt">&#34;users&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">              <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;id&#34;</span><span class="p">:</span> <span class="s2">&#34;b831381d-6324-4d53-ad4f-8cda48b30811&#34;</span><span class="p">,</span>  <span class="c1">// 用户 ID，必须与服务器端配置相同
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="nt">&#34;alterId&#34;</span><span class="p">:</span> <span class="mi">0</span> <span class="c1">// 此处的值也应当与服务器相同
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>              <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">]</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="如何生成-uuid">如何生成 UUID</h3>
+<p>在线生成器：<a href="https://www.uuidgenerator.net/"target="_blank" rel="external nofollow noopener noreferrer">Online UUID Generator Tool</a></p>
+<p>Linux 命令生成：<code>cat /proc/sys/kernel/random/uuid</code></p>
+<blockquote>
+<p><strong>版本</strong></p>
+<p>对于“变体（variants）1”和“变体2”，标准中定义了五个版本（versions），并且在特定用例中每个版本可能比其他版本更合适。</p>
+<p>版本由 M 字符串中指示。</p>
+<p>版本1 - UUID 是根据时间和 节点ID（通常是MAC地址）生成；</p>
+<p>版本2 - UUID是根据标识符（通常是组或用户ID）、时间和节点ID生成；</p>
+<p>版本3、版本5 - 确定性UUID 通过散列（hashing）名字空间（namespace）标识符和名称生成；</p>
+<p>版本4 - UUID 使用<a href="https://zh.wikipedia.org/wiki/%E9%9A%8F%E6%9C%BA%E6%80%A7" title="随机性"target="_blank" rel="external nofollow noopener noreferrer">随机性</a>或<a href="https://zh.wikipedia.org/wiki/%E4%BC%AA%E9%9A%8F%E6%9C%BA%E6%80%A7" title="伪随机性"target="_blank" rel="external nofollow noopener noreferrer">伪随机性</a>生成。</p>
+<p>—— 来源：<a href="https://zh.wikipedia.org/wiki/%E9%80%9A%E7%94%A8%E5%94%AF%E4%B8%80%E8%AF%86%E5%88%AB%E7%A0%81#%E7%89%88%E6%9C%AC"target="_blank" rel="external nofollow noopener noreferrer">通用唯一识别码 - 维基百科，自由的百科全书 (wikipedia.org)</a></p>
+</blockquote>
+<h3 id="如何选择配置方案">如何选择配置方案</h3>
+<p>官方的这个图真的太皮了，特意拿过来：</p>
+<p><img loading="lazy" src="assets/image-20220308230038-enct8t4.png" srcset="/2022-03-08-v2ray/assets/image-20220308230038-enct8t4.png, assets/image-20220308230038-enct8t4.png 1.5x, /2022-03-08-v2ray/assets/image-20220308230038-enct8t4.png 2x" sizes="auto" data-title="image.png" data-alt="image.png" width="1437" height="1121" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h2 id="运行">运行</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo systemctl start v2ray
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>开机自启：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> v2ray.service
+</span></span><span class="line"><span class="cl">Created symlink /etc/systemd/system/multi-user.target.wants/v2ray.service → /etc/systemd/system/v2ray.service.
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title=2023-03-18&#32;17:39:44>更新于 2023-03-18&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/db928310e55e6fcbcc7e2a88e4b8f49d89b03919" rel="external nofollow noopener noreferrer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) db928310e55e6fcbcc7e2a88e4b8f49d89b03919: new post: v2ray&#43;websocket&#43;tls&#43;nginx&#43;cloudflare"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>db92831</a></span>
+      </div><div class="post-info-license">
+          <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+        </div></div>
+    <div class="post-info-line">
+      <div class="post-info-md"><span><a href="/2022-03-08-v2ray/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+      <div class="post-info-share">
+        <span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/v2ray/' class="post-tag">v2ray</a><a href='/tags/vpn/' class="post-tag">vpn</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/2020-11-14-spring-dependency-management/" class="post-nav-item" rel="prev" title="Spring的依赖管理"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Spring的依赖管理</a>
+      <a href="/2022-03-09-shadowsocks/" class="post-nav-item" rel="next" title="shadowsocks 服务端安装指南">shadowsocks 服务端安装指南<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="utterances" class="comment"></div><noscript>
+        Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/" rel="external nofollow noopener noreferrer">Utterances</a>.
+      </noscript></div></article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line custom">      <a href="https://statcounter.com/p12730999/?guest=1" target="_blank">访问统计</a>
+      <!-- Default Statcounter code for github.io https://whuwangyong.github.io/ -->
+      <script type="text/javascript">
+      var sc_project=12730999; 
+      var sc_invisible=0; 
+      var sc_security="7ad44351"; 
+      var scJsHost = "https://";
+      document.write("<sc"+"ript type='text/javascript' src='" + scJsHost + "statcounter.com/counter/counter.js'></"+"script>");
+      </script>
+      <noscript>
+        <div class="statcounter">
+          <a title="Web Analytics" href="https://statcounter.com/" target="_blank">
+            <img class="statcounter" src="https://c.statcounter.com/12730999/0/7ad44351/0/" alt="Web Analytics" 
+              referrerPolicy="no-referrer-when-downgrade">
+          </a>
+        </div>
+      </noscript>
+      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.112.5">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18-RC"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://github.com/whuwangyong"target="_blank" rel="external nofollow noopener noreferrer">Wang Yong</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div><div class="fixed-button view-comments d-none" role="button" aria-label="查看评论"><i class="fa-solid fa-comment fa-fw" aria-hidden="true"></i></div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":30},"comment":{"enable":true,"expired":false,"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"comments","lightTheme":"github-light","repo":"whuwangyong/whuwangyong.github.io"}},"lightgallery":true,"search":{"algoliaAppID":"YMLBEBNFHL","algoliaIndex":"new-index-1649076215","algoliaSearchKey":"9028b251fe4eecb5ad4d47af0715a4f0","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js" defer></script></body>
+</html>

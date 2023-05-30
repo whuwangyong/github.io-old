@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-cn">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>如何在Spring Boot代码中执行sql脚本 - 武大路飞</title><meta name="author" content="Wang Yong">
+<meta name="author-link" content="https://github.com/whuwangyong">
+<meta name="description" content="在spring应用运行时，有一些建表语句，或则初始化数据，需要从sql脚本导入。 本文推荐以下两种方法。 假设脚本位于/resources/ddl.sql 1 使用@sql注解 该注解可用于类和方法。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 @Sql(scripts = {&#34;/ddl.sql&#34;}, config = @SqlConfig(encoding =" /><meta name="keywords" content='springboot, mysql' /><meta itemprop="name" content="如何在Spring Boot代码中执行sql脚本">
+<meta itemprop="description" content="在spring应用运行时，有一些建表语句，或则初始化数据，需要从sql脚本导入。 本文推荐以下两种方法。 假设脚本位于/resources/ddl.sql 1 使用@sql注解 该注解可用于类和方法。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 @Sql(scripts = {&#34;/ddl.sql&#34;}, config = @SqlConfig(encoding ="><meta itemprop="datePublished" content="2022-08-24T00:00:00+08:00" />
+<meta itemprop="dateModified" content="2022-09-02T21:40:22+08:00" />
+<meta itemprop="wordCount" content="1284"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
+<meta itemprop="keywords" content="springboot,mysql," /><meta property="og:title" content="如何在Spring Boot代码中执行sql脚本" />
+<meta property="og:description" content="在spring应用运行时，有一些建表语句，或则初始化数据，需要从sql脚本导入。 本文推荐以下两种方法。 假设脚本位于/resources/ddl.sql 1 使用@sql注解 该注解可用于类和方法。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 @Sql(scripts = {&#34;/ddl.sql&#34;}, config = @SqlConfig(encoding =" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://whuwangyong.github.io/2022-08-24-how-to-execute-sql-script-in-spring-boot/" /><meta property="og:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-08-24T00:00:00+08:00" />
+<meta property="article:modified_time" content="2022-09-02T21:40:22+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
+
+<meta name="twitter:title" content="如何在Spring Boot代码中执行sql脚本"/>
+<meta name="twitter:description" content="在spring应用运行时，有一些建表语句，或则初始化数据，需要从sql脚本导入。 本文推荐以下两种方法。 假设脚本位于/resources/ddl.sql 1 使用@sql注解 该注解可用于类和方法。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 @Sql(scripts = {&#34;/ddl.sql&#34;}, config = @SqlConfig(encoding ="/>
+<meta name="application-name" content="武大路飞">
+<meta name="apple-mobile-web-app-title" content="武大路飞"><meta name="theme-color" data-light="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]" data-dark="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]" content="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://whuwangyong.github.io/2022-08-24-how-to-execute-sql-script-in-spring-boot/" /><link rel="prev" href="https://whuwangyong.github.io/2022-08-22-mysql-foreign-key/" /><link rel="next" href="https://whuwangyong.github.io/2022-09-18-delete-topic-when-consumer-or-producer-running/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "如何在Spring Boot代码中执行sql脚本",
+    "inLanguage": "zh-cn",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/whuwangyong.github.io\/2022-08-24-how-to-execute-sql-script-in-spring-boot\/"
+    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "springboot, mysql","wordcount":  1284 ,
+    "url": "https:\/\/whuwangyong.github.io\/2022-08-24-how-to-execute-sql-script-in-spring-boot\/","datePublished": "2022-08-24T00:00:00+08:00","dateModified": "2022-09-02T21:40:22+08:00","publisher": {
+      "@type": "Organization",
+      "name": "Wang Yong","logo": {
+          "@type": "ImageObject",
+          "url": "https:\/\/whuwangyong.github.io\/images\/avatar150x150.jpg",
+          "width":  150 ,
+          "height":  151 
+        }},"author": {
+        "@type": "Person",
+        "name": "Wang Yong"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              >归档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              >标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              >分类</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/links/"
+                title="友情链接"
+                
+              >友链</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              >关于</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="https://github.com/whuwangyong"
+                title="GitHub"
+                rel="noopener noreferrer" target="_blank"
+              ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/posts/"
+                  
+                  
+                >归档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                >标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                >分类</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/links/"
+                  title="友情链接"
+                  
+                >友链</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/about/"
+                  
+                  
+                >关于</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="https://github.com/whuwangyong"
+                  title="GitHub"
+                  rel="noopener noreferrer" target="_blank"
+                ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container" data-page-style="custom"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content always-active" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    </aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX">
+        <span>如何在Spring Boot代码中执行sql脚本</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/whuwangyong" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="/images/avatar150x150.jpg" srcset="/images/avatar150x150.jpg, /images/avatar150x150.jpg 1.5x, /images/avatar150x150.jpg 2x" sizes="auto" data-title="Wang Yong" data-alt="Wang Yong" width="150" height="151" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Wang Yong</a></span>
+          <span class="post-category">收录于 <a href="/categories/springboot/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> springboot</a>&ensp;<a href="/categories/mysql/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> mysql</a></span></div>
+      <div class="post-meta-line"><span title=2022-08-24&#32;00:00:00><i class="fa-regular fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-24">2022-08-24</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw" aria-hidden="true"></i> 约 1284 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw" aria-hidden="true"></i> 预计阅读 3 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-使用sql注解">1 使用@sql注解</a></li>
+    <li><a href="#2-使用scriptutilsexecutesqlscript">2 使用ScriptUtils.executeSqlScript</a></li>
+    <li><a href="#中文编码">中文编码</a></li>
+    <li><a href="#代码">代码</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><p>在spring应用运行时，有一些建表语句，或则初始化数据，需要从sql脚本导入。</p>
+<p>本文推荐以下两种方法。</p>
+<p>假设脚本位于<code>/resources/ddl.sql</code></p>
+<h2 id="1-使用sql注解">1 使用@sql注解</h2>
+<p>该注解可用于类和方法。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Sql</span><span class="o">(</span><span class="n">scripts</span> <span class="o">=</span> <span class="o">{</span><span class="s">&#34;/ddl.sql&#34;</span><span class="o">},</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">config</span> <span class="o">=</span> <span class="nd">@SqlConfig</span><span class="o">(</span><span class="n">encoding</span> <span class="o">=</span> <span class="s">&#34;utf-8&#34;</span><span class="o">,</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">transactionMode</span> <span class="o">=</span> <span class="n">SqlConfig</span><span class="o">.</span><span class="na">TransactionMode</span><span class="o">.</span><span class="na">ISOLATED</span><span class="o">))</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@SpringBootTest</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@TestMethodOrder</span><span class="o">(</span><span class="n">MethodOrderer</span><span class="o">.</span><span class="na">OrderAnnotation</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@Slf4j</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">RepositoryTest</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="nd">@Autowired</span>
+</span></span><span class="line"><span class="cl">    <span class="n">AppRepository</span> <span class="n">appRepository</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="nd">@Test</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Order</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">insertApp</span><span class="o">(){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">appRepository</span><span class="o">.</span><span class="na">add</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>注意，如果<code>@Sql</code>用于class，那么测试类里面的<strong>每个测试方法在运行之前都会跑一次这个脚本</strong>。</p>
+<p>@sql上的注释有说明：</p>
+<blockquote>
+<p>@Sql is used to annotate a test class or test method to configure SQL scripts and statements to be executed against a given database during integration tests.</p>
+<p>&hellip;</p>
+<p>Script execution is performed by the SqlScriptsTestExecutionListener&hellip;</p>
+</blockquote>
+<p>看见<code>during integration tests</code>了吧。</p>
+<p>另外，从注释可知，脚本是被<code>SqlScriptsTestExecutionListener</code>执行的。打开这个类，可以看到里面有一些方法和debug级别的日志。将这个包的日志级别设为debug：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-properties" data-lang="properties"><span class="line"><span class="cl"><span class="na">logging.level.root</span><span class="o">=</span><span class="s">info</span>
+</span></span><span class="line"><span class="cl"><span class="na">logging.level.org.springframework.test.context.jdbc</span><span class="o">=</span><span class="s">debug</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后运行，即可看到类似下面的日志：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl"> INFO [    Test worker] cn.whu.wy.osgov.test.RepositoryTest      : Started RepositoryTest in 1.959 seconds (JVM running for 2.746)
+</span></span><span class="line"><span class="cl">DEBUG [    Test worker] .s.t.c.j.SqlScriptsTestExecutionListener : Processing [MergedSqlConfig@e4927bb dataSource = &#39;&#39;, transactionManager = &#39;&#39;, transactionMode = ISOLATED, encoding = &#39;utf-8&#39;, separator = &#39;;&#39;,...
+</span></span><span class="line"><span class="cl">DEBUG [    Test worker] .s.t.c.j.SqlScriptsTestExecutionListener : Executing SQL scripts: [class path resource [ddl.sql]]
+</span></span><span class="line"><span class="cl"> INFO [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+</span></span><span class="line"><span class="cl"> INFO [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+</span></span><span class="line"><span class="cl"> INFO [    Test worker] cn.whu.wy.osgov.test.RepositoryTest      : insertApp
+</span></span><span class="line"><span class="cl">DEBUG [    Test worker] .s.t.c.j.SqlScriptsTestExecutionListener : Processing [MergedSqlConfig@5e704109 dataSource = &#39;&#39;, transactionManager = &#39;&#39;, transactionMode = ISOLATED, encoding = &#39;utf-8&#39;, separator = &#39;;&#39;,...
+</span></span><span class="line"><span class="cl">DEBUG [    Test worker] .s.t.c.j.SqlScriptsTestExecutionListener : Executing SQL scripts: [class path resource [ddl.sql]]
+</span></span><span class="line"><span class="cl"> INFO [    Test worker] cn.whu.wy.osgov.test.RepositoryTest      : insertArtifact
+</span></span><span class="line"><span class="cl">DEBUG [    Test worker] .s.t.c.j.SqlScriptsTestExecutionListener : Processing [MergedSqlConfig@701e3274 dataSource = &#39;&#39;, transactionManager = &#39;&#39;, transactionMode = ISOLATED, encoding = &#39;utf-8&#39;, separator = &#39;;&#39;,...
+</span></span><span class="line"><span class="cl">DEBUG [    Test worker] .s.t.c.j.SqlScriptsTestExecutionListener : Executing SQL scripts: [class path resource [ddl.sql]]
+</span></span><span class="line"><span class="cl"> INFO [    Test worker] cn.whu.wy.osgov.test.RepositoryTest      : insertHost
+</span></span><span class="line"><span class="cl">DEBUG [    Test worker] .s.t.c.j.SqlScriptsTestExecutionListener : Processing [MergedSqlConfig@48ab1f96 dataSource = &#39;&#39;, transactionManager = &#39;&#39;, transactionMode = ISOLATED, encoding = &#39;utf-8&#39;, separator = &#39;;&#39;,...
+</span></span><span class="line"><span class="cl">DEBUG [    Test worker] .s.t.c.j.SqlScriptsTestExecutionListener : Executing SQL scripts: [class path resource [ddl.sql]]
+</span></span><span class="line"><span class="cl"> INFO [    Test worker] cn.whu.wy.osgov.test.RepositoryTest      : insertLicense
+</span></span><span class="line"><span class="cl">DEBUG [    Test worker] .s.t.c.j.SqlScriptsTestExecutionListener : Processing [MergedSqlConfig@67d2c696 dataSource = &#39;&#39;, transactionManager = &#39;&#39;, transactionMode = ISOLATED, encoding = &#39;utf-8&#39;, separator = &#39;;&#39;,...
+</span></span><span class="line"><span class="cl">DEBUG [    Test worker] .s.t.c.j.SqlScriptsTestExecutionListener : Executing SQL scripts: [class path resource [ddl.sql]]
+</span></span><span class="line"><span class="cl"> INFO [    Test worker] cn.whu.wy.osgov.test.RepositoryTest      : insertTag
+</span></span><span class="line"><span class="cl">DEBUG [    Test worker] .s.t.c.j.SqlScriptsTestExecutionListener : Processing [MergedSqlConfig@2473bf20 dataSource = &#39;&#39;, transactionManager = &#39;&#39;, transactionMode = ISOLATED, encoding = &#39;utf-8&#39;, separator = &#39;;&#39;,...
+</span></span><span class="line"><span class="cl">DEBUG [    Test worker] .s.t.c.j.SqlScriptsTestExecutionListener : Executing SQL scripts: [class path resource [ddl.sql]]
+</span></span><span class="line"><span class="cl"> INFO [    Test worker] cn.whu.wy.osgov.test.RepositoryTest      : insertVulnerability
+</span></span><span class="line"><span class="cl"> INFO [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+</span></span><span class="line"><span class="cl"> INFO [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+</span></span><span class="line"><span class="cl">BUILD SUCCESSFUL in 7s
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>从日志可见，确实在每个测试用例之前执行了脚本：</p>
+<blockquote>
+<p>Executing SQL scripts: [class path resource [ddl.sql]]</p>
+</blockquote>
+<p>如果只需要该脚本执行一次该怎么做呢？将<code>@Sql(....)</code>注解放在某个<code>@Test</code>方法上，比如init方法，那么该脚本只会在执行init方法之前执行一次：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Sql</span><span class="o">(</span><span class="n">scripts</span> <span class="o">=</span> <span class="o">{</span><span class="s">&#34;/ddl.sql&#34;</span><span class="o">},</span> <span class="n">config</span> <span class="o">=</span> <span class="nd">@SqlConfig</span><span class="o">(</span><span class="n">encoding</span> <span class="o">=</span> <span class="s">&#34;utf-8&#34;</span><span class="o">,</span> <span class="n">transactionMode</span> <span class="o">=</span> <span class="n">SqlConfig</span><span class="o">.</span><span class="na">TransactionMode</span><span class="o">.</span><span class="na">ISOLATED</span><span class="o">))</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@Test</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">init</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;createTableUseAnno&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>日志：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl"> INFO [    Test worker] cn.whu.wy.osgov.test.RepositoryTest      : Started RepositoryTest in 1.916 seconds (JVM running for 2.683)
+</span></span><span class="line"><span class="cl">DEBUG [    Test worker] .s.t.c.j.SqlScriptsTestExecutionListener : Processing [MergedSqlConfig@6367d99b dataSource = &#39;&#39;, transactionManager = ...
+</span></span><span class="line"><span class="cl">DEBUG [    Test worker] .s.t.c.j.SqlScriptsTestExecutionListener : Executing SQL scripts: [class path resource [ddl.sql]]
+</span></span><span class="line"><span class="cl"> INFO [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+</span></span><span class="line"><span class="cl"> INFO [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+</span></span><span class="line"><span class="cl"> INFO [    Test worker] cn.whu.wy.osgov.test.RepositoryTest      : createTableUseAnno
+</span></span><span class="line"><span class="cl"> INFO [    Test worker] cn.whu.wy.osgov.test.RepositoryTest      : insertApp
+</span></span><span class="line"><span class="cl"> INFO [    Test worker] cn.whu.wy.osgov.test.RepositoryTest      : insertArtifact
+</span></span><span class="line"><span class="cl">...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="2-使用scriptutilsexecutesqlscript">2 使用ScriptUtils.executeSqlScript</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@Autowired</span>
+</span></span><span class="line"><span class="cl"><span class="n">DataSource</span> <span class="n">dataSource</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">createTable</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">SQLException</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Resource</span> <span class="n">classPathResource</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ClassPathResource</span><span class="o">(</span><span class="s">&#34;ddl.sql&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">EncodedResource</span> <span class="n">encodedResource</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EncodedResource</span><span class="o">(</span><span class="n">classPathResource</span><span class="o">,</span> <span class="s">&#34;utf-8&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ScriptUtils</span><span class="o">.</span><span class="na">executeSqlScript</span><span class="o">(</span><span class="n">dataSource</span><span class="o">.</span><span class="na">getConnection</span><span class="o">(),</span> <span class="n">encodedResource</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这种方式更加灵活，DataSource可以是自己创建的。</p>
+<h2 id="中文编码">中文编码</h2>
+<p>上面两种方法都指定了<code>utf-8</code>编码。当表里面有中文时，不指定时会报错。</p>
+<p>案例：有这样一个表，</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">app</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">id</span><span class="w">   </span><span class="nb">int</span><span class="w">                  </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w">          </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">env</span><span class="w">  </span><span class="n">enum</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;生产&#39;</span><span class="p">,</span><span class="s1">&#39;测试&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_name</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">ENGINE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InnoDB</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">CHARSET</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">utf8mb4</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>env字段为枚举类型，通过本文提到的两种方法建表后（未指定<code>utf-8</code>编码），在插入数据时报错：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="o">&gt;</span><span class="w"> </span><span class="k">INSERT</span><span class="w"> </span><span class="n">app</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;app-1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;生产&#39;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">PreparedStatementCallback</span><span class="p">;</span><span class="w"> </span><span class="k">Data</span><span class="w"> </span><span class="n">truncated</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">column</span><span class="w"> </span><span class="s1">&#39;env&#39;</span><span class="w"> </span><span class="k">at</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">nested</span><span class="w"> </span><span class="k">exception</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="k">sql</span><span class="p">.</span><span class="k">SQLException</span><span class="p">:</span><span class="w"> </span><span class="k">Data</span><span class="w"> </span><span class="n">truncated</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">column</span><span class="w"> </span><span class="s1">&#39;env&#39;</span><span class="w"> </span><span class="k">at</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="代码">代码</h2>
+<p>我的<a href="https://github.com/whuwangyong/os-gov/blob/main/src/test/java/cn/whu/wy/osgov/test/RepositoryTest.java"target="_blank" rel="external nofollow noopener noreferrer">这个</a>项目使用了本文提到的内容，可以参考。</p>
+<h2 id="reference">Reference</h2>
+<ol>
+<li><a href="https://www.baeldung.com/spring-boot-data-sql-and-schema-sql"target="_blank" rel="external nofollow noopener noreferrer">Guide on Loading Initial Data with Spring Boot | Baeldung</a></li>
+<li><a href="https://www.cnblogs.com/fangyan1994/p/14123592.html"target="_blank" rel="external nofollow noopener noreferrer">java执行SQL脚本文件 - 足下之路 - 博客园 (cnblogs.com)</a></li>
+</ol>
+</div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title=2022-09-02&#32;21:40:22>更新于 2022-09-02&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/8df528c6ecf0c37f566f8c232a03439e84f28cf9" rel="external nofollow noopener noreferrer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) 8df528c6ecf0c37f566f8c232a03439e84f28cf9: 更新使用@Sql执行脚本的脚本"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>8df528c</a></span>
+      </div><div class="post-info-license">
+          <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+        </div></div>
+    <div class="post-info-line">
+      <div class="post-info-md"><span><a href="/2022-08-24-how-to-execute-sql-script-in-spring-boot/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+      <div class="post-info-share">
+        <span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/springboot/' class="post-tag">springboot</a><a href='/tags/mysql/' class="post-tag">mysql</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/2022-08-22-mysql-foreign-key/" class="post-nav-item" rel="prev" title="MySQL外键"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>MySQL外键</a>
+      <a href="/2022-09-18-delete-topic-when-consumer-or-producer-running/" class="post-nav-item" rel="next" title="在producer consumer运行时删除topic会怎么样">在producer consumer运行时删除topic会怎么样<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="utterances" class="comment"></div><noscript>
+        Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/" rel="external nofollow noopener noreferrer">Utterances</a>.
+      </noscript></div></article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line custom">      <a href="https://statcounter.com/p12730999/?guest=1" target="_blank">访问统计</a>
+      <!-- Default Statcounter code for github.io https://whuwangyong.github.io/ -->
+      <script type="text/javascript">
+      var sc_project=12730999; 
+      var sc_invisible=0; 
+      var sc_security="7ad44351"; 
+      var scJsHost = "https://";
+      document.write("<sc"+"ript type='text/javascript' src='" + scJsHost + "statcounter.com/counter/counter.js'></"+"script>");
+      </script>
+      <noscript>
+        <div class="statcounter">
+          <a title="Web Analytics" href="https://statcounter.com/" target="_blank">
+            <img class="statcounter" src="https://c.statcounter.com/12730999/0/7ad44351/0/" alt="Web Analytics" 
+              referrerPolicy="no-referrer-when-downgrade">
+          </a>
+        </div>
+      </noscript>
+      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.112.5">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18-RC"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://github.com/whuwangyong"target="_blank" rel="external nofollow noopener noreferrer">Wang Yong</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div><div class="fixed-button view-comments d-none" role="button" aria-label="查看评论"><i class="fa-solid fa-comment fa-fw" aria-hidden="true"></i></div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":30},"comment":{"enable":true,"expired":false,"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"comments","lightTheme":"github-light","repo":"whuwangyong/whuwangyong.github.io"}},"lightgallery":true,"search":{"algoliaAppID":"YMLBEBNFHL","algoliaIndex":"new-index-1649076215","algoliaSearchKey":"9028b251fe4eecb5ad4d47af0715a4f0","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js" defer></script></body>
+</html>

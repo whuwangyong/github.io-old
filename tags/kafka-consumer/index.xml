@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>kafka consumer - 标签 - 武大路飞</title>
+    <link>https://whuwangyong.github.io/tags/kafka-consumer/</link>
+    <description>kafka consumer - 标签 - 武大路飞</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>whuwangyong@gmail.com (Wang Yong)</managingEditor>
+      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Tue, 31 May 2022 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://whuwangyong.github.io/tags/kafka-consumer/" rel="self" type="application/rss+xml" /><item>
+  <title>kafka consumer seek之后立即poll可能拉不到消息</title>
+  <link>https://whuwangyong.github.io/2022-02-17-kafka-seek-poll/</link>
+  <pubDate>Tue, 31 May 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-02-17-kafka-seek-poll/</guid>
+  <description><![CDATA[问题 有个需求，需要频繁seek到指定partition的指定offset，然后poll，且只poll一次，目的是为了快速将指定offset的消息拉取出来。 通常的poll写法是，将poll逻辑放在死循环里，第一次拉不到，第二次继续。如果off]]></description>
+</item>
+</channel>
+</rss>
