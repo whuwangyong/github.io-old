@@ -204,6 +204,7 @@ def commit_urls():
     )
     if ret.returncode == 0:
         commit_id = str(ret.stdout, "utf_8").strip()
+        print("最近一次的commitId:", commit_id)
         ret = subprocess.run(
             "git show --pretty=" " --name-only " + commit_id,
             stdout=subprocess.PIPE,
@@ -212,7 +213,8 @@ def commit_urls():
         if ret.returncode == 0:
             changes = str(ret.stdout, "utf-8").split("\n")
             for change in changes:
-                if change.endswith(".html"):
+                # 以20开始，表示年份，所有posts下面的博客命名都是年月日开始的
+                if change.endswith(".html") and change.startswith("20"):
                     urls.append("https://whuwangyong.github.io/{}".format(change[:-10]))
         else:
             print("========================")
@@ -220,6 +222,11 @@ def commit_urls():
     else:
         print("========================")
         print("subprocess run error:{}".format(ret.stderr))
+
+    # 按时间排序
+    urls.sort()
+    # 取最新的5个文件
+    urls = urls[-5:]
 
     print("本次提交的urls:", urls)
 
@@ -238,17 +245,17 @@ def commit_urls():
         print("bing的响应: ", response.content)
 
         # 提交到百度
-        headers = {
-            "User-Agent": "curl/7.12.1",
-            "Host": "data.zz.baidu.com",
-            "Content-Type": "text/plain",
-        }
-        response = requests.post(
-            url="http://data.zz.baidu.com/urls?site=https://whuwangyong.github.io&token=5os4wCK5ct7kBZRN",
-            headers=headers,
-            data="\n".join(urls),
-        )
-        print("百度的响应: ", response.content)
+        # headers = {
+        #     "User-Agent": "curl/7.12.1",
+        #     "Host": "data.zz.baidu.com",
+        #     "Content-Type": "text/plain",
+        # }
+        # response = requests.post(
+        #     url="http://data.zz.baidu.com/urls?site=https://whuwangyong.github.io&token=5os4wCK5ct7kBZRN",
+        #     headers=headers,
+        #     data="\n".join(urls),
+        # )
+        # print("百度的响应: ", response.content)
 
 
 # 需要在gh-pages分支操作，因为要读index.json文件
