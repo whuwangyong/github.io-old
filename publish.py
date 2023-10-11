@@ -23,7 +23,7 @@ BLOG_BR = "hugo-loveit"
 def init():
     print("初始化")
     os.system("git checkout " + BLOG_BR)
-    os.system("git submodule update --init")
+    # os.system("git submodule update --init")
 
 
 # 将上次编译出来的静态文件删除
