@@ -1,0 +1,32 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>vpn - 标签 - 武大路飞</title>
+    <link>https://whuwangyong.github.io/tags/vpn/</link>
+    <description>vpn - 标签 - 武大路飞</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>whuwangyong@gmail.com (Wang Yong)</managingEditor>
+      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Sat, 18 Mar 2023 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://whuwangyong.github.io/tags/vpn/" rel="self" type="application/rss+xml" /><item>
+  <title>V2Ray&#43;WebSocket&#43;TLS&#43;Web&#43;Cloudflare教程</title>
+  <link>https://whuwangyong.github.io/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/</link>
+  <pubDate>Sat, 18 Mar 2023 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2023-03-18-v2ray-websocket-tls-web-cloudflare-guide/</guid>
+  <description><![CDATA[V2Ray+WebSocket+TLS+Web+Cloudflare教程 背景 一般来说，装好V2Ray之后就可以科学上网了，但是IP经常被封，固有此方案。 WebSocket+TLS+Web的组合怎么来的？这个组合意思是，在机器上部署一个web]]></description>
+</item>
+<item>
+  <title>shadowsocks 服务端安装指南</title>
+  <link>https://whuwangyong.github.io/2022-03-09-shadowsocks/</link>
+  <pubDate>Wed, 09 Mar 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-03-09-shadowsocks/</guid>
+  <description><![CDATA[官方地址： shadowsocks/shadowsocks-libev: Bug-fix-only libev port of shadowsocks. Future development moved to shadowsocks-rust (github.com) 旧地址，不再更新： shadowsocks/shadowsocks at master (github.com) clowwindy/shadowsocks-libev at master (github.com) 本文基于Ubuntu。 install 1 2 3 $ sudo apt install shadowsocks-libev ... Created symlink /etc/systemd/system/multi-user.target.wants/shadowsocks-libev.service → /lib/systemd/system/shadowsocks-libev.service. Configuration 官方文档说配置文件在这里： Edit your config.json file. By default, it&rsquo;s located in /usr/local/etc/shadowsocks-libev. 但我的不是。 编辑/etc/shadowsocks-libev/confi]]></description>
+</item>
+<item>
+  <title>V2Ray 搭建指南</title>
+  <link>https://whuwangyong.github.io/2022-03-08-v2ray/</link>
+  <pubDate>Tue, 08 Mar 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-03-08-v2ray/</guid>
+  <description><![CDATA[所有的教程都不如官网。 官网 官网：V2Fly.org github：v2fly/v2ray-core: A platform for building proxies to bypass network restrictions. (github.com) 以下是旧的官网和github： 官网：Project V · Project V 官方网站 (v2ray.com) github：v2ray/v2ray-core: A platform for]]></description>
+</item>
+</channel>
+</rss>

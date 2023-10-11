@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-cn">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>思源笔记与logseq在PDF标注上的体验 - 武大路飞</title><meta name="author" content="Wang Yong">
+<meta name="author-link" content="https://github.com/whuwangyong">
+<meta name="description" content="版本：思源2.2.3，logseq 0.8.8 功能对比 功能 思源 logseq 目录/书签 Y Y 高亮、批注、矩形选择 Y Y 页面缩放、跳转 Y Y 关键字搜索 Y N 高亮内容自动添加到笔记 N Y 笔记与PDF原文之间互相跳转 Y Y logseq的明显短板是没有全文搜索，这个应该不难，不知道" /><meta name="keywords" content='思源笔记, logseq, pdf' /><meta itemprop="name" content="思源笔记与logseq在PDF标注上的体验">
+<meta itemprop="description" content="版本：思源2.2.3，logseq 0.8.8 功能对比 功能 思源 logseq 目录/书签 Y Y 高亮、批注、矩形选择 Y Y 页面缩放、跳转 Y Y 关键字搜索 Y N 高亮内容自动添加到笔记 N Y 笔记与PDF原文之间互相跳转 Y Y logseq的明显短板是没有全文搜索，这个应该不难，不知道"><meta itemprop="datePublished" content="2022-10-07T00:00:00+08:00" />
+<meta itemprop="dateModified" content="2023-02-10T10:48:22+08:00" />
+<meta itemprop="wordCount" content="537"><meta itemprop="image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
+<meta itemprop="keywords" content="思源笔记,logseq,pdf," /><meta property="og:title" content="思源笔记与logseq在PDF标注上的体验" />
+<meta property="og:description" content="版本：思源2.2.3，logseq 0.8.8 功能对比 功能 思源 logseq 目录/书签 Y Y 高亮、批注、矩形选择 Y Y 页面缩放、跳转 Y Y 关键字搜索 Y N 高亮内容自动添加到笔记 N Y 笔记与PDF原文之间互相跳转 Y Y logseq的明显短板是没有全文搜索，这个应该不难，不知道" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://whuwangyong.github.io/2022-10-07-pdf-reading-on-siyuan-note-and-logseq/" /><meta property="og:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-10-07T00:00:00+08:00" />
+<meta property="article:modified_time" content="2023-02-10T10:48:22+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://whuwangyong.github.io/avatar150x150.jpg"/>
+
+<meta name="twitter:title" content="思源笔记与logseq在PDF标注上的体验"/>
+<meta name="twitter:description" content="版本：思源2.2.3，logseq 0.8.8 功能对比 功能 思源 logseq 目录/书签 Y Y 高亮、批注、矩形选择 Y Y 页面缩放、跳转 Y Y 关键字搜索 Y N 高亮内容自动添加到笔记 N Y 笔记与PDF原文之间互相跳转 Y Y logseq的明显短板是没有全文搜索，这个应该不难，不知道"/>
+<meta name="application-name" content="武大路飞">
+<meta name="apple-mobile-web-app-title" content="武大路飞"><meta name="theme-color" data-light="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]" data-dark="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]" content="map[dark:#252627 iconcolor:#5bbad5 light:#ffffff tilecolor:#da532c]"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://whuwangyong.github.io/2022-10-07-pdf-reading-on-siyuan-note-and-logseq/" /><link rel="prev" href="https://whuwangyong.github.io/2022-09-29-use-statcounter-to-get-access-statistics/" /><link rel="next" href="https://whuwangyong.github.io/2022-11-17-protostuff-deserialize-empty-collection-null/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "思源笔记与logseq在PDF标注上的体验",
+    "inLanguage": "zh-cn",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/whuwangyong.github.io\/2022-10-07-pdf-reading-on-siyuan-note-and-logseq\/"
+    },"image": ["https:\/\/whuwangyong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "思源笔记, logseq, pdf","wordcount":  537 ,
+    "url": "https:\/\/whuwangyong.github.io\/2022-10-07-pdf-reading-on-siyuan-note-and-logseq\/","datePublished": "2022-10-07T00:00:00+08:00","dateModified": "2023-02-10T10:48:22+08:00","publisher": {
+      "@type": "Organization",
+      "name": "Wang Yong","logo": {
+          "@type": "ImageObject",
+          "url": "https:\/\/whuwangyong.github.io\/images\/avatar150x150.jpg",
+          "width":  150 ,
+          "height":  151 
+        }},"author": {
+        "@type": "Person",
+        "name": "Wang Yong"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="custom"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              >归档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              >标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              >分类</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/links/"
+                title="友情链接"
+                
+              >友链</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              >关于</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="https://github.com/whuwangyong"
+                title="GitHub"
+                rel="noopener noreferrer" target="_blank"
+              ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="武大路飞"><span class="header-title-pre"><i class='fa fa-home'></i></span><span class="header-title-text">武大路飞的博客</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/posts/"
+                  
+                  
+                >归档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                >标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                >分类</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/links/"
+                  title="友情链接"
+                  
+                >友链</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/about/"
+                  
+                  
+                >关于</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="https://github.com/whuwangyong"
+                  title="GitHub"
+                  rel="noopener noreferrer" target="_blank"
+                ><i class='fab fa-github fa-fw'></i> GitHub</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content always-active" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    </aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>思源笔记与logseq在PDF标注上的体验</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/whuwangyong" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+    Wang Yong</a></span>
+          <span class="post-category">收录于 <a href="/categories/%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 笔记软件</a></span></div>
+      <div class="post-meta-line"><span title="发布于 2022-10-07 00:00:00"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2022-10-07">2022-10-07</time></span>&nbsp;<span title="更新于 2023-02-10 10:48:22"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-02-10">2023-02-10</time></span>&nbsp;<span title="537 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 600 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#功能对比">功能对比</a></li>
+    <li><a href="#思源阅读pdf时的界面">思源阅读PDF时的界面</a></li>
+    <li><a href="#logseq阅读pdf时的界面">logseq阅读PDF时的界面</a></li>
+    <li><a href="#结论">结论</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><blockquote>
+<p>版本：思源2.2.3，logseq 0.8.8</p>
+</blockquote>
+<h2 id="功能对比">功能对比</h2>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>思源</th>
+<th>logseq</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目录/书签</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>高亮、批注、矩形选择</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>页面缩放、跳转</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>关键字搜索</td>
+<td>Y</td>
+<td>N</td>
+</tr>
+<tr>
+<td>高亮内容自动添加到笔记</td>
+<td>N</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>笔记与PDF原文之间互相跳转</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+</tbody>
+</table>
+<p>logseq的明显短板是没有全文搜索，这个应该不难，不知道为啥没做（2023年更新，现在有了）。</p>
+<p>明显优势是，高亮文本时，自动将选中的内容复制到笔记，并创建双向链接。而思源需要手动粘贴。但手动粘贴也有个好处，可以自由选择粘贴的位置。logseq的自动粘贴只会放在末尾。</p>
+<p>两个笔记软件都只提供了高亮功能，那么文本批注是如何实现的呢？答案是在笔记里添加额外内容作为批注。与普通的PDF阅读器不同，笔记软件的批注是保存在笔记里，而不是PDF文件里。</p>
+<p>思源笔记可以在鼠标悬停PDF正文高亮部分时，浮窗展示对应的笔记内容。logseq是二次点击之后跳转到对应的笔记。</p>
+<h2 id="思源阅读pdf时的界面">思源阅读PDF时的界面</h2>
+<p><img loading="lazy" src="assets/image-20221007150903-a20xv27.png" srcset="/2022-10-07-pdf-reading-on-siyuan-note-and-logseq/assets/image-20221007150903-a20xv27.png, assets/image-20221007150903-a20xv27.png 1.5x, /2022-10-07-pdf-reading-on-siyuan-note-and-logseq/assets/image-20221007150903-a20xv27.png 2x" sizes="auto" data-title="image" data-alt="image" width="1920" height="648" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>​</p>
+<h2 id="logseq阅读pdf时的界面">logseq阅读PDF时的界面</h2>
+<p><img loading="lazy" src="assets/image-20221007151554-cas937g.png" srcset="/2022-10-07-pdf-reading-on-siyuan-note-and-logseq/assets/image-20221007151554-cas937g.png, assets/image-20221007151554-cas937g.png 1.5x, /2022-10-07-pdf-reading-on-siyuan-note-and-logseq/assets/image-20221007151554-cas937g.png 2x" sizes="auto" data-title="image" data-alt="image" width="1916" height="874" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>​</p>
+<h2 id="结论">结论</h2>
+<p>两个笔记软件在PDF阅读上都不完美。</p>
+<p>所以我还是选择福昕、WPS PDF等软件阅读PDF。读完后导出注释，再放进笔记里。缺点就是不能便捷地从笔记跳转到对应的原文，PDF文件没有被笔记软件管理。但是导出的注释里有页面，手动翻一下也行……</p>
+<blockquote>
+<p>注意：高亮文本的导出，我发现目前仅有福昕阅读器支持。</p>
+</blockquote>
+</div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2023-02-10 10:48:22">更新于 2023-02-10&nbsp;<a class="git-hash" href="https://github.com/whuwangyong/whuwangyong.github.io.git/commit/b4352b097aa304c442adf0cf98bce57e920f638b" rel="external nofollow noopener noreferrer" target="_blank" title="commit by whuwangyong(whuwangyong@gmail.com) b4352b097aa304c442adf0cf98bce57e920f638b: update post"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>b4352b0</a></span>
+      </div><div class="post-info-license">
+          <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+        </div></div>
+    <div class="post-info-line">
+      <div class="post-info-md"><span><a href="/2022-10-07-pdf-reading-on-siyuan-note-and-logseq/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+      <div class="post-info-share">
+        <span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/%E6%80%9D%E6%BA%90%E7%AC%94%E8%AE%B0/' class="post-tag">思源笔记</a><a href='/tags/logseq/' class="post-tag">logseq</a><a href='/tags/pdf/' class="post-tag">pdf</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/2022-09-29-use-statcounter-to-get-access-statistics/" class="post-nav-item" rel="prev" title="使用statcounter做访问统计"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>使用statcounter做访问统计</a>
+      <a href="/2022-11-17-protostuff-deserialize-empty-collection-null/" class="post-nav-item" rel="next" title="protostuff deserialize empty collection null">protostuff deserialize empty collection null<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="utterances" class="comment"></div><noscript>
+        Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/" rel="external nofollow noopener noreferrer">Utterances</a>.
+      </noscript></div></article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line custom">      <a href="https://statcounter.com/p12730999/?guest=1" target="_blank">访问统计</a>
+      <!-- Default Statcounter code for github.io https://whuwangyong.github.io/ -->
+      <script type="text/javascript">
+      var sc_project=12730999; 
+      var sc_invisible=0; 
+      var sc_security="7ad44351"; 
+      var scJsHost = "https://";
+      document.write("<sc"+"ript type='text/javascript' src='" + scJsHost + "statcounter.com/counter/counter.js'></"+"script>");
+      </script>
+      <noscript>
+        <div class="statcounter">
+          <a title="Web Analytics" href="https://statcounter.com/" target="_blank">
+            <img class="statcounter" src="https://c.statcounter.com/12730999/0/7ad44351/0/" alt="Web Analytics" 
+              referrerPolicy="no-referrer-when-downgrade">
+          </a>
+        </div>
+      </noscript>
+      <!-- End of Statcounter Code --></div><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.119.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18-lts.1"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://github.com/whuwangyong"target="_blank" rel="external nofollow noopener noreferrer">Wang Yong</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div><div class="fixed-button view-comments d-none" role="button" aria-label="查看评论"><i class="fa-solid fa-comment fa-fw" aria-hidden="true"></i></div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":30},"comment":{"enable":true,"expired":false,"utterances":{"darkTheme":"github-dark","issueTerm":"title","label":"comments","lightTheme":"github-light","repo":"whuwangyong/whuwangyong.github.io"}},"lightgallery":true,"search":{"algoliaAppID":"YMLBEBNFHL","algoliaIndex":"new-index-1649076215","algoliaSearchKey":"9028b251fe4eecb5ad4d47af0715a4f0","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js" defer></script></body>
+</html>

@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>404 - 标签 - 武大路飞</title>
+    <link>https://whuwangyong.github.io/tags/404/</link>
+    <description>404 - 标签 - 武大路飞</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>whuwangyong@gmail.com (Wang Yong)</managingEditor>
+      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Wed, 11 Oct 2023 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://whuwangyong.github.io/tags/404/" rel="self" type="application/rss+xml" /><item>
+  <title>ant design pro 整合springboot后刷新404问题</title>
+  <link>https://whuwangyong.github.io/2023-10-11-ant-design-pro-deploying-with-springboot-404-when-refreshed/</link>
+  <pubDate>Wed, 11 Oct 2023 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2023-10-11-ant-design-pro-deploying-with-springboot-404-when-refreshed/</guid>
+  <description><![CDATA[ant 官方指南，npm run build 之后将生成的文件放到spring项目 /src/main/resources/static目录下即可。 为了方便做整合，最好使用 hash 路由。如果你想使用 browserHistory ，可以创建一个 controller ，并添加如下代码： 1 2 3 4 @RequestMapping(value=&#34;/**&#34;, method=HTTPMethod.GET) public String index(){ return &#34;index&#34; // 或者 index.html } 测试后]]></description>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,48 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>静态网站博客 - 分类 - 武大路飞</title>
+    <link>https://whuwangyong.github.io/categories/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E5%8D%9A%E5%AE%A2/</link>
+    <description>静态网站博客 - 分类 - 武大路飞</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>whuwangyong@gmail.com (Wang Yong)</managingEditor>
+      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Thu, 29 Sep 2022 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://whuwangyong.github.io/categories/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E5%8D%9A%E5%AE%A2/" rel="self" type="application/rss+xml" /><item>
+  <title>使用statcounter做访问统计</title>
+  <link>https://whuwangyong.github.io/2022-09-29-use-statcounter-to-get-access-statistics/</link>
+  <pubDate>Thu, 29 Sep 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-09-29-use-statcounter-to-get-access-statistics/</guid>
+  <description><![CDATA[使用statcounter做访问统计 先看效果 博客园： ​ github.io： ​ statcounter后台： ​ 没啥访问量，见笑了…… 如何实现 本质是将statcounter生成的一段代码，放到自己的网站上就可以了。 注册并生成代码 注册，新建proj]]></description>
+</item>
+<item>
+  <title>使用API提交博客文章的URL到百度和Bing</title>
+  <link>https://whuwangyong.github.io/2022-04-28-submit-urls-to-baidu-and-bing-with-api/</link>
+  <pubDate>Thu, 28 Apr 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-04-28-submit-urls-to-baidu-and-bing-with-api/</guid>
+  <description><![CDATA[建站之后，为了文章能够被搜索引擎收录，我们需要将站点提交到Google、百度、Bing等搜索网站，通过验证之后，搜索引擎才会去我们的网站爬数据。 为了方便爬虫爬取我们站点里的文章，我们可以将站点地图（sitemap.xml）提交到搜索网站。提]]></description>
+</item>
+<item>
+  <title>使用 Hugo &#43; Github Pages 创建静态网站博客</title>
+  <link>https://whuwangyong.github.io/2022-04-19-hugo/</link>
+  <pubDate>Tue, 19 Apr 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-04-19-hugo/</guid>
+  <description><![CDATA[最好的参考资料仍然是官方。本文仅作一个基本描述 安装 Hugo 在此处下载安装包。有两个版本：（1）hugo；（2）hugo_extended。怎么选？很多功能，包括一些主题，都需要 hugo_extended 的支持，因此，建议安装 hugo_extended。下载之后，解压，将]]></description>
+</item>
+<item>
+  <title>Vercel关闭评论 禁止Preview Deployments</title>
+  <link>https://whuwangyong.github.io/2022-03-31-vercel-disable-comments-and-preview-deployments/</link>
+  <pubDate>Thu, 31 Mar 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-03-31-vercel-disable-comments-and-preview-deployments/</guid>
+  <description><![CDATA[关键字：disable Vercel bot; disable Preview Deployments Vercel是一个支持部署前端框架和静态网站的平台。你可以方便的把 Github Pages 上面的站点导入Vercel，这样做有两个好处： 有些地区有些时候，Vercel上面的站点比Github Pages上的访问速度快； Github Pages 屏蔽了百]]></description>
+</item>
+<item>
+  <title>使用Jekyll &#43; Github Pages搭建静态网站</title>
+  <link>https://whuwangyong.github.io/2022-03-29-jekyll/</link>
+  <pubDate>Tue, 29 Mar 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-03-29-jekyll/</guid>
+  <description><![CDATA[Jekyll 是 Github Pages 官方支持的静态网站生成工具，优点是在可以直接github上使用vscode online编辑md，提交后，github会承担生成html的工作。而使用hugo等工具，需要先在本地将md文件渲染成html，然后上传。 提示 hugo的优点是]]></description>
+</item>
+</channel>
+</rss>

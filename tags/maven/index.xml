@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>maven - 标签 - 武大路飞</title>
+    <link>https://whuwangyong.github.io/tags/maven/</link>
+    <description>maven - 标签 - 武大路飞</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>whuwangyong@gmail.com (Wang Yong)</managingEditor>
+      <webMaster>whuwangyong@gmail.com (Wang Yong)</webMaster><lastBuildDate>Thu, 28 Apr 2022 00:00:00 &#43;0800</lastBuildDate><atom:link href="https://whuwangyong.github.io/tags/maven/" rel="self" type="application/rss+xml" /><item>
+  <title>使用python爬取jar包、npm包、go包的最新版本</title>
+  <link>https://whuwangyong.github.io/2022-04-28-crawl-latest-version-for-jar-npm-go-pkg/</link>
+  <pubDate>Thu, 28 Apr 2022 00:00:00 &#43;0800</pubDate>
+  <author>Wang Yong</author>
+  <guid>https://whuwangyong.github.io/2022-04-28-crawl-latest-version-for-jar-npm-go-pkg/</guid>
+  <description><![CDATA[场景 公司内网有maven仓库，扫描之后发现很多组件有漏洞，主要是因为版本太老。因此需要将这些漏洞组件的最新版导入内部的maven私服。 问题 这么多漏洞组件，一个个去中央仓库找最新版，显然不科学。因此要整个脚本来做这件事情。 方案 众所周知，jar]]></description>
+</item>
+</channel>
+</rss>
