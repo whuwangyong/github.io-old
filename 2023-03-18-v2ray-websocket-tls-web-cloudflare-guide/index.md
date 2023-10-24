@@ -14,7 +14,7 @@ Cloudflare是一个CDN，可以代理所有的流量，同时隐藏真实的IP�
 ## 准备
 
 1. 用来科学上网的VPS机器，可以SSH登录
-2. 一个域名，我使用的是阿里云的，4块一年，便宜的就行。本文以`mydomain.com`​域名作为演示。
+2. 一个域名，我使用的是阿里云的，4块一年，到期了再换，买便宜的就行。本文以`mydomain.com`域名作为演示。
 
 下面开始。**建议先通读全文，理解每一步在做什么，不要立即动手，照着命令一顿敲。**
 
@@ -24,7 +24,7 @@ Cloudflare是一个CDN，可以代理所有的流量，同时隐藏真实的IP�
 
 官方文档：[fhs-install-v2ray/README.zh-Hans-CN.md at master · v2fly/fhs-install-v2ray (github.com)](https://github.com/v2fly/fhs-install-v2ray/blob/master/README.zh-Hans-CN.md)
 
-​`sudo su`​切换到root用户，执行：
+`sudo su`切换到root用户，执行：
 
 ```bash
 bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
@@ -32,7 +32,7 @@ bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/
 
 ### 配置服务端
 
-位于`/usr/local/etc/v2ray/config.json`​
+位于`/usr/local/etc/v2ray/config.json`
 
 ```json
 {
@@ -64,13 +64,13 @@ bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/
 
 ### 启动V2Ray
 
-​​sudo systemctl restart v2ray.service​
+sudo systemctl restart v2ray.service
 
 ### 配置Windows客户端
 
 在这里下载：[2dust/v2rayN: A V2Ray client for Windows, support Xray core and v2fly core (github.com)](https://github.com/2dust/v2rayN)。安装后[添加VMess服务器]，核心字段就是VPS的ip、端口、用户ID：（这里也能生成ID，与服务端配置保持一致即可）
 
-​![image](assets/image-20230318153757-vg1pitu.png)​
+![image](assets/image-20230318153757-vg1pitu.png)
 
 然后试用一下能不能上谷歌，可以的话说明V2Ray安装正确，进入下一步。
 
@@ -82,18 +82,18 @@ sudo apt install nginx
 
 新建站点目录：
 
-cd /var/www  
+cd /var/www
 sudo mkdir mydomain.com
 
 然后在该目录下放一个静态页面，内容随便（可以去github找些静态网站放在这个目录）：
 
-cd mydomain.com  
+cd mydomain.com
 sudo echo "hello" > index.html
 
 配置virtual host：
 
-cd /etc/nginx/sites-enabled  
-touch mydomain.com  
+cd /etc/nginx/sites-available
+touch mydomain.com
 vim mydomain.com，内容如下：
 
 ```plaintext
@@ -112,8 +112,8 @@ server {
 
 然后将默认配置文件改为刚刚创建的站点配置文件：
 
-cd /etc/nginx/sites-enabled  
-sudo ln -s mydomain.com default
+cd /etc/nginx/sites-enabled
+sudo ln -s /etc/nginx/sites-available/mydomain.com default
 
 重启Nginx：
 
@@ -121,7 +121,7 @@ sudo systemctl restart nginx.service
 
 ## 3 设置域名解析
 
-登录阿里云控制台，进入域名列表，为自己的域名设置解析记录：添加一条A记录，让该域名指向你的VPS机器的ip。然后验证能否通过域名访问自己的web站点。在浏览器输入`http://mydomain.com`​，如果不能访问，检查VPS的防火墙是否放开了80端口。
+登录阿里云控制台，进入域名列表，为自己的域名设置解析记录：添加一条A记录，让该域名指向你的VPS机器的ip。然后验证能否通过域名访问自己的web站点。在浏览器输入`http://mydomain.com`，如果不能访问，检查VPS的防火墙是否放开了80端口。
 
 ## 4 给Web站点安装TLS证书
 
@@ -138,9 +138,65 @@ sudo ln -s /snap/bin/certbot /usr/bin/certbot
 sudo certbot --nginx
 ```
 
+> 贴一下我的安装日志：
+>
+> ```
+> ubuntu@instance-3c23g-220418:~$ sudo certbot --nginx
+> Saving debug log to /var/log/letsencrypt/letsencrypt.log
+>
+> Which names would you like to activate HTTPS for?
+> We recommend selecting either all domains, or all domains in a VirtualHost/server block.
+> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+> 1: mydomain.com
+> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+> Select the appropriate numbers separated by commas and/or spaces, or leave input
+> blank to select all options shown (Enter 'c' to cancel): 
+> Certificate not yet due for renewal
+>
+> You have an existing certificate that has exactly the same domains or certificate name you requested and isn't close to expiry.
+> (ref: /etc/letsencrypt/renewal/mydomain.com.conf)
+>
+> What would you like to do?
+> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+> 1: Attempt to reinstall this existing certificate
+> 2: Renew & replace the certificate (may be subject to CA rate limits)
+> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+> Select the appropriate number [1-2] then [enter] (press 'c' to cancel): 2
+> Renewing an existing certificate for mydomain.com
+>
+> Successfully received certificate.
+> Certificate is saved at: /etc/letsencrypt/live/mydomain.com/fullchain.pem
+> Key is saved at:         /etc/letsencrypt/live/mydomain.com/privkey.pem
+> This certificate expires on 2024-01-22.
+> These files will be updated when the certificate renews.
+> Certbot has set up a scheduled task to automatically renew this certificate in the background.
+>
+> Deploying certificate
+> Successfully deployed certificate for mydomain.com to /etc/nginx/sites-enabled/default
+> Your existing certificate has been successfully renewed, and the new certificate has been installed.
+>
+> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+> If you like Certbot, please consider supporting our work by:
+>  * Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+>  * Donating to EFF:                    https://eff.org/donate-le
+> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+>
+> ```
+>
+> 如上所述，Certbot提到，它设置了定时任务，会定期更新证书。这个定时任务不在crontable里面，在 `systemctl list-timers`里：
+>
+> ```
+> ubuntu@instance-3c23g-220418:/etc/nginx/sites-available$ systemctl list-timers
+> NEXT                        LEFT          LAST                        PASSED        UNIT                         ACTIVATES           
+> Tue 2023-10-24 02:18:55 UTC 28min left    Mon 2023-10-23 12:07:04 UTC 13h ago       apt-daily.timer              apt-daily.service   
+> Tue 2023-10-24 04:14:00 UTC 2h 24min left Mon 2023-10-23 15:56:01 UTC 9h ago        snap.certbot.renew.timer     snap.certbot.renew.service  
+>
+> ```
+
+
 证书装好了之后，再看Nginx的配置文件，发现里面多了一些内容：
 
-cd /etc/nginx/sites-enabled  
+cd /etc/nginx/sites-enabled
 cat default：（这个default是指向mydomain.com文件的）
 
 ```plaintext
@@ -176,9 +232,9 @@ server {
 }
 ```
 
-可见，以`managed by Certbot`​注释结尾的就是certbot添加的内容。配置的意思是，监听443端口，如果通过80端口访问，则重定向到443。也就是说，现在在浏览器访问`http://mydomain.com`​，将会被重定向到`https://mydomain.com`​。
+可见，以`managed by Certbot`注释结尾的就是certbot添加的内容。配置的意思是，监听443端口，如果通过80端口访问，则重定向到443。也就是说，现在在浏览器访问`http://mydomain.com`，将会被重定向到`https://mydomain.com`。
 
-重启nginx服务，添加防火墙规则放行443端口。若浏览器可以访问`https://mydomain.com`​，说明证书无问题，进入下一步。
+重启nginx服务，添加防火墙规则放行443端口。若浏览器可以访问`https://mydomain.com`，说明证书无问题，进入下一步。
 
 ## 5 Nginx分流
 
@@ -186,7 +242,7 @@ server {
 
 ### 修改Nginx配置
 
-cd /etc/nginx/sites-enabled  
+cd /etc/nginx/sites-enabled
 sudo vim default （这个default是指向mydomain.com文件的）
 
 将下面这段内容，添加到监听443端口的server里面：
@@ -208,7 +264,7 @@ location /login { # 与 V2Ray 配置中的 path 保持一致
   }
 ```
 
-上述配置的意思是，当访问`https://mydomain.com/login`​时，将其转发到10000端口，而10000端口就是V2Ray服务的监听端口。
+上述配置的意思是，当访问`https://mydomain.com/login`时，将其转发到10000端口，而10000端口就是V2Ray服务的监听端口。
 
 > login可以随便写，使用login是为了让这个网站看起来更加“正常”。虽然TLS会加密URL path。
 
@@ -315,7 +371,7 @@ sudo vim /usr/local/etc/v2ray/config.json
 
 ### 修改v2ray客户端配置
 
-​![image](assets/image-20230318164550-mix7a1z.png)​
+![image](assets/image-20230318164550-mix7a1z.png)
 
 与最开始的配置相比，有以下几点变化：
 
@@ -329,7 +385,7 @@ sudo vim /usr/local/etc/v2ray/config.json
 
 ## 6 使用Cloudflare隐藏IP
 
-到前面为止，虽然我们配置了使用域名来访问v2ray，但是阿里云的DNS解析服务依然受监管，依然知道我们的流量最终去到了哪个IP。我们我们的流量比较异常，还是会被揪出来，IP还是会被封。因此，可以使用Cloudflare的DNS服务器，增加一层保护，稳一点是一点。
+到前面为止，虽然我们配置了使用域名来访问v2ray，但是阿里云的DNS解析服务依然受监管，依然知道我们的流量最终去到了哪个IP。如果我们的流量比较异常，还是会被揪出来，IP还是会被封。因此，可以使用Cloudflare的DNS服务器，增加一层保护，稳一点是一点。
 
 cloudflare 是一家国外的 CDN 加速服务商，注册之后，添加站点，输入你的域名mydomain.com。
 
@@ -337,39 +393,37 @@ cloudflare 是一家国外的 CDN 加速服务商，注册之后，添加站点�
 
 然后为域名添加DNS记录：
 
-​![image](assets/image-20230318171405-l7e92hf.png)​
+![image](assets/image-20230318171405-l7e92hf.png)
 
 然后登录阿里云控制台，域名列表-管理，将DNS服务器改为cloudflare的DNS服务器：
 
 这是阿里云默认的：
 
-​![image](assets/image-20230318171535-uaglot6.png)​
+![image](assets/image-20230318171535-uaglot6.png)
 
 这是cloudflare的：
 
-​![image](assets/image-20230318171627-8kfpeys.png)​
+![image](assets/image-20230318171627-8kfpeys.png)
 
 ### 配置加密模式
 
 然后进入cloudflare-SSL/TLS，将加密模式设置为完全（严格）：
 
-​![image](assets/image-20230318171840-hw31hkz.png)​
+![image](assets/image-20230318171840-hw31hkz.png)
 
 ### 速度优化
 
 然后在速度-优化中，把这些都勾上：
 
-​![image](assets/image-20230318172150-oevb6f6.png)​
+![image](assets/image-20230318172150-oevb6f6.png)
 
 ## 7 总结
 
 本文走的右边这条路线：
 
-​![v2ray-map](assets/image-20220308230038-enct8t4.png)​
+![v2ray-map](assets/image-20220308230038-enct8t4.png)
 
-‍
 
-​​
 
 ## Reference
 
@@ -378,7 +432,6 @@ cloudflare 是一家国外的 CDN 加速服务商，注册之后，添加站点�
 3. [v2fly/v2ray-examples: v2ray-core 的模板们 (github.com)](https://github.com/v2fly/v2ray-examples)
 4. [v2ray使用cloudflare中转流量，拯救被墙ip - VPS攻略 (vpsgongyi.com)](https://vpsgongyi.com/p/2273/)
 
-‍
 
 
 ---
