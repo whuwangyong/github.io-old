@@ -25,4 +25,4 @@
 - [whuwangyong.vercel.app](https://whuwangyong.vercel.app)
 
 另外，`jekyll-chirpy` 分支发布在 [wwy-jekyll-chirpy.netlify.app](https://wwy-jekyll-chirpy.netlify.app)。该分支使用
- Jekyll 搭配很赞的 Chirpy 主题。但由于 Kramdown 的问题，不得不放弃。此分支不再更新。
+ Jekyll 搭配很赞的 [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) 主题。但由于 Kramdown 的问题，不得不放弃。此分支不再更新。
